@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Xoan C. Pardo" /><link rel="canonical" href="https://miot-cniot.github.io/practica_3/actividade_3/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Actividade 3 - Computación na Nube para IoT</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Actividade 3";
+        var mkdocs_page_input_path = "practica_3/actividade_3.md";
+        var mkdocs_page_url = "/practica_3/actividade_3/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Computación na Nube para IoT
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Actividades adicionais</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_3/">Actividade 3</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 3</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Actividade 3</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#obxectivo">Obxectivo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creacion-do-manipulador-de-traballos">Creación do manipulador de traballos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creacion-dun-modelo-de-documento-de-traballo-personalizado">Creación dun modelo de documento de traballo personalizado</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creacion-dun-traballo-a-partir-do-modelo">Creación dun traballo a partir do modelo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#verificacion-da-execucion-do-traballo">Verificación da execución do traballo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xustificacion-da-actividade">Xustificación da actividade</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Computación na Nube para IoT</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Práctica 3</li>
+      <li class="breadcrumb-item active">Actividade 3</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="actividade-3">Actividade 3</h1>
+<p><strong>IMPLEMENTACIÓN DUN MANIPULADOR DE TRABALLOS (JOB HANDLER).</strong></p>
+<h2 id="obxectivo">Obxectivo</h2>
+<p>O obxectivo desta actividade é implementar un manipulador de traballos (Job Handler) no dispositivo IoT.</p>
+<p>O manipulador vai consistir nun <em>script</em> que publique a configuración do dispositivo nunha mensaxe MQTT usando a funcionalidade de mensaxería MQTT do Device Client que vimos nunha actividade anterior.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Podes ver <a href="https://github.com/awslabs/aws-iot-device-client/blob/main/source/jobs/README.md#creating-your-own-job-handler">aquí</a> a documentación sobre os manipuladores de traballos do AWS IoT Device Client.</p>
+</div>
+<h2 id="creacion-do-manipulador-de-traballos">Creación do manipulador de traballos</h2>
+<p>Para crear o manipulador de traballos fai o seguinte:</p>
+<ol>
+<li>No ambiente Cloud9 no que está instalado o AWS IoT Device Client comproba na configuración dos traballos cal é o directorio no que se almacenan os manipuladores.</li>
+</ol>
+<pre><code>$ sudo cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq '.jobs'
+{
+  &quot;enabled&quot;: true,
+  &quot;handler-directory&quot;: &quot;/etc/.aws-iot-device-client/jobs&quot;
+}
+</code></pre>
+<ol start="2">
+<li>Comproba cales son os manipuladores dispoñíbeis.</li>
+</ol>
+<pre><code>$ HANDLER_DIR=$(sudo cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq -r '.jobs.&quot;handler-directory&quot;')
+$ sudo ls $HANDLER_DIR 
+download-file.sh  install-packages.sh  remove-packages.sh   shutdown.sh        stop-services.sh              verify-packages-removed.sh
+health-check.sh   reboot.sh            restart-services.sh  start-services.sh  verify-packages-installed.sh
+</code></pre>
+<ol start="3">
+<li>Na sección 5.1 do curso, o traballo que descargaba un ficheiro no dispositivo IoT creouse a partires do modelo de documento de traballo <strong>AWS-Download-File</strong> xestionado por AWS. Este modelo é de tipo <strong>runHandler</strong> e executa no dispositivo IoT o manipulador <strong>download-file.sh</strong> pasándolle como parámetros a URL do ficheiro e o directorio no que descargalo.</li>
+</ol>
+<pre><code>{
+  &quot;version&quot;: &quot;1.0&quot;,
+  &quot;steps&quot;: [
+    {
+      &quot;action&quot;: {
+        &quot;name&quot;: &quot;Download-File&quot;,
+        &quot;type&quot;: &quot;runHandler&quot;,
+        &quot;input&quot;: {
+          &quot;handler&quot;: &quot;download-file.sh&quot;,
+          &quot;args&quot;: [
+            &quot;${aws:iot:parameter:downloadUrl}&quot;,
+            &quot;${aws:iot:parameter:filePath}&quot;
+          ],
+          &quot;path&quot;: &quot;${aws:iot:parameter:pathToHandler}&quot;
+        },
+        &quot;runAsUser&quot;: &quot;${aws:iot:parameter:runAsUser}&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+<p>Comproba como é a implementación deste manipulador:</p>
+<pre><code class="language-sh">$ sudo cat $HANDLER_DIR/download-file.sh
+#!/usr/bin/env sh
+set -e
+
+echo &quot;Running download-file.sh&quot;
+user=$1
+fileUrl=$2
+outputFile=$3
+echo &quot;Username: $user&quot;
+echo &quot;File URL: $fileUrl&quot;
+echo &quot;Write documents to file: $outputFile&quot;
+if command -v &quot;wget&quot; &gt; /dev/null
+then
+    echo &quot;Using wget for downloading user specified file&quot;
+    if id &quot;$user&quot; 2&gt;/dev/null &amp;&amp; command -v &quot;sudo&quot; &gt; /dev/null; then
+      if [ -d &quot;$outputFile&quot; ]; then
+        sudo -u &quot;$user&quot; -n wget --quiet -P &quot;$outputFile&quot; &quot;$fileUrl&quot;
+      else
+        sudo -u &quot;$user&quot; -n wget --quiet -O &quot;$outputFile&quot; &quot;$fileUrl&quot;
+      fi
+    else
+      echo &quot;username or sudo command not found&quot;
+      if [ -d &quot;$outputFile&quot; ]; then
+        wget --quiet -P &quot;$outputFile&quot; &quot;$fileUrl&quot;
+      else
+        wget --quiet -O &quot;$outputFile&quot; &quot;$fileUrl&quot;
+      fi
+    fi
+else
+    &gt;&amp;2 echo &quot;Wget software package not installed on the device. Use the \&quot;install-packages.sh\&quot; operation to install the wget software package on this device.&quot;
+    exit 1
+fi
+</code></pre>
+<p>Como podes ver trátase dun <em>script</em> que recibe 3 dos parámetros de entrada definidos no modelo: a conta de usuario que se vai usar para executar o <em>script</em>, a URL do ficheiro e o directorio no que gardalo, e utiliza o comando <strong>wget</strong> para descargar o ficheiro no directorio que se lle indica.</p>
+<p>Podes curiosear nas implementacións dos outros manipuladores.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Se o prefires, tamén podes ver <a href="https://github.com/awslabs/aws-iot-device-client/tree/main/sample-job-handlers">aquí</a> a implementación dos manipuladores instalados por defecto.</p>
+</div>
+<ol start="4">
+<li>No ambiente Cloud9 no que está instalado o AWS IoT Device Client comproba que a mensaxería MQTT está activada e cales son o tópico e ficheiro de publicación.</li>
+</ol>
+<pre><code>$ sudo cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq '.samples'
+{
+  &quot;pub-sub&quot;: {
+    &quot;enabled&quot;: true,
+    &quot;publish-topic&quot;: &quot;/topic/workshop/dc/pub&quot;,
+    &quot;publish-file&quot;: &quot;/home/ubuntu/workshop_dc/pubfile.txt&quot;,
+    &quot;subscribe-topic&quot;: &quot;/topic/workshop/dc/sub&quot;,
+    &quot;subscribe-file&quot;: &quot;/home/ubuntu/workshop_dc/subfile.txt&quot;,
+    &quot;publish-on-change&quot;: true
+  }
+}
+</code></pre>
+<ol start="5">
+<li>Crea un manipulador que publique a configuración do Device Client como mensaxe MQTT.</li>
+</ol>
+<pre><code>$ sudo nano $HANDLER_DIR/device-client-config.sh
+$ sudo chmod 700 $HANDLER_DIR/device-client-config.sh
+$ sudo cat $HANDLER_DIR/device-client-config.sh
+#!/usr/bin/env sh
+set -e
+
+echo &quot;Running device-client-config.sh&quot;
+USER=$1
+echo &quot;Username: $USER&quot;
+
+if id &quot;$USER&quot; 2&gt; /dev/null &amp;&amp; command -v &quot;sudo&quot; &gt; /dev/null; then
+
+    # get publish file from configuration
+    PUBFILE=$(cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq -e -r '.samples.&quot;pub-sub&quot;.&quot;publish-file&quot;')
+    STATUS=$?
+
+    # check for publish file
+    if [ $STATUS -eq 0 ] &amp;&amp; sudo -u $USER -n test -f &quot;$PUBFILE&quot;; then
+        sudo -u $USER -n cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq '{&quot;conf&quot;: .}' &gt; $PUBFILE
+    else
+        echo &quot;A valid publish file was not found in the configuration&quot;
+        exit $STATUS
+    fi
+
+else
+    echo &quot;username or sudo command not found&quot;
+    exit 1
+fi
+</code></pre>
+<h2 id="creacion-dun-modelo-de-documento-de-traballo-personalizado">Creación dun modelo de documento de traballo personalizado</h2>
+<p>Vamos agora a crear un modelo de documento de traballo personalizado para usar co manipulador. Fai o seguinte:</p>
+<ol>
+<li>No ambiente Cloud9 no que está instalado o AWS IoT Device Client crea un ficheiro JSON co modelo de traballo.</li>
+</ol>
+<pre><code>$ pwd
+/home/ubuntu/workshop_dc
+$ nano deviceConfJobTemplate.json
+$ cat deviceConfJobTemplate.json
+{
+  &quot;version&quot;: &quot;1.0&quot;,
+  &quot;steps&quot;: [
+    {
+      &quot;action&quot;: {
+        &quot;name&quot;: &quot;Get-Configuration&quot;,
+        &quot;type&quot;: &quot;runHandler&quot;,
+        &quot;input&quot;: {
+          &quot;handler&quot;: &quot;device-client-config.sh&quot;,
+          &quot;path&quot;: &quot;default&quot;
+        },
+        &quot;runAsUser&quot;: &quot;root&quot;
+      }
+    }
+  ]
+}
+
+</code></pre>
+<ol start="2">
+<li>Sube o modelo ao <em>bucket</em> S3 que se usou no curso.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Nomenclatura</p>
+<p><strong>Usa o teu prefixo</strong> no nome do <em>bucket</em>.</p>
+</div>
+<pre><code>$ aws s3 cp deviceConfJobTemplate.json s3://xcpm2425-workshop-dc-bucket
+</code></pre>
+<ol start="3">
+<li>
+<p>Na consola de AWS IoT escolle a opción <strong>Modelos de traballo</strong> dentro do menú <strong>Accións remotas</strong>.</p>
+</li>
+<li>
+<p>Coa lapela <strong>Modelos personalizados</strong> escollida, crea un novo modelo de traballo escollendo <strong>Crear modelo de traballo</strong> e indicando as opcións seguintes:</p>
+<ul>
+<li>Nome do modelo de traballo: <strong>deviceConfigTemplate</strong>. Lembra poñer o teu prefixo diante, p.ex. <strong>xcpm2425-deviceConfigTemplate</strong>.</li>
+<li>Descrición: pon unha descrición para o modelo.</li>
+<li>Documento de traballo: preme no botón <strong>Navegar no S3</strong> e escolle o documento JSON que subiches a S3.</li>
+</ul>
+</li>
+</ol>
+<p><img alt="Configuración do modelo de documento de traballo" src="../imgs/awsiot-job-template02.png" />
+<em>Imaxe: configuración do modelo de documento de traballo.</em></p>
+<h2 id="creacion-dun-traballo-a-partir-do-modelo">Creación dun traballo a partir do modelo</h2>
+<ol>
+<li>
+<p>No cliente MQTT da consola de AWS IoT subscríbete aos tópicos:</p>
+<ul>
+<li><code>/topic/workshop/dc/pub</code></li>
+<li><code>$aws/events/job/deviceConfig/completed</code></li>
+<li><code>$aws/events/jobExecution/deviceConfig/succeeded</code></li>
+</ul>
+</li>
+<li>
+<p>Abre unha segunda consola AWS IoT para crear o traballo nunha xanela diferente á do cliente MQTT do paso 2. Nesta consola escolle a opción <strong>Modelos de traballo</strong> dentro do menú <strong>Accións remotas</strong> e abre as propiedades do modelo <strong>deviceConfigTemplate</strong> premendo no seu nome.</p>
+</li>
+<li>
+<p>Crea un novo traballo a partires deste modelo premendo en <strong>Crear traballo con este modelo</strong> e indicando as opcións seguintes:</p>
+<ul>
+<li>Nome do traballo: <strong>deviceConfig</strong>.</li>
+<li>Descrición: pon unha descrición para o traballo.</li>
+<li>Cousas para executar este traballo: escolle <strong>deviceCLientThing</strong>.</li>
+<li>Documento de trabalho: non tes que facer nada. Os datos do modelo <strong>deviceConfigTemplate</strong> xa están cubertos.</li>
+<li>Tipo de execución do traballo: escolle <strong>Snapshot</strong>.</li>
+</ul>
+</li>
+</ol>
+<p><img alt="Configuración do traballo" src="../imgs/awsiot-job-create02.png" />
+<em>Imaxe: configuración do traballo.</em></p>
+<h2 id="verificacion-da-execucion-do-traballo">Verificación da execución do traballo</h2>
+<ol>
+<li>Comproba na consola do AWS IoT que o traballo se executou correctamente.</li>
+</ol>
+<p><img alt="Execución correcta do traballo" src="../imgs/awsiot-job02.png" />
+<em>Imaxe: execución correcta do traballo na consola IoT.</em></p>
+<ol start="2">
+<li>Comproba tamén que o documento do traballo é o que definimos no modelo.</li>
+</ol>
+<p><img alt="Documento do traballo" src="../imgs/awsiot-job-doc02.png" />
+<em>Imaxe: documento do traballo.</em></p>
+<ol start="3">
+<li>Comproba que se recibiu a configuración do dispositivo no tópico <code>/topic/workshop/dc/pub</code>. Comproba tamén as mensaxes do traballo recibidas nos outros tópicos do cliente MQTT.  </li>
+</ol>
+<p><img alt="Mensaxe recibida coa configuraciçon do dispositivo" src="../imgs/awsiot-mqtt-client07.png" />
+<em>Imaxe: mensaxe recibida coa configuraciçon do dispositivo.</em></p>
+<ol start="4">
+<li>E finalmente, comproba que apareza a execución do traballo no <em>log</em> do ambiente Cloud9.</li>
+</ol>
+<p><img alt="Mensaxe no log do ambiente Cloud9" src="../imgs/cloud9-job02.png" />
+<em>Imaxe: mensaxe no log do ambiente Cloud9.</em></p>
+<h2 id="xustificacion-da-actividade">Xustificación da actividade</h2>
+<p>Toma as seguintes capturas para a memoria de xustificación da práctica:</p>
+<ol>
+<li>Ambiente Cloud9 no que se vexa a saída da execución dos comandos seguintes:</li>
+</ol>
+<pre><code>$ cat customJobTemplate.json
+$ aws s3 ls s3://xcpm2425-workshop-dc-bucket
+$ sudo cat $HANDLER_DIR/device-client-config.sh
+</code></pre>
+<ol start="2">
+<li>
+<p>Na consola IoT as propiedades do modelo de documento de traballo <strong> deviceConfigTemplate</strong> (con que se vexa o apartado de detalles é dabondo, os das configuracións non fan falla).</p>
+</li>
+<li>
+<p>Na consola IoT as propiedades do traballo <strong> deviceConfig</strong> coa execución finalizada correctamente.</p>
+</li>
+<li>
+<p>Cliente MQTT na consola IoT no que poida verse o contido da configuración recibida no tópico <code>/topic/workshop/dc/pub</code>.</p>
+</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>As capturas teñen que asemellarse ás que se tomaron no curso e nas prácticas anteriores. As capturas tomadas na consola AWS teñen que incluír o menú superior no que poida verse o nome de usuario da conta.</p>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../actividade_2/" class="btn btn-neutral float-left" title="Actividade 2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../actividade_4/" class="btn btn-neutral float-right" title="Actividade 4">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../actividade_2/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../actividade_4/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

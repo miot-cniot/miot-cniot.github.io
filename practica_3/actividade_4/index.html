@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Xoan C. Pardo" /><link rel="canonical" href="https://miot-cniot.github.io/practica_3/actividade_4/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Actividade 4 - Computación na Nube para IoT</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Actividade 4";
+        var mkdocs_page_input_path = "practica_3/actividade_4.md";
+        var mkdocs_page_url = "/practica_3/actividade_4/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Computación na Nube para IoT
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Actividades adicionais</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_3/">Actividade 3</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 3</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Actividade 4</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#obxectivo">Obxectivo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuracion-da-publicacion-de-telemetrias-de-sensores">Configuración da publicación de telemetrías de sensores</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xustificacion-da-actividade">Xustificación da actividade</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Computación na Nube para IoT</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Práctica 3</li>
+      <li class="breadcrumb-item active">Actividade 4</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="actividade-4">Actividade 4</h1>
+<p><strong>ENVÍO DE DATOS DE TELEMETRÍA DE SENSORES MEDIANTE MQTT.</strong></p>
+<h2 id="obxectivo">Obxectivo</h2>
+<p>O obxectivo desta actividade é comprobar o funcionamento da funcionalidade <strong>Publicación de telemetrías de sensores</strong> do AWS IoT Device Client, que permite envíar os datos de telemetría dos sensores conectados no dispositivo IoT ao AWS IoT Core mediante MQTT.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Podes ver <a href="https://github.com/awslabs/aws-iot-device-client/blob/main/source/sensor-publish/README.md">aquí</a> a documentación da funcionalidade <strong>Publicación de telemetrías de sensores</strong>.</p>
+</div>
+<h2 id="configuracion-da-publicacion-de-telemetrias-de-sensores">Configuración da publicación de telemetrías de sensores</h2>
+<ol>
+<li>Edita o ficheiro de configuración do Device Client para activar a publicación de telemetrías de sensores.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Nomenclatura</p>
+<p><strong>Usa o teu prefixo</strong> no nome do sensor.</p>
+</div>
+<pre><code>$ sudo nano /etc/.aws-iot-device-client/aws-iot-device-client.conf 
+$ sudo tail -13 /etc/.aws-iot-device-client/aws-iot-device-client.conf
+  },
+  &quot;sensor-publish&quot;: {
+      &quot;sensors&quot;: [
+          {
+            &quot;name&quot;: &quot;xcpm2425-sensor01&quot;,
+            &quot;addr&quot;: &quot;/tmp/sensors/sensor01-server&quot;,
+            &quot;eom_delimiter&quot;: &quot;[\r\n]+&quot;,
+            &quot;mqtt_topic&quot;: &quot;/topic/workshop/dc/sensors/sensor01-data&quot;,
+            &quot;mqtt_heartbeat_topic&quot;: &quot;/topic/workshop/dc/sensors/sensor01-heartbeat&quot;
+          }
+      ]
+  }
+}
+</code></pre>
+<ol start="2">
+<li>Crea o ficheiro para o <a href="https://es.wikipedia.org/wiki/Socket_Unix"><em>socket</em> de dominio UNIX</a>.</li>
+</ol>
+<pre><code>$ mkdir /tmp/sensors
+$ touch /tmp/sensors/sensor01-server
+$ chmod 660 /tmp/sensors/sensor01-server
+</code></pre>
+<ol start="3">
+<li>Reinicia o servizo e comproba que non houbera ningún erro.</li>
+</ol>
+<pre><code>$ sudo systemctl restart aws-iot-device-client
+$ sudo systemctl status aws-iot-device-client
+</code></pre>
+<ol start="4">
+<li>Compróbao tamén no ficheiro de log.</li>
+</ol>
+<pre><code>$ sudo grep &quot;Sensor.cpp&quot; /var/log/aws-iot-device-client/aws-iot-device-client.log 
+2024-08-02T18:27:42.535Z [DEBUG] {Sensor.cpp}: Starting sensor name: xcpm2425-sensor01
+2024-08-02T18:27:42.535Z [ERROR] {Sensor.cpp}: Error sensor name: xcpm2425-sensor01 func: aws_socket_connect msg: socket connection refused.
+</code></pre>
+<p>De momento indica que se creou o sensor porén non puido aínda conectarse ao <em>socket</em>.</p>
+<ol start="5">
+<li>
+<p>No cliente MQTT da consola de AWS IoT subscríbete aos tópicos configurados para publicar a telemetría e o <em>heartbeat</em> do sensor: </p>
+<ul>
+<li><code>/topic/workshop/dc/sensors/sensor01-data</code> </li>
+<li><code>/topic/workshop/dc/sensors/sensor01-heartbeat</code></li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Cando te subscribas ao tópico do <em>heartbeat</em> escolle a opción <strong>Mostrar a carga útil como <em>strings</em></strong> na <strong>Configuración adicional</strong>.</p>
+</div>
+<ol start="6">
+<li>Crea un programa Python que simule o funcionamento dun sensor que agarda por unha conexión ao <em>socket</em> para enviar os seus datos de telemetría.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Nomenclatura</p>
+<p><strong>Usa o teu nome</strong> no <em>payload</em> da mensaxe.</p>
+</div>
+<pre><code>$ pwd
+/home/ubuntu/workshop_dc
+$ nano sensor.py
+$ cat sensor.py
+# imports
+import socket
+import os
+import time
+
+# MQTT message payload
+message = '{\&quot;message\&quot;:\&quot;Datos do sensor01 de &lt;Pon aquí o teu nome&gt;\&quot;}\r\n'
+
+# set socket location
+server_address = '/tmp/sensors/sensor01-server'
+
+# check for previous socket and clean up
+try:
+    os.unlink(server_address)
+except OSError:
+    if os.path.exists(server_address):
+        print (&quot;socket already exists&quot;)
+
+# create socket
+with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as s:
+    print (&quot;socket successfully created&quot;)
+
+    # Avoid bind() exception: OSError: [Errno 48] Address already in use
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+    # bind to the socket
+    s.bind(server_address)
+    print (&quot;binding complete&quot;)
+
+    # start listening mode
+    s.listen(5)
+    print (&quot;socket is listening&quot;)
+
+    # accept connection
+    conn, addr = s.accept()
+    with conn:
+        print(f&quot;Connected by {addr}&quot;)
+        while True:
+            print('sending message:')
+            print(message)
+            conn.sendall(message.encode('utf-8'))
+            time.sleep(5)
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Este simulador é moi simple e acepta todas as conexións sen realizar ningunha autenticación do cliente.</p>
+</div>
+<ol start="7">
+<li>Executa o simulador do sensor.</li>
+</ol>
+<pre><code>$ python3 sensor.py
+</code></pre>
+<p>No terminal aparecerá unha mensaxe por cada ocasión na que o Device Client se conecta ao <em>socket</em>, por defecto cada 10 segundos.</p>
+<p><img alt="Saída do simulador de sensor" src="../imgs/cloud9-sensorpy.png" />
+<em>Imaxe: execución do simulador de sensor.</em></p>
+<ol start="8">
+<li>Comproba no cliente MQTT que as mensaxes se reciben no tópico <code>/topic/workshop/dc/sensors/sensor01-data</code>.</li>
+</ol>
+<p><img alt="Mensaxe publicada no cliente MQTT" src="../imgs/awsiot-mqtt-client04.png" />
+<em>Imaxe: mensaxe publicada no cliente MQTT.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Se agardas o tempo suficiente (por defecto 300 segundos) verás que se reciben tamén as mensaxes de <em>heartbeat</em> do sensor no outro tópico. O <em>payload</em> destas mensaxes contén unicamente o nome do sensor.</p>
+</div>
+<p><img alt="Mensaxe de heartbeat publicada no cliente MQTT" src="../imgs/awsiot-mqtt-client05.png" />
+<em>Imaxe: mensaxe de heartbeat publicada no cliente MQTT.</em></p>
+<ol start="9">
+<li>Comproba tamén o ficheiro de log.</li>
+</ol>
+<pre><code>$sudo tail -F /var/log/aws-iot-device-client/aws-iot-device-client.log
+2024-08-02T18:48:23.378Z [DEBUG] {Sensor.cpp}: Nothing to publish sensor name: xcpm2425-sensor01
+2024-08-02T18:48:23.378Z [DEBUG] {Sensor.cpp}: Read sensor name: xcpm2425-sensor01 bytes: 51
+2024-08-02T18:48:23.378Z [DEBUG] {Sensor.cpp}: Publish sensor name: xcpm2425-sensor01 bytes: 51
+2024-08-02T18:48:23.385Z [DEBUG] {Sensor.cpp}: Publish complete sensor name: xcpm2425-sensor01 packetId: 19
+2024-08-02T18:48:28.383Z [DEBUG] {Sensor.cpp}: Read sensor name: xcpm2425-sensor01 bytes: 51
+2024-08-02T18:48:28.383Z [DEBUG] {Sensor.cpp}: Publish sensor name: xcpm2425-sensor01 bytes: 51
+2024-08-02T18:48:28.389Z [DEBUG] {Sensor.cpp}: Publish complete sensor name: xcpm2425-sensor01 packetId: 20
+</code></pre>
+<ol start="10">
+<li>Detén o simulador premendo <code>Ctrl+C</code>.</li>
+</ol>
+<h2 id="xustificacion-da-actividade">Xustificación da actividade</h2>
+<p>Toma as seguintes capturas para a memoria de xustificación da práctica:</p>
+<ol>
+<li>Ambiente Cloud9 no que se vexa a saída do terminal no que se executou <strong>sensor.py</strong> e a execución do comando seguinte:</li>
+</ol>
+<pre><code>$ sudo cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq '.&quot;sensor-publish&quot;'
+</code></pre>
+<ol start="2">
+<li>Consola IoT coas mensaxes MQTT recibidas no tópico <code>/topic/workshop/dc/sensors/sensor01-data</code> nas que poida verse o <em>payload</em>.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>As capturas teñen que asemellarse ás que se tomaron no curso e nas prácticas anteriores. As capturas tomadas na consola AWS teñen que incluír o menú superior no que poida verse o nome de usuario da conta.</p>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../actividade_3/" class="btn btn-neutral float-left" title="Actividade 3"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../actividade_3/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

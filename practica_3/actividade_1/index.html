@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Xoan C. Pardo" /><link rel="canonical" href="https://miot-cniot.github.io/practica_3/actividade_1/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Actividade 1 - Computación na Nube para IoT</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Actividade 1";
+        var mkdocs_page_input_path = "practica_3/actividade_1.md";
+        var mkdocs_page_url = "/practica_3/actividade_1/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Computación na Nube para IoT
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Actividades adicionais</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_3/">Actividade 3</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 3</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Actividade 1</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#obxectivo">Obxectivo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#comprobacion-do-funcionamento-da-mensaxeria-mqtt">Comprobación do funcionamento da mensaxería MQTT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#publicando-mensaxes-mqtt-cando-o-ficheiro-cambia">Publicando mensaxes MQTT cando o ficheiro cambia</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xustificacion-da-actividade">Xustificación da actividade</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Computación na Nube para IoT</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Práctica 3</li>
+      <li class="breadcrumb-item active">Actividade 1</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="actividade-1">Actividade 1</h1>
+<p><strong>MENSAXERÍA MQTT A TRAVÉS DOS FICHEIROS DE PUBLICACIÓN E SUBSCRICIÓN.</strong></p>
+<h2 id="obxectivo">Obxectivo</h2>
+<p>O obxectivo desta actividade é comprobar o funcionamento da mensaxería MQTT do Device Client a través dos ficheiros de publicación e subscrición.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Podes ver <a href="https://github.com/awslabs/aws-iot-device-client/tree/main/source/samples/pubsub">aquí</a> a documentación.</p>
+</div>
+<h2 id="comprobacion-do-funcionamento-da-mensaxeria-mqtt">Comprobación do funcionamento da mensaxería MQTT</h2>
+<p>Fai o seguinte:</p>
+<ol>
+<li>Comproba nun terminal do ambiente Cloud9 no que estexa instalado o AWS IoT Device Client a configuración actual da mensaxería MQTT.</li>
+</ol>
+<pre><code>$ sudo apt install jq
+$ sudo cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq '.samples'
+{
+  &quot;pub-sub&quot;: {
+    &quot;enabled&quot;: true,
+    &quot;publish-topic&quot;: &quot;/topic/workshop/dc/pub&quot;,
+    &quot;publish-file&quot;: &quot;/etc/.aws-iot-device-client/pubsub/publish-file.txt&quot;,
+    &quot;subscribe-topic&quot;: &quot;/topic/workshop/dc/sub&quot;,
+    &quot;subscribe-file&quot;: &quot;/home/ubuntu/workshop_dc/subfile.txt&quot;
+  }
+}
+</code></pre>
+<p>A saída mostra que a funcionalidade está activada e os tópicos MQTT e ficheiros locais que se están a utilizar para o intercambio de mensaxes.</p>
+<ol start="2">
+<li>Comproba o contido do ficheiro de subscrición.</li>
+</ol>
+<pre><code>$ cat /home/ubuntu/workshop_dc/subfile.txt
+{
+  &quot;message&quot;: &quot;Saudações do console do AWS IoT&quot;
+}
+</code></pre>
+<ol start="3">
+<li>No cliente MQTT da consola de AWS IoT publica unha mensaxe no tópico <code>/topic/workshop/dc/sub</code>.</li>
+</ol>
+<p><img alt="Mensaxe publicada no cliente MQTT" src="../imgs/awsiot-mqtt-client02.png" />
+<em>Imaxe: mensaxe publicada no tópico MQTT.</em></p>
+<ol start="4">
+<li>Comproba que se actualizou o ficheiro de subscrición.</li>
+</ol>
+<pre><code>$ cat /home/ubuntu/workshop_dc/subfile.txt
+{
+  &quot;message&quot;: &quot;Saudações do console do AWS IoT&quot;
+}
+{
+  &quot;message&quot;: &quot;Adeus rios, adeus fontes&quot;
+}
+</code></pre>
+<ol start="5">
+<li>Comproba tamén o ficheiro de log.</li>
+</ol>
+<pre><code>$ sudo grep Message /var/log/aws-iot-device-client/aws-iot-device-client.log
+2024-08-02T10:07:22.562Z [DEBUG] {samples/PubSubFeature.cpp}: Message received on subscribe topic, size: 44 bytes
+</code></pre>
+<ol start="6">
+<li>Comproba agora o contido do ficheiro de publicación.</li>
+</ol>
+<pre><code>$ sudo cat /etc/.aws-iot-device-client/pubsub/publish-file.txt                                                                                             
+{&quot;Hello&quot;: &quot;World!&quot;}
+</code></pre>
+<p>Como xa vimos no curso en liña, esta é a mensaxe que se envía ao tópico de publicación configurado cada vez que se reinicia o servizo <strong>aws-iot-device-client</strong>. Editar o contido dese ficheiro e reiniciar o servizo é o procedemento por defecto para publicar unha mensaxe.</p>
+<h2 id="publicando-mensaxes-mqtt-cando-o-ficheiro-cambia">Publicando mensaxes MQTT cando o ficheiro cambia</h2>
+<p>Outra maneira de publicar mensaxes MQTT no Device Client é facelo cada vez que hai un cambio no ficheiro de publicación, sen necesidade de reiniciar o servizo.</p>
+<p>Para comprobar este método de publicación fai o seguinte:</p>
+<ol>
+<li>Edita o ficheiro de configuración do Device Client para activar a publicación de mensaxes cando haxa cambios no ficheiro.</li>
+</ol>
+<pre><code>$ sudo nano /etc/.aws-iot-device-client/aws-iot-device-client.conf 
+$ sudo cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq '.samples'
+{
+  &quot;pub-sub&quot;: {
+    &quot;enabled&quot;: true,
+    &quot;publish-topic&quot;: &quot;/topic/workshop/dc/pub&quot;,
+    &quot;publish-file&quot;: &quot;/home/ubuntu/workshop_dc/pubfile.txt&quot;,
+    &quot;subscribe-topic&quot;: &quot;/topic/workshop/dc/sub&quot;,
+    &quot;subscribe-file&quot;: &quot;/home/ubuntu/workshop_dc/subfile.txt&quot;,
+    &quot;publish-on-change&quot;: true
+  }
+}
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Presta atención a que tamén se cambiou na configuración o ficheiro que imos usar para publicar.</p>
+</div>
+<ol start="2">
+<li>Crea o ficheiro de publicación e reinicia o servizo.</li>
+</ol>
+<pre><code>$ touch /home/ubuntu/workshop_dc/pubfile.txt
+$ sudo systemctl restart aws-iot-device-client
+</code></pre>
+<ol start="3">
+<li>Comproba que non houbera ningún erro ao iniciar o servizo.</li>
+</ol>
+<p><img alt="Estado do servizo Device Client" src="../imgs/cloud9-device-client.png" />
+<em>Imaxe: estado do servizo Device Client.</em></p>
+<ol start="4">
+<li>
+<p>No cliente MQTT da consola de AWS IoT subscríbete ao tópico <code>/topic/workshop/dc/pub</code>.</p>
+</li>
+<li>
+<p>Publica unha mensaxe usando o ficheiro e comproba que aparece no cliente MQTT.</p>
+</li>
+</ol>
+<pre><code>$ pwd
+/home/ubuntu/workshop_dc
+$ echo '{&quot;message&quot;:&quot;Saúdos desde o Device Client&quot;}' &gt; pubfile.txt
+</code></pre>
+<p><img alt="Mensaxe publicada no cliente MQTT" src="../imgs/awsiot-mqtt-client03.png" />
+<em>Imaxe: mensaxe recibida no tópico MQTT.</em></p>
+<ol start="6">
+<li>Comproba tamén o ficheiro de log.</li>
+</ol>
+<pre><code>$ sudo grep &quot;target file&quot; /var/log/aws-iot-device-client/aws-iot-device-client.log -A 1 
+2024-08-02T11:38:34.975Z [DEBUG] {samples/PubSubFeature.cpp}: The target file is modified, start updating the shadow
+2024-08-02T11:38:34.982Z [DEBUG] {samples/PubSubFeature.cpp}: PublishCompAck: PacketId:(Pub Sub Sample), ErrorCode:0
+</code></pre>
+<h2 id="xustificacion-da-actividade">Xustificación da actividade</h2>
+<p>Toma as seguintes capturas para a memoria de xustificación da práctica:</p>
+<ol>
+<li>Ambiente Cloud9 mostrando a saída da execución dos comandos seguintes:</li>
+</ol>
+<pre><code>$ sudo cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq '.samples'
+$ echo '{&quot;message&quot;:&quot;Saúdos de &lt;Pon aquí o teu nome&gt; desde o Device Client&quot;}' &gt; /home/ubuntu/workshop_dc/pubfile.txt
+</code></pre>
+<ol start="2">
+<li>Consola IoT coa mensaxe MQTT recibida no tópico <code>/topic/workshop/dc/pub</code>, na que poida verse o <em>payload</em>, despois de executar os comandos do punto anterior.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>As capturas teñen que asemellarse ás que se tomaron no curso e nas prácticas anteriores. As capturas tomadas na consola AWS teñen que incluír o menú superior no que poida verse o nome de usuario da conta.</p>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../practica_2/actividade_4/" class="btn btn-neutral float-left" title="Actividade 4"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../actividade_2/" class="btn btn-neutral float-right" title="Actividade 2">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../practica_2/actividade_4/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../actividade_2/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

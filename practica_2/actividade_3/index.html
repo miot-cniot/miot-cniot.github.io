@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Xoan C. Pardo" /><link rel="canonical" href="https://miot-cniot.github.io/practica_2/actividade_3/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Actividade 3 - Computación na Nube para IoT</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Actividade 3";
+        var mkdocs_page_input_path = "practica_2/actividade_3.md";
+        var mkdocs_page_url = "/practica_2/actividade_3/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Computación na Nube para IoT
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Actividades adicionais</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_3/">Actividade 3</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 2</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Actividade 3</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#obxectivo">Obxectivo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creacion-do-topico-sns">Creación do tópico SNS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creacion-da-regra-aws-iot">Creación da regra AWS IoT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#proba-da-regra-aws-iot">Proba da regra AWS IoT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xustificacion-da-actividade">Xustificación da actividade</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 3</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Computación na Nube para IoT</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Práctica 2</li>
+      <li class="breadcrumb-item active">Actividade 3</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="actividade-3">Actividade 3</h1>
+<p><strong>CREAR UNHA REGRA PARA ENVIAR NOTIFICACIÓNS SNS.</strong></p>
+<h2 id="obxectivo">Obxectivo</h2>
+<p>O obxectivo desta actividade é crear unha regra AWS IoT que envíe os datos das mensaxes de telemetría recibidas desde o dispositivo IoT (o camión) a un tópico do SNS para que podan ser enviados como unha mensaxe de correo electrónico.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>SNS pode enviar notificacións a otros tipos de destinos, como p.ex. notificacións PUSH ou SMS a móbiles. Nesta actividade usamos o correo para evitar posíbeis cargos na factura do teléfono.</p>
+</div>
+<h2 id="creacion-do-topico-sns">Creación do tópico SNS</h2>
+<p>Para crear un tópico do SNS fai o seguinte:</p>
+<ol>
+<li>Abre a consola de SNS e escolle a opción <strong>Tópicos</strong> no menú lateral.</li>
+<li>
+<p>Crea un novo tópico escollendo <strong>Crear tópico</strong> e indicando as opcións seguintes:</p>
+<ul>
+<li>Detalles: escolle o tipo <strong>Estándar</strong>.</li>
+<li>Nome: <strong>high-temp-alert</strong>. Lembra poñer o teu prefixo diante.</li>
+</ul>
+</li>
+<li>
+<p>Crea unha subscrición SNS escollendo <strong>Crear subscrición</strong> na lapela <strong>Subscricións</strong> das propiedades do tópico <strong>high_temp_alert</strong> e indicando as opcións seguintes:</p>
+<ul>
+<li>Protocolo: escolle <strong>E-mail</strong>.</li>
+<li>Endpoint: insire o teu enderezo de correo electrónico.</li>
+</ul>
+</li>
+</ol>
+<p><img alt="Configuración da subscrición SNS" src="../imgs/sns-assinatura.png" />
+<em>Imaxe: configuración da subscrición SNS.</em></p>
+<ol start="4">
+<li>Confirma a subscrición premendo na ligazón do correo que recibirás no enderezo que indicaches.</li>
+</ol>
+<p><img alt="Correo de confirmación da subscrición SNS" src="../imgs/sns-assinatura-ack.png" />
+<em>Imaxe: correo de confirmación da subscrición SNS.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Unha vez confirmes a subscrición, nas propiedades da subscrición o estado aparecerá como <strong>Confirmado</strong>.</p>
+</div>
+<ol start="5">
+<li>
+<p>Para comprobar que a notificación ao tópico SNS funciona, nas propiedades do tópico <strong>high-temp-alert</strong> escolle <strong>Publicar mensaxe</strong> e publica unha mensaxe indicando as opcións seguintes:</p>
+<ul>
+<li>Asunto: <strong>Probando</strong></li>
+<li>Corpo da mensaxe: insire a mensaxe que queiras enviar.</li>
+</ul>
+</li>
+<li>
+<p>Comproba que recibes a mensaxe no enderezo de correo que indicaches.</p>
+</li>
+</ol>
+<h2 id="creacion-da-regra-aws-iot">Creación da regra AWS IoT</h2>
+<p>A regra vai filtrar as mensaxes nas que a temperatura non exceda un valor límite. Cando a temperatura sexa superior a ese valor, creará unha nova mensaxe cunha carga útil que só conteña o ID do dispositivo, a
+temperatura e o límite que foi excedido e enviaraa ao tópico SNS.</p>
+<p>Por exemplo, se o valor límite é 20 e a carga útil dunha mensaxe contén a seguinte información:</p>
+<pre><code>{
+  &quot;uptime&quot;: &quot;43&quot;,
+  &quot;volts&quot;: &quot;12.08&quot;,
+  &quot;temp&quot;: &quot;21.18&quot;,
+  &quot;door&quot;: &quot;0&quot;,
+  &quot;i&quot;: &quot;1&quot;,
+  &quot;n&quot;: &quot;15&quot;,
+  &quot;timestamp&quot;: 1721929699.2319772
+}
+</code></pre>
+<p>A regra vaina converter ao formato seguinte, que será o enviado para o tópico SNS:</p>
+<pre><code>{
+  &quot;device&quot;: &quot;1&quot;,
+  &quot;temperature&quot;: &quot;21.18&quot;,
+  &quot;temperature_max&quot;: &quot;20&quot;
+}
+</code></pre>
+<p>Para criar a regra AWS IoT fai o seguinte:</p>
+<ol>
+<li>Abre a consola AWS IoT e dentro do submenú <strong>Roteamento de mensaxes</strong> escolle a opción <strong>Regras</strong>.</li>
+<li>
+<p>Crea unha nova regra escollendo <strong>Crear regra</strong> e indicando as opcións seguintes:</p>
+<ul>
+<li>Nome da regra: <strong>truck2sns</strong>. Lembra poñer o teu prefixo diante. Usa o caracter de suliñado para separalo do nome, xa que non se permiten guións, p.ex. <strong>xcpm2425_truck2sns</strong>.</li>
+<li>Descrición: pon unha descrición para a regra.</li>
+<li>
+<p>Instrucción SQL: </p>
+<p><code>SELECT i AS device, temp AS temperature, 20 AS temperature_max FROM 'truck/freezer' WHERE temp &gt; 20</code></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Esta instrucción selecciona os atributos <strong>i</strong> e <strong>temp</strong> das mensaxes recibidas no tópico <code>truck/freezer</code> que cumpren a condición <strong>temp &gt; 20</strong>, engade o atributo <strong>temperature_max</strong> con valor 20 e renomea <strong>i</strong> como <strong>device</strong> e <strong>temp</strong> como <strong>temperature</strong>.</p>
+</div>
+</li>
+<li>
+<p>Accións da regra: na acción 1 escolhe <strong>Simple Notification Service (SNS)</strong>. Nos campos que aparecen indica o seguinte:</p>
+<ul>
+<li>Tópico do SNS: escolle o ARN (<em>Amazon Resource Name</em>) do tópico <strong>high_temp_alert</strong>.</li>
+<li>Rol do IAM: escolle o rol predefinido <strong>LabRole</strong>. Este rol xa ten os permisos precisos para que a regra envíe os datos ao tópico SNS.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><img alt="Configuración da acción" src="../imgs/regra-accionsns.png" />
+<em>Imaxe: configuración da acción.</em></p>
+<h2 id="proba-da-regra-aws-iot">Proba da regra AWS IoT</h2>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Podes variar o comportamento da proba editando as temperaturas no ficheiro <code>/home/ec2-user/environment/data/trucksensordata.csv</code> no ambiente Cloud9.</p>
+</div>
+<p>Para probar o funcionamento da regra fai o seguinte:</p>
+<ol>
+<li>Nun terminal do ambiente Cloud9 executa o script <strong>start.sh</strong>.</li>
+<li>No cliente MQTT da consola de AWS IoT subscríbete ao tópico <code>truck/freezer</code> e comproba que se reciben mensaxes desde o dispositivo IoT.</li>
+<li>Comproba que para todas as mensaxes nas que a temperatura supera o límite recibes unha notificación no enderezo de correo que indicaches.</li>
+</ol>
+<p><img alt="Correo de notificación" src="../imgs/sns-temp-alert.png" />
+<em>Imaxe: exemplo de correo de notificación.</em></p>
+<ol start="4">
+<li>Para rematar a proba preme <code>Ctrl+C</code> no terminal do ambiente Cloud9 no que estexa a executarse o script <strong>start.sh</strong>.</li>
+</ol>
+<h2 id="xustificacion-da-actividade">Xustificación da actividade</h2>
+<p>Toma as seguintes capturas para a memoria de xustificación da práctica:</p>
+<ol>
+<li>Na consola do SNS as propiedades do tópico <strong>high-temp-alert</strong> coa lapela <strong>Subscricións</strong> escollida na que poida verse a subscrición ao enderezo de correo en estado confirmado.</li>
+<li>O correo recibido para comprobar que a notificación ao tópico *<em>high-temp-alert</em> funciona.</li>
+<li>Na consola IoT as propiedades da regra <strong>truck2sns</strong> e os detalles da acción SNS.</li>
+<li>Un dos correos de notificación recibidos cando a temperatura supera o límite.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>As capturas teñen que asemellarse ás que se tomaron no curso e na práctica 1. As capturas tomadas na consola AWS teñen que incluír o menú superior no que poida verse o nome de usuario da conta.</p>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../actividade_2/" class="btn btn-neutral float-left" title="Actividade 2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../actividade_4/" class="btn btn-neutral float-right" title="Actividade 4">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../actividade_2/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../actividade_4/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

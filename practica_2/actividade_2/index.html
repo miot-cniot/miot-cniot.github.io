@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Xoan C. Pardo" /><link rel="canonical" href="https://miot-cniot.github.io/practica_2/actividade_2/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Actividade 2 - Computación na Nube para IoT</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Actividade 2";
+        var mkdocs_page_input_path = "practica_2/actividade_2.md";
+        var mkdocs_page_url = "/practica_2/actividade_2/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Computación na Nube para IoT
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Actividades adicionais</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_3/">Actividade 3</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 2</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Actividade 2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#obxectivo">Obxectivo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creacion-da-taboa-dynamodb">Creación da táboa DynamoDB</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creacion-da-regra-aws-iot">Creación da regra AWS IoT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#proba-da-regra-aws-iot">Proba da regra AWS IoT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xustificacion-da-actividade">Xustificación da actividade</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 3</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Computación na Nube para IoT</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Práctica 2</li>
+      <li class="breadcrumb-item active">Actividade 2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="actividade-2">Actividade 2</h1>
+<p><strong>CREAR UNHA REGRA PARA GARDAR DATOS EN DYNAMODB.</strong></p>
+<h2 id="obxectivo">Obxectivo</h2>
+<p>O obxectivo desta actividade é crear unha regra AWS IoT que envíe os datos das mensaxes de telemetría recibidas desde o dispositivo IoT (o camión) a unha táboa DynamoDB.</p>
+<h2 id="creacion-da-taboa-dynamodb">Creación da táboa DynamoDB</h2>
+<p>A táboa vai conter os seguintes atributos:</p>
+<ul>
+<li><code>sample_time</code> a hora en que a mensaxe foi rexistrada. </li>
+<li><code>device_id</code> identificador do camión que transmitiu a mensaxe.</li>
+<li><code>device_data</code> contido da mensaxe formatado pola instrucción SQL da regra.</li>
+</ul>
+<p>Para crear a táboa fai o seguinte:</p>
+<ol>
+<li>Abre a consola de DynamoDB e escolle a opción <strong>Crear táboa</strong>.</li>
+<li>
+<p>No asistente de creación da táboa indica as opcións seguintes:</p>
+<ul>
+<li>Nome da táboa: <strong>trucks-data</strong>. Lembra poñer o teu prefixo diante, p.ex. <strong>xcpm2425-trucks-data</strong>.</li>
+<li>Chave de partición: <strong>sample_time</strong> de tipo <strong>Número</strong>.</li>
+<li>Chave de clasificación: <strong>device_id</strong> de tipo <strong>Número</strong>. </li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code>device_data</code> definirase posteriormente, cando se configure a acción da regra AWS IoT.</p>
+</div>
+<p><img alt="Configuración da tabela DynamoDB" src="../imgs/tabela-dynamodb.png" />
+<em>Imaxe: configuración da táboa DynamoDB.</em></p>
+<h2 id="creacion-da-regra-aws-iot">Creación da regra AWS IoT</h2>
+<p>A regra vai filtrar e formatar os datos das mensaxes de telemetría recibidas desde o camión e os vai gravar na táboa de DynamoDB.</p>
+<p>A carga útil (<em>payload</em>) dunha mensaxe contén a seguinte información:</p>
+<pre><code>{
+  &quot;uptime&quot;: &quot;43&quot;,
+  &quot;volts&quot;: &quot;12.08&quot;,
+  &quot;temp&quot;: &quot;15.18&quot;,
+  &quot;door&quot;: &quot;0&quot;,
+  &quot;i&quot;: &quot;1&quot;,
+  &quot;n&quot;: &quot;15&quot;,
+  &quot;timestamp&quot;: 1721929699.2319772
+}
+</code></pre>
+<p>A regra vaina converter ao formato seguinte que será o gravado na táboa:</p>
+<pre><code>{
+  &quot;temperature&quot;: &quot;15.18&quot;,
+  &quot;door&quot;: &quot;0&quot;
+}
+</code></pre>
+<p>Na regra vamos usar <a href="https://docs.aws.amazon.com/pt_br/iot/latest/developerguide/iot-substitution-templates.html">modelos de substitución</a>, que son expresións que permiten inserir valores dinámicos de funcións e datos de mensaxes.</p>
+<p>Para criar a regra AWS IoT fai o seguinte:</p>
+<ol>
+<li>Abre a consola AWS IoT e dentro do submenú <strong>Roteamento de mensaxes</strong> escolle a opción <strong>Regras</strong>.</li>
+<li>
+<p>Crea unha nova regra escollendo <strong>Crear regra</strong> e indicando as opcións seguintes:</p>
+<ul>
+<li>Nome da regra: <strong>truck2ddb</strong>. Lembra poñer o teu prefixo diante. Usa o caracter de suliñado para separalo do nome, xa que non se permiten guións, p.ex. <strong>xcpm2425_truck2ddb</strong>.</li>
+<li>Descrición: pon unha descrición para a regra.</li>
+<li>
+<p>Instrucción SQL: </p>
+<p><code>SELECT cast(temp AS DECIMAL) AS temperature, cast(door AS BOOLEAN) AS door FROM 'truck/freezer'</code></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Esta instrucción selecciona os atributos <strong>temp</strong> e <strong>door</strong> das mensaxes recibidas no tópico <code>truck/freezer</code>, interpreta os seus valores co tipo de dato que lles corresponde e renomea <strong>temp</strong> como <strong>temperature</strong> e <strong>door</strong> deixao co mesmo nome.</p>
+</div>
+</li>
+<li>
+<p>Accións da regra: na acción 1 escolhe <strong>DynamoDB</strong>. Nos campos que aparecen indica o seguinte:</p>
+<ul>
+<li>Nome da táboa: escolle <strong>trucks-data</strong>.</li>
+<li>Chave de partición: insire <strong>sample_time</strong>.</li>
+<li>Tipo de chave de partición: escolle <strong>NÚMERO</strong>.</li>
+<li>Valor da chave de partición: insire <code>${timestamp()}</code>. Esta expresión usa un modelo de substitución para obtér o tempo actúal usando a función <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-functions.html#iot-function-timestamp">timestamp</a>.</li>
+<li>Chave de clasificación: insire <strong>device_id</strong>.</li>
+<li>Tipo de chave de clasificación: escolle <strong>NÚMERO</strong>.</li>
+<li>
+<p>Valor da chave de clasificación: insire <code>${i}</code>. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Esta expresión usa un modelo de substitución para tomar o valor do campo <code>i</code> da mensaxe como ID do dispositivo. Unha alternativa común é que os ID dos dispositivos se inclúan nos nomes dos tópicos MQTT, p.ex. <code>truck/id/freezer</code>. Nese caso a expresión a usar sería: <code>${cast(topic(2) as DECIMAL)}</code>, que toma o valor do nivel 2 no nome do tópico e o convirte a un valor numérico. </p>
+</div>
+</li>
+<li>
+<p>Gravar os datos da mensaxe nesta columna: insire <strong>device_data</strong>. Iso creará unha columna <strong>device_data</strong> na táboa do DynamoDB para almacenar a mensaxe unha vez procesada pola regra.</p>
+</li>
+<li>Rol do IAM: escolle o rol predefinido <strong>LabRole</strong>. Este rol xa ten os permisos precisos para que a regra envíe os datos á táboa DynamoDB.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><img alt="Configuración da acción" src="../imgs/regra-accionddb.png" />
+<em>Imaxe: configuración da acción.</em></p>
+<h2 id="proba-da-regra-aws-iot">Proba da regra AWS IoT</h2>
+<p>Para probar o funcionamento da regra fai o seguinte:</p>
+<ol>
+<li>Nun terminal do ambiente Cloud9 executa o script <strong>start.sh</strong>.</li>
+<li>No cliente MQTT da consola de AWS IoT subscríbete ao tópico <code>truck/freezer</code> e comproba que se reciben mensaxes desde o dispositivo IoT.</li>
+<li>
+<p>Nunha xanela diferente á do cliente MQTT, abre a consola de DynamoDB, e fai o seguinte:</p>
+<ul>
+<li>Escolle a opción <strong>Explorar Items</strong> no menú lateral e selecciona a táboa <strong>trucks-data</strong>.</li>
+<li>Coa opción <strong>Verificar</strong> escollida, preme no botón <strong>Executar</strong> e comproba as entradas que a acción DynamoDB da regra inseriu na táboa. </li>
+</ul>
+<p><img alt="Entradas inseridas na táboa DynamoDB" src="../imgs/tabela-dynamodb-items.png" />
+<em>Imaxe: entradas inseridas na táboa DynamoDB.</em></p>
+<ul>
+<li>Preme no valor do <strong>sample_time</strong> dunha das entradas para abrila no editor de entradas. Desde o editor é posíbel modificar os valores dos atributos da entrada e dos campos da carga útil da mensaxe, así como engadir e eliminar atributos e campos.</li>
+</ul>
+<p><img alt="Entrada da táboa DynamoDB no editor de entradas" src="../imgs/tabela-dynamodb-editoritems.png" />
+<em>Imaxe: entrada da táboa DynamoDB no editor de entradas.</em></p>
+<ul>
+<li>Preme no botón <strong>Ver como JSON</strong> que está na parte superior dereita para ver a entrada en formato JSON. </li>
+<li>Na vista JSON activa/desactiva o conmutador para cambiar entre o formato JSON normal e o de DynamoDB. Comproba as diferenzas.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Exemplo</p>
+<p>Por exemplo, a entrada en JSON</p>
+</div>
+<pre><code>{
+ &quot;sample_time&quot;: 1721983656138,
+ &quot;device_id&quot;: 1,
+ &quot;device_data&quot;: {
+   &quot;door&quot;: false,
+   &quot;temperature&quot;: 21.82
+ }
+}
+</code></pre>
+<div class="admonition tip">
+<p>veríase no formato JSON do DynamoDB como</p>
+</div>
+<pre><code>{
+ &quot;sample_time&quot;: {
+  &quot;N&quot;: &quot;1721983656138&quot;
+ },
+ &quot;device_id&quot;: {
+  &quot;N&quot;: &quot;1&quot;
+ },
+ &quot;device_data&quot;: {
+  &quot;M&quot;: {
+   &quot;door&quot;: {
+    &quot;BOOL&quot;: false
+   },
+   &quot;temperature&quot;: {
+    &quot;N&quot;: &quot;21.82&quot;
+   }
+  }
+ }
+}
+</code></pre>
+<div class="admonition tip">
+<p>onde como pode verse, cada valor é precedido dunha chave que indica o seu tipo.</p>
+</div>
+<ol start="4">
+<li>Para rematar a proba preme <code>Ctrl+C</code> no terminal do ambiente Cloud9 no que estexa a executarse o script <strong>start.sh</strong>.</li>
+</ol>
+<h2 id="xustificacion-da-actividade">Xustificación da actividade</h2>
+<p>Toma as seguintes capturas para a memoria de xustificación da práctica:</p>
+<ol>
+<li>Na consola do DynamoDB as propiedades da táboa <strong>trucks-data</strong>.</li>
+<li>Na consola IoT as propiedades da regra <strong>truck2ddb</strong> e os detalles da acción DynamoDB.</li>
+<li>Ambiente Cloud9 no que se vexa a saída do terminal no que se executou o <em>script</em> <strong>start.sh</strong>.</li>
+<li>Na consola do DynamoDB o explorador de items no que se vexan as entradas inseridas na táboa <strong>trucks-data</strong>.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>As capturas teñen que asemellarse ás que se tomaron no curso e na práctica 1. As capturas tomadas na consola AWS teñen que incluír o menú superior no que poida verse o nome de usuario da conta.</p>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../actividade_1/" class="btn btn-neutral float-left" title="Actividade 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../actividade_3/" class="btn btn-neutral float-right" title="Actividade 3">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../actividade_1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../actividade_3/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

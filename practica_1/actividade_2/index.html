@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Xoan C. Pardo" /><link rel="canonical" href="https://miot-cniot.github.io/practica_1/actividade_2/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Actividade 2 - Computación na Nube para IoT</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Actividade 2";
+        var mkdocs_page_input_path = "practica_1/actividade_2.md";
+        var mkdocs_page_url = "/practica_1/actividade_2/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Computación na Nube para IoT
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Actividades adicionais</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 1</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Actividade 2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#obxectivo">Obxectivo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#aws-toolkit">AWS Toolkit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#aws-cli">AWS CLI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xustificacion-da-actividade">Xustificación da actividade</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_3/">Actividade 3</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 3</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Computación na Nube para IoT</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Práctica 1</li>
+      <li class="breadcrumb-item active">Actividade 2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="actividade-2">Actividade 2</h1>
+<p><strong>PROBAR OUTRAS FORMAS DE INTERAXIR CO SERVIZO AWS IOT CORE.</strong></p>
+<h2 id="obxectivo">Obxectivo</h2>
+<p>O obxectivo desta actividade é coñecer dúas maneiras adicionais de interaxir co servizo AWS IoT Core: </p>
+<ol>
+<li>
+<p>A <strong>AWS Toolkit</strong> é unha extensión que permite acceder e traballar con varios servizos AWS, incluído o AWS IoT Core, directamente desde o ambiente Cloud9.</p>
+</li>
+<li>
+<p>A <strong>AWS CLI</strong> é unha interface de liña de comandos para os servizos AWS que, entre outras posibilidades, pode usarse desde un terminal no ambiente Cloud9 onde xa está instalada por defecto.</p>
+</li>
+</ol>
+<h2 id="aws-toolkit">AWS Toolkit</h2>
+<p>Para probar a <strong>AWS Toolkit</strong> fai o seguinte:</p>
+<ol>
+<li>No ambiente Cloud9, accede ao AWS Explorer e desprega os elementos baixo o servizo IoT.</li>
+</ol>
+<p><img alt="AWS Toolkit" src="../imgs/aws_toolkit.png" />
+<em>Imaxe: AWS Toolkit para IoT aberto no AWS Explorer do ambiente Cloud9.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Aviso</p>
+<p>Aínda que no exemplo aparecen máis elementos, no teu caso só aparecerán os que se usaron no curso.</p>
+</div>
+<ol start="2">
+<li>Desde o menú de contexto de cada elemento (botón dereito do rato) pode accederse ás diferentes accións que poden realizarse con el. Podes curiosear tendo coidado de non modificar nada.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Consulta <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/iot-start.html">aquí</a> todas as operacións que soporta o toolkit para IoT.</p>
+</div>
+<h2 id="aws-cli">AWS CLI</h2>
+<p>Para probar a <strong>AWS CLI</strong> fai o seguinte:</p>
+<ol>
+<li>Nun terminal do ambiente Cloud9 executa os comandos que podes ver no seguinte exemplo:</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Nomenclatura</p>
+<p><strong>Lembra usar o teu prefixo</strong> no nome da cousa.</p>
+</div>
+<p><img alt="AWS CLI" src="../imgs/aws_cli.png" />
+<em>Imaxe: comandos da AWS CLI executados nun terminal do ambiente Cloud9.</em></p>
+<div class="admonition question">
+<p class="admonition-title">Pregunta</p>
+<p>Lembras en que <em>script</em> da actividade 1 se usou o comando <code>describe_endpoint</code> e para que?</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Podes consultar <a href="https://docs.aws.amazon.com/cli/latest/reference/iot">aquí</a> todas as operacións que soporta a CLI para IoT ou tamén executando o comando: <code>aws iot help</code></p>
+</div>
+<h2 id="xustificacion-da-actividade">Xustificación da actividade</h2>
+<p>Non é preciso entregar nada para xustificar a realización desta actividade.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../actividade_1/" class="btn btn-neutral float-left" title="Actividade 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../actividade_3/" class="btn btn-neutral float-right" title="Actividade 3">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../actividade_1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../actividade_3/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
