@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Xoan C. Pardo" /><link rel="canonical" href="https://miot-cniot.github.io/practica_5/actividade_1/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Actividade 1 - Computación na Nube para IoT</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Actividade 1";
+        var mkdocs_page_input_path = "practica_5/actividade_1.md";
+        var mkdocs_page_url = "/practica_5/actividade_1/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Computación na Nube para IoT
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Actividades adicionais</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_3/">Actividade 3</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 3</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 4</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_4/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_4/actividade_2/">Actividade 2</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Computación na Nube para IoT</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Actividade 1</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="actividade-1">Actividade 1</h1>
+<p><strong>COMPOÑENTES DE APRENDIZAXE MÁQUINA</strong></p>
+<h2 id="obxectivo">Obxectivo</h2>
+<p>O obxectivo desta actividade é comprobar o funcionamento dos compoñentes para a execución de modelos de aprendizaxe máquina en dispositivos Greengrass. Usaremos como exemplo o compoñente de clasificación de imaxes con <a href="https://github.com/neo-ai/neo-ai-dlr">Deep Learning Runtime (DLR)</a>. Este compoñente instala o <em>runtime</em> de DLR e utiliza un modelo ResNet-50 pre-adestrado para realizar a clasificación de imaxes. Os resultados da clasificación publícanse nun tópico MQTT predefinido.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Podes ver <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/perform-machine-learning-inference.html">aquí</a> a documentación sobre a execución de modelos de Aprendizaxe Máquina no Greengrass.</p>
+</div>
+<h2 id="preparar-a-instancia-do-ambiente-cloud9">Preparar a instancia do ambiente Cloud9</h2>
+<p>Antes de despregar o compoñente, temos que aumentar a cantidade de disco dispoñíbel na instancia EC2 do ambiente Cloud9. Fai o seguinte:</p>
+<ol>
+<li>Nun terminal do ambiente Cloud9 executa o comando <code>df -h</code> para ver o espazo de disco dispoñíbel.</li>
+</ol>
+<p><img alt="Espazo de disco dispoñíbel" src="imgs/incr-volEBS01.png" />
+<em>Imaxe: Espazo de disco dispoñíbel.</em></p>
+<ol start="2">
+<li>
+<p>Na consola do servizo Cloud9 abre as propiedades do ambiente <strong>edgeDevice</strong> e na aba <strong>Instancia do EC2</strong> preme no botón <strong>Administrar instancia do EC2</strong>.</p>
+</li>
+<li>
+<p>Na consola EC2 escolle a instancia para ver as súas propiedades e na aba <strong>Almacenamento</strong> preme no identificador do volume EBS.</p>
+</li>
+<li>
+<p>Na consola EBS escolle o volume da instancia e no menú de <strong>Accións</strong> escolle a opción <strong>Crear instantanea</strong>. Pon unha descrición e acepta para crear a instantanea. </p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Esta instantanea serviranos como copia de respaldo no caso de que haxa algún problema durante o redimensionamento do volume.</p>
+</div>
+<p><img alt="Creación da instantanea do volume" src="imgs/incr-volEBS02.png" />
+<em>Imaxe: creación da instantanea do volume.</em></p>
+<ol start="5">
+<li>Unha vez creada a instantanea, escolle de novo o volume na consola EBS e no menú de <strong>Accións</strong> escolle a opción <strong>Modificar volume</strong>. Cambia o tamaño a <strong>100GiB</strong> e acepta para modificar.</li>
+</ol>
+<p><img alt="Modificación do tamaño do volume" src="imgs/incr-volEBS03.png" />
+<em>Imaxe: modificación do tamaño do volume.</em></p>
+<ol start="6">
+<li>
+<p>Para poder facer uso do novo espazo adicional hai que agardar a que o volume pase ao estado <code>En uso - optimizando (#%)</code>. Unha vez que iso aconteza fai o seguinte nun terminal do ambiente Cloud9:</p>
+<ul>
+<li>Executa o comando <code>lsblk /dev/nvme0n1</code>. O volume aparece co novo tamaño porén o espazo adicional aínda está sen asignar a ningunha partición.</li>
+</ul>
+<p><img alt="Espazo adicional aínda non usado" src="imgs/incr-volEBS04.png" />
+<em>Imaxe: espazo de disco adicional aínda sen usar.</em></p>
+<ul>
+<li>Incrementa o tamaño da partición 1 executando o comando <code>sudo growpart /dev/nvme0n1 1</code>.</li>
+<li>Executa de novo o comando <code>lsblk /dev/nvme0n1</code> e comproba como agora o espazo adicional aparece xa asignado á partición 1.</li>
+</ul>
+<p><img alt="Espazo adicional asignado na partición 1" src="imgs/incr-volEBS05.png" />
+<em>Imaxe: espazo adicional asignado á partición 1.</em></p>
+<ul>
+<li>Redimensiona o sistema de ficheiros montado nesa partición executando o comando: <code>sudo resize2fs /dev/root</code>.</li>
+<li>Comproba que se redimensionou o sistema de ficheiros executando o comando <code>df -h</code>.</li>
+</ul>
+</li>
+</ol>
+<p><img alt="Sistema ade ficheiros redimensionado" src="imgs/incr-volEBS06.png" />
+   <em>Imaxe: sistema de ficheiros redimensionado.</em></p>
+<h2 id="despregadura-do-componente-para-a-clasificacion-de-imaxes">Despregadura do compoñente para a clasificación de imaxes</h2>
+<p>Para despregar o compoñente fai o seguinte:</p>
+<ol>
+<li>No ambiente Cloud9 instala a <a href="https://www.gnu.org/software/libc/">libraría GNU C</a>, que é un dos requisitos do compoñente.</li>
+</ol>
+<pre><code>$ sudo apt update
+$ sudo apt install glibc-source -y
+</code></pre>
+<ol start="2">
+<li>
+<p>No cliente MQTT da consola de AWS IoT subscríbete ao tópico predefinido <code>ml/dlr/image-classification</code>. O tópico pode cambiarse na configuración do compoñente.</p>
+</li>
+<li>
+<p>Noutra xanela diferente, escolle a opción <strong>Compoñentes</strong> dentro do menú <strong>Dispositivos Greengrass</strong> da consola de AWS IoT.</p>
+</li>
+<li>
+<p>Escolle a aba <strong>Compoñentes públicos</strong> e preme no nome do compoñente <code>aws.greengrass.DLRImageClassification</code>. </p>
+</li>
+<li>
+<p>Revisa a configuración por defecto e comproba na <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/dlr-image-classification-component.html">documentación do compoñente</a> o significado dos parámetros configurados. Revisa tamén as dependencias do compoñente.</p>
+</li>
+<li>
+<p>Desprega o compoñente premendo en <strong>Despregar</strong> e indicando as opcións seguintes:</p>
+<ul>
+<li>Adicionar á despregadura: escolle <strong>Adicionar a unha despregadura exitente</strong> e a despregadura <strong>Deployment for GreengrassQuickStartGroup</strong>.</li>
+<li>Seleccionar compoñentes: podes desactivar os compoñentes personalizados que se usaron como exemplo no curso.</li>
+</ul>
+<p><strong>Deixa todas as demais opcións nos seus valores por defecto</strong>.</p>
+</li>
+</ol>
+<h2 id="verificacion-da-despregadura">Verificación da despregadura</h2>
+<ol>
+<li>Na consola IoT comproba que a despregadura remata sen erros.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Se hai erros debidos a compoñentes locais do curso podes reinicialos e reintentar a despregadura ou eliminalos se iso non o soluciona. Mira na sección de <strong>Tips&amp;Troubleshoot</strong> do curso como facelo. </p>
+</div>
+<ol start="2">
+<li>No cliente MQTT da consola do AWS IoT comproba que se recibiu o resultado da inferencia no tópico <code>ml/dlr/image-classification</code>.</li>
+</ol>
+<p><img alt="Resultado do algoritmo de clasificación" src="imgs/incr-volEBS07.png" />
+   <em>Imaxe: resultado do algoritmo de clasificación no tópico MQTT.</em></p>
+<ol start="3">
+<li>Comproba a saída no ficheiro de <em>log</em> do compoñente.</li>
+</ol>
+<pre><code>$ sudo tail -2 /greengrass/v2/logs/aws.greengrass.DLRImageClassification.log
+2024-08-13T07:42:08.693Z [INFO] (Copier) aws.greengrass.DLRImageClassification: stdout. {&quot;timestamp&quot;: &quot;2024-08-13 07:42:08.140244&quot;, &quot;inference-type&quot;: &quot;image-classification&quot;, &quot;inference-description&quot;: &quot;Top 5 predictions with score 0.3 or above &quot;, &quot;inference-results&quot;: [{&quot;Label&quot;: &quot;tabby, tabby cat&quot;, &quot;Score&quot;: &quot;7.7886543&quot;}, {&quot;Label&quot;: &quot;Egyptian cat&quot;, &quot;Score&quot;: &quot;6.947347&quot;}, {&quot;Label&quot;: &quot;tiger cat&quot;, &quot;Score&quot;: &quot;6.8371673&quot;}, {&quot;Label&quot;: &quot;doormat, welcome mat&quot;, &quot;Score&quot;: &quot;5.378184&quot;}, {&quot;Label&quot;: &quot;plastic bag&quot;, &quot;Score&quot;: &quot;4.5232644&quot;}]}. {scriptName=services.aws.greengrass.DLRImageClassification.lifecycle.run.script, serviceName=aws.greengrass.DLRImageClassification, currentState=RUNNING}
+2024-08-13T07:42:08.694Z [INFO] (Copier) aws.greengrass.DLRImageClassification: stdout. Publishing results to the IoT core.... {scriptName=services.aws.greengrass.DLRImageClassification.lifecycle.run.script, serviceName=aws.greengrass.DLRImageClassification, currentState=RUNNING}
+</code></pre>
+<ol start="4">
+<li>Se os pasos anteriores non dan os resultados agardados, comproba no <em>log</em> do Greengrass se houbo erros durante a despregadura do compoñente. Podes consultar <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/ml-troubleshooting.html#troubleshooting-disk-space-errors">aquí</a> os erros máis comúns.</li>
+</ol>
+<h2 id="xustificacion-da-actividade">Xustificación da actividade</h2>
+<p>Toma as seguintes capturas para a memoria de xustificación da práctica:</p>
+<ol>
+<li>Ambiente Cloud9 mostrando a saída da execución dos comandos seguintes:</li>
+</ol>
+<pre><code>$ sudo /greengrass/v2/bin/greengrass-cli component list | grep -E 'Component Name:.*DLR' -A 3
+$ sudo tail -2 /greengrass/v2/logs/aws.greengrass.DLRImageClassification.log
+</code></pre>
+<ol start="2">
+<li>Consola IoT coa mensaxe MQTT recibida no tópico <code>ml/dlr/image-classification</code>, na que poida verse o <em>payload</em>.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>As capturas teñen que asemellarse ás que se tomaron no curso e nas prácticas anteriores. As capturas tomadas na consola AWS teñen que incluír o menú superior no que poida verse o nome de usuario da conta.</p>
+</div>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

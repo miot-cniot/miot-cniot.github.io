@@ -1,0 +1,83 @@
+{
+  "RecipeFormatVersion": "2020-01-25",
+  "ComponentName": "com.example.CustomDLRImageClassification",
+  "ComponentVersion": "1.0.0",
+  "ComponentType": "aws.greengrass.generic",
+  "ComponentDescription": "Custom Image classification inference using DLR and resnet50 default model.",
+  "ComponentPublisher": "Xoan C. Pardo",
+  "ComponentConfiguration": {
+    "DefaultConfiguration": {
+      "accessControl": {
+        "aws.greengrass.ipc.mqttproxy": {
+          "com.example.CustomDLRImageClassification:mqttproxy:1": {
+            "policyDescription": "Allows access to publish via topic ml/custom/image-classification.",
+            "operations": [
+              "aws.greengrass#PublishToIoTCore"
+            ],
+            "resources": [
+              "ml/custom/image-classification"
+            ]
+          }
+        },
+        "aws.greengrass.ipc.pubsub": {
+          "com.example.CustomDLRImageClassification:pubsub:1": {
+            "policyDescription": "Allows access to subscribe to all topics.",
+            "operations": [
+              "aws.greengrass#SubscribeToTopic"
+            ],
+            "resources": [
+              "*"
+            ]
+          }
+        }
+      },
+      "ImageName": "cat.jpeg",
+      "InferenceInterval": "3600",
+      "PublishResultsOnTopic": "ml/custom/image-classification",
+      "ModelResourceKey": {
+        "x86_64": "DLR-resnet50-x86_64-cpu-ImageClassification"
+      },
+      "LocalTopic": "ml/image"
+    }
+  },
+  "ComponentDependencies": {
+    "variant.DLR.ImageClassification.ModelStore": {
+      "VersionRequirement": ">=2.1.0 <2.2.0",
+      "DependencyType": "HARD"
+    },
+    "variant.DLR": {
+      "VersionRequirement": ">=1.6.9 <1.7.0",
+      "DependencyType": "HARD"
+    },
+    "aws.greengrass.Nucleus": {
+      "VersionRequirement": ">=2.0.0 <3.0.0",
+      "DependencyType": "SOFT"
+    }
+  },
+  "Manifests": [
+    {
+      "Platform": {
+        "os": "linux",
+        "architecture": "amd64"
+      },
+      "Lifecycle": {
+        "setEnv": {
+          "DLR_IC_MODEL_DIR": "{variant.DLR.ImageClassification.ModelStore:artifacts:decompressedPath}/{configuration:/ModelResourceKey/x86_64}",
+          "DEFAULT_DLR_IC_IMAGE_DIR": "/home/ubuntu/environment/image_classification/",
+          "TOPIC": "{configuration:/LocalTopic}"
+        },
+        "run": {
+          "RequiresPrivilege": "true",
+          "script": "\n                                    export PATH=\"{variant.DLR:configuration:/MLRootPath}/greengrass_ml_dlr_conda/bin:$PATH\"\n                                    eval \"$({variant.DLR:configuration:/MLRootPath}/greengrass_ml_dlr_conda/bin/conda shell.bash hook)\"\n                                    conda activate greengrass_ml_dlr_conda\n                                    python3 {artifacts:decompressedPath}/custom/inference.py"
+        }
+      },
+     "Artifacts": [
+        {
+           "URI": "s3://ggcv2-workshop-ip-172-31-30-105-1723622213/artifacts/com.example.CustomDLRImageClassification/1.0.0/custom.zip",
+           "Unarchive": "ZIP"
+        }
+     ]
+    }
+  ],
+  "Lifecycle": {}
+}

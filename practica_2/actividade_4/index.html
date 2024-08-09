@@ -114,6 +114,13 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_4/">Actividade 4</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Práctica 4</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_4/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_4/actividade_2/">Actividade 2</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -155,7 +162,7 @@
 <p>Para crear unha sombra de dispositivo fai o seguinte:</p>
 <ol>
 <li>Abre a consola AWS IoT e no menú lateral, dentro do submenú <strong>Todos os dispositivos</strong>, escolle a opción <strong>Cousas</strong>.</li>
-<li>Abre as propiedades da cousa <strong>truckSensor01</strong> e na lapela <strong>Sombras de dispositivo</strong> escolle <strong>Crear sombra de dispositivo</strong>. </li>
+<li>Abre as propiedades da cousa <strong>truckSensor01</strong> e na aba <strong>Sombras de dispositivo</strong> escolle <strong>Crear sombra de dispositivo</strong>. </li>
 <li>Escolle o tipo <strong>Sombra sen nome (clásico)</strong> e acepta para crear a sombra.</li>
 </ol>
 <p><img alt="Sombra do dispositivo" src="../imgs/awsiot-thing-shadow.png" />
@@ -213,8 +220,8 @@ $
 <h3 id="estado-inicial-da-sombra">Estado inicial da sombra</h3>
 <p>Para configurar o estado inicial da sombra fai o seguinte:</p>
 <ol>
-<li>Nas propiedades da cousa <strong>truckSensor01</strong>, escolle a lapela <strong>Sombras de dispositivo</strong> e abre as propiedades da sombra premendo no seu nome.</li>
-<li>Na lapela <strong>Documento da sombra de dispositivo</strong> das propiedades da sombra podes consultar o estado inicial da sombra.</li>
+<li>Nas propiedades da cousa <strong>truckSensor01</strong>, escolle a aba <strong>Sombras de dispositivo</strong> e abre as propiedades da sombra premendo no seu nome.</li>
+<li>Na aba <strong>Documento da sombra de dispositivo</strong> das propiedades da sombra podes consultar o estado inicial da sombra.</li>
 </ol>
 <p><img alt="Estado inicial da sombra" src="../imgs/aws_iot_shadowstate01.png" />
 <em>Imaxe: estado inicial da sombra.</em></p>
@@ -223,7 +230,7 @@ $
 <p>Polo dagora a propiedade <strong>door</strong> non forma parte do estado da sombra.</p>
 </div>
 <ol start="3">
-<li>Na lapela <strong>Tópicos MQTT</strong> das propiedades da sombra escolle <strong>Cliente de proba MQTT</strong> para abrir unha nova xanela do cliente MQTT con subscricións xa configuradas aos tópicos da sombra.</li>
+<li>Na aba <strong>Tópicos MQTT</strong> das propiedades da sombra escolle <strong>Cliente de proba MQTT</strong> para abrir unha nova xanela do cliente MQTT con subscricións xa configuradas aos tópicos da sombra.</li>
 </ol>
 <p><img alt="Cliente de proba MQTT" src="../imgs/aws_iot_mqttclient01.png" />
 <em>Imaxe: cliente de proba MQTT con subscricións aos tópicos da sombra.</em></p>
@@ -691,7 +698,7 @@ $ ./shadow.sh
 </div>
 <h3 id="creacion-da-sombra-de-dispositivo_1">Creación da sombra de dispositivo</h3>
 <ol>
-<li>Na consola IoT as propiedades da cousa <strong>truckSensor01</strong> coa lapela <strong>Sombras de dispositivo</strong> escollida na que poida verse a sombra.</li>
+<li>Na consola IoT as propiedades da cousa <strong>truckSensor01</strong> coa aba <strong>Sombras de dispositivo</strong> escollida na que poida verse a sombra.</li>
 </ol>
 <h3 id="configuracion-do-exemplo_1">Configuración do exemplo</h3>
 <ol start="2">
