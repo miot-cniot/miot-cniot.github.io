@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt_BR" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Xoan C. Pardo" /><link rel="canonical" href="https://miot-cniot.github.io/practica_5/actividade_2/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Actividade 2 - Computación na Nube para IoT</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Actividade 2";
+        var mkdocs_page_input_path = "practica_5/actividade_2.md";
+        var mkdocs_page_url = "/practica_5/actividade_2/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Computación na Nube para IoT
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_1/actividade_3/">Actividade 3</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_2/actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 3</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_2/">Actividade 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_3/">Actividade 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_3/actividade_4/">Actividade 4</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 4</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_4/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_4/actividade_2/">Actividade 2</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Práctica 5</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Actividade 2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#obxectivo">Obxectivo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-1-setup-a-redshift-cluster">Step 1 - Setup a Redshift cluster</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#xustificacion-do-paso">Xustificación do paso</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-redshift-cluster-security">Step 2 - Redshift cluster security</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#xustificacion-do-paso_1">Xustificación do paso</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-create-table-definition">Step 3 - Create table definition</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#xustificacion-do-paso_2">Xustificación do paso</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-create-s3-firehose-bucket">Step 4 - Create S3 Firehose bucket</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-5-setup-kinesis-firehose">Step 5 - Setup Kinesis Firehose</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#xustificacion-do-paso_3">Xustificación do paso</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-6-update-our-aws-iot-rule">Step 6 - Update our AWS IoT rule</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#xustificacion-do-paso_4">Xustificación do paso</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-7-check-your-roles">Step 7 - Check your roles!</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-8-test-your-code">Step 8 - Test your code</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#xustificacion-do-paso_5">Xustificación do paso</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#eliminacion-de-recursos">Eliminación de recursos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xustificacion-da-actividade">Xustificación da actividade</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Computación na Nube para IoT</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Práctica 5</li>
+      <li class="breadcrumb-item active">Actividade 2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="actividade-2">Actividade 2</h1>
+<p><strong>STREAMING DE DATOS A REDSHIFT</strong></p>
+<h2 id="obxectivo">Obxectivo</h2>
+<p>O obxectivo desta actividade é configurar o envío dun <em>stream</em> de datos de telemetría a un cluster <a href="https://aws.amazon.com/redshift/">Redshift</a> usando o <a href="https://aws.amazon.com/firehose/">Amazon Data Firehose</a>.</p>
+<p>Para realizar esta actividade vamos usar como base <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/d144e5b2-21e8-4378-8ca1-b4847a485dbd/en-US/aws-iot-best-practices/lab3-redshift">este exemplo do curso AWS IoT Events Workshop</a> dispoñíbel na plataforma AWS Workshop Studio. O curso só está dispoñíbel en inglés, pero podes axudarte, p. ex., da tradución automática integrada no teu navegador se o precisas.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Para realizar a práctica, segue as instrucións do exemplo tendo en conta a medida que avances as indicacións que se che dan nesta actividade. As capturas que hai que tomar para xustificar a actividade están indicadas ao final de cada paso, e ao final da actividade, a modo de resume, listanse todas as capturas que hai que incluír na memoria de xustificación da actividade.</p>
+</div>
+<p>A continuación se recollen as indicacións adicionais que terás que ter en conta en cada sección do exemplo:</p>
+<h2 id="step-1-setup-a-redshift-cluster">Step 1 - Setup a Redshift cluster</h2>
+<p>Para crear o cluster, na consola de RedShift escolle a opción <strong>clusters</strong> no menú lateral, preme no botón <strong>Crear cluster</strong> e indica as propiedades seguintes:</p>
+<ul>
+<li>Identificador do cluster: <strong>iot-cluster</strong>. Engade o teu prefixo ao nome.</li>
+<li>Tipo de nó: <strong>dc2.large</strong></li>
+<li>Número de nós: <strong>2</strong></li>
+<li>Seña do administrador: configura unha seña manualmente.</li>
+<li>Funcións do IAM asociadas: asocia o rol IAM predefinido <strong>LabRole</strong>.</li>
+<li>Nas configuracións adicionais:<ul>
+<li>No apartado de <strong>Rede e Seguranza</strong> activa a opción <strong>Activar recurso publicamente accesíbel</strong>.</li>
+<li>No apartado de <strong>Configuracións da Base de datos</strong>, configura o nome da base de datos: <strong>iotredshift</strong>. Engade o teu prefixo ao nome.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">MOI IMPORTANTE !!!!!!</p>
+<p>O cluster Redshift é un recurso “moi caro” para o crédito do que dispoñemos nos laboratorios da AWS Academy. Asegúrate de mantelo parado escollendo a opción <strong>Pausar</strong> do menú de accións do cluster antes de pechar unha sesión no laboratorio ou durante as sesións nas que non o vaias a usar. <strong>Deixalo funcionando entre sesións pode deixarte sen crédito en cuestión dun par de días.</strong> Unha vez remates a actividade elimina o cluster para evitar que poida deixarte sen crédito.</p>
+</div>
+<h4 id="xustificacion-do-paso">Xustificación do paso</h4>
+<p>Toma a seguinte captura para a memoria de xustificación da práctica:</p>
+<ol>
+<li>Propiedades do cluster Redshift (chega con que se vexa o apartado de <strong>informacións xerais</strong>).</li>
+</ol>
+<p><img alt="Exemplo de captura das propiedades do cluster Redshift" src="../imgs/redshift-prop01.png" />
+<em>Imaxe: Exemplo de captura das propiedades do cluster Redshift.</em></p>
+<h2 id="step-2-redshift-cluster-security">Step 2 - Redshift cluster security</h2>
+<p>Vamos a conectarnos ao cluster desde a instancia Cloud9, polo que teremos que configurar regras nos grupos de seguranza da instancia e do cluster para permitir a conexión. Ademais tamén temos que engadir unha regra no grupo de seguranza do cluster para permitir o tráfico desde Firehose.</p>
+<p>Para modificar as regras do grupo de seguranza do cluster fai o seguinte:</p>
+<ol>
+<li>Preme no nome do cluster para abrir as súas propiedades. Na aba <strong>Propiedades</strong> procura o apartado <strong>Configuracións de rede e seguranza</strong> e preme no nome do grupo de seguranza. Abrirase nunha nova xanela. <em>Presta atención a cal é o grupo</em>, por defecto o cluster usa o grupo <strong>default</strong>.</li>
+<li>Edita as regras de entrada do grupo do cluster. Engade as seguintes:<ul>
+<li>Todo o tráfico desde a IP de Firehose: <strong>52.70.63.192/27</strong> (us-east-1)</li>
+<li>Todo o tráfico desde o grupo de seguranza da instancia Cloud9 (o nome do grupo comeza por <code>aws-cloud9-&lt;prefixo&gt;-VirtualDevice</code>)  <br />
+<img alt="Regras de entrada do grupo default" src="../imgs/ec2sg-prop02.png" />
+<em>Imaxe: regras de entrada do grupo default.</em></li>
+</ul>
+</li>
+<li>Edita as regras de entrada do grupo de seguranza da instancia Cloud9. Engade a seguinte:<ul>
+<li>Todo o tráfico desde o grupo <strong>default</strong> (o grupo que está a usar o cluster)
+<img alt="Regras de entrada do grupo de seguranza da instancia Cloud9" src="../imgs/ec2sg-prop01.png" />
+<em>Imaxe: regras de entrada do grupo de seguranza da instancia Cloud9.</em></li>
+</ul>
+</li>
+</ol>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Para “afinar” aínda máis a seguranza poderiamos ter configurado un grupo específico para o cluster Redshift no canto de usar o grupo <strong>default</strong>.</p>
+</div>
+<h4 id="xustificacion-do-paso_1">Xustificación do paso</h4>
+<p>Toma as seguintes capturas para a memoria de xustificación da práctica:</p>
+<ol start="2">
+<li>Regras de entrada do grupo de seguranza <strong>default</strong> (o do cluster).</li>
+<li>Regras de entrada do grupo de seguranza da instancia Cloud9.</li>
+</ol>
+<h2 id="step-3-create-table-definition">Step 3 - Create table definition</h2>
+<p>Para crear a táboa fai o seguinte:</p>
+<ol>
+<li>Instala o SQLWorkbench/J na instancia Cloud9. Ten en conta o seguinte:<ul>
+<li>A instancia xa ten unha versión de Java válida (podes vela executando <code>java --version</code>)</li>
+<li>Descarga o paquete executando <code>wget &lt;URL&gt;</code>. A URL da ligazón de descarga podes obtela <a href="https://www.sql-workbench.eu/downloads.html">aquí</a>.</li>
+</ul>
+</li>
+<li>Instala o driver JBDC do Redshift.<ul>
+<li>Descarga o driver executando <code>wget &lt;URL&gt;</code>. A ligazón de descarga podes obtela <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/jdbc20-download-driver.html">aquí</a>.</li>
+<li>Podes copialo onde queiras (p.ex. nun directorio <strong>JBDC</strong> dentro do directorio do SQLWorkbench)</li>
+</ul>
+</li>
+<li>Crea un ficheiro <strong>create-table.sql</strong> para o <em>script</em> do lab que crea a táboa. O ficheiro ten que crearse nun directorio <em>scripts</em> dentro do directorio no que descomprimiras o SQLWorkbench.</li>
+<li>Crea un perfil de conexión a Redshift.<ul>
+<li>Inicia a consola do SQLWorkbench executando o <em>script</em> <code>sqlworkbench.sh</code></li>
+<li>Executa o seguinte comando na consola do SQLWorkbench:</li>
+</ul>
+</li>
+</ol>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Ten en conta que a versión do ficheiro <code>.jar</code> do driver JDBC pode ser diferente no teu caso</p>
+</div>
+<pre><code>WbCreateProfile -name=&quot;Redshift&quot; -profileGroup=IOT 
+  -savePassword=true -username=awsuser -password=&lt;A_TÚA_SEÑA&gt;
+  -url=jdbc:redshift://&lt;A_URL_JDBC_DO_CLUSTER&gt;
+  -driver=com.amazon.redshift.jbdc42.Driver
+  -driverJar=&lt;RUTA_DO_DRIVER_JBDC&gt;/redshift-jdbc42-2.1.0.30.jar
+  -autocommit=true;
+</code></pre>
+<p><img alt="Execución do comando WbCreateProfile" src="../imgs/cloud9-sqlwb01.png" />
+<em>Imaxe: execución do comando WbCreateProfile.</em></p>
+<ol start="5">
+<li>Crea a táboa.<ul>
+<li>Conéctate con <code>WbConnect Redshift;</code> executa o <em>script</em> con <code>WbRun scripts/create-table.sql;</code> e comproba o resultado con <code>WbList;</code></li>
+</ul>
+</li>
+</ol>
+<p><img alt="Creación da táboa no WbCreateProfile" src="../imgs/cloud9-sqlwb02.png" />
+<em>Imaxe: creación da táboa no WbCreateProfile.</em></p>
+<h4 id="xustificacion-do-paso_2">Xustificación do paso</h4>
+<p>Toma a seguinte captura para a memoria de xustificación da práctica:</p>
+<ol start="4">
+<li>Ambiente Cloud9 cos arquivos do SQLWorkbench na árbore de directorios e o contido do <em>script</em> <strong>create-table.sql</strong> nun terminal e a saída da creación da táboa (punto 5) noutro.</li>
+</ol>
+<h2 id="step-4-create-s3-firehose-bucket">Step 4 - Create S3 Firehose bucket</h2>
+<p><strong>Non fagas este paso.</strong> Crearemos o <em>bucket</em> S3 durante a configuración do fluxo do Firehose.</p>
+<h2 id="step-5-setup-kinesis-firehose">Step 5 - Setup Kinesis Firehose</h2>
+<p><strong>Non fagas os pasos do lab.</strong> No seu lugar fai o seguinte:</p>
+<ul>
+<li>Accede á consola do Amazon Data Firehose (servizo que substitúe ao de Kinesis), preme no botón <strong>Crear fluxo do Firehose</strong> e indica as propiedades seguintes:<ul>
+<li>Orixe: <strong>Direct PUT</strong></li>
+<li>Destino: <strong>Amazon Redshift</strong></li>
+<li>Nome: <strong>iotstream</strong>. Engade o teu prefixo ao nome.</li>
+<li>Tipo de destino do Amazon Redshift: <strong>Cluster aprovisionado</strong>.</li>
+<li>Cluster: escolle o cluster <strong>iot-cluster</strong>.</li>
+<li>Base de datos: <strong>iotredshift</strong> (co teu prefixo diante).</li>
+<li>Autenticación: usar nome de usuario e seña.</li>
+<li>Nome de usuario: <strong>awsuser</strong>.</li>
+<li>Seña: insire a seña que configuraches ao crear o cluster Redshift.</li>
+<li>Táboa: <strong>thingtest</strong>.</li>
+<li>Bucket S3 intermediario: crea o bucket <strong>iotfirehose</strong>. Engade o teu prefixo ao nome.</li>
+<li>Opcións do comando COPY: <code>FORMAT AS JSON 'auto'</code></li>
+<li>Nas configuracións avanzadas, en <strong>Acceso ao Servizo</strong> escolle o rol predefinido <strong>LabRole</strong>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="xustificacion-do-paso_3">Xustificación do paso</h4>
+<p>Toma a seguinte captura para a memoria de xustificación da práctica:</p>
+<ol start="5">
+<li>Propiedades nas que se vexan os detalles do fluxo e a configuración do destino.</li>
+</ol>
+<p><img alt="Exemplo de captura das propiedades do fluxo Firehose" src="../imgs/firehose-prop01.png" />
+<em>Imaxe: exemplo de captura das propiedades do cluster Redshift.</em></p>
+<h2 id="step-6-update-our-aws-iot-rule">Step 6 - Update our AWS IoT rule</h2>
+<p><strong>Non fagas os pasos do lab.</strong> No seu lugar crea no IoT Core unha regra coas seguintes propiedades:</p>
+<ul>
+<li>Nome: <strong>thingrule</strong>. Engade o teu prefixo ao nome. Usa o subliñado que non acepta guión.</li>
+<li>Descrición: insire unha descrición.</li>
+<li>Instrución SQL: <code>SELECT * FROM 'iot'</code></li>
+<li>Accións da regra: engade unha regra de tipo <strong>Data Firehose Stream</strong> coas seguintes propiedades:<ul>
+<li>Fluxo do Amazon Data Firehose: escolle <strong>iotstream</strong>.</li>
+<li>Función do IAM: escolle o rol IAM predefinido <strong>LabRole</strong>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="xustificacion-do-paso_4">Xustificación do paso</h4>
+<p>Toma a seguinte captura para a memoria de xustificación da práctica:</p>
+<ol start="6">
+<li>Propiedades da regra <strong>thingrule</strong> coa aba <strong>Accións</strong> escollida.</li>
+</ol>
+<h2 id="step-7-check-your-roles">Step 7 - Check your roles!</h2>
+<p>Neste paso non tes que facer nada.</p>
+<h2 id="step-8-test-your-code">Step 8 - Test your code</h2>
+<p><strong>Non executes o ratchet.py do lab 2</strong> como se indica no lab porque o formato de mensaxe non coincide co da táboa <strong>thingtest</strong>. No seu lugar fai o seguinte:</p>
+<ul>
+<li>Crea un novo <em>script</em> Python co código que se fornece no lab e configura a conexión MQTT como nos labs anteriores.</li>
+</ul>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Hai un erro de sintaxe no código do lab, nas instrucións <code>print</code> faltan os parénteses.</p>
+</div>
+<ul>
+<li>Executa o <em>script</em>. A carga de datos efectiva no Redshift pode demorar varios minutos, mentres podes comprobar:<ul>
+<li>Nas propiedades do fluxo Firehose, se aparece algunha mensaxe de erro nos <strong>logs de erros do destino</strong>.</li>
+<li>No bucket S3 <strong>iotfirehose</strong>, se se crearon os ficheiros temporais que se copiarán a RedShift.</li>
+</ul>
+</li>
+<li>Para comprobar o resultado:<ul>
+<li>Desde o SQLWorkbench na instancia Cloud9.<ul>
+<li>Conéctate con <code>WbConnect Redshift;</code> e consulta a táboa con <code>SELECT * FROM thingtest;</code></li>
+</ul>
+</li>
+<li>
+<p>Desde o editor de consultas do Redshift.</p>
+<ol>
+<li>Na consola do Redshift escolle o cluster <strong>iot-cluster</strong> e a opción <strong>Consultar no editor de consultas v2</strong> no menú <strong>Consultar datos</strong>. Abrirase o editor nunha nova xanela. </li>
+<li>
+<p>No editor preme no nome do cluster e configura unha conexión coas propiedades seguintes:</p>
+<ul>
+<li>Forma de conexión: escolle a opción <strong>Temporary credentials using a database user name</strong> </li>
+<li>Database: <strong>iotredshift</strong> co teu prefixo diante.</li>
+<li>User name: <strong>awsuser</strong>
+<img alt="Configuración da conexión no editor de consultas do Redshift" src="../imgs/redshift-queryeditor01.png" />
+<em>Imaxe: configuración da conexión no editor de consultas do Redshift.</em>                </li>
+</ul>
+</li>
+<li>
+<p>Crea unha consulta escollendo a opción <strong>Select table</strong> no menú de contexto da táboa <strong>thingtest</strong> e execútaa premendo en <strong>Run</strong>.
+<img alt="Execución dunha consulta no editor de consultas Redshift" src="../imgs/redshift-queryeditor02.png" />
+<em>Imaxe: execución dunha consulta no editor de consultas Redshift.</em></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="xustificacion-do-paso_5">Xustificación do paso</h4>
+<p>Toma a seguinte captura para a memoria de xustificación da práctica:</p>
+<ol start="7">
+<li>Editor de consultas do Redshift no que se vexa a táboa <strong>thingtest</strong> na vista en árbore do cluster, o esquema da táboa, a consulta SQL e o resultado.</li>
+</ol>
+<p><img alt="Exemplo de captura do editor de consultas Redshift" src="../imgs/redshift-queryeditor03.png" />
+<em>Imaxe: exemplo de captura do editor de consultas Redshift.</em></p>
+<h2 id="eliminacion-de-recursos">Eliminación de recursos</h2>
+<div class="admonition important">
+<p class="admonition-title">MOI IMPORTANTE!!!!!!</p>
+<p>Elimina o cluster unha vez remates a actividade para evitar que poida deixarte sen crédito.</p>
+</div>
+<p>Cando xa non os vaias usar máis elimina os recursos que se crearon nesta actividade:</p>
+<ul>
+<li>No Redshift elimina o cluster <strong>iot-cluster</strong>.</li>
+<li>No S3 elimina o <em>bucket</em> <strong>iotfirehose</strong>.</li>
+<li>No Firehose elimina o fluxo <strong>iotstream</strong>.</li>
+<li>No IoT Core elimina a regra <strong>thingrule</strong>.</li>
+</ul>
+<h2 id="xustificacion-da-actividade">Xustificación da actividade</h2>
+<p>Resume das capturas que tes que incluír na memoria de xustificación da práctica:</p>
+<p><strong>Step 1 - Setup a Redshift cluster</strong></p>
+<ol>
+<li>Propiedades do cluster Redshift.</li>
+</ol>
+<p><strong>Step 2 - Redshift cluster security</strong></p>
+<ol start="2">
+<li>Regras de entrada do grupo de seguranza default (o do cluster).</li>
+<li>Regras de entrada do grupo de seguranza da instancia Cloud9</li>
+</ol>
+<p><strong>Step 3 - Create table definition</strong></p>
+<ol start="4">
+<li>Ambiente Cloud9 cos arquivos do SQLWorkbench na árbore de directorios e o script <strong>create-table.sql</strong> nun terminal e a creación da táboa noutro.</li>
+</ol>
+<p><strong>Step 5 - Setup Kinesis Firehose</strong></p>
+<ol start="5">
+<li>Propiedades nas que se vexan os detalles do fluxo e a configuración do destino.</li>
+</ol>
+<p><strong>Step 6 - Update our AWS IoT rule</strong></p>
+<ol start="6">
+<li>Propiedades da regra <strong>thingrule</strong> coa aba <strong>Accións</strong> escollida.</li>
+</ol>
+<p><strong>Step 8 - Test your code</strong></p>
+<ol start="7">
+<li>Editor de consultas do Redshift no que se vexa a táboa <strong>thingtest</strong> na vista en árbore do cluster, o esquema da táboa, a consulta SQL e o resultado.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>As capturas teñen que asemellarse ás que se tomaron nos laboratorios e nas prácticas anteriores. As capturas tomadas na consola AWS teñen que incluír o menú superior no que poida verse o nome de usuario da conta.</p>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../actividade_1/" class="btn btn-neutral float-left" title="Actividade 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../actividade_1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

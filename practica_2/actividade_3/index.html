@@ -40,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../..">Actividades adicionais</a>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Práctica 1</span></p>
@@ -93,6 +93,13 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../practica_4/actividade_2/">Actividade 2</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Práctica 5</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_5/actividade_1/">Actividade 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../practica_5/actividade_2/">Actividade 2</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -123,7 +130,7 @@
 <p>O obxectivo desta actividade é crear unha regra AWS IoT que envíe os datos das mensaxes de telemetría recibidas desde o dispositivo IoT (o camión) a un tópico do SNS para que podan ser enviados como unha mensaxe de correo electrónico.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>SNS pode enviar notificacións a otros tipos de destinos, como p.ex. notificacións PUSH ou SMS a móbiles. Nesta actividade usamos o correo para evitar posíbeis cargos na factura do teléfono.</p>
+<p>SNS pode enviar notificacións a otros tipos de destinos, como p.ex. notificacións PUSH ou SMS a móbeis. Nesta actividade usamos o correo para evitar posíbeis cargos na factura do teléfono.</p>
 </div>
 <h2 id="creacion-do-topico-sns">Creación do tópico SNS</h2>
 <p>Para crear un tópico do SNS fai o seguinte:</p>
@@ -194,7 +201,7 @@ temperatura e o límite que foi excedido e enviaraa ao tópico SNS.</p>
 <li>
 <p>Crea unha nova regra escollendo <strong>Crear regra</strong> e indicando as opcións seguintes:</p>
 <ul>
-<li>Nome da regra: <strong>truck2sns</strong>. Lembra poñer o teu prefixo diante. Usa o caracter de suliñado para separalo do nome, xa que non se permiten guións, p.ex. <strong>xcpm2425_truck2sns</strong>.</li>
+<li>Nome da regra: <strong>truck2sns</strong>. Lembra poñer o teu prefixo diante. Usa o caracter de subliñado para separalo do nome, xa que non se permiten guións, p.ex. <strong>xcpm2425_truck2sns</strong>.</li>
 <li>Descrición: pon unha descrición para a regra.</li>
 <li>
 <p>Instrucción SQL: </p>
@@ -236,7 +243,7 @@ temperatura e o límite que foi excedido e enviaraa ao tópico SNS.</p>
 <p>Toma as seguintes capturas para a memoria de xustificación da práctica:</p>
 <ol>
 <li>Na consola do SNS as propiedades do tópico <strong>high-temp-alert</strong> coa aba <strong>Subscricións</strong> escollida na que poida verse a subscrición ao enderezo de correo en estado confirmado.</li>
-<li>O correo recibido para comprobar que a notificación ao tópico *<em>high-temp-alert</em> funciona.</li>
+<li>O correo recibido para comprobar que a notificación ao tópico <strong>high-temp-alert</strong> funciona.</li>
 <li>Na consola IoT as propiedades da regra <strong>truck2sns</strong> e os detalles da acción SNS.</li>
 <li>Un dos correos de notificación recibidos cando a temperatura supera o límite.</li>
 </ol>
