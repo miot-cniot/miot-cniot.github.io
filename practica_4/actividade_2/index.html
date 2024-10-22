@@ -425,7 +425,7 @@ $
 </ol>
 <pre><code>$ aws s3 ls --recursive s3://$S3_BUCKET
 $ sudo /greengrass/v2/bin/greengrass-cli component list | grep -E 'Component Name:.*DLR' -A 3
-$ sudo tail -2 /greengrass/v2/logs/aws.greengrass.DLRImageClassification.log
+$ sudo tail -2 /greengrass/v2/logs/aws.greengrass.CustomDLRImageClassification.log
 </code></pre>
 <blockquote>
 <p>O último comando ten que executarse despois de completar unha inferencia e ten que mostrar as mensaxes do <em>log</em> que indican que se enviaron os resultados da inferencia ao AWS IoT Core.</p>
