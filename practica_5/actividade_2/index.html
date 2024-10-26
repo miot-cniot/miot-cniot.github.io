@@ -164,7 +164,7 @@
 <p><strong>STREAMING DE DATOS A REDSHIFT</strong></p>
 <h2 id="obxectivo">Obxectivo</h2>
 <p>O obxectivo desta actividade é configurar o envío dun <em>stream</em> de datos de telemetría a un cluster <a href="https://aws.amazon.com/redshift/">Redshift</a> usando o <a href="https://aws.amazon.com/firehose/">Amazon Data Firehose</a>.</p>
-<p>Para realizar esta actividade vamos usar como base <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/d144e5b2-21e8-4378-8ca1-b4847a485dbd/en-US/aws-iot-best-practices/lab3-redshift">este exemplo do curso AWS IoT Events Workshop</a> dispoñíbel na plataforma AWS Workshop Studio. O curso só está dispoñíbel en inglés, pero podes axudarte, p. ex., da tradución automática integrada no teu navegador se o precisas.</p>
+<p>Para realizar esta actividade vamos usar como base <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/d144e5b2-21e8-4378-8ca1-b4847a485dbd/en-US/aws-iot-best-practices/lab3-redshift">este exemplo do curso AWS IoT Immersion Day Workshop</a> dispoñíbel na plataforma AWS Workshop Studio. O curso só está dispoñíbel en inglés, pero podes axudarte, p. ex., da tradución automática integrada no teu navegador se o precisas.</p>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
 <p>Para realizar a práctica, segue as instrucións do exemplo tendo en conta a medida que avances as indicacións que se che dan nesta actividade. As capturas que hai que tomar para xustificar a actividade están indicadas ao final de cada paso, e ao final da actividade, a modo de resume, listanse todas as capturas que hai que incluír na memoria de xustificación da actividade.</p>
@@ -177,9 +177,10 @@
 <li>Tipo de nó: <strong>dc2.large</strong></li>
 <li>Número de nós: <strong>2</strong></li>
 <li>Seña do administrador: configura unha seña manualmente.</li>
+<li>Cifrado da BD: desactiva o cifrado.</li>
 <li>Funcións do IAM asociadas: asocia o rol IAM predefinido <strong>LabRole</strong>.</li>
 <li>Nas configuracións adicionais:<ul>
-<li>No apartado de <strong>Rede e Seguranza</strong> activa a opción <strong>Activar recurso publicamente accesíbel</strong>.</li>
+<li>No apartado de <strong>Rede e Seguranza</strong> crea un grupo de subredes na VPC predeterminada que conteña todas as subredes da VPC e activa a opción <strong>Activar recurso publicamente accesíbel</strong>.</li>
 <li>No apartado de <strong>Configuracións da Base de datos</strong>, configura o nome da base de datos: <strong>iotredshift</strong>. Engade o teu prefixo ao nome.</li>
 </ul>
 </li>
