@@ -1,0 +1,126 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Launch an EC2 instance with Visual Studio Code Server and AWS CLI
+
+Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: VPC where the EC2 instance will be launched
+  KeyPair:
+    Description: SSH Keypair name
+    Type: String
+    Default: 'vockey'
+  CodeServerPassword:
+    Description: Password for Visual Studio Code Server
+    Type: String
+    Default: 'cniot'
+    NoEcho: true
+  OriginRequestPolicyId: 
+    Type: String
+    Description: origin request policy id
+    Default: 216adef6-5c7f-47e4-b989-5492eafa07d3
+  LatestAmiId:
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/canonical/ubuntu/server/jammy/stable/current/amd64/hvm/ebs-gp2/ami-id'
+
+
+Resources:
+
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow code-server
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 8080
+          ToPort: 8080
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      VpcId: !Ref VpcId
+
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      KeyName: !Ref KeyPair
+      ImageId: !Ref LatestAmiId
+      InstanceType: t3.large
+      IamInstanceProfile: LabInstanceProfile
+      SecurityGroupIds:
+        - !GetAtt [InstanceSecurityGroup, GroupId]
+      UserData:
+        Fn::Base64:
+          !Sub |
+            Content-Type: multipart/mixed; boundary="//"
+            MIME-Version: 1.0
+              
+            --//
+            Content-Type: text/x-shellscript; charset="us-ascii"
+            MIME-Version: 1.0
+            Content-Transfer-Encoding: 7bit
+            Content-Disposition: attachment; filename="userdata.txt"
+              
+            #!/bin/bash
+            apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y curl nginx
+            export HOME=/home/ubuntu
+            curl -fsSL https://code-server.dev/install.sh | sh
+            #systemctl enable --now code-server@ubuntu
+
+            mkdir -p /home/ubuntu/.config/code-server/
+            touch /home/ubuntu/.config/code-server/config.yaml
+            cat <<EOF > /home/ubuntu/.config/code-server/config.yaml
+            auth: password
+            password: ${CodeServerPassword}
+            bind-addr: 0.0.0.0:8080
+            cert: false
+            EOF
+
+            # Install AWS Toolkit and Python extensions
+            su -c 'code-server --install-extension AmazonWebServices.aws-toolkit-vscode' ubuntu
+            su -c 'code-server --install-extension ms-python.python' ubuntu
+
+            systemctl enable --now code-server@ubuntu
+            #systemctl restart code-server@$ubuntu
+            #systemctl status code-server@$ubuntu
+
+            # Install AWS CLI
+            apt update
+            apt install unzip -y
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            ./aws/install
+
+            # Install SSM Agent
+            mkdir /tmp/ssm
+            curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
+            dpkg -i /tmp/ssm/amazon-ssm-agent.deb
+            systemctl enable amazon-ssm-agent
+
+            #Install other tools
+            apt install -y libssl-dev -y
+            apt install cmake -y
+            apt install build-essential -y
+            apt install jq -y
+            --//--
+      Tags:
+        - Key: Name
+          Value: !Ref AWS::StackName
+
+  ElasticIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: !Ref VpcId
+      InstanceId: !Ref EC2Instance
+
+Outputs:
+  InstanceId:
+    Description: The instance ID
+    Value: !Ref EC2Instance
+  EIP:
+    Description: The URL to access the instance through its elastic IP
+    Value: !Join
+      - ''
+      - - 'http://'
+        - !Ref ElasticIP
+        - ':8080'
