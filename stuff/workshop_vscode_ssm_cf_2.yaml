@@ -65,7 +65,6 @@ Resources:
             apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y curl nginx
             export HOME=/home/ubuntu
             curl -fsSL https://code-server.dev/install.sh | sh
-            #systemctl enable --now code-server@ubuntu
 
             mkdir -p /home/ubuntu/.config/code-server/
             touch /home/ubuntu/.config/code-server/config.yaml
@@ -77,12 +76,17 @@ Resources:
             EOF
 
             # Install AWS Toolkit and Python extensions
-            su -c 'code-server --install-extension AmazonWebServices.aws-toolkit-vscode' ubuntu
-            su -c 'code-server --install-extension ms-python.python' ubuntu
+            #su -c 'code-server --install-extension amazonwebwervices.aws-toolkit-vscode --verbose' ubuntu
+            #su -c 'code-server --install-extension ms-python.python --verbose' ubuntu
+
+            # workaround: install them from vsix files (https://github.com/coder/code-server/issues/7461)
+            wget https://open-vsx.org/api/amazonwebservices/aws-toolkit-vscode/3.73.0/file/amazonwebservices.aws-toolkit-vscode-3.73.0.vsix -P /tmp
+            su -c 'code-server --install-extension /tmp/amazonwebservices.aws-toolkit-vscode-3.73.0.vsix' ubuntu
+            wget https://open-vsx.org/api/ms-python/python/2025.12.0/file/ms-python.python-2025.12.0.vsix -P /tmp
+            su -c 'code-server --install-extension /tmp/ms-python.python-2025.12.0.vsix --verbose' ubuntu
 
             systemctl enable --now code-server@ubuntu
-            #systemctl restart code-server@$ubuntu
-            #systemctl status code-server@$ubuntu
+
 
             # Install AWS CLI
             apt update
@@ -91,17 +95,8 @@ Resources:
             unzip awscliv2.zip
             ./aws/install
 
-            # Install SSM Agent
-            mkdir /tmp/ssm
-            curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb -o /tmp/ssm/amazon-ssm-agent.deb
-            dpkg -i /tmp/ssm/amazon-ssm-agent.deb
-            systemctl enable amazon-ssm-agent
-
             #Install other tools
-            apt install -y libssl-dev -y
-            apt install cmake -y
-            apt install build-essential -y
-            apt install jq -y
+            apt install libssl-dev cmake build-essential jq python3-pip -y
             --//--
       Tags:
         - Key: Name

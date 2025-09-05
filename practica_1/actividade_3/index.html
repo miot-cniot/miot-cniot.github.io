@@ -134,75 +134,57 @@
 <h2 id="pasos">Pasos</h2>
 <p>Fai o seguinte:</p>
 <ol>
-<li>Desde un terminal no ambiente Cloud9 instala o Device SDK v2 para Python.</li>
+<li>Desde un terminal na instancia VSCode instala o Device SDK v2 para Python.</li>
 </ol>
 <ul>
-<li>Clona o repositorio en <code>~/environment/scripts</code></li>
+<li>Clona o repositorio no teu directorio de traballo.</li>
 </ul>
-<pre><code>$ cd ~/environment/scripts
-$ git clone -b v1.22.0 \
+<pre><code>$ cd ~
+$ git clone -b v1.24.0 \
     https://github.com/aws/aws-iot-device-sdk-python-v2.git \
     --recursive 
 </code></pre>
 <ul>
 <li>Corrixe a versión no ficheiro <code>__init__.py</code> e instala o Device SDK</li>
 </ul>
-<pre><code>$ sed -i &quot;s/__version__ = '1.0.0-dev'/__version__ = '1.22.0'/&quot; \
+<pre><code>$ sed -i &quot;s/__version__ = '1.0.0-dev'/__version__ = '1.24.0'/&quot; \
     ./aws-iot-device-sdk-python-v2/awsiot/__init__.py
 $ python3 -m pip install ./aws-iot-device-sdk-python-v2
 ...
-Installing collected packages: awsiotsdk
-    Running setup.py install for awsiotsdk ... done
-    Successfully installed awsiotsdk-1.22.0
+Successfully built awsiotsdk
+Installing collected packages: awscrt, awsiotsdk
+    Successfully installed awscrt-0.27.4 awsiotsdk-1.24.0
 $
 </code></pre>
 <ol start="2">
-<li>Para poder usar MQTT5 precisamos conectarnos a un endpoint de AWS IoT que acepte certificados recoñecidos pola entidade certificadora de Amazon (ATS, <em>Amazon Trust Services</em>). Descarga o certificado raíz de ATS no directorio certs.</li>
-</ol>
-<pre><code>$ cd ~/environment/certs
-$ curl https://www.amazontrust.com/repository/AmazonRootCA1.pem &gt; root-CA1.crt
-</code></pre>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Consulta <a href="https://aws.amazon.com/blogs/iot/aws-iot-core-ats-endpoints">aquí</a> o motivo polo que é preciso facer este paso.</p>
-</div>
-<ol start="3">
-<li>No directorio de <em>scripts</em>, crea un <em>script</em> <strong>start_v2.sh</strong> para executar o exemplo.</li>
+<li>No directorio de <em>scripts</em>, crea un <em>script</em> <strong>start_v2.sh</strong> co contido seguinte para executar o exemplo.</li>
 </ol>
 <div class="admonition important">
 <p class="admonition-title">Nomenclatura</p>
 <p><strong>Lembra usar o teu prefixo</strong> no nome da cousa.</p>
 </div>
-<pre><code>$ cd ~/environment/scripts
-$ nano start_v2.sh
-$ cat start_v2.sh
-#!/usr/bin/env bash
+<pre><code>#!/usr/bin/env bash
 
 # stop script on error
 set -e
 
 # set the device name
-device=xcpm2425-truckSensor01
+device=&lt;O_TEU_PREFIXO&gt;-truckSensor01
 
-# get the MQTT5-compatible AWS IoT endpoint
-aws iot describe-endpoint \
-  --endpoint-type iot:Data-ATS &gt; /tmp/iotendpoint.json
+# get the AWS IoT endpoint
+aws iot describe-endpoint &gt; /tmp/iotendpoint.json
 iot_endpoint=$(jq -r &quot;.endpointAddress&quot; /tmp/iotendpoint.json)
 
 # run MQTT5 pub/sub sample app
 printf &quot;\nRunning MQTT5 pub/sub sample application...\n&quot;
-python3 ./aws-iot-device-sdk-python-v2/samples/mqtt5_pubsub.py \
-  --endpoint $iot_endpoint --ca_file ../certs/root-CA1.crt \
-  --cert ../certs/$device.cert.pem --key ../certs/$device.private.key \
+python3 ~/aws-iot-device-sdk-python-v2/samples/mqtt5_pubsub.py \
+  --endpoint $iot_endpoint --ca_file ~/certs/AmazonRootCA1.pem \
+  --cert ~/certs/$device.cert.pem --key ~/certs/$device.private.key \
   --topic truck/pubsub --count 0
 
 $
 </code></pre>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Para poder usar MQTT5 obtemos un <em>endpoint</em> compatíbel usando o parámetro <code>--endpoint-type iot:Data-ATS</code> no comando <code>describe-endpoint</code> e lle pasamos ao <em>script</em> <strong>mqtt5_pubsub.py</strong> o certificado raíz do ATS no parámetro <code>–-ca_file</code>.</p>
-</div>
-<ol start="4">
+<ol start="3">
 <li>Edita a política AWS IoT da cousa para permitir a subscrición ao tópico do exemplo e publicar e recibir mensaxes del.</li>
 </ol>
 <div class="admonition important">
@@ -211,22 +193,29 @@ $
 </div>
 <p><img alt="Política AWS IoT" src="../imgs/aws_iot_policy.png" />
 <em>Imaxe: política AWS IoT modificada.</em></p>
-<ol start="5">
+<ol start="4">
 <li>Executa o exemplo no directorio de scripts.</li>
 </ol>
-<pre><code>$ pwd
-/home/ec2-user/environment/scripts
+<pre><code>$ cd ~/scripts
 $ chmod +x start_v2.sh
 $ ./start_v2.sh
 </code></pre>
-<ol start="6">
-<li>No cliente MQTT da consola de AWS IoT subscríbete ao tópico <code>truck/pubsub</code> e comproba que se reciben mensaxes. Podes tamén probar a publicar mensaxes no mesmo tópico e comprobar se aparecen no terminal no que se estea a executar o <em>script</em> <strong>start_v2</strong>. Para parar o <em>script</em> preme <code>Ctrl+C</code> no terminal.</li>
+<ol start="5">
+<li>
+<p>No cliente MQTT da consola de AWS IoT subscríbete ao tópico <code>truck/pubsub</code> e comproba que se reciben as mensaxes enviadas desde a instancia VSCode. </p>
+</li>
+<li>
+<p>Desde o cliente MQTT da consola de AWS IoT publica algunhas mensaxes no tópico <code>truck/pubsub</code> e comproba que aparezan no terminal da instancia VSCode no que se estea a executar o <em>script</em> <strong>start_v2</strong>. </p>
+</li>
+<li>
+<p>Para o <em>script</em> premendo <code>Ctrl+C</code> no terminal da instancia VSCode.</p>
+</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Importante</p>
 <p>Antes de continuar xa podes tomar as capturas que se piden para <a href="#xustificacion-da-actividade">xustificar a actividade</a>. Os seguintes pasos non é preciso xustificalos.</p>
 </div>
-<ol start="7">
+<ol start="8">
 <li>Abre o <em>script</em> <strong>mqtt5_pubsub.py</strong> no directorio <code>samples</code> do Device SDK v2 e analiza o seu código. Compárao co da actividade 1. Presta atención en especial a:</li>
 </ol>
 <ul>
@@ -240,24 +229,28 @@ $ ./start_v2.sh
 <p class="admonition-title">Nota</p>
 <p>Consulta a documentación do SDK v2 para MQTT5 <a href="https://awslabs.github.io/aws-crt-python/api/mqtt5.html">aquí</a> e <a href="https://aws.github.io/aws-iot-device-sdk-python-v2/awsiot/mqtt5_client_builder.html">aquí</a>.</p>
 </div>
-<ol start="8">
-<li><strong>Este paso é opcional</strong>. O <em>script</em> <strong>pubsub.py</strong> no directorio <code>samples</code> do Device SDK v2 é unha implementación do mesmo exemplo que acabamos de ver pero usando MQTT311. Modifica o <em>script</em> <strong>start_v2.sh</strong> para executar este exemplo. Debería funcionar tanto co <em>endpoint</em> e certificado de ATS como cos que se usaron no curso.</li>
+<ol start="9">
+<li><strong>Este paso é opcional</strong>. O <em>script</em> <strong>pubsub.py</strong> no directorio <code>samples</code> do Device SDK v2 é unha implementación do mesmo exemplo que acabamos de ver pero usando MQTT311. Modifica o <em>script</em> <strong>start_v2.sh</strong> para executar este exemplo e comproba que funciona.</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Podes consultar a documentación deste exemplo <a href="https://github.com/aws/aws-iot-device-sdk-python-v2/blob/main/samples/pubsub.md">aquí</a> e a do SDK v2 para MQTT311 <a href="https://awslabs.github.io/aws-crt-python/api/mqtt.html">aquí</a> e <a href="https://aws.github.io/aws-iot-device-sdk-python-v2/awsiot/mqtt_connection_builder.html">aquí</a>.</p>
+<p>Podes consultar a documentación do SDK v2 para MQTT311 <a href="https://awslabs.github.io/aws-crt-python/api/mqtt.html">aquí</a> e <a href="https://aws.github.io/aws-iot-device-sdk-python-v2/awsiot/mqtt_connection_builder.html">aquí</a>.</p>
 </div>
 <h2 id="xustificacion-da-actividade">Xustificación da actividade</h2>
 <p>Toma as seguintes capturas para a memoria de xustificación da práctica:</p>
 <ol>
-<li>Ambiente Cloud9 co Device SDK v2 instalado e o código do <em>script</em> <strong>start_v2.sh</strong> aberto nun terminal.</li>
+<li>Instancia VSCode que mostre no explorador o Device SDK v2 instalado e o código do <em>script</em> <strong>start_v2.sh</strong> aberto nun terminal.</li>
 <li>Propiedades da política AWS IoT modificada.</li>
-<li>Ambiente Cloud9 coa saída do terminal na que se executou o exemplo.</li>
+<li>Instancia VSCode que mostre a saída do terminal na que se executou o <em>script</em>.</li>
 <li>Consola IoT coas mensaxes MQTT recibidas nas que poida verse o <em>payload</em>.</li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Asegúrate de que nas capturas dos pasos 3 e 4 se vexan tanto as mensaxes que enviou o <em>script</em> como as que publicaches usando o cliente MQTT da consola de AWS IoT.</p>
+</div>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
-<p>As capturas teñen que asemellarse ás que se tomaron nas seccións 10 e 11 do curso de AWS Skill Builder. As capturas tomadas na consola AWS teñen que incluír o menú superior no que poida verse o nome de usuario da conta.</p>
+<p>As capturas teñen que asemellarse ás que se tomaron nas leccións 10 e 11 do curso de AWS Skill Builder. As capturas tomadas na consola AWS teñen que incluír o menú superior no que poida verse o nome de usuario da conta.</p>
 </div>
               
             </div>
