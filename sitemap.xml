@@ -1,83 +1,423 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-         <loc>https://miot-cniot.github.io/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_1/actividade_1/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_1/actividade_1/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_1/actividade_1/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_1/actividade_1/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_1/actividade_2/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_1/actividade_2/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_1/actividade_2/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_1/actividade_2/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_1/actividade_3/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_1/actividade_3/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_1/actividade_3/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_1/actividade_3/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_2/actividade_1/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_2/actividade_1.deprecated/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_2/actividade_1.deprecated/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_2/actividade_1.deprecated/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_2/actividade_2/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_2/actividade_1/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_2/actividade_1/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_2/actividade_1/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_2/actividade_3/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_2/actividade_2/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_2/actividade_2/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_2/actividade_2/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_2/actividade_4/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_2/actividade_3/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_2/actividade_3/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_2/actividade_3/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_3/actividade_1/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_3/actividade_1/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_3/actividade_1/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_3/actividade_1/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_3/actividade_2/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_3/actividade_2/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_3/actividade_2/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_3/actividade_2/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_3/actividade_3/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_3/actividade_3/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_3/actividade_3/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_3/actividade_3/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_3/actividade_4/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_3/actividade_4/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_3/actividade_4/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_3/actividade_4/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_4/actividade_1/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_4/actividade_1/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_4/actividade_1/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_4/actividade_1/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_4/actividade_2/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_4/actividade_2/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_4/actividade_2/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_4/actividade_2/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_5/actividade_1/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_5/actividade_1/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_5/actividade_1/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_5/actividade_1/"/>
     </url>
     <url>
-         <loc>https://miot-cniot.github.io/practica_5/actividade_2/</loc>
-         <lastmod>2025-09-05</lastmod>
-         <changefreq>daily</changefreq>
+        <loc>https://miot-cniot.github.io/actividades/practica_5/actividade_2/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_5/actividade_2/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_5/actividade_2/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/01_course_overview/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/01_course_overview/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/01_course_overview/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/02_how_devices_comunicate/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/02_how_devices_comunicate/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/02_how_devices_comunicate/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/03_using_topics/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/03_using_topics/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/03_using_topics/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/04_message_broker/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/04_message_broker/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/04_message_broker/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/05_testing_communication/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/05_testing_communication/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/05_testing_communication/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/06_rules_overview/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/06_rules_overview/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/06_rules_overview/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/07_applying_rules/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/07_applying_rules/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/07_applying_rules/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/08_device_connections/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/08_device_connections/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/08_device_connections/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/09_device_shadows/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/09_device_shadows/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/09_device_shadows/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/10_device_shadows/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/10_device_shadows/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/10_device_shadows/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/11_device_shadows/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/11_device_shadows/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/11_device_shadows/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/12_recap/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/12_recap/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/12_recap/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/13_course_assesment/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/13_course_assesment/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/13_course_assesment/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/cursos/practica_2/14_cleanup/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/14_cleanup/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/14_cleanup/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_1/actividade_1/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_1/actividade_1/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_1/actividade_1/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_1/actividade_2/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_1/actividade_2/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_1/actividade_2/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_1/actividade_3/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_1/actividade_3/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_1/actividade_3/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_2/actividade_1/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_2/actividade_1/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_2/actividade_1/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_2/actividade_2/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_2/actividade_2/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_2/actividade_2/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_2/actividade_3/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_2/actividade_3/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_2/actividade_3/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/01_course_overview/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/01_course_overview/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/01_course_overview/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/02_how_devices_comunicate/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/02_how_devices_comunicate/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/02_how_devices_comunicate/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/03_using_topics/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/03_using_topics/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/03_using_topics/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/04_message_broker/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/04_message_broker/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/04_message_broker/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/05_testing_communication/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/05_testing_communication/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/05_testing_communication/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/06_rules_overview/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/06_rules_overview/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/06_rules_overview/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/07_applying_rules/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/07_applying_rules/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/07_applying_rules/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/08_device_connections/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/08_device_connections/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/08_device_connections/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/09_device_shadows/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/09_device_shadows/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/09_device_shadows/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/10_device_shadows/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/10_device_shadows/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/10_device_shadows/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/11_device_shadows/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/11_device_shadows/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/11_device_shadows/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/12_recap/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/12_recap/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/12_recap/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/13_course_assesment/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/13_course_assesment/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/13_course_assesment/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/cursos/practica_2/14_cleanup/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/cursos/practica_2/14_cleanup/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/cursos/practica_2/14_cleanup/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_2/actividade_1.deprecated/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_2/actividade_1.deprecated/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_2/actividade_1.deprecated/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_3/actividade_1/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_3/actividade_1/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_3/actividade_1/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_3/actividade_2/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_3/actividade_2/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_3/actividade_2/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_3/actividade_3/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_3/actividade_3/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_3/actividade_3/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_3/actividade_4/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_3/actividade_4/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_3/actividade_4/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_4/actividade_1/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_4/actividade_1/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_4/actividade_1/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_4/actividade_2/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_4/actividade_2/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_4/actividade_2/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_5/actividade_1/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_5/actividade_1/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_5/actividade_1/"/>
+    </url>
+    <url>
+        <loc>https://miot-cniot.github.io/es/actividades/practica_5/actividade_2/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://miot-cniot.github.io/es/actividades/practica_5/actividade_2/"/>
+        <xhtml:link rel="alternate" hreflang="gl" href="https://miot-cniot.github.io/actividades/practica_5/actividade_2/"/>
     </url>
 </urlset>

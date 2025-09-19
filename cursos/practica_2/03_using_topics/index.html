@@ -1,0 +1,1716 @@
+
+<!doctype html>
+<html lang="gl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Xoan C. Pardo">
+      
+      
+        <link rel="canonical" href="https://miot-cniot.github.io/cursos/practica_2/03_using_topics/">
+      
+      
+        <link rel="prev" href="../02_how_devices_comunicate/">
+      
+      
+        <link rel="next" href="../04_message_broker/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>3. Uso de tópicos para recompilar datos específicos - Computación na Nube para IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-uso-de-topicos-para-recompilar-datos-especificos" class="md-skip">
+          Ir ao contido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeceira">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-header__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computación na Nube para IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Uso de tópicos para recompilar datos específicos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="gl" class="md-select__link">
+                    Galego
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../../es/cursos/practica_2/03_using_topics/" hreflang="es" class="md-select__link">
+                    Castellano
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Procura" placeholder="Procura" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando procura
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-nav__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Computación na Nube para IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Comezo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Práctica 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Práctica 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+          Xestión de datos e estados de dispositivos IoT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Xestión de datos e estados de dispositivos IoT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_course_overview/" class="md-nav__link">
+        1. Introdución
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_how_devices_comunicate/" class="md-nav__link">
+        2. Entendendo como intercambian información os dispositivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          3. Uso de tópicos para recompilar datos específicos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        3. Uso de tópicos para recompilar datos específicos
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#topicos" class="md-nav__link">
+    Tópicos
+  </a>
+  
+    <nav class="md-nav" aria-label="Tópicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividade-datos-nun-termostato-intelixente" class="md-nav__link">
+    Actividade: datos nun termostato intelixente
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-nome-dos-topicos" class="md-nav__link">
+    O nome dos tópicos
+  </a>
+  
+    <nav class="md-nav" aria-label="O nome dos tópicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-nome-de-topico-mqtt" class="md-nav__link">
+    Exercicio: nome de tópico MQTT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outras-practicas-recomendadas" class="md-nav__link">
+    Outras prácticas recomendadas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volvendo-ao-escenario-do-camion-de-xeados" class="md-nav__link">
+    Volvendo ao escenario do camión de xeados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtros-de-topico" class="md-nav__link">
+    Filtros de tópico
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtros de tópico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplos-do-uso-de-comodins" class="md-nav__link">
+    Exemplos do uso de comodíns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividade-nomes-de-topico-usando-caracteres-comodin" class="md-nav__link">
+    Actividade: nomes de tópico usando caracteres comodín
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topicos-reservados" class="md-nav__link">
+    Tópicos reservados
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_message_broker/" class="md-nav__link">
+        4. Xestión do tráfico de mensaxes: o Message Broker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_testing_communication/" class="md-nav__link">
+        5. Proba de conexión
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_rules_overview/" class="md-nav__link">
+        6. Introdución ás regras IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_applying_rules/" class="md-nav__link">
+        7. Usando regras IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_device_connections/" class="md-nav__link">
+        8. Xestión das conexións de dispositivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_device_shadows/" class="md-nav__link">
+        9. Definindo as sombras de dispositivo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_device_shadows/" class="md-nav__link">
+        10. As compoñentes das sombras de dispositivo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_device_shadows/" class="md-nav__link">
+        11. As sombras de dispositivo en acción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_course_assesment/" class="md-nav__link">
+        Cuestionario de autoavaliación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_cleanup/" class="md-nav__link">
+        Limpeza de recursos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_2/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_2/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_2/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Práctica 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_3/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_3/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_3/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_3/actividade_4/" class="md-nav__link">
+        Actividade 4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          Práctica 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_4/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_4/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          Práctica 5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_1" id="__nav_2_5_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_5/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_5/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#topicos" class="md-nav__link">
+    Tópicos
+  </a>
+  
+    <nav class="md-nav" aria-label="Tópicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actividade-datos-nun-termostato-intelixente" class="md-nav__link">
+    Actividade: datos nun termostato intelixente
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-nome-dos-topicos" class="md-nav__link">
+    O nome dos tópicos
+  </a>
+  
+    <nav class="md-nav" aria-label="O nome dos tópicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-nome-de-topico-mqtt" class="md-nav__link">
+    Exercicio: nome de tópico MQTT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outras-practicas-recomendadas" class="md-nav__link">
+    Outras prácticas recomendadas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volvendo-ao-escenario-do-camion-de-xeados" class="md-nav__link">
+    Volvendo ao escenario do camión de xeados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtros-de-topico" class="md-nav__link">
+    Filtros de tópico
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtros de tópico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplos-do-uso-de-comodins" class="md-nav__link">
+    Exemplos do uso de comodíns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actividade-nomes-de-topico-usando-caracteres-comodin" class="md-nav__link">
+    Actividade: nomes de tópico usando caracteres comodín
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topicos-reservados" class="md-nav__link">
+    Tópicos reservados
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="3-uso-de-topicos-para-recompilar-datos-especificos">3. Uso de tópicos para recompilar datos específicos</h1>
+<h2 id="topicos">Tópicos</h2>
+<p>Como se mencionou anteriormente na presentación do modelo de publicación-subscrición, os dispositivos e aplicacións IoT usan tópicos MQTT que actúan como un mecanismo de enrutamento para as mensaxes no protocolo MQTT. Os tópicos definen un soporte de mensaxes que contén un elemento de información no que publicar ou ao que subscribirse. Podes definir múltiples tópicos para os teus dispositivos, proporcionando unha ampla gama de mensaxes dispoñíbeis, desde datos capturados até detalles intrínsecos.</p>
+<p>Antes de definir un tópico, vexamos un exemplo que ilustra a amplitude de datos que pode ofrecer un único dispositivo IoT. Pensa no termostato intelixente que podes ter na túa casa.</p>
+<h3 id="actividade-datos-nun-termostato-intelixente">Actividade: datos nun termostato intelixente</h3>
+<p><strong>Sen mirar antes na solución</strong>, anota todos os tipos de datos que se che ocorran que podería proporcionar un termostato intelixente.</p>
+<p><img alt="" src="/assets/imgs/image03001.png" /></p>
+<details class="example">
+<summary><strong>Solución: datos do termostato intelixente</strong></summary>
+<p>Compara a túa listaxe coa da seguinte táboa.</p>
+<p><table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=661
+ style='width:495.75pt;border-collapse:collapse;mso-yfti-tbllook:1184;
+ mso-padding-alt:0cm 0cm 0cm 0cm'>
+ <thead>
+  <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+   <td width=661 colspan=2 style=';text-align: center;width:495.75pt;border:solid #DDDDDD 1.0pt;
+   mso-border-alt:solid #DDDDDD .75pt;background:#003181;padding:0cm 0cm 0cm 0cm'>
+   <p class=MsoNormal><b><span style='color:white;mso-color-alt:windowtext'>Tipos
+   de datos</span><o:p></o:p></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr style='mso-yfti-irow:1'>
+  <td width=330 style='width:247.7pt;border:solid #DDDDDD 1.0pt;border-top:
+  none;mso-border-top-alt:solid #DDDDDD .75pt;mso-border-alt:solid #DDDDDD .75pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <ul style='margin-top:0cm' type=disc>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Localización
+       (nome do cuarto no que se atopa)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Batería
+       (nivel en porcentaxe)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Duración
+       da batería (eficiencia porcentual)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Temperatura
+       (lectura actual)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Temperatura
+       solicitada<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Hora
+       (reloxo interno, usado para programar o cambio de temperatura)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Modo
+       (Calefacción, AC, Ventilador, Calefacción ou AC, Programa)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Nivel
+       de brillo da pantalla (0-5)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Proximidade
+       (S/N, usado para mostrar información básica, se non, a pantalla está en branco)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Humidade
+       (lectura actual)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Versión
+       do firmware (número)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list 36.0pt'>Estado
+       do micrófono (activado ou desactivado)<o:p></o:p></li>
+  </ul>
+  </td>
+  <td width=331 style='width:248.05pt;border-top:none;border-left:none;
+  border-bottom:solid #DDDDDD 1.0pt;border-right:solid #DDDDDD 1.0pt;
+  mso-border-top-alt:solid #DDDDDD .75pt;mso-border-left-alt:solid #DDDDDD .75pt;
+  mso-border-alt:solid #DDDDDD .75pt;padding:0cm 0cm 0cm 0cm'>
+  <ul style='margin-top:0cm' type=disc>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Rede
+       sen fíos (conexión actual)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Lista
+       de redes sen fíos (última exploración)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Estado
+       do botón 1 (pulsado ou solto)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Estado
+       do botón 2 (pulsado ou solto)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Actualización
+       dispoñíbel (última data e hora de comprobación)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Actualización
+       dispoñíbel (número de versión)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Usuario
+       conectado (administrador ou usuario)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Estado
+       dos filtros (última lectura, matriz de filtros rexistrados)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Data
+       de cambio de filtro (matriz de filtros)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Nome
+       do filtro (matriz de filtro)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Modo
+       de asistente intelixente (nome do asistente)<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l9 level1 lfo6;tab-stops:list 36.0pt'>Comando
+       de asistente intelixente (último recibido)<o:p></o:p></li>
+  </ul>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width=661 colspan=2 style=';text-align: center;width:495.75pt;border:solid #DDDDDD 1.0pt;
+  border-top:none;mso-border-top-alt:solid #DDDDDD .75pt;mso-border-alt:solid #DDDDDD .75pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal>E máis...<o:p></o:p></p>
+  </td>
+ </tr>
+</table></p>
+<p>Pensabas que podería proporcionar tantos tipos de datos diferentes? Algúns dispositivos IoT poden ter menos (un sensor de temperatura, por exemplo) ou máis (como unha cámara de vixilancia).</p>
+</details>
+<h2 id="o-nome-dos-topicos">O nome dos tópicos</h2>
+<p>Os dispositivos e as aplicacións comunícanse a través de <strong>tópicos</strong>, que filtran e seleccionan mensaxes para a recepción. É o usuario o que define o nome dos tópicos, cada un asociado a algún tipo de datos que queira publicarse ou ao que queira subscribirse.</p>
+<p>MQTT usa un modelo de mensaxería de publicación-subscrición, onde os dispositivos poden publicar mensaxes nun tópico e outros dispositivos poden subscribirse a ese tópico para recibir as mensaxes.</p>
+<p>Un tópico é unha cadea que identifica unha canle de mensaxes particular en MQTT. Os tópicos son xerárquicos e usan unha barra inclinada (/) como delimitador. Por exemplo, un tópico pode ser "casa/sala-de-estar/temperatura" onde "casa" é o tópico de nivel superior, "sala-de-estar" é un subtópico e "temperatura" é un subtópico adicional.</p>
+<p>Para ter nomes de tópicos úteis e prácticos, é útil pensar nos tópicos como unha xerarquía de cartafois. É como unha serie embutida de cartafois que van desde un cartafol máis grande que contén moitos cartafois, até un cartafol específico cun único elemento dentro.</p>
+<!-- ![A hierarchy of folders.](/assets/imgs/image03002.png) -->
+
+<p><img src="/assets/imgs/image03002.png" alt="Unha xerarquía de cartafois." width="200" height="200"></p>
+<p>Tamén podes ver esta estrutura como unha xerarquía de espazos de nomes.</p>
+<p>Os tópicos usan unha barra inclinada (/) para separar os niveis na xerarquía. Unha mellor práctica de deseño é que a estrutura dos niveis de tópico siga un patrón <strong>do xeral ao específico</strong>. A medida que o esquema de tópicos vai de esquerda a dereita, os niveis de tópico van de xeral a específico.</p>
+<p>Pensemos no noso exemplo do termostato e engadamos outros termostatos e dispositivos. Poderiamos ter tópicos chamados algo así como, por exemplo:</p>
+<pre><code>sensor/temperatura/cociña/termostato1
+sensor/temperatura/saladeestar/termostato1
+sensor/estadobatería/cociña/termostato1
+...
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<ul>
+<li>O número máximo de barras inclinadas (/) no nome dun tópico MQTT en AWS IoT Core é de sete.</li>
+<li>Os tópicos MQTT distinguen entre maiúsculas e minúsculas; é importante usar unha nomenclatura baseada en convencións estándar ao darlles nome aos tópicos MQTT.</li>
+<li>Os nomes de tópicos de publicación non poden conter caracteres comodín (#, +). Os tópicos que comezan con <code>$</code> están reservados por AWS IoT Core.</li>
+</ul>
+</div>
+<h3 id="exercicio-nome-de-topico-mqtt">Exercicio: nome de tópico MQTT</h3>
+<p>Para verificar se entendes este esquema, intenta resolver o seguinte exercicio:</p>
+<div class="admonition question">
+<p class="admonition-title">Cal é o nome de tópico?</p>
+<p>Cal sería un nome de tópico útil e práctico para un <em>hub</em> intelixente (de nome <strong>smarthub</strong>) dunha rede sen fíos (de nome <strong>wifi7ZH0</strong>) localizado nunha cociña do 3º andar dunha casa?</p>
+<p>O nome ten que comezar por <strong>sensor</strong>.</p>
+<pre><code>sensor/...
+</code></pre>
+</div>
+<details class="example">
+<summary>Solución</summary>
+<pre><code>sensor/wifi7ZH0/andar3/cociña/smarthub
+</code></pre>
+<p>O nome comeza por sensor, seguido do nome da rede, o andar, a cociña e, finalmente, o dispositivo <em>smarthub</em>.</p>
+</details>
+<!-- ![](/assets/imgs/image03003.png) -->
+
+<h3 id="outras-practicas-recomendadas">Outras prácticas recomendadas</h3>
+<p>Ademais de ir do xeral a específico, aquí tes algunhas outras prácticas recomendadas a ter en conta:</p>
+<ul>
+<li>Usa prefixos nos tópicos MQTT para distinguir os tópicos de datos dos tópicos de comandos.</li>
+<li>Inclúe o nome do dispositivo en calquera tópico MQTT que o dispositivo use para publicar ou subscribirse aos seus datos.</li>
+<li>Usa só letras minúsculas, números e guións en cada nivel do tópico.</li>
+<li>Evita o uso de maiúsculas e minúsculas e o uso de caracteres difíciles de depurar, como espazos.</li>
+</ul>
+<p>Podes tamén consultar este conxunto máis completo de <a href="https://docs.aws.amazon.com/whitepapers/latest/designing-mqtt-topics-aws-iot-core/mqtt-design-best-practices.html">prácticas recomendadas no deseño de tópicos MQTT</a>.</p>
+<h2 id="volvendo-ao-escenario-do-camion-de-xeados">Volvendo ao escenario do camión de xeados</h2>
+<p>Volvamos ao noso escenario do camións de xeados. Se o xestor da frota quixese definir un tópico para a temperatura dun camión, tería o aspecto seguinte:</p>
+<p><img alt="Un diagrama que mostra como ir de xeral a específico ao nomear un tópico." src="/assets/imgs/image03004.png" /></p>
+<p>Ao engadir outro nivel de profundidade ao tópico, pódese referir a un sensor de temperatura específico no camión <em>truck_1</em>: <strong>sensor/temperature/truck_1/main_freezer</strong>. Outro tipo de sensor para o camión <em>truck_1</em>, como un sensor de humidade, podería ser <strong>sensor/humidity/truck_1/main_freezer</strong>.</p>
+<p>A temperatura do conxelador pódese publicar neste tópico cunha mensaxe que conteña a lectura actual do sensor, como se mostra na seguinte imaxe:</p>
+<p><img alt="Icona de camión cunha frecha de publicación e unha mostra dun tópico e unha mensaxe." src="/assets/imgs/image03005.png" /></p>
+<p>Os subscritores entón subscríbense aos tópicos apropiados. A medida que as mensaxes se publican nos tópicos, os subscritores reciben todas as mensaxes que se publican nos tópicos aos que se subscriben.</p>
+<p>O responsábel do repartimento dos xeados na compañía podería estar a usar unha aplicación no seus móbil para supervisar o estado dos camións nas súas rutas de entrega. Subscribiríase ao tópico <strong>sensor/temperature/truck_1/main_freezer</strong> e recibiría as lecturas de temperatura.</p>
+<p><img alt="Icona de camión cunha frecha de publicación e unha mostra dun tópico e unha mensaxe, e unha frecha de subscrición que apunta a unha icona de teléfono intelixente." src="/assets/imgs/image03006.png" /></p>
+<h2 id="filtros-de-topico">Filtros de tópico</h2>
+<p>Un tópico axúdache a subscribirte a un único nome de tópico (coma os presentados até agora nesta sección), ou pode incluír caracteres comodín. Os subscritores poden usar estes caracteres comodín para definir un filtro para os tópicos. Os filtros son unha forma de subscribirse á vez a varios tópicos nunha única solicitude. O uso de caracteres comodín serve de axúda, p.ex., nas subscricións seguintes:</p>
+<ul>
+<li>Varios dispositivos nun tópico específico</li>
+<li>Moitos tópicos nun único dispositivo</li>
+<li>Mestura de varios tópicos en varios dispositivos</li>
+</ul>
+<p>No noso escenario doméstico, en lugar de ter unha soa casa con termostatos, imaxina que es o propietario de vinte apartamentos, todos equipados con dispositivos IoT como termostatos, <em>hubs</em> intelixentes, luces intelixentes e cámaras de seguranza. Cada dispositivo pódese asociar a varios tópicos, como se explicou anteriormente. Non sería práctico subscribirse, p.ex., a sesenta tópicos se houbera tres termostatos por apartamento. Que pasaría se puidesemos subscribirnos para recibir todas as mensaxes dos sesenta termostatos nunha única subscrición? Aquí é onde os caracteres comodín son úteis.</p>
+<p>Un carácter comodín é un carácter que se coloca nunha cadea para substituír a un ou máis caracteres. Podes estar familiarizado co concepto se usaches unha interface de liña de comandos (CLI) para xestionar ficheiros. En resumo, un carácter comodín substitúe a outros caracteres.</p>
+<p>A seguinte táboa enumera os caracteres comodín que se poden usar nun filtro de tópico.</p>
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=642
+ style='width:481.55pt;border-collapse:collapse;mso-yfti-tbllook:1184;
+ mso-padding-alt:0cm 0cm 0cm 0cm'>
+ <thead>
+  <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+   <td width=642 colspan=3 valign=top style='text-align: center;width:481.55pt;border:solid #DDDDDD 1.0pt;
+   mso-border-alt:solid #DDDDDD .75pt;background:#003181;padding:0cm 0cm 0cm 0cm'>
+   <p class=MsoNormal><b><span style='color:white;mso-color-alt:windowtext'>Comodíns
+   de tópico</span><o:p></o:p></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr style='mso-yfti-irow:1'>
+  <td width=63 valign=top style='text-align: center;width:47.45pt;border:solid #DDDDDD 1.0pt;
+  border-top:none;mso-border-top-alt:solid #DDDDDD .75pt;mso-border-alt:solid #DDDDDD .75pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal><b>Carácter comodín</b><o:p></o:p></p>
+  </td>
+  <td width=201 valign=top style='text-align: center;width:150.6pt;border-top:none;border-left:
+  none;border-bottom:solid #DDDDDD 1.0pt;border-right:solid #DDDDDD 1.0pt;
+  mso-border-top-alt:solid #DDDDDD .75pt;mso-border-left-alt:solid #DDDDDD .75pt;
+  mso-border-alt:solid #DDDDDD .75pt;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal><b>Coincidencias</b><o:p></o:p></p>
+  </td>
+  <td width=378 valign=top style='text-align: center;width:10.0cm;border-top:none;border-left:
+  none;border-bottom:solid #DDDDDD 1.0pt;border-right:solid #DDDDDD 1.0pt;
+  mso-border-top-alt:solid #DDDDDD .75pt;mso-border-left-alt:solid #DDDDDD .75pt;
+  mso-border-alt:solid #DDDDDD .75pt;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal><b>Regras de uso</b><br style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=63 valign=top style='width:47.45pt;border:solid #DDDDDD 1.0pt;
+  border-top:none;mso-border-top-alt:solid #DDDDDD .75pt;mso-border-alt:solid #DDDDDD .75pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal>#<o:p></o:p></p>
+  </td>
+  <td width=201 valign=top style='width:150.6pt;border-top:none;border-left:
+  none;border-bottom:solid #DDDDDD 1.0pt;border-right:solid #DDDDDD 1.0pt;
+  mso-border-top-alt:solid #DDDDDD .75pt;mso-border-left-alt:solid #DDDDDD .75pt;
+  mso-border-alt:solid #DDDDDD .75pt;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal>Todas as cadeas no seu nivel e seguintes na xerarquía de
+  tópicos.<o:p></o:p></p>
+  </td>
+  <td width=378 valign=top style='width:10.0cm;border-top:none;border-left:
+  none;border-bottom:solid #DDDDDD 1.0pt;border-right:solid #DDDDDD 1.0pt;
+  mso-border-top-alt:solid #DDDDDD .75pt;mso-border-left-alt:solid #DDDDDD .75pt;
+  mso-border-alt:solid #DDDDDD .75pt;padding:0cm 0cm 0cm 0cm'>
+  <ul style='margin-top:0cm' type=disc>
+   <li class=MsoNormal style='mso-list:l14 level1 lfo11;tab-stops:list 36.0pt'>Debe
+       ser o último carácter no filtro de tópico.<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l14 level1 lfo11;tab-stops:list 36.0pt'>Debe
+       ser o único carácter no seu nivel da xerarquía de tópicos.<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l14 level1 lfo11;tab-stops:list 36.0pt'>Pódese
+       usar nun filtro de tópico que tamén conteña o carácter comodín +.<o:p></o:p></li>
+  </ul>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+  <td width=63 valign=top style='width:47.45pt;border:solid #DDDDDD 1.0pt;
+  border-top:none;mso-border-top-alt:solid #DDDDDD .75pt;mso-border-alt:solid #DDDDDD .75pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal>+<o:p></o:p></p>
+  </td>
+  <td width=201 valign=top style='width:150.6pt;border-top:none;border-left:
+  none;border-bottom:solid #DDDDDD 1.0pt;border-right:solid #DDDDDD 1.0pt;
+  mso-border-top-alt:solid #DDDDDD .75pt;mso-border-left-alt:solid #DDDDDD .75pt;
+  mso-border-alt:solid #DDDDDD .75pt;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal>Calquera cadea no mesmo nivel no que está o carácter.<br
+  style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]><o:p></o:p></p>
+  </td>
+  <td width=378 valign=top style='width:10.0cm;border-top:none;border-left:
+  none;border-bottom:solid #DDDDDD 1.0pt;border-right:solid #DDDDDD 1.0pt;
+  mso-border-top-alt:solid #DDDDDD .75pt;mso-border-left-alt:solid #DDDDDD .75pt;
+  mso-border-alt:solid #DDDDDD .75pt;padding:0cm 0cm 0cm 0cm'>
+  <ul style='margin-top:0cm' type=disc>
+   <li class=MsoNormal style='mso-list:l13 level1 lfo12;tab-stops:list 36.0pt'>Debe
+       ser o único carácter no seu nivel da xerarquía de tópicos.<o:p></o:p></li>
+   <li class=MsoNormal style='mso-list:l13 level1 lfo12;tab-stops:list 36.0pt'>Pódese
+       usar en varios niveis dun filtro de tópico.<o:p></o:p></li>
+  </ul>
+  </td>
+ </tr>
+</table>
+
+<h3 id="exemplos-do-uso-de-comodins">Exemplos do uso de comodíns</h3>
+<details class="example">
+<summary>Exemplos no escenario dos apartamentos</summary>
+<p>Comecemos con algúns exemplos da nosa configuración básica de IoT con varios apartamentos. Como recordatorio, a estrutura básica usa o seguinte esquema para definir tópicos no noso exemplo:</p>
+<pre><code>sensor/[Tipo de medición]/[Número de apartamento]/[Localización (dependencia)]/[Dispositivo]
+</code></pre>
+<p>Por exemplo:</p>
+<pre><code>sensor/temperatura/apartamento1/cociña/termostato
+</code></pre>
+<p>Usemos gradualmente os caracteres comodín para definir algunhas subscricións a tópicos para os nosos apartamentos. Comecemos con:</p>
+<pre><code>sensor/temperatura/apartamento1/+/termostato
+</code></pre>
+<p>proporcionaría a lectura da temperatura para todos os termostatos do apartamento1, de todas as dependencias.</p>
+<pre><code>sensor/temperatura/+/cociña/termostato
+</code></pre>
+<p>proporcionaría as lecturas de temperatura das cociñas dos vinte apartamentos.</p>
+<pre><code>sensor/temperatura/apartamento1/#
+</code></pre>
+<p>devolvería todas as lecturas de temperatura de todos os dispositivos (que fagan lecturas de temperatura) no apartamento1. O carácter comodín # é versátil e amplía a cantidade de mensaxes que se devolven á subscrición.</p>
+<pre><code>sensor/+/apartamento1/+/termostato
+</code></pre>
+<p>devolvería todas as lecturas de todos os termostatos do apartamento1. Temperatura e outras lecturas dispoñíbeis, como a versión do firmware, o estado do ventilador e moito máis.</p>
+</details>
+<details class="example">
+<summary>Exemplos no escenario dos camións de xeados</summary>
+<p>Usando os caracteres comodín presentados anteriormente, os seguintes son algúns exemplos de posibles subscricións para recuperar varias lecturas de sensores nos camións de xeados.</p>
+<p>Unha subscrición a:</p>
+<pre><code>sensor/#
+</code></pre>
+<p>recibe mensaxes publicadas en:</p>
+<ul>
+<li>sensor/</li>
+<li>sensor/temperatura</li>
+<li>sensor/temperatura/camion_1</li>
+<li>sensor/temperatura/camion_2</li>
+<li>sensor/humidade</li>
+<li>sensor/humidade/camion_1</li>
+<li>sensor/humidade/camion_2</li>
+</ul>
+<p>Unha subscrición a:</p>
+<pre><code>sensor/+/camion_1
+</code></pre>
+<p>recibe mensaxes publicadas en:</p>
+<ul>
+<li>sensor/temperatura/camion_1</li>
+<li>sensor/humidade/camion_1</li>
+</ul>
+<p>pero <strong>non</strong> mensaxes enviadas a </p>
+<ul>
+<li>sensor/temperatura/camion_2</li>
+<li>sensor/humidade/camion_2</li>
+</ul>
+</details>
+<p>Como podes ver, o uso de caracteres comodín axuda a adecuar unha subscrición desde unhas poucas lecturas a unha ampla variedade de datos que abrangan varios dispositivos e tipos de sensores.</p>
+<div class="admonition caution">
+<p class="admonition-title">Nota</p>
+<p>Non se poden usar caracteres comodín nos nomes de tópicos cando se publican mensaxes.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Nunca debes permitir que un dispositivo se subscriba a todos os tópicos usando #. 
+Ao usar o comodín multi-nivel (#), podense crear consecuencias non desexadas cando engades inadvertidamente novos tópicos á xerarquía que poden non estar destinados a ese dispositivo en particular.
+No seu lugar, usa comodíns de nivel único (+) para as subscricións de dispositivos.</p>
+</div>
+<h3 id="actividade-nomes-de-topico-usando-caracteres-comodin">Actividade: nomes de tópico usando caracteres comodín</h3>
+<p>A continuación, hai unha serie de preguntas que enumeran varios tópicos. En cada unha, debes escoller o nome de subscrición ao tópico usando caracteres comodín que capture todos os tópicos enumerados.</p>
+<p><strong>Pregunta 1</strong></p>
+<div class="admonition question">
+<p class="admonition-title">Pregunta 1<p>sensor/temperatura/camion_1/conxelador_principal
+sensor/temperatura/camion_1/conxelador_secundario
+sensor/temperatura/camion_1/cabina</p>
+</p>
+<p>Que nome de subscrición os captura todos? (Selecciona TRES)</p>
+<ol>
+<li>sensor/temperatura/camion_1/#</li>
+<li>sensor/temperatura/camion_1/+</li>
+<li>sensor/#</li>
+<li>sensor/#/camion_1</li>
+<li>sensor/temperatura/camion_1/#</li>
+<li>sensor-temperatura-camion_1-#</li>
+<li>sensor/?</li>
+</ol>
+</div>
+<details class="example">
+<summary>Pregunta 1: solución</summary>
+<ol>
+<li>sensor/temperatura/camion_1/#</li>
+<li>sensor/temperatura/camion_1/+</li>
+<li>sensor/#</li>
+</ol>
+<p>Neste caso, usando + ou # na parte final da subscrición obtén o mesmo resultado.</p>
+</details>
+<!-- ![](/assets/imgs/image03007.png) -->
+
+<p><strong>Pregunta 2</strong></p>
+<div class="admonition question">
+<p class="admonition-title">Pregunta 2<p>sensor/temperatura/camion_1/conxelador_principal
+sensor/temperatura/camion_2/conxelador_principal
+sensor/temperatura/camion_5/conxelador_principal</p>
+</p>
+<p>Que nome de subscrición os captura todos? (Selecciona DOUS)</p>
+<ol>
+<li>sensor/#/#/conxelador_principal</li>
+<li>sensor/temperatura/+/conxelador_principal</li>
+<li>sensor/#</li>
+<li>sensor/+/conxelador_principal</li>
+<li>sensor/?</li>
+</ol>
+</div>
+<details class="example">
+<summary>Pregunta 2: solución</summary>
+<ol start="2">
+<li>sensor/temperatura/+/conxelador_principal</li>
+<li>sensor/#</li>
+</ol>
+<p>+ é un comodín para un nivel do tópico e # para calquera cousa no mesmo nivel e inferiores.</p>
+</details>
+<!-- ![](/assets/imgs/image03008.png) -->
+
+<p><strong>Pregunta 3</strong></p>
+<div class="admonition question">
+<p class="admonition-title">Pregunta 3<p>sensor/temperatura/camion_1/conxelador_principal
+sensor/porta/camion_1/peche_da_porta
+sensor/temperatura/camion_1/cabina
+sensor/porta/camion_1/peche_lateral</p>
+</p>
+<p>Que nome de subscrición os captura todos? (Selecciona DOUS.)</p>
+<ol>
+<li>sensor/+/camion_1/+</li>
+<li>sensor/#/camion*</li>
+<li>sensor/+/camion_1/#</li>
+<li>sensor/+/camion_1/*</li>
+<li>#/camion_1/#</li>
+</ol>
+</div>
+<details class="example">
+<summary>Pregunta 3: solución</summary>
+<ol>
+<li>sensor/+/camion_1/+</li>
+<li>sensor/+/camion_1/#</li>
+</ol>
+<p>Neste caso, usando + ou # na parte final da subscrición obtén o mesmo resultado.</p>
+</details>
+<!-- ![](/assets/imgs/image03009.png) -->
+
+<h2 id="topicos-reservados">Tópicos reservados</h2>
+<p>A maioría dos tópicos MQTT son creados e xestionados por ti, o deseñador do sistema. Algúns tópicos están reservados por AWS para casos de uso especiais. Estes <strong>tópicos reservados</strong> comezan cun signo de dólar (<code>$</code>). Aprenderás máis sobre os tópicos reservados en seccións posteriores.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado no cortapapeis", "clipboard.copy": "Copiar no cortapapeis", "search.result.more.one": "1 m\u00e1is nesta p\u00e1xina", "search.result.more.other": "# m\u00e1is nesta p\u00e1xina", "search.result.none": "Sen resultados", "search.result.one": "1 resultado atopado", "search.result.other": "# resultados atopados", "search.result.placeholder": "Insira un termo", "search.result.term.missing": "Falta", "select.version": "Seleccionar version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>

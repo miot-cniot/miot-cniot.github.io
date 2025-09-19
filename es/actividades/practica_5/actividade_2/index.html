@@ -1,0 +1,1701 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Xoan C. Pardo">
+      
+      
+        <link rel="canonical" href="https://miot-cniot.github.io/es/actividades/practica_5/actividade_2/">
+      
+      
+        <link rel="prev" href="../actividade_1/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>Actividade 2 - Computación en la Nube para IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#actividade-2" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../" title="Computación en la Nube para IoT" class="md-header__button md-logo" aria-label="Computación en la Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computación en la Nube para IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Actividade 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../../../actividades/practica_5/actividade_2/" hreflang="gl" class="md-select__link">
+                    Galego
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="es" class="md-select__link">
+                    Castellano
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../" title="Computación en la Nube para IoT" class="md-nav__button md-logo" aria-label="Computación en la Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Computación en la Nube para IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Práctica 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/actividade_1/" class="md-nav__link">
+        Actividad 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/actividade_2/" class="md-nav__link">
+        Actividad 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/actividade_3/" class="md-nav__link">
+        Actividad 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Práctica 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+          Gestión de datos y estados de dispositivos IoT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Gestión de datos y estados de dispositivos IoT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/01_course_overview/" class="md-nav__link">
+        1. Introducción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/02_how_devices_comunicate/" class="md-nav__link">
+        2. Descubriendo cómo intercambian información los dispositios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/03_using_topics/" class="md-nav__link">
+        3. Usando temas para recopilar datos específicos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/04_message_broker/" class="md-nav__link">
+        4. Gestión del tráfico de mensajes: el Message Broker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/05_testing_communication/" class="md-nav__link">
+        5. Prueba de conexión
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/06_rules_overview/" class="md-nav__link">
+        6. Introducción a las reglas IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/07_applying_rules/" class="md-nav__link">
+        7. Usando reglas IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/08_device_connections/" class="md-nav__link">
+        8. Gestión de las conexiones de dispositivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/09_device_shadows/" class="md-nav__link">
+        9. Definiendo las sombras de dispositivo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/10_device_shadows/" class="md-nav__link">
+        10. Los componentes de las sombras de dispositivo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/11_device_shadows/" class="md-nav__link">
+        11. Las sombras de dispositivo en acción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/13_course_assesment/" class="md-nav__link">
+        Cuestionario de autoevaluación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/14_cleanup/" class="md-nav__link">
+        Limpieza de recursos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_2/actividade_1/" class="md-nav__link">
+        Actividad 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_2/actividade_2/" class="md-nav__link">
+        Actividad 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_2/actividade_3/" class="md-nav__link">
+        Actividad 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Práctica 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_3/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_3/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_3/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_3/actividade_4/" class="md-nav__link">
+        Actividade 4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          Práctica 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_4/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_4/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          Práctica 5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_1" id="__nav_2_5_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Actividade 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Actividade 2
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#obxectivo" class="md-nav__link">
+    Obxectivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-setup-a-redshift-cluster" class="md-nav__link">
+    Step 1 - Setup a Redshift cluster
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1 - Setup a Redshift cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-redshift-cluster-security" class="md-nav__link">
+    Step 2 - Redshift cluster security
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 - Redshift cluster security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso_1" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-create-table-definition" class="md-nav__link">
+    Step 3 - Create table definition
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 - Create table definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso_2" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-create-s3-firehose-bucket" class="md-nav__link">
+    Step 4 - Create S3 Firehose bucket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-setup-kinesis-firehose" class="md-nav__link">
+    Step 5 - Setup Kinesis Firehose
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 - Setup Kinesis Firehose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso_3" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-update-our-aws-iot-rule" class="md-nav__link">
+    Step 6 - Update our AWS IoT rule
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6 - Update our AWS IoT rule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso_4" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-check-your-roles" class="md-nav__link">
+    Step 7 - Check your roles!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-test-your-code" class="md-nav__link">
+    Step 8 - Test your code
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 8 - Test your code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso_5" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eliminacion-de-recursos" class="md-nav__link">
+    Eliminación de recursos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xustificacion-da-actividade" class="md-nav__link">
+    Xustificación da actividade
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#obxectivo" class="md-nav__link">
+    Obxectivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-setup-a-redshift-cluster" class="md-nav__link">
+    Step 1 - Setup a Redshift cluster
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1 - Setup a Redshift cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-redshift-cluster-security" class="md-nav__link">
+    Step 2 - Redshift cluster security
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 - Redshift cluster security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso_1" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-create-table-definition" class="md-nav__link">
+    Step 3 - Create table definition
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 - Create table definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso_2" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-create-s3-firehose-bucket" class="md-nav__link">
+    Step 4 - Create S3 Firehose bucket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-setup-kinesis-firehose" class="md-nav__link">
+    Step 5 - Setup Kinesis Firehose
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 - Setup Kinesis Firehose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso_3" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-update-our-aws-iot-rule" class="md-nav__link">
+    Step 6 - Update our AWS IoT rule
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6 - Update our AWS IoT rule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso_4" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-check-your-roles" class="md-nav__link">
+    Step 7 - Check your roles!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-test-your-code" class="md-nav__link">
+    Step 8 - Test your code
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 8 - Test your code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xustificacion-do-paso_5" class="md-nav__link">
+    Xustificación do paso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eliminacion-de-recursos" class="md-nav__link">
+    Eliminación de recursos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xustificacion-da-actividade" class="md-nav__link">
+    Xustificación da actividade
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="actividade-2">Actividade 2</h1>
+<p><strong>STREAMING DE DATOS A REDSHIFT</strong></p>
+<h2 id="obxectivo">Obxectivo</h2>
+<p>O obxectivo desta actividade é configurar o envío dun <em>stream</em> de datos de telemetría a un cluster <a href="https://aws.amazon.com/redshift/">Redshift</a> usando o <a href="https://aws.amazon.com/firehose/">Amazon Data Firehose</a>.</p>
+<p>Para realizar esta actividade vamos usar como base <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/d144e5b2-21e8-4378-8ca1-b4847a485dbd/en-US/aws-iot-best-practices/lab3-redshift">este exemplo do curso AWS IoT Immersion Day Workshop</a> dispoñíbel na plataforma AWS Workshop Studio. O curso só está dispoñíbel en inglés, pero podes axudarte, p. ex., da tradución automática integrada no teu navegador se o precisas.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Para realizar a práctica, segue as instrucións do exemplo tendo en conta a medida que avances as indicacións que se che dan nesta actividade. As capturas que hai que tomar para xustificar a actividade están indicadas ao final de cada paso, e ao final da actividade, a modo de resume, listanse todas as capturas que hai que incluír na memoria de xustificación da actividade.</p>
+</div>
+<p>A continuación recóllense as indicacións adicionais que terás que ter en conta en cada sección do exemplo:</p>
+<h2 id="step-1-setup-a-redshift-cluster">Step 1 - Setup a Redshift cluster</h2>
+<p>Para crear o cluster, na consola de RedShift escolle a opción <strong>clusters</strong> no menú lateral, preme no botón <strong>Crear cluster</strong> e indica as propiedades seguintes:</p>
+<ul>
+<li>Identificador do cluster: <strong>iot-cluster</strong>. Engade o teu prefixo ao nome.</li>
+<li>Tipo de nó: <strong>dc2.large</strong></li>
+<li>Número de nós: <strong>2</strong></li>
+<li>Seña do administrador: configura unha seña manualmente.</li>
+<li>Cifrado da BD: desactiva o cifrado.</li>
+<li>Funcións do IAM asociadas: asocia o rol IAM predefinido <strong>LabRole</strong>.</li>
+<li>Nas configuracións adicionais:<ul>
+<li>No apartado de <strong>Rede e Seguranza</strong> crea un grupo de subredes na VPC predeterminada que conteña todas as subredes da VPC e activa a opción <strong>Activar recurso publicamente accesíbel</strong>.</li>
+<li>No apartado de <strong>Configuracións da Base de datos</strong>, configura o nome da base de datos: <strong>iotredshift</strong>. Engade o teu prefixo ao nome.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">MOI IMPORTANTE !!!!!!</p>
+<p>O cluster Redshift é un recurso “moi caro” para o crédito do que dispoñemos nos laboratorios da AWS Academy. Asegúrate de mantelo parado escollendo a opción <strong>Pausar</strong> do menú de accións do cluster antes de pechar unha sesión no laboratorio ou durante as sesións nas que non o vaias a usar. <strong>Deixalo funcionando entre sesións pode deixarte sen crédito en cuestión dun par de días.</strong> Unha vez remates a actividade elimina o cluster para evitar que poida deixarte sen crédito.</p>
+</div>
+<h4 id="xustificacion-do-paso">Xustificación do paso</h4>
+<p>Toma a seguinte captura para a memoria de xustificación da práctica:</p>
+<ol>
+<li>Propiedades do cluster Redshift (chega con que se vexa o apartado de <strong>informacións xerais</strong>).</li>
+</ol>
+<p><img alt="Exemplo de captura das propiedades do cluster Redshift" src="../../../../actividades/practica_5/imgs/redshift-prop01.png" />
+<em>Imaxe: Exemplo de captura das propiedades do cluster Redshift.</em></p>
+<h2 id="step-2-redshift-cluster-security">Step 2 - Redshift cluster security</h2>
+<p>Vamos a conectarnos ao cluster desde a instancia Cloud9, polo que teremos que configurar regras nos grupos de seguranza da instancia e do cluster para permitir a conexión. Ademais tamén temos que engadir unha regra no grupo de seguranza do cluster para permitir o tráfico desde Firehose.</p>
+<p>Para modificar as regras do grupo de seguranza do cluster fai o seguinte:</p>
+<ol>
+<li>Preme no nome do cluster para abrir as súas propiedades. Na aba <strong>Propiedades</strong> procura o apartado <strong>Configuracións de rede e seguranza</strong> e preme no nome do grupo de seguranza. Abrirase nunha nova xanela. <em>Presta atención a cal é o grupo</em>, por defecto o cluster usa o grupo <strong>default</strong>.</li>
+<li>Edita as regras de entrada do grupo do cluster. Engade as seguintes:<ul>
+<li>Todo o tráfico desde a IP de Firehose: <strong>52.70.63.192/27</strong> (us-east-1)</li>
+<li>Todo o tráfico desde o grupo de seguranza da instancia Cloud9 (o nome do grupo comeza por <code>aws-cloud9-&lt;prefixo&gt;-VirtualDevice</code>)  <br />
+<img alt="Regras de entrada do grupo default" src="../../../../actividades/practica_5/imgs/ec2sg-prop02.png" />
+<em>Imaxe: regras de entrada do grupo default.</em></li>
+</ul>
+</li>
+<li>Edita as regras de entrada do grupo de seguranza da instancia Cloud9. Engade a seguinte:<ul>
+<li>Todo o tráfico desde o grupo <strong>default</strong> (o grupo que está a usar o cluster)
+<img alt="Regras de entrada do grupo de seguranza da instancia Cloud9" src="../../../../actividades/practica_5/imgs/ec2sg-prop01.png" />
+<em>Imaxe: regras de entrada do grupo de seguranza da instancia Cloud9.</em></li>
+</ul>
+</li>
+</ol>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Para “afinar” aínda máis a seguranza poderiamos ter configurado un grupo específico para o cluster Redshift no canto de usar o grupo <strong>default</strong>.</p>
+</div>
+<h4 id="xustificacion-do-paso_1">Xustificación do paso</h4>
+<p>Toma as seguintes capturas para a memoria de xustificación da práctica:</p>
+<ol start="2">
+<li>Regras de entrada do grupo de seguranza <strong>default</strong> (o do cluster).</li>
+<li>Regras de entrada do grupo de seguranza da instancia Cloud9.</li>
+</ol>
+<h2 id="step-3-create-table-definition">Step 3 - Create table definition</h2>
+<p>Para crear a táboa fai o seguinte:</p>
+<ol>
+<li>Instala o SQLWorkbench/J na instancia Cloud9. Ten en conta o seguinte:<ul>
+<li>A instancia xa ten unha versión de Java válida (podes vela executando <code>java --version</code>)</li>
+<li>Descarga o paquete executando <code>wget &lt;URL&gt;</code>. A URL da ligazón de descarga podes obtela <a href="https://www.sql-workbench.eu/downloads.html">aquí</a>.</li>
+</ul>
+</li>
+<li>Instala o driver JBDC do Redshift.<ul>
+<li>Descarga o driver executando <code>wget &lt;URL&gt;</code>. A ligazón de descarga podes obtela <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/jdbc20-download-driver.html">aquí</a>.</li>
+<li>Podes copialo onde queiras (p.ex. nun directorio <strong>JBDC</strong> dentro do directorio do SQLWorkbench)</li>
+</ul>
+</li>
+<li>Crea un ficheiro <strong>create-table.sql</strong> para o <em>script</em> do lab que crea a táboa. O ficheiro ten que crearse nun directorio <em>scripts</em> dentro do directorio no que descomprimiras o SQLWorkbench.</li>
+<li>Crea un perfil de conexión a Redshift.<ul>
+<li>Inicia a consola do SQLWorkbench executando o <em>script</em> <code>sqlworkbench.sh</code></li>
+<li>Executa o seguinte comando na consola do SQLWorkbench:</li>
+</ul>
+</li>
+</ol>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Ten en conta que a versión do ficheiro <code>.jar</code> do driver JDBC pode ser diferente no teu caso</p>
+</div>
+<p><div class="highlight"><pre><span></span><code>WbCreateProfile -name=&quot;Redshift&quot; -profileGroup=IOT 
+  -savePassword=true -username=awsuser -password=&lt;A_TÚA_SEÑA&gt;
+  -url=jdbc:redshift://&lt;A_URL_JDBC_DO_CLUSTER&gt;
+  -driver=com.amazon.redshift.jbdc42.Driver
+  -driverJar=&lt;RUTA_DO_DRIVER_JBDC&gt;/redshift-jdbc42-2.1.0.30.jar
+  -autocommit=true;
+</code></pre></div>
+<img alt="Execución do comando WbCreateProfile" src="../../../../actividades/practica_5/imgs/cloud9-sqlwb01.png" />
+<em>Imaxe: execución do comando WbCreateProfile.</em></p>
+<ol start="5">
+<li>Crea a táboa.<ul>
+<li>Conéctate con <code>WbConnect Redshift;</code> executa o <em>script</em> con <code>WbRun scripts/create-table.sql;</code> e comproba o resultado con <code>WbList;</code></li>
+</ul>
+</li>
+</ol>
+<p><img alt="Creación da táboa no WbCreateProfile" src="../../../../actividades/practica_5/imgs/cloud9-sqlwb02.png" />
+<em>Imaxe: creación da táboa no WbCreateProfile.</em></p>
+<h4 id="xustificacion-do-paso_2">Xustificación do paso</h4>
+<p>Toma a seguinte captura para a memoria de xustificación da práctica:</p>
+<ol start="4">
+<li>Ambiente Cloud9 cos arquivos do SQLWorkbench na árbore de directorios e o contido do <em>script</em> <strong>create-table.sql</strong> nun terminal e a saída da creación da táboa (punto 5) noutro.</li>
+</ol>
+<h2 id="step-4-create-s3-firehose-bucket">Step 4 - Create S3 Firehose bucket</h2>
+<p><strong>Non fagas este paso.</strong> Crearemos o <em>bucket</em> S3 durante a configuración do fluxo do Firehose.</p>
+<h2 id="step-5-setup-kinesis-firehose">Step 5 - Setup Kinesis Firehose</h2>
+<p><strong>Non fagas os pasos do lab.</strong> No seu lugar fai o seguinte:</p>
+<ul>
+<li>Accede á consola do Amazon Data Firehose (servizo que substitúe ao de Kinesis), preme no botón <strong>Crear fluxo do Firehose</strong> e indica as propiedades seguintes:<ul>
+<li>Orixe: <strong>Direct PUT</strong></li>
+<li>Destino: <strong>Amazon Redshift</strong></li>
+<li>Nome: <strong>iotstream</strong>. Engade o teu prefixo ao nome.</li>
+<li>Tipo de destino do Amazon Redshift: <strong>Cluster aprovisionado</strong>.</li>
+<li>Cluster: escolle o cluster <strong>iot-cluster</strong>.</li>
+<li>Base de datos: <strong>iotredshift</strong> (co teu prefixo diante).</li>
+<li>Autenticación: usar nome de usuario e seña.</li>
+<li>Nome de usuario: <strong>awsuser</strong>.</li>
+<li>Seña: insire a seña que configuraches ao crear o cluster Redshift.</li>
+<li>Táboa: <strong>thingtest</strong>.</li>
+<li>Bucket S3 intermediario: crea o bucket <strong>iotfirehose</strong>. Engade o teu prefixo ao nome.</li>
+<li>Opcións do comando COPY: <code>FORMAT AS JSON 'auto'</code></li>
+<li>Nas configuracións avanzadas, en <strong>Acceso ao Servizo</strong> escolle o rol predefinido <strong>LabRole</strong>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="xustificacion-do-paso_3">Xustificación do paso</h4>
+<p>Toma a seguinte captura para a memoria de xustificación da práctica:</p>
+<ol start="5">
+<li>Propiedades nas que se vexan os detalles do fluxo e a configuración do destino.</li>
+</ol>
+<p><img alt="Exemplo de captura das propiedades do fluxo Firehose" src="../../../../actividades/practica_5/imgs/firehose-prop01.png" />
+<em>Imaxe: exemplo de captura das propiedades do cluster Redshift.</em></p>
+<h2 id="step-6-update-our-aws-iot-rule">Step 6 - Update our AWS IoT rule</h2>
+<p><strong>Non fagas os pasos do lab.</strong> No seu lugar crea no IoT Core unha regra coas seguintes propiedades:</p>
+<ul>
+<li>Nome: <strong>thingrule</strong>. Engade o teu prefixo ao nome. Usa o subliñado que non acepta guión.</li>
+<li>Descrición: insire unha descrición.</li>
+<li>Instrución SQL: <code>SELECT * FROM 'iot'</code></li>
+<li>Accións da regra: engade unha regra de tipo <strong>Data Firehose Stream</strong> coas seguintes propiedades:<ul>
+<li>Fluxo do Amazon Data Firehose: escolle <strong>iotstream</strong>.</li>
+<li>Función do IAM: escolle o rol IAM predefinido <strong>LabRole</strong>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="xustificacion-do-paso_4">Xustificación do paso</h4>
+<p>Toma a seguinte captura para a memoria de xustificación da práctica:</p>
+<ol start="6">
+<li>Propiedades da regra <strong>thingrule</strong> coa aba <strong>Accións</strong> escollida.</li>
+</ol>
+<h2 id="step-7-check-your-roles">Step 7 - Check your roles!</h2>
+<p>Neste paso non tes que facer nada.</p>
+<h2 id="step-8-test-your-code">Step 8 - Test your code</h2>
+<p><strong>Non executes o ratchet.py do lab 2</strong> como se indica no lab porque o formato de mensaxe non coincide co da táboa <strong>thingtest</strong>. No seu lugar fai o seguinte:</p>
+<ul>
+<li>Crea un novo <em>script</em> Python co código que se fornece no lab e configura a conexión MQTT como nos labs anteriores.</li>
+</ul>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Hai un erro de sintaxe no código do lab, nas instrucións <code>print</code> faltan os parénteses.</p>
+</div>
+<ul>
+<li>Executa o <em>script</em>. A carga de datos efectiva no Redshift pode demorar varios minutos, mentres podes comprobar:<ul>
+<li>Nas propiedades do fluxo Firehose, se aparece algunha mensaxe de erro nos <strong>logs de erros do destino</strong>.</li>
+<li>No bucket S3 <strong>iotfirehose</strong>, se se crearon os ficheiros temporais que se copiarán a RedShift.</li>
+</ul>
+</li>
+<li>Para comprobar o resultado:<ul>
+<li>Desde o SQLWorkbench na instancia Cloud9.<ul>
+<li>Conéctate con <code>WbConnect Redshift;</code> e consulta a táboa con <code>SELECT * FROM thingtest;</code></li>
+</ul>
+</li>
+<li>
+<p>Desde o editor de consultas do Redshift.</p>
+<ol>
+<li>Na consola do Redshift escolle o cluster <strong>iot-cluster</strong> e a opción <strong>Consultar no editor de consultas v2</strong> no menú <strong>Consultar datos</strong>. Abrirase o editor nunha nova xanela. </li>
+<li>
+<p>No editor preme no nome do cluster e configura unha conexión coas propiedades seguintes:</p>
+<ul>
+<li>Forma de conexión: escolle a opción <strong>Temporary credentials using a database user name</strong> </li>
+<li>Database: <strong>iotredshift</strong> co teu prefixo diante.</li>
+<li>User name: <strong>awsuser</strong>
+<img alt="Configuración da conexión no editor de consultas do Redshift" src="../../../../actividades/practica_5/imgs/redshift-queryeditor01.png" />
+<em>Imaxe: configuración da conexión no editor de consultas do Redshift.</em>                </li>
+</ul>
+</li>
+<li>
+<p>Crea unha consulta escollendo a opción <strong>Select table</strong> no menú de contexto da táboa <strong>thingtest</strong> e execútaa premendo en <strong>Run</strong>.
+<img alt="Execución dunha consulta no editor de consultas Redshift" src="../../../../actividades/practica_5/imgs/redshift-queryeditor02.png" />
+<em>Imaxe: execución dunha consulta no editor de consultas Redshift.</em></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="xustificacion-do-paso_5">Xustificación do paso</h4>
+<p>Toma a seguinte captura para a memoria de xustificación da práctica:</p>
+<ol start="7">
+<li>Editor de consultas do Redshift no que se vexa a táboa <strong>thingtest</strong> na vista en árbore do cluster, o esquema da táboa, a consulta SQL e o resultado.</li>
+</ol>
+<p><img alt="Exemplo de captura do editor de consultas Redshift" src="../../../../actividades/practica_5/imgs/redshift-queryeditor03.png" />
+<em>Imaxe: exemplo de captura do editor de consultas Redshift.</em></p>
+<h2 id="eliminacion-de-recursos">Eliminación de recursos</h2>
+<div class="admonition important">
+<p class="admonition-title">MOI IMPORTANTE!!!!!!</p>
+<p>Elimina o cluster unha vez remates a actividade para evitar que poida deixarte sen crédito.</p>
+</div>
+<p>Cando xa non os vaias usar máis elimina os recursos que se crearon nesta actividade:</p>
+<ul>
+<li>No Redshift elimina o cluster <strong>iot-cluster</strong>.</li>
+<li>No S3 elimina o <em>bucket</em> <strong>iotfirehose</strong>.</li>
+<li>No Firehose elimina o fluxo <strong>iotstream</strong>.</li>
+<li>No IoT Core elimina a regra <strong>thingrule</strong>.</li>
+</ul>
+<h2 id="xustificacion-da-actividade">Xustificación da actividade</h2>
+<p>Resume das capturas que tes que incluír na memoria de xustificación da práctica:</p>
+<p><strong>Step 1 - Setup a Redshift cluster</strong></p>
+<ol>
+<li>Propiedades do cluster Redshift.</li>
+</ol>
+<p><strong>Step 2 - Redshift cluster security</strong></p>
+<ol start="2">
+<li>Regras de entrada do grupo de seguranza default (o do cluster).</li>
+<li>Regras de entrada do grupo de seguranza da instancia Cloud9</li>
+</ol>
+<p><strong>Step 3 - Create table definition</strong></p>
+<ol start="4">
+<li>Ambiente Cloud9 cos arquivos do SQLWorkbench na árbore de directorios e o script <strong>create-table.sql</strong> nun terminal e a creación da táboa noutro.</li>
+</ol>
+<p><strong>Step 5 - Setup Kinesis Firehose</strong></p>
+<ol start="5">
+<li>Propiedades nas que se vexan os detalles do fluxo e a configuración do destino.</li>
+</ol>
+<p><strong>Step 6 - Update our AWS IoT rule</strong></p>
+<ol start="6">
+<li>Propiedades da regra <strong>thingrule</strong> coa aba <strong>Accións</strong> escollida.</li>
+</ol>
+<p><strong>Step 8 - Test your code</strong></p>
+<ol start="7">
+<li>Editor de consultas do Redshift no que se vexa a táboa <strong>thingtest</strong> na vista en árbore do cluster, o esquema da táboa, a consulta SQL e o resultado.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>As capturas teñen que asemellarse ás que se tomaron nos laboratorios e nas prácticas anteriores. As capturas tomadas na consola AWS teñen que incluír o menú superior no que poida verse o nome de usuario da conta.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>

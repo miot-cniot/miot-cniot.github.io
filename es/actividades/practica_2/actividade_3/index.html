@@ -1,0 +1,2048 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Xoan C. Pardo">
+      
+      
+        <link rel="canonical" href="https://miot-cniot.github.io/es/actividades/practica_2/actividade_3/">
+      
+      
+        <link rel="prev" href="../actividade_2/">
+      
+      
+        <link rel="next" href="../../practica_3/actividade_1/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>Actividad 3 - Computación en la Nube para IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#actividad-3" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../" title="Computación en la Nube para IoT" class="md-header__button md-logo" aria-label="Computación en la Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computación en la Nube para IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Actividad 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../../../actividades/practica_2/actividade_3/" hreflang="gl" class="md-select__link">
+                    Galego
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="es" class="md-select__link">
+                    Castellano
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../" title="Computación en la Nube para IoT" class="md-nav__button md-logo" aria-label="Computación en la Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Computación en la Nube para IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Práctica 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/actividade_1/" class="md-nav__link">
+        Actividad 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/actividade_2/" class="md-nav__link">
+        Actividad 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/actividade_3/" class="md-nav__link">
+        Actividad 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Práctica 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+          Gestión de datos y estados de dispositivos IoT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Gestión de datos y estados de dispositivos IoT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/01_course_overview/" class="md-nav__link">
+        1. Introducción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/02_how_devices_comunicate/" class="md-nav__link">
+        2. Descubriendo cómo intercambian información los dispositios
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/03_using_topics/" class="md-nav__link">
+        3. Usando temas para recopilar datos específicos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/04_message_broker/" class="md-nav__link">
+        4. Gestión del tráfico de mensajes: el Message Broker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/05_testing_communication/" class="md-nav__link">
+        5. Prueba de conexión
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/06_rules_overview/" class="md-nav__link">
+        6. Introducción a las reglas IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/07_applying_rules/" class="md-nav__link">
+        7. Usando reglas IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/08_device_connections/" class="md-nav__link">
+        8. Gestión de las conexiones de dispositivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/09_device_shadows/" class="md-nav__link">
+        9. Definiendo las sombras de dispositivo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/10_device_shadows/" class="md-nav__link">
+        10. Los componentes de las sombras de dispositivo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/11_device_shadows/" class="md-nav__link">
+        11. Las sombras de dispositivo en acción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/13_course_assesment/" class="md-nav__link">
+        Cuestionario de autoevaluación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/14_cleanup/" class="md-nav__link">
+        Limpieza de recursos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actividade_1/" class="md-nav__link">
+        Actividad 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actividade_2/" class="md-nav__link">
+        Actividad 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Actividad 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Actividad 3
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-la-sombra-de-dispositivo" class="md-nav__link">
+    Creación de la sombra de dispositivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-ejemplo" class="md-nav__link">
+    Configuración del ejemplo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prueba-del-ejemplo" class="md-nav__link">
+    Prueba del ejemplo
+  </a>
+  
+    <nav class="md-nav" aria-label="Prueba del ejemplo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estado-inicial-de-la-sombra" class="md-nav__link">
+    Estado inicial de la sombra
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notificacion-del-valor-actual-de-la-propiedad-door" class="md-nav__link">
+    Notificación del valor actual de la propiedad door
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-la-propiedad-door-en-el-dispositivo-iot" class="md-nav__link">
+    Cambio de la propiedad door en el dispositivo IoT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-conectado" class="md-nav__link">
+    Cambio de estado en la sombra con el dispositivo IoT conectado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-desconectado" class="md-nav__link">
+    Cambio de estado en la sombra con el dispositivo IoT desconectado
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#justificacion-de-la-actividad" class="md-nav__link">
+    Justificación de la actividad
+  </a>
+  
+    <nav class="md-nav" aria-label="Justificación de la actividad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-la-sombra-de-dispositivo_1" class="md-nav__link">
+    Creación de la sombra de dispositivo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-ejemplo_1" class="md-nav__link">
+    Configuración del ejemplo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prueba-del-ejemplo_1" class="md-nav__link">
+    Prueba del ejemplo
+  </a>
+  
+    <nav class="md-nav" aria-label="Prueba del ejemplo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estado-inicial-de-la-sombra_1" class="md-nav__link">
+    Estado inicial de la sombra
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notificacion-del-valor-actual-de-la-propiedad-door_1" class="md-nav__link">
+    Notificación del valor actual de la propiedad door
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-la-propiedad-door-en-el-dispositivo-iot_1" class="md-nav__link">
+    Cambio de la propiedad door en el dispositivo IoT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-conectado_1" class="md-nav__link">
+    Cambio de estado en la sombra con el dispositivo IoT conectado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-desconectado_1" class="md-nav__link">
+    Cambio de estado en la sombra con el dispositivo IoT desconectado
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Práctica 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_3/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_3/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_3/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_3/actividade_4/" class="md-nav__link">
+        Actividade 4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          Práctica 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_4/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_4/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          Práctica 5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_1" id="__nav_2_5_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_5/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_5/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-la-sombra-de-dispositivo" class="md-nav__link">
+    Creación de la sombra de dispositivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-ejemplo" class="md-nav__link">
+    Configuración del ejemplo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prueba-del-ejemplo" class="md-nav__link">
+    Prueba del ejemplo
+  </a>
+  
+    <nav class="md-nav" aria-label="Prueba del ejemplo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estado-inicial-de-la-sombra" class="md-nav__link">
+    Estado inicial de la sombra
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notificacion-del-valor-actual-de-la-propiedad-door" class="md-nav__link">
+    Notificación del valor actual de la propiedad door
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-la-propiedad-door-en-el-dispositivo-iot" class="md-nav__link">
+    Cambio de la propiedad door en el dispositivo IoT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-conectado" class="md-nav__link">
+    Cambio de estado en la sombra con el dispositivo IoT conectado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-desconectado" class="md-nav__link">
+    Cambio de estado en la sombra con el dispositivo IoT desconectado
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#justificacion-de-la-actividad" class="md-nav__link">
+    Justificación de la actividad
+  </a>
+  
+    <nav class="md-nav" aria-label="Justificación de la actividad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-la-sombra-de-dispositivo_1" class="md-nav__link">
+    Creación de la sombra de dispositivo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-del-ejemplo_1" class="md-nav__link">
+    Configuración del ejemplo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prueba-del-ejemplo_1" class="md-nav__link">
+    Prueba del ejemplo
+  </a>
+  
+    <nav class="md-nav" aria-label="Prueba del ejemplo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estado-inicial-de-la-sombra_1" class="md-nav__link">
+    Estado inicial de la sombra
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notificacion-del-valor-actual-de-la-propiedad-door_1" class="md-nav__link">
+    Notificación del valor actual de la propiedad door
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-la-propiedad-door-en-el-dispositivo-iot_1" class="md-nav__link">
+    Cambio de la propiedad door en el dispositivo IoT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-conectado_1" class="md-nav__link">
+    Cambio de estado en la sombra con el dispositivo IoT conectado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-desconectado_1" class="md-nav__link">
+    Cambio de estado en la sombra con el dispositivo IoT desconectado
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="actividad-3">Actividad 3</h1>
+<p><strong>EJECUTAR EL EJEMPLO DE SOMBRAS DE DISPOSITIVO DEL DEVICE SDK V2.</strong></p>
+<h2 id="objetivo">Objetivo</h2>
+<p>El objetivo de esta actividad es probar uno de los ejemplos que vienen con la versión 2 del Device SDK.</p>
+<ul>
+<li>
+<p>El ejemplo que vamos a probar utiliza el servicio <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html">AWS IoT Device Shadow</a> para mantener el valor de una propiedad sincronizado entre el dispositivo IoT y el servidor.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Puedes ver <a href="https://github.com/aws/aws-iot-device-sdk-python-v2/blob/main/samples/service_clients/shadow.md">aquí</a> la documentación del ejemplo.</p>
+</div>
+</li>
+</ul>
+<h2 id="creacion-de-la-sombra-de-dispositivo">Creación de la sombra de dispositivo</h2>
+<p>Para crear una sombra de dispositivo haz lo siguiente:</p>
+<ol>
+<li>Abre la consola AWS IoT y en el panel lateral de la izquierda, dentro del submenú <strong>Todos los dispositivos</strong>, elige la opción <strong>Objetos</strong>.</li>
+<li>Abre las propiedades del objeto <strong>truckSensor01</strong> y en la pestaña <strong>Sombras de dispositivos</strong> elige <strong>Crear sombra de dispositivo</strong>. </li>
+<li>
+<p>Elige el tipo <strong>Sombra sin nombre (clásico)</strong> y acepta para crear la sombra.</p>
+<p><img alt="Sombra del dispositivo" src="../imgs/awsiot-thing-shadow.png" />
+<em>Imagen: sombra del dispositivo <strong>truckSensor01</strong>.</em></p>
+</li>
+</ol>
+<h2 id="configuracion-del-ejemplo">Configuración del ejemplo</h2>
+<p>Para configurar el ejemplo haz lo siguiente:</p>
+<ol>
+<li>
+<p>En el directorio de <em>scripts</em> de la instancia VSCode, crea un <em>script</em> <strong>shadow.sh</strong> para ejecutar el ejemplo. Vamos a controlar a través de la sombra el valor de la propiedad <strong>door</strong> del camión.</p>
+<div class="admonition important">
+<p class="admonition-title">Nomenclatura</p>
+<p>En el <em>script</em> <strong>usa tu prefijo</strong> en el nombre de la cosa.</p>
+</div>
+<div class="highlight"><pre><span></span><code>#!/usr/bin/env bash
+
+# stop script on error
+set -e
+
+# set the thing name
+thing=&lt;TU_PREFIJO&gt;-truckSensor01
+
+# get the AWS IoT endpoint
+aws iot describe-endpoint &gt; /tmp/iotendpoint.json
+iot_endpoint=$(jq -r &quot;.endpointAddress&quot; /tmp/iotendpoint.json)
+
+# run shadow sample app
+printf &quot;\nRunning device shadow sample application with $thing thing...\n&quot;
+python3 $HOME/aws-iot-device-sdk-python-v2/samples/shadow.py \
+  --endpoint $iot_endpoint \
+  --cert ../certs/$thing.cert.pem \
+  --key ../certs/$thing.private.key \
+  --thing $thing 
+</code></pre></div>
+</li>
+<li>
+<p>En la consola de AWS IoT edita la política <strong>truckSensor01-Policy</strong> de la cosa para permitir la suscripción a los temas de la sombra y publicar y recibir mensajes en ellos.</p>
+<div class="admonition important">
+<p class="admonition-title">OJO</p>
+<p>Recuerda usar el ID de tu cuenta en los ARN (<em>Amazon Resource Name</em>) de los recursos.</p>
+</div>
+<p><img alt="Política AWS IoT" src="../imgs/aws_iot_shadowpolicy.png" />
+<em>Imagen: política AWS IoT modificada.</em></p>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Importante</p>
+<p>Antes de continuar toma las capturas 1 a 3 que se piden para <a href="#justificacion-de-la-actividad">justificar la actividad</a>.</p>
+</div>
+<h2 id="prueba-del-ejemplo">Prueba del ejemplo</h2>
+<h3 id="estado-inicial-de-la-sombra">Estado inicial de la sombra</h3>
+<p>Para configurar el estado inicial de la sombra haz lo siguiente:</p>
+<ol>
+<li>En las propiedades de la cosa <strong>truckSensor01</strong>, elige la pestaña <strong>Sombras de dispositivo</strong> y abre las propiedades de la sombra pulsando en su nombre.</li>
+<li>
+<p>En la pestaña <strong>Documento de sombra de dispositivo</strong> de las propiedades de la sombra puedes consultar el estado inicial de la sombra.</p>
+<p><img alt="Estado inicial de la sombra" src="../imgs/aws_iot_shadowstate01.png" />
+<em>Imagen: estado inicial de la sombra.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Por ahora la propiedad <strong>door</strong> no forma parte del estado de la sombra.</p>
+</div>
+</li>
+<li>
+<p>En la pestaña <strong>Temas MQTT</strong> de las propiedades de la sombra elige <strong>Cliente de prueba MQTT</strong> para abrir una nueva ventana del cliente MQTT con suscripciones ya configuradas a los temas de la sombra.</p>
+<p><img alt="Cliente de prueba MQTT" src="../imgs/aws_iot_mqttclient01.png" />
+<em>Imagen: cliente de prueba MQTT con suscripciones a los temas de la sombra.</em></p>
+</li>
+<li>
+<p>Ejecuta el ejemplo en el directorio de <em>scripts</em> y comprueba que se conecta a la cosa.</p>
+<div class="highlight"><pre><span></span><code>$ pwd
+/home/ubuntu/scripts
+$ chmod +x shadow.sh
+$ ./shadow.sh
+
+Running device shadow sample application with xcpm2425-truckSensor01 thing...
+Connected!
+</code></pre></div>
+</li>
+<li>
+<p>Introduce el comando <code>help</code> para listar los comandos que proporciona el ejemplo para manejar la sombra de dispositivo. Fíjate en que puedes usar el comando <code>quit</code> para parar la ejecución del ejemplo.</p>
+<div class="highlight"><pre><span></span><code>help
+Shadow Sandbox
+
+Commands:
+  get - gets the current value of the IoT thing&#39;s shadow
+  delete - deletes the IoT thing&#39;s shadow
+  update-desired &lt;state-as-JSON&gt; - updates the desired state of the IoT thing&#39;s shadow.  If the shadow does not exist, it will be created.
+  update-reported &lt;state-as-JSON&gt; - updates the reported state of the IoT thing&#39;s shadow.  If the shadow does not exist, it will be created.
+  quit - quits the sample application
+</code></pre></div>
+</li>
+<li>
+<p>Introduce el comando <code>get</code> para obtener el estado actual de la sombra. Comprueba como los nodos <code>metadata</code> y <code>state</code> coinciden con los del documento de la sombra que vimos anteriormente.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Para facilitar la legibilidad, las salidas de los comandos que se muestran como ejemplo se han formateado. </p>
+</div>
+<div class="highlight"><pre><span></span><code>get
+get response:
+  awsiot.iotshadow.GetShadowResponse(
+    client_token=&#39;548ad806-2fac-4137-b5e6-4730944ece4b&#39;,
+    metadata=awsiot.iotshadow.ShadowMetadata(
+      desired={&#39;welcome&#39;: {&#39;timestamp&#39;: 1758088632}},
+      reported={&#39;welcome&#39;: {&#39;timestamp&#39;: 1758088632}}
+    ), 
+    state=awsiot.iotshadow.ShadowStateWithDelta(
+      delta=None, 
+      desired={&#39;welcome&#39;: &#39;aws-iot&#39;},
+      reported={&#39;welcome&#39;: &#39;aws-iot&#39;}
+    ),
+    timestamp=datetime.datetime(2025, 9, 17, 7, 32, 42), 
+    version=1
+  )
+</code></pre></div>
+</li>
+<li>
+<p>Comprueba en el cliente MQTT los mensajes intercambiados en los temas de la sombra. Habrá un mensaje en el tema <code>$aws/things/truckSensor01/shadow/get/accepted</code> que coincide con la respuesta del comando <code>get</code>.</p>
+<p><img alt="Mensaje publicado en los temas de la sombra" src="../imgs/aws_iot_mqttclient02.png" />
+<em>Imagen: Mensaje publicado en el tema <code>$aws/things/truckSensor01/shadow/get/accepted</code>.</em></p>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Importante</p>
+<p>Antes de continuar toma las capturas 4 y 5 que se piden para <a href="#justificacion-de-la-actividad">justificar la actividad</a>.</p>
+</div>
+<h3 id="notificacion-del-valor-actual-de-la-propiedad-door">Notificación del valor actual de la propiedad <em>door</em></h3>
+<ol>
+<li>
+<p>Para simular que el dispositivo informa del valor actual de la propiedad <strong>door</strong>, introduce el comando <code>update-reported {"door":"off"}</code>. Fíjate como en la respuesta al comando, el valor actual de la propiedad aparece en el campo <code>reported</code> dentro del objeto <code>state</code>.</p>
+<div class="highlight"><pre><span></span><code>update-reported {&quot;door&quot;:&quot;off&quot;}
+update-reported response:
+  awsiot.iotshadow.UpdateShadowResponse(
+    client_token=&#39;9d32d5f4-351f-40e5-ad07-f05a9958a35a&#39;,
+    metadata=awsiot.iotshadow.ShadowMetadata(
+      desired=None, 
+      reported={&#39;door&#39;: {&#39;timestamp&#39;: 1758097043}}
+    ), 
+    state=awsiot.iotshadow.ShadowState(
+      desired=None, desired_is_nullable=False, 
+      reported={&#39;door&#39;: &#39;off&#39;}, reported_is_nullable=False
+    ), 
+    timestamp=datetime.datetime(2025, 9, 17, 8, 17, 23), 
+    version=2
+  )
+</code></pre></div>
+<p>Además de la respuesta al comando, también se recibirá un evento <code>ShadowUpdated</code> conteniendo información sobre lo que cambió en la sombra del dispositivo junto con algunos metadatos adicionales. Este evento se activa cada vez que se actualiza el estado de la sombra.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>La salida del evento podría no aparecer a la vez que la del comando <code>update-reported</code>, puede tardar un poco.</p>
+</div>
+<div class="highlight"><pre><span></span><code>Received ShadowUpdatedEvent: 
+  awsiot.iotshadow.ShadowUpdatedEvent(
+    current=awsiot.iotshadow.ShadowUpdatedSnapshot(
+      metadata=awsiot.iotshadow.ShadowMetadata(
+        desired={&#39;welcome&#39;: {&#39;timestamp&#39;: 1758088632}}, 
+        reported={&#39;welcome&#39;: {&#39;timestamp&#39;: 1758088632}, 
+        &#39;door&#39;: {&#39;timestamp&#39;: 1758097043}}
+      ), 
+      state=awsiot.iotshadow.ShadowState(
+        desired={&#39;welcome&#39;: &#39;aws-iot&#39;}, desired_is_nullable=False, 
+        reported={&#39;welcome&#39;: &#39;aws-iot&#39;, &#39;door&#39;: &#39;off&#39;}, reported_is_nullable=False
+      ), 
+      version=2
+    ),
+    previous=awsiot.iotshadow.ShadowUpdatedSnapshot(
+      metadata=awsiot.iotshadow.ShadowMetadata(
+        desired={&#39;welcome&#39;: {&#39;timestamp&#39;: 1758088632}}, 
+        reported={&#39;welcome&#39;: {&#39;timestamp&#39;: 1758088632}}
+      ), 
+      state=awsiot.iotshadow.ShadowState(
+        desired={&#39;welcome&#39;: &#39;aws-iot&#39;}, desired_is_nullable=False, 
+        reported={&#39;welcome&#39;: &#39;aws-iot&#39;}, reported_is_nullable=False
+      ), 
+      version=1
+    ), 
+    timestamp=datetime.datetime(2025, 9, 17, 8, 17, 23)
+  )
+</code></pre></div>
+<p>La salida del evento incluye tanto el estado previo (objeto <code>previous</code>) como el actual (objeto <code>current</code>). Fíjate en que en el estado actual, la propiedad <code>door</code> está incluida en el campo <code>reported</code> dentro del objeto <code>state</code> con el valor <code>off</code>. Fíjate también en que se incrementó el valor del campo <code>version</code>.</p>
+</li>
+<li>
+<p>Comprueba en el cliente MQTT los mensajes intercambiados en los temas de la sombra. Habrá mensajes en los siguientes temas:</p>
+<ul>
+<li>
+<p><code>$aws/things/truckSensor01/shadow/update/accepted</code>: la solicitud de actualización del estado de la sombra.</p>
+<p><img alt="Mensaje publicado en los temas de la sombra" src="../imgs/aws_iot_mqttclient03.png" />
+<em>Imagen: Mensaje publicado en el tema <code>$aws/things/truckSensor01/shadow/update/accepted</code>.</em></p>
+</li>
+<li>
+<p><code>$aws/things/truckSensor01/shadow/update/documents</code>: la actualización del estado, que ahora pasa a contener la propiedad <strong>door</strong> con el valor informado por el dispositivo IoT.</p>
+<p><img alt="Mensaje publicado en los temas de la sombra" src="../imgs/aws_iot_mqttclient04.png" />
+<em>Imagen: Mensaje publicado en el tema <code>$aws/things/truckSensor01/shadow/update/documents</code>.</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p>En las propiedades de la sombra, actualiza las propiedades y comprueba como se hicieron efectivos los cambios en el documento de estado.</p>
+<p><img alt="Estado actualizado de la sombra" src="../imgs/aws_iot_shadowstate02.png" />
+<em>Imagen: estado actualizado de la sombra en el que ya aparece la propiedad <strong>door</strong>.</em></p>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Importante</p>
+<p>Antes de continuar toma las capturas 6 y 7 que se piden para <a href="#justificacion-de-la-actividad">justificar la actividad</a>.</p>
+</div>
+<h3 id="cambio-de-la-propiedad-door-en-el-dispositivo-iot">Cambio de la propiedad door en el dispositivo IoT</h3>
+<p>Para simular que la puerta se abrió y el dispositivo IoT informa del cambio en el valor de la propiedad <strong>door</strong>, haz lo siguiente:</p>
+<ol>
+<li>
+<p>En el terminal de la instancia VSCode en la que se está ejecutando el <em>script</em> <strong>shadow.sh</strong>, introduce el comando <code>update-reported {"door":"on"}</code>. Fíjate como en la respuesta al comando, el nuevo valor de la propiedad aparece en el campo <code>reported</code> dentro del objeto <code>state</code>.</p>
+<div class="highlight"><pre><span></span><code>update-reported response:
+  awsiot.iotshadow.UpdateShadowResponse(
+    client_token=&#39;0c34de55-48e5-4c15-82ad-5b4e86ee0257&#39;, 
+    metadata=awsiot.iotshadow.ShadowMetadata(
+    desired=None, 
+    reported={&#39;door&#39;: {&#39;timestamp&#39;: 1758101001}}
+  ), 
+  state=awsiot.iotshadow.ShadowState(
+    desired=None, desired_is_nullable=False, 
+    reported={&#39;door&#39;: &#39;on&#39;}, reported_is_nullable=False
+  ), 
+  timestamp=datetime.datetime(2025, 9, 17, 9, 23, 21), 
+  version=3
+)
+</code></pre></div>
+<p>Igual que en el apartado anterior, también se recibirá un evento <code>ShadowUpdated</code>. Comprueba en la salida del evento que el valor de la propiedad <strong>door</strong> cambió entre el estado previo y el actual, y que se incrementó la versión.</p>
+</li>
+<li>
+<p>Comprueba en el cliente MQTT los mensajes recibidos en los temas de la sombra. De nuevo habrá mensajes en los temas:</p>
+<ul>
+<li><code>$aws/things/truckSensor01/shadow/update/accepted</code> con la solicitud de actualización del estado de la sombra.</li>
+<li><code>$aws/things/truckSensor01/shadow/update/documents</code> con la actualización del estado.</li>
+</ul>
+</li>
+<li>
+<p>En las propiedades de la sombra, actualiza las propiedades y comprueba como se hicieron efectivos los cambios en el documento de estado de la sombra.</p>
+</li>
+<li>
+<p>Prueba ahora a volver a ejecutar el comando <code>update-reported {"door":"on"}</code> en el terminal de la instancia VSCode en la que se está ejecutando el <em>script</em> <strong>shadow.sh</strong>. Comprueba lo siguiente:</p>
+<ul>
+<li>En la respuesta al comando, que el valor de la propiedad <strong>door</strong> sigue siendo <code>on</code> en el campo <code>reported</code> dentro del objeto <code>state</code> y que el valor de <code>version</code> se incrementó.</li>
+<li>En la salida del evento <code>ShadowUpdated</code>, que el valor de la propiedad <strong>door</strong> es <code>on</code> tanto en el estado actual como en el previo y que el valor de <code>version</code> se incrementó.</li>
+<li>En el cliente MQTT, los mensajes publicados en los temas de la sombra <code>$aws/.../update/accepted</code> y <code>$aws/.../update/documents</code>.</li>
+<li>En las propiedades de la sombra, actualiza las propiedades y comprueba que el valor de la propiedad <strong>door</strong> sigue siendo <code>on</code>, pero que cambiaron el <code>timestamp</code> de la propiedad y la versión del documento.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Importante</p>
+<p>Antes de continuar toma las capturas 8 y 9 que se piden para <a href="#justificacion-de-la-actividad">justificar la actividad</a>.</p>
+</div>
+<h3 id="cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-conectado">Cambio de estado en la sombra con el dispositivo IoT conectado</h3>
+<p>Vamos a comprobar ahora como se utiliza el estado de la sombra para actualizar el estado de la propiedad <strong>door</strong> en el dispositivo. Simularemos tanto una situación en la que se solicita un cambio en el valor de la propiedad estando el dispositivo conectado, como una situación en la que el dispositivo está desconectado.</p>
+<p>Para simular el cambio en el valor de la propiedad <strong>door</strong> con el dispositivo IoT conectado haz lo siguiente:</p>
+<ol>
+<li>Asegúrate de que el <em>script</em> <strong>shadow.sh</strong> esté ejecutándose en la instancia VSCode.</li>
+<li>
+<p>En el cliente MQTT publica en el tema <code>$aws/things/truckSensor01/shadow/update</code> el siguiente mensaje:</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;state&quot;: {
+    &quot;desired&quot;: {
+      &quot;door&quot;: &quot;off&quot;
+    }
+  }
+}
+</code></pre></div>
+<p><img alt="Actualización del estado de la sombra en el cliente MQTT" src="../../../../actividades/practica_2/imgs/mqtt_topic_update01.png" />
+<em>Imagen: cliente MQTT configurado para publicar un mensaje en el tema <code>update</code> de la sombra.</em></p>
+</li>
+<li>
+<p>Comprueba en el cliente MQTT los mensajes recibidos en los temas de la sombra. </p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si la actualización falló habrá un mensaje en el tema <code>$aws/things/truckSensor01/shadow/update/rejected</code> indicando la causa.</p>
+</div>
+<p>Si la actualización se hizo correctamente habrá 3 temas que contengan mensajes:</p>
+<ul>
+<li>
+<p>En el tema <code>$aws/things/truckSensor01/shadow/update/accepted</code> se publicó el mensaje con la solicitud de actualización del estado de la sombra realizada desde el cliente MQTT. El servicio <strong>Device Shadow</strong> incrementó el número de versión y adicionó los valores de <em>timestamp</em> y los metadatos.</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;state&quot;: {
+    &quot;desired&quot;: {
+      &quot;door&quot;: &quot;off&quot;
+    }
+  },
+  &quot;metadata&quot;: {
+    &quot;desired&quot;: {
+      &quot;door&quot;: {
+        &quot;timestamp&quot;: 1758176402
+      }
+    }
+  },
+  &quot;version&quot;: 5,
+  &quot;timestamp&quot;: 1758176402
+}
+</code></pre></div>
+</li>
+<li>
+<p>En el tema <code>$aws/things/truckSensor01/shadow/update/delta</code> se publicó un mensaje con las diferencias entre los estados <code>desired</code> de la solicitud y <code>reported</code> del estado actual. Este mensaje será notificado, como veremos después, al dispositivo IoT que está suscrito a este tema.</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;version&quot;: 5,
+  &quot;timestamp&quot;: 1758176402,
+  &quot;state&quot;: {
+    &quot;door&quot;: &quot;off&quot;
+  },
+  &quot;metadata&quot;: {
+    &quot;door&quot;: {
+      &quot;timestamp&quot;: 1758176402
+    }
+  }
+}
+</code></pre></div>
+</li>
+<li>
+<p>En el tema <code>$aws/things/truckSensor01/shadow/update/documents</code> se publicó el mensaje con la información de lo que cambió en el estado de la sombra. Fíjate en que en el objeto <code>current</code>, el valor de la propiedad <strong>door</strong> en los objetos <code>desired</code> y <code>reported</code> es diferente. Este mensaje será notificado, como veremos después, al dispositivo IoT que está suscrito a este tema.</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;previous&quot;: {
+    &quot;state&quot;: {
+      &quot;desired&quot;: {
+        &quot;welcome&quot;: &quot;aws-iot&quot;
+      },
+      &quot;reported&quot;: {
+        &quot;welcome&quot;: &quot;aws-iot&quot;,
+        &quot;door&quot;: &quot;on&quot;
+      }
+    },
+    &quot;metadata&quot;: {
+      &quot;desired&quot;: {
+        &quot;welcome&quot;: {
+          &quot;timestamp&quot;: 1758088632
+        }
+      },
+      &quot;reported&quot;: {
+        &quot;welcome&quot;: {
+          &quot;timestamp&quot;: 1758088632
+        },
+        &quot;door&quot;: {
+          &quot;timestamp&quot;: 1758101807
+        }
+      }
+    },
+    &quot;version&quot;: 4
+  },
+  &quot;current&quot;: {
+    &quot;state&quot;: {
+      &quot;desired&quot;: {
+        &quot;welcome&quot;: &quot;aws-iot&quot;,
+        &quot;door&quot;: &quot;off&quot;
+      },
+      &quot;reported&quot;: {
+        &quot;welcome&quot;: &quot;aws-iot&quot;,
+        &quot;door&quot;: &quot;on&quot;
+      }
+    },
+    &quot;metadata&quot;: {
+      &quot;desired&quot;: {
+        &quot;welcome&quot;: {
+          &quot;timestamp&quot;: 1758088632
+        },
+        &quot;door&quot;: {
+          &quot;timestamp&quot;: 1758176402
+        }
+      },
+      &quot;reported&quot;: {
+        &quot;welcome&quot;: {
+          &quot;timestamp&quot;: 1758088632
+        },
+        &quot;door&quot;: {
+          &quot;timestamp&quot;: 1758101807
+        }
+      }
+    },
+    &quot;version&quot;: 5
+  },
+  &quot;timestamp&quot;: 1758176402
+}
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Comprueba lo que sucedió en el terminal VSCode en el que se está ejecutando el <em>script</em> <strong>shadow.sh</strong>.</p>
+<p><img alt="Respuesta en el terminal del script shadow.sh al cambio de estado de la sombra" src="../imgs/vscode_shadowsh03.png" />
+<em>Imagen: respuesta en el terminal del script <strong>shadow.sh</strong> al cambio de estado de la sombra.</em></p>
+<p>Lo que podemos ver en la salida del terminal es que el dispositivo IoT recibió dos eventos:</p>
+<ul>
+<li>En el evento <code>ShadowDeltaUpdated</code> recibe el mensaje publicado en el tema <code>$aws/.../update/delta</code>, que contiene el nuevo valor deseado para la propiedad <strong>door</strong>.</li>
+<li>En el evento <code>ShadowUpdated</code> recibe el mensaje publicado en el tema <code>$aws/.../update/documents</code> con la información de lo que cambió en el estado de la sombra.</li>
+</ul>
+<p>Comprueba que los mensajes recibidos en los eventos coinciden con los publicados en los temas correspondientes.</p>
+</li>
+<li>
+<p>La respuesta del dispositivo IoT al recibir el evento <code>ShadowDeltaUpdated</code> será aplicar el valor deseado a la propiedad <strong>door</strong> (es decir, cerrar la puerta del congelador) e informar del nuevo valor de la propiedad.</p>
+<p>Para simular que el dispositivo cerró la puerta del congelador, en el terminal de la instancia VSCode en la que se está ejecutando el <em>script</em> <strong>shadow.sh</strong>, introduce el comando <code>update-reported {"door":"off"}</code>.</p>
+</li>
+<li>
+<p>En la salida del terminal, después de ejecutar el comando del paso anterior, podemos ver la respuesta al comando así como el evento <code>ShadowUpdated</code> conteniendo la información sobre lo que cambió en la sombra del dispositivo, tal y como ya se explicó en el apartado <a href="#cambio-de-la-propiedad-door-en-el-dispositivo-iot">Cambio de la propiedad door en el dispositivo IoT</a>.</p>
+<p><img alt="Salida del terminal del script shadow.sh después de informar el cambio de estado" src="../imgs/vscode_shadowsh04.png" />
+<em>Imagen: respuesta en el terminal del script <strong>shadow.sh</strong> después de informar del cambio de estado de la propiedad <strong>door</strong>.</em></p>
+</li>
+<li>
+<p>El mensaje enviado por el dispositivo es procesado por el servicio <strong>Device Shadow</strong> que publica un mensaje de aceptación de la actualización en el tema <code>$aws/.../update/accepted</code> y otro con el documento de cambio de estado de la sombra en el tema <code>$aws/.../update/documents</code>. </p>
+<p>Comprueba que esos mensajes son los últimos publicados en los correspondientes temas y que, a diferencia de los que vimos anteriormente que se publicaron al solicitar el cambio de estado de la propiedad <strong>door</strong> desde el cliente MQTT, estos mensajes incluyen un campo <code>clientToken</code>. Este campo permite identificar cuáles son la(s) respuesta(s) que se corresponden con una solicitud específica.</p>
+<p>Por ejemplo, en el tema <code>$aws/.../update/accepted</code> el mensaje sería:</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;state&quot;: {
+    &quot;reported&quot;: {
+      &quot;door&quot;: &quot;off&quot;
+    }
+  },
+  &quot;metadata&quot;: {
+    &quot;reported&quot;: {
+      &quot;door&quot;: {
+        &quot;timestamp&quot;: 1758178460
+      }
+    }
+  },
+  &quot;version&quot;: 6,
+  &quot;timestamp&quot;: 1758178460,
+  &quot;clientToken&quot;: &quot;3109b579-a8ab-480e-94ab-850768378545&quot;
+}
+</code></pre></div>
+</li>
+<li>
+<p>En las propiedades de la sombra, actualiza las propiedades y comprueba los cambios en el documento de estado. Ahora el valor de la propiedad <strong>door</strong> es <code>off</code> tanto en el campo <code>desired</code> como en el <code>reported</code>.</p>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Importante</p>
+<p>Antes de continuar toma las capturas 10 y 11 que se piden para <a href="#justificacion-de-la-actividad">justificar la actividad</a>.</p>
+</div>
+<h3 id="cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-desconectado">Cambio de estado en la sombra con el dispositivo IoT desconectado</h3>
+<p>Para cambiar el estado de la sombra con el dispositivo IoT desconectado haz lo siguiente:</p>
+<ol>
+<li>
+<p>En el terminal de la instancia VSCode en el que se está ejecutando el <em>script</em> <strong>shadow.sh</strong> introduce <code>quit</code> para parar la ejecución del <em>script</em>.</p>
+</li>
+<li>
+<p>En el cliente MQTT publica en el tema <code>$aws/things/truckSensor01/shadow/update</code> el siguiente mensaje:</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;state&quot;: {
+    &quot;desired&quot;: {
+      &quot;door&quot;: &quot;on&quot;
+    }
+  }
+}
+</code></pre></div>
+</li>
+<li>
+<p>Repite el paso previo varias veces, cambiando el valor de <strong>door</strong> a <code>on</code> o a <code>off</code> (también puedes repetir valor). Comprueba los mensajes que se publican en los temas <code>$aws/.../update/accepted</code>, <code>$aws/.../update/delta</code> y <code>$aws/.../update/documents</code> cada vez que publiques.</p>
+</li>
+<li>
+<p>Asegúrate de que después de repetir el paso anterior varias veces, el último mensaje que publiques tenga el valor de <strong>door</strong> a <code>on</code>.</p>
+</li>
+<li>
+<p>En las propiedades de la sombra, actualiza las propiedades y comprueba los cambios en el documento de estado. Comprueba que aparece un objeto <code>delta</code> que indica la diferencia entre los objetos <code>desired</code> y <code>reported</code>. </p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;state&quot;: {
+    &quot;desired&quot;: {
+      &quot;welcome&quot;: &quot;aws-iot&quot;,
+      &quot;door&quot;: &quot;on&quot;
+    },
+    &quot;reported&quot;: {
+      &quot;welcome&quot;: &quot;aws-iot&quot;,
+      &quot;door&quot;: &quot;off&quot;
+    },
+    &quot;delta&quot;: {
+      &quot;door&quot;: &quot;on&quot;
+    }
+  }
+}
+</code></pre></div>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Importante</p>
+<p>Antes de continuar toma la captura 12 que se pide para <a href="#justificacion-de-la-actividad">justificar la actividad</a>.</p>
+</div>
+<ol start="6">
+<li>
+<p>Repite el paso 2 con el valor de <strong>door</strong> a <code>off</code>. </p>
+</li>
+<li>
+<p>En las propiedades de la sombra, actualiza las propiedades y comprueba los cambios en el documento de estado. Comprueba que el campo <code>delta</code> ya no aparece en el documento.</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;state&quot;: {
+    &quot;desired&quot;: {
+      &quot;welcome&quot;: &quot;aws-iot&quot;,
+      &quot;door&quot;: &quot;off&quot;
+    },
+    &quot;reported&quot;: {
+      &quot;welcome&quot;: &quot;aws-iot&quot;,
+      &quot;door&quot;: &quot;off&quot;
+    }
+  }
+}
+</code></pre></div>
+</li>
+<li>
+<p>En la instancia VSCode ejecuta el <em>script</em> <strong>shadow.sh</strong> e introduce el comando <code>get</code>. Comprueba en la respuesta al comando que tanto el valor deseado como el informado de la propiedad <strong>door</strong> son <code>off</code> y el campo <code>delta</code> es <code>None</code>. El dispositivo no tendría que aplicar ningún cambio en este caso. </p>
+<p><img alt="Saida no terminal do script shadow.sh" src="../imgs/vscode_shadowsh05.png" />
+<em>Imagen: salida del script <strong>shadow.sh</strong> cuando el estado de la sombra coincide con el del dispositivo.</em></p>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Importante</p>
+<p>Antes de continuar toma la captura 13 que se pide para <a href="#justificacion-de-la-actividad">justificar la actividad</a>.</p>
+</div>
+<ol start="9">
+<li>
+<p>En el terminal introduce <code>quit</code> para parar la ejecución del <em>script</em>.</p>
+</li>
+<li>
+<p>Repite el paso 2 con el valor de <strong>door</strong> a <code>on</code>. </p>
+</li>
+<li>
+<p>Ejecuta de nuevo el <em>script</em> <strong>shadow.sh</strong> e introduce el comando <code>get</code>. Comprueba como la respuesta contiene un campo <code>delta</code>, que indica que el estado de la sombra cambió mientras el dispositivo estuvo desconectado. Al no haber coincidencia entre el estado de la sombra y el del dispositivo, este tendría que aplicar el nuevo estado requerido (es decir, abrir la puerta del congelador) e informar del nuevo valor de la propiedad <strong>door</strong>. </p>
+<div class="highlight"><pre><span></span><code>get response:
+  awsiot.iotshadow.GetShadowResponse(
+    client_token=&#39;6aa7e224-7d79-440b-83bb-e0148d50514b&#39;, 
+    metadata=awsiot.iotshadow.ShadowMetadata(
+      desired={
+        &#39;welcome&#39;: {&#39;timestamp&#39;: 1758088632}, 
+        &#39;door&#39;: {&#39;timestamp&#39;: 1758182080}
+      }, 
+      reported={
+        &#39;welcome&#39;: {&#39;timestamp&#39;: 1758088632}, 
+        &#39;door&#39;: {&#39;timestamp&#39;: 1758178460}
+      }
+    ), 
+    state=awsiot.iotshadow.ShadowStateWithDelta(
+      delta={&#39;door&#39;: &#39;on&#39;}, 
+      desired={&#39;welcome&#39;: &#39;aws-iot&#39;, &#39;door&#39;: &#39;on&#39;}, 
+      reported={&#39;welcome&#39;: &#39;aws-iot&#39;, &#39;door&#39;: &#39;off&#39;}
+    ), 
+    timestamp=datetime.datetime(2025, 9, 18, 7, 55, 43), 
+    version=15
+  )
+</code></pre></div>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Importante</p>
+<p>Antes de continuar toma la captura 14 que se pide para <a href="#justificacion-de-la-actividad">justificar la actividad</a>.</p>
+</div>
+<ol start="12">
+<li>
+<p>Comprueba en el cliente MQTT los mensajes publicados en los temas de la sombra por los pasos anteriores.</p>
+</li>
+<li>
+<p>Comprueba el estado de la sombra en las propiedades de la sombra en la consola AWS IoT. </p>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Importante</p>
+<p>No olvides tomar la captura 15, la última que se pide para <a href="#justificacion-de-la-actividad">justificar la actividad</a>.</p>
+</div>
+<h2 id="justificacion-de-la-actividad">Justificación de la actividad</h2>
+<p>Resumen de las capturas que hay que tomar para la memoria de justificación de la práctica.</p>
+<h3 id="creacion-de-la-sombra-de-dispositivo_1">Creación de la sombra de dispositivo</h3>
+<ol>
+<li>En la consola IoT las propiedades de la cosa <strong>truckSensor01</strong> con la pestaña <strong>Sombras de dispositivo</strong> elegida en la que pueda verse la sombra.</li>
+</ol>
+<h3 id="configuracion-del-ejemplo_1">Configuración del ejemplo</h3>
+<ol start="2">
+<li>Instancia VSCode con el código del <em>script</em> <strong>shadow.sh</strong> abierto en un terminal.</li>
+<li>Propiedades de la política <strong>truckSensor01-Policy</strong> modificada.</li>
+</ol>
+<h3 id="prueba-del-ejemplo_1">Prueba del ejemplo</h3>
+<h5 id="estado-inicial-de-la-sombra_1">Estado inicial de la sombra</h5>
+<ol start="4">
+<li>Instancia VSCode con la salida del terminal en la que se ejecutó el comando <code>get</code>.</li>
+<li>Consola IoT con las propiedades de la sombra de la cosa <strong>truckSensor01</strong> en la que pueda verse el estado inicial del documento de la sombra.</li>
+</ol>
+<h5 id="notificacion-del-valor-actual-de-la-propiedad-door_1">Notificación del valor actual de la propiedad door</h5>
+<ol start="6">
+<li>Instancia VSCode con la salida del terminal en la que se ejecutó el comando <strong>update-reported</strong>.</li>
+<li>Consola IoT con las propiedades de la sombra de la cosa <strong>truckSensor01</strong> en la que pueda verse el estado modificado conteniendo la propiedad <strong>door</strong>.</li>
+</ol>
+<h5 id="cambio-de-la-propiedad-door-en-el-dispositivo-iot_1">Cambio de la propiedad door en el dispositivo IoT</h5>
+<ol start="8">
+<li>Cliente MQTT en la consola IoT en la que se vea el contenido del mensaje recibido en el tema <code>$aws/things/truckSensor01/shadow/update/documents</code>.</li>
+<li>Consola IoT con las propiedades de la sombra de la cosa <strong>truckSensor01</strong> en la que pueda verse el estado modificado.</li>
+</ol>
+<h5 id="cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-conectado_1">Cambio de estado en la sombra con el dispositivo IoT conectado</h5>
+<ol start="10">
+<li>Cliente MQTT en la consola IoT en la que se vea el contenido de los dos últimos mensajes recibidos en el tema <code>$aws/things/truckSensor01/shadow/update/accepted</code>.</li>
+<li>Consola IoT con las propiedades de la sombra de la cosa <strong>truckSensor01</strong> en la que pueda verse el estado modificado.</li>
+</ol>
+<h5 id="cambio-de-estado-en-la-sombra-con-el-dispositivo-iot-desconectado_1">Cambio de estado en la sombra con el dispositivo IoT desconectado</h5>
+<ol start="12">
+<li>Consola IoT con las propiedades de la sombra de la cosa <strong>truckSensor01</strong> en la que pueda verse el estado conteniendo un campo <code>delta</code>.</li>
+<li>Instancia VSCode con la salida del terminal en la que se ejecutó el comando <code>get</code> cuando el estado de la sombra coincide con el del dispositivo.</li>
+<li>Instancia VSCode con la salida del terminal en la que se ejecutó el comando <code>get</code> cuando el estado de la sombra es diferente al del dispositivo.</li>
+<li>Cliente MQTT en la consola IoT en la que se vea el contenido de los dos últimos mensajes recibidos en el tema <code>$aws/things/truckSensor01/shadow/update/delta</code>.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p>Las capturas tienen que parecerse a las que se tomaron en el curso y en la práctica 1. Las capturas tomadas en la consola AWS tienen que incluir el menú superior en el que pueda verse el nombre de usuario de la cuenta.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>

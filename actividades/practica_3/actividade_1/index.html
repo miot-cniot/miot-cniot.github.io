@@ -1,0 +1,1327 @@
+
+<!doctype html>
+<html lang="gl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Xoan C. Pardo">
+      
+      
+        <link rel="canonical" href="https://miot-cniot.github.io/actividades/practica_3/actividade_1/">
+      
+      
+        <link rel="prev" href="../../practica_2/actividade_3/">
+      
+      
+        <link rel="next" href="../actividade_2/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>Actividade 1 - Computación na Nube para IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#actividade-1" class="md-skip">
+          Ir ao contido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeceira">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-header__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computación na Nube para IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Actividade 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="gl" class="md-select__link">
+                    Galego
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../../es/actividades/practica_3/actividade_1/" hreflang="es" class="md-select__link">
+                    Castellano
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Procura" placeholder="Procura" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando procura
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-nav__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Computación na Nube para IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Comezo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Práctica 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Práctica 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+          Xestión de datos e estados de dispositivos IoT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Xestión de datos e estados de dispositivos IoT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/01_course_overview/" class="md-nav__link">
+        1. Introdución
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/02_how_devices_comunicate/" class="md-nav__link">
+        2. Entendendo como intercambian información os dispositivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/03_using_topics/" class="md-nav__link">
+        3. Uso de tópicos para recompilar datos específicos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/04_message_broker/" class="md-nav__link">
+        4. Xestión do tráfico de mensaxes: o Message Broker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/05_testing_communication/" class="md-nav__link">
+        5. Proba de conexión
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/06_rules_overview/" class="md-nav__link">
+        6. Introdución ás regras IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/07_applying_rules/" class="md-nav__link">
+        7. Usando regras IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/08_device_connections/" class="md-nav__link">
+        8. Xestión das conexións de dispositivos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/09_device_shadows/" class="md-nav__link">
+        9. Definindo as sombras de dispositivo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/10_device_shadows/" class="md-nav__link">
+        10. As compoñentes das sombras de dispositivo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/11_device_shadows/" class="md-nav__link">
+        11. As sombras de dispositivo en acción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/13_course_assesment/" class="md-nav__link">
+        Cuestionario de autoavaliación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cursos/practica_2/14_cleanup/" class="md-nav__link">
+        Limpeza de recursos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_2/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_2/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_2/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Práctica 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Actividade 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Actividade 1
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#obxectivo" class="md-nav__link">
+    Obxectivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobacion-do-funcionamento-da-mensaxeria-mqtt" class="md-nav__link">
+    Comprobación do funcionamento da mensaxería MQTT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publicando-mensaxes-mqtt-cando-o-ficheiro-cambia" class="md-nav__link">
+    Publicando mensaxes MQTT cando o ficheiro cambia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xustificacion-da-actividade" class="md-nav__link">
+    Xustificación da actividade
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actividade_4/" class="md-nav__link">
+        Actividade 4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          Práctica 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_4/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_4/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          Práctica 5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5_1" id="__nav_2_5_1_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_5/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_5/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#obxectivo" class="md-nav__link">
+    Obxectivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprobacion-do-funcionamento-da-mensaxeria-mqtt" class="md-nav__link">
+    Comprobación do funcionamento da mensaxería MQTT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publicando-mensaxes-mqtt-cando-o-ficheiro-cambia" class="md-nav__link">
+    Publicando mensaxes MQTT cando o ficheiro cambia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xustificacion-da-actividade" class="md-nav__link">
+    Xustificación da actividade
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="actividade-1">Actividade 1</h1>
+<p><strong>MENSAXERÍA MQTT A TRAVÉS DOS FICHEIROS DE PUBLICACIÓN E SUBSCRICIÓN.</strong></p>
+<h2 id="obxectivo">Obxectivo</h2>
+<p>O obxectivo desta actividade é comprobar o funcionamento da mensaxería MQTT do Device Client a través dos ficheiros de publicación e subscrición.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Podes ver <a href="https://github.com/awslabs/aws-iot-device-client/tree/main/source/samples/pubsub">aquí</a> a documentación.</p>
+</div>
+<h2 id="comprobacion-do-funcionamento-da-mensaxeria-mqtt">Comprobación do funcionamento da mensaxería MQTT</h2>
+<p>Fai o seguinte:</p>
+<ol>
+<li>Comproba nun terminal do ambiente Cloud9 no que estexa instalado o AWS IoT Device Client a configuración actual da mensaxería MQTT.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ sudo apt install jq
+$ sudo cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq &#39;.samples&#39;
+{
+  &quot;pub-sub&quot;: {
+    &quot;enabled&quot;: true,
+    &quot;publish-topic&quot;: &quot;/topic/workshop/dc/pub&quot;,
+    &quot;publish-file&quot;: &quot;/etc/.aws-iot-device-client/pubsub/publish-file.txt&quot;,
+    &quot;subscribe-topic&quot;: &quot;/topic/workshop/dc/sub&quot;,
+    &quot;subscribe-file&quot;: &quot;/home/ubuntu/workshop_dc/subfile.txt&quot;
+  }
+}
+</code></pre></div>
+<p>A saída mostra que a funcionalidade está activada e os tópicos MQTT e ficheiros locais que se están a utilizar para o intercambio de mensaxes.</p>
+<ol start="2">
+<li>Comproba o contido do ficheiro de subscrición.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ cat /home/ubuntu/workshop_dc/subfile.txt
+{
+  &quot;message&quot;: &quot;Saudações do console do AWS IoT&quot;
+}
+</code></pre></div>
+<ol start="3">
+<li>No cliente MQTT da consola de AWS IoT publica unha mensaxe no tópico <code>/topic/workshop/dc/sub</code>.</li>
+</ol>
+<p><img alt="Mensaxe publicada no cliente MQTT" src="../imgs/awsiot-mqtt-client02.png" />
+<em>Imaxe: mensaxe publicada no tópico MQTT.</em></p>
+<ol start="4">
+<li>Comproba que se actualizou o ficheiro de subscrición.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ cat /home/ubuntu/workshop_dc/subfile.txt
+{
+  &quot;message&quot;: &quot;Saudações do console do AWS IoT&quot;
+}
+{
+  &quot;message&quot;: &quot;Adeus rios, adeus fontes&quot;
+}
+</code></pre></div>
+<ol start="5">
+<li>Comproba tamén o ficheiro de log.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ sudo grep Message /var/log/aws-iot-device-client/aws-iot-device-client.log
+2024-08-02T10:07:22.562Z [DEBUG] {samples/PubSubFeature.cpp}: Message received on subscribe topic, size: 44 bytes
+</code></pre></div>
+<ol start="6">
+<li>Comproba agora o contido do ficheiro de publicación.</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code>$ sudo cat /etc/.aws-iot-device-client/pubsub/publish-file.txt                                                                                             
+{&quot;Hello&quot;: &quot;World!&quot;}
+</code></pre></div>
+Como xa vimos no curso en liña, esta é a mensaxe que se envía ao tópico de publicación configurado cada vez que se reinicia o servizo <strong>aws-iot-device-client</strong>. Editar o contido dese ficheiro e reiniciar o servizo é o procedemento por defecto para publicar unha mensaxe.</p>
+<h2 id="publicando-mensaxes-mqtt-cando-o-ficheiro-cambia">Publicando mensaxes MQTT cando o ficheiro cambia</h2>
+<p>Outra maneira de publicar mensaxes MQTT no Device Client é facelo cada vez que hai un cambio no ficheiro de publicación, sen necesidade de reiniciar o servizo.</p>
+<p>Para comprobar este método de publicación fai o seguinte:</p>
+<ol>
+<li>Edita o ficheiro de configuración do Device Client para activar a publicación de mensaxes cando haxa cambios no ficheiro.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ sudo nano /etc/.aws-iot-device-client/aws-iot-device-client.conf 
+$ sudo cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq &#39;.samples&#39;
+{
+  &quot;pub-sub&quot;: {
+    &quot;enabled&quot;: true,
+    &quot;publish-topic&quot;: &quot;/topic/workshop/dc/pub&quot;,
+    &quot;publish-file&quot;: &quot;/home/ubuntu/workshop_dc/pubfile.txt&quot;,
+    &quot;subscribe-topic&quot;: &quot;/topic/workshop/dc/sub&quot;,
+    &quot;subscribe-file&quot;: &quot;/home/ubuntu/workshop_dc/subfile.txt&quot;,
+    &quot;publish-on-change&quot;: true
+  }
+}
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Presta atención a que tamén se cambiou na configuración o ficheiro que imos usar para publicar.</p>
+</div>
+<ol start="2">
+<li>Crea o ficheiro de publicación e reinicia o servizo.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ touch /home/ubuntu/workshop_dc/pubfile.txt
+$ sudo systemctl restart aws-iot-device-client
+</code></pre></div>
+<ol start="3">
+<li>Comproba que non houbera ningún erro ao iniciar o servizo.</li>
+</ol>
+<p><img alt="Estado do servizo Device Client" src="../imgs/cloud9-device-client.png" />
+<em>Imaxe: estado do servizo Device Client.</em></p>
+<ol start="4">
+<li>
+<p>No cliente MQTT da consola de AWS IoT subscríbete ao tópico <code>/topic/workshop/dc/pub</code>.</p>
+</li>
+<li>
+<p>Publica unha mensaxe usando o ficheiro e comproba que aparece no cliente MQTT.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ pwd
+/home/ubuntu/workshop_dc
+$ echo &#39;{&quot;message&quot;:&quot;Saúdos desde o Device Client&quot;}&#39; &gt; pubfile.txt
+</code></pre></div>
+<p><img alt="Mensaxe publicada no cliente MQTT" src="../imgs/awsiot-mqtt-client03.png" />
+<em>Imaxe: mensaxe recibida no tópico MQTT.</em></p>
+<ol start="6">
+<li>Comproba tamén o ficheiro de log.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ sudo grep &quot;target file&quot; /var/log/aws-iot-device-client/aws-iot-device-client.log -A 1 
+2024-08-02T11:38:34.975Z [DEBUG] {samples/PubSubFeature.cpp}: The target file is modified, start updating the shadow
+2024-08-02T11:38:34.982Z [DEBUG] {samples/PubSubFeature.cpp}: PublishCompAck: PacketId:(Pub Sub Sample), ErrorCode:0
+</code></pre></div>
+<h2 id="xustificacion-da-actividade">Xustificación da actividade</h2>
+<p>Toma as seguintes capturas para a memoria de xustificación da práctica:</p>
+<ol>
+<li>Ambiente Cloud9 mostrando a saída da execución dos comandos seguintes:
+<div class="highlight"><pre><span></span><code>$ sudo cat /etc/.aws-iot-device-client/aws-iot-device-client.conf | jq &#39;.samples&#39;
+$ echo &#39;{&quot;message&quot;:&quot;Saúdos de &lt;Pon aquí o teu nome&gt; desde o Device Client&quot;}&#39; &gt; /home/ubuntu/workshop_dc/pubfile.txt
+</code></pre></div></li>
+<li>Consola IoT coa mensaxe MQTT recibida no tópico <code>/topic/workshop/dc/pub</code>, na que poida verse o <em>payload</em>, despois de executar os comandos do punto anterior.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>As capturas teñen que asemellarse ás que se tomaron no curso e nas prácticas anteriores. As capturas tomadas na consola AWS teñen que incluír o menú superior no que poida verse o nome de usuario da conta.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado no cortapapeis", "clipboard.copy": "Copiar no cortapapeis", "search.result.more.one": "1 m\u00e1is nesta p\u00e1xina", "search.result.more.other": "# m\u00e1is nesta p\u00e1xina", "search.result.none": "Sen resultados", "search.result.one": "1 resultado atopado", "search.result.other": "# resultados atopados", "search.result.placeholder": "Insira un termo", "search.result.term.missing": "Falta", "select.version": "Seleccionar version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>
