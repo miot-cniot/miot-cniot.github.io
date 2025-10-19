@@ -1114,7 +1114,7 @@
   
     <li class="md-nav__item">
       <a href="../../practica_4/actividade_1/" class="md-nav__link">
-        Actividade 1
+        Actividad 1
       </a>
     </li>
   
@@ -1128,7 +1128,21 @@
   
     <li class="md-nav__item">
       <a href="../../practica_4/actividade_2/" class="md-nav__link">
-        Actividade 2
+        Actividad 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_4/actividade_3/" class="md-nav__link">
+        Actividade 3
       </a>
     </li>
   
@@ -1395,6 +1409,27 @@ python3<span class="w"> </span><span class="nv">$HOME</span>/aws-iot-device-sdk-
 <span class="w">  </span>--key<span class="w"> </span>../certs/<span class="nv">$thing</span>.private.key<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--thing<span class="w"> </span><span class="nv">$thing</span><span class="w"> </span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Device SDK v2</p>
+<p>El <em>script</em> asume que el Device SDK v2 está instalado en la instancia en el directorio <code>/home/ubuntu/aws-iot-device-sdk-python-v2</code>. La instalación del Device SDK v2 se hace en la actividad 3 de la práctica 1. Si no has hecho esa actividad y no lo tienes instalado, haz lo siguiente:</p>
+<ol>
+<li>En una terminal de la instancia VSCode clona el repositorio del Device SDK v2 en tu directorio de trabajo.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~
+$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v1.24.0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://github.com/aws/aws-iot-device-sdk-python-v2.git<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--recursive<span class="w"> </span>
+</code></pre></div></li>
+<li>Corrige la versión en el fichero <code>__init__.py</code> e instala el Device SDK.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">"s/__version__ = '1.0.0-dev'/__version__ = '1.24.0'/"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./aws-iot-device-sdk-python-v2/awsiot/__init__.py
+$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>./aws-iot-device-sdk-python-v2
+...
+Successfully<span class="w"> </span>built<span class="w"> </span>awsiotsdk
+Installing<span class="w"> </span>collected<span class="w"> </span>packages:<span class="w"> </span>awscrt,<span class="w"> </span>awsiotsdk
+<span class="w">    </span>Successfully<span class="w"> </span>installed<span class="w"> </span>awscrt-0.27.4<span class="w"> </span>awsiotsdk-1.24.0
+</code></pre></div></li>
+</ol>
+</div>
 </li>
 <li>
 <p>En la consola de AWS IoT edita la política <strong>truckSensor01-Policy</strong> de la cosa para permitir la suscripción a los temas de la sombra y publicar y recibir mensajes en ellos.</p>

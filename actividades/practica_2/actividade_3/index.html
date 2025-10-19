@@ -1135,6 +1135,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_4/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1395,6 +1409,27 @@ python3<span class="w"> </span><span class="nv">$HOME</span>/aws-iot-device-sdk-
 <span class="w">  </span>--key<span class="w"> </span>../certs/<span class="nv">$thing</span>.private.key<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--thing<span class="w"> </span><span class="nv">$thing</span><span class="w"> </span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Device SDK v2</p>
+<p>O <em>script</em> asume que o Device SDK v2 está instalado na instancia no directorio <code>/home/ubuntu/aws-iot-device-sdk-python-v2</code>. A instalación do Device SDK v2 faise na actividade 3 da práctica 1. No caso de que non fixeras esa actividade e non o teñas instalado, fai o seguinte:</p>
+<ol>
+<li>Nun terminal da instancia VSCode clona o repositorio do Device SDK v2 no teu directorio de traballo.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~
+$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v1.24.0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://github.com/aws/aws-iot-device-sdk-python-v2.git<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--recursive<span class="w"> </span>
+</code></pre></div></li>
+<li>Corrixe a versión no ficheiro <code>__init__.py</code> e instala o Device SDK.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">"s/__version__ = '1.0.0-dev'/__version__ = '1.24.0'/"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./aws-iot-device-sdk-python-v2/awsiot/__init__.py
+$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>./aws-iot-device-sdk-python-v2
+...
+Successfully<span class="w"> </span>built<span class="w"> </span>awsiotsdk
+Installing<span class="w"> </span>collected<span class="w"> </span>packages:<span class="w"> </span>awscrt,<span class="w"> </span>awsiotsdk
+<span class="w">    </span>Successfully<span class="w"> </span>installed<span class="w"> </span>awscrt-0.27.4<span class="w"> </span>awsiotsdk-1.24.0
+</code></pre></div></li>
+</ol>
+</div>
 </li>
 <li>
 <p>Na consola de AWS IoT edita a política <strong>truckSensor01-Policy</strong> da cousa para permitir a subscrición aos tópicos da sombra e publicar e recibir mensaxes neles.</p>
@@ -1460,7 +1495,7 @@ Commands:
 </code></pre></div>
 </li>
 <li>
-<p>Insire o comando <code>get</code> para obter o estado actual da sombra. Comproba como os nodos <code>metadata</code> e <code>state</code> coinciden cos do document oda sombra que vimos anteriormente.</p>
+<p>Insire o comando <code>get</code> para obter o estado actual da sombra. Comproba como os nodos <code>metadata</code> e <code>state</code> coinciden cos do documento da sombra que vimos anteriormente.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Para facilitar a lexibilidade, as saídas dos comandos que se mostran como exemplo formataronse. </p>
