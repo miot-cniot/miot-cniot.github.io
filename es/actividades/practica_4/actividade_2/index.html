@@ -1333,7 +1333,7 @@ $<span class="w"> </span>cp<span class="w"> </span>-R<span class="w"> </span>~/e
 </li>
 <li>
 <p>Comprueba que ninguno de los componentes desplegados en la instancia esté en estado <code>BROKEN</code> ejecutando el comando:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>component<span class="w"> </span>list
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>component<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>BROKEN<span class="w"> </span>-B<span class="w"> </span><span class="m">2</span><span class="w"> </span>-A<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -1373,7 +1373,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/work/variant
 <ol>
 <li>
 <p>Comprueba de nuevo que ninguno de los componentes desplegados en la instancia esté en estado <code>BROKEN</code> después de desplegar el <em>runtime</em> de DLR ejecutando el comando:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>component<span class="w"> </span>list
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>component<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>BROKEN<span class="w"> </span>-B<span class="w"> </span><span class="m">2</span><span class="w"> </span>-A<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
 </li>
 <li>
@@ -1390,7 +1390,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>
 </div>
 </li>
 <li>
-<p>Abre otra consola de AWS IoT en una ventana diferente de tu navegador y elige la opción <strong>Componentes</strong> dentro del menú <strong>Dispositivos Greengrass</strong>.</p>
+<p>Abre otra consola de AWS IoT en una ventana diferente de tu navegador y elige la opción <strong>Componentes</strong> dentro del menú <strong>Dispositivos de Greengrass</strong>.</p>
 </li>
 <li>
 <p>Elige la pestaña <strong>Componentes públicos</strong> y presiona en el nombre del componente <code>aws.greengrass.DLRImageClassification</code>. </p>
@@ -1401,7 +1401,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>
 <li>
 <p>Despliega el componente presionando en <strong>Desplegar</strong> e indica las opciones siguientes:</p>
 <ul>
-<li>Añadir al despliegue: elige <strong>Añadir a un despliegue existente</strong> y marca el despliegue <strong>Deployment for GreengrassQuickStartGroup</strong>. Presiona en el botón <strong>Siguiente</strong> para ir al asistente del despliegue.</li>
+<li>Añadir al despliegue: elige <strong>Agregar a la implementación existente</strong> y marca el despliegue <strong>Deployment for GreengrassQuickStartGroup</strong>. Presiona en el botón <strong>Siguiente</strong> para ir al asistente del despliegue.</li>
 <li>
 <p>En el paso 2 del asistente (Seleccionar componentes) desactiva todos los componentes excepto <code>aws.greengrass.DLRImageClassification</code> y <code>aws.greengrass.Cli</code>.</p>
 <div class="admonition note">
@@ -1433,13 +1433,11 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>
 </div>
 </li>
 <li>
-<p>Comprueba la salida en el fichero de <em>log</em> del componente.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tail<span class="w"> </span>-2<span class="w"> </span>/greengrass/v2/logs/aws.greengrass.DLRImageClassification.log
+<p>Comprueba la salida en el fichero de <em>log</em> del componente.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tail<span class="w"> </span>-2<span class="w"> </span>/greengrass/v2/logs/aws.greengrass.DLRImageClassification.log
 </code></pre></div>
-<div class="admonition abstract">
-<p class="admonition-title"><em>Resultado del algoritmo de clasificación en el log del componente.</em></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-dlrlog01.png" data-desc-position="bottom"><img alt="Resultado del algoritmo de clasificación en el log del componente" src="../../../../actividades/practica_4/imgs/vscode-dlrlog01.png"></a></p>
-</div>
+    !!! abstract "<em>Resultado del algoritmo de clasificación en el log del componente.</em>"
+        <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-dlrlog01.png" data-desc-position="bottom"><img alt="Resultado del algoritmo de clasificación en el log del componente" src="../../../../actividades/practica_4/imgs/vscode-dlrlog01.png"></a><p></p>
 </li>
 </ol>
 <h2 id="justificacion-de-la-actividad">Justificación de la actividad</h2>
@@ -1447,8 +1445,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>
 <ol>
 <li>
 <p>Instancia VSCode mostrando la salida de la ejecución de los comandos siguientes:
-</p><div class="highlight"><pre><span></span><code>$ sudo /greengrass/v2/bin/greengrass-cli component list | grep -E 'Component Name:.*DLR' -A 3
-$ sudo tail -2 /greengrass/v2/logs/aws.greengrass.DLRImageClassification.log
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>component<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">'Component Name:.*DLR'</span><span class="w"> </span>-A<span class="w"> </span><span class="m">3</span>
+$<span class="w"> </span>sudo<span class="w"> </span>tail<span class="w"> </span>-2<span class="w"> </span>/greengrass/v2/logs/aws.greengrass.DLRImageClassification.log
 </code></pre></div><p></p>
 <details class="example">
 <summary>Ejemplo</summary>

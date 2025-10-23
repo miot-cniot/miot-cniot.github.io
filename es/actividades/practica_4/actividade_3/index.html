@@ -970,9 +970,75 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Actividad 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Actividad 3
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-del-componente-de-inferencia-ml-personalizado" class="md-nav__link">
+    Creación del componente de inferencia ML personalizado
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#despliegue-del-componente" class="md-nav__link">
+    Despliegue del componente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificacion-del-funcionamiento" class="md-nav__link">
+    Verificación del funcionamiento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publicacion-y-despliegue-del-componente" class="md-nav__link">
+    Publicación y despliegue del componente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#justificacion-de-la-actividad" class="md-nav__link">
+    Justificación de la actividad
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1019,6 +1085,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-del-componente-de-inferencia-ml-personalizado" class="md-nav__link">
+    Creación del componente de inferencia ML personalizado
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#despliegue-del-componente" class="md-nav__link">
+    Despliegue del componente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificacion-del-funcionamiento" class="md-nav__link">
+    Verificación del funcionamiento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publicacion-y-despliegue-del-componente" class="md-nav__link">
+    Publicación y despliegue del componente
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#justificacion-de-la-actividad" class="md-nav__link">
+    Justificación de la actividad
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1033,10 +1149,409 @@
 
 
 <h1 id="actividad-3">Actividad 3</h1>
-<p><strong>COMPONENTES PERSONALIZADOS DE APRENDIZAJE MÁQUINA</strong></p>
+<p><strong>COMPONENTES PERSONALIZADOS DE APRENDIZAJE AUTOMÁTICO</strong></p>
 <div class="admonition warning">
 <p class="admonition-title">Aviso</p>
-<p>Esta actividad está pendiente de revisión. Tan pronto la versión revisada esté disponible se publicará un aviso en el foro de Moovi.</p>
+<p>Para poder realizar esta actividad es obligatorio realizar previamente la <a href="../actividade_2/">actividad 2</a>.</p>
+</div>
+<h2 id="objetivo">Objetivo</h2>
+<p>El objetivo de esta actividad es crear un componente personalizado para la ejecución de modelos de aprendizaje automático (ML). A partir del componente de inferencia de la actividad anterior (<code>aws.greengrass.DLRImageClassification</code>) vamos a crear una versión modificada que se suscriba a un tópico IPC predefinido en el que espere recibir mensajes JSON con el siguiente esquema:
+</p><div class="highlight"><pre><span></span><code>{
+    "image": "&lt;archivo_jpeg&gt;"
+}
+</code></pre></div>
+Cada vez que reciba un mensaje en el tópico IPC, el componente accederá en el directorio predefinido a la imagen indicada en el mensaje, hará una inferencia con ella y publicará el resultado de la inferencia en el tópico MQTT predefinido.<p></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Puedes ver <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/ml-customization.html">aquí</a> la documentación sobre la implementación de componentes ML personalizados.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p>En esta actividad se usa la CLI de AWS. Para que funcione correctamente tienes que tener configuradas tus credenciales con <code>aws configure</code> (mira en la sección 2 del enunciado de la práctica cómo hacerlo si no te acuerdas).</p>
+</div>
+<h2 id="creacion-del-componente-de-inferencia-ml-personalizado">Creación del componente de inferencia ML personalizado</h2>
+<p>Para crear el componente haz lo siguiente en la instancia VSCode:</p>
+<ol>
+<li>
+<p>Descarga la receta del componente proporcionado por AWS en el directorio de recetas. </p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Los siguientes comandos descargan la receta desde el servicio Greengrass usando la CLI de AWS.</p>
+</div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/environment/GreengrassCore/recipes
+$<span class="w"> </span><span class="nv">DLR_INFERENCE_ARN</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>greengrassv2<span class="w"> </span>list-components<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--scope<span class="w"> </span>PUBLIC<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--query<span class="w"> </span><span class="s1">'components[?componentName==`aws.greengrass.DLRImageClassification`]'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.[0].arn'</span><span class="k">)</span>
+$<span class="w"> </span><span class="nv">DLR_INFERENCE_VERSION_ARN</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>greengrassv2<span class="w"> </span>list-component-versions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--arn<span class="w"> </span><span class="nv">$DLR_INFERENCE_ARN</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--query<span class="w"> </span><span class="s1">'componentVersions[0].arn'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span>text<span class="k">)</span>
+$<span class="w"> </span><span class="nv">DLR_INFERENCE_VERSION</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$DLR_INFERENCE_VERSION_ARN</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F:<span class="w"> </span><span class="s1">'{print $NF}'</span><span class="k">)</span>
+$<span class="w"> </span>aws<span class="w"> </span>greengrassv2<span class="w"> </span>get-component<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--arn<span class="w"> </span><span class="nv">$DLR_INFERENCE_VERSION_ARN</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--recipe-output-format<span class="w"> </span>JSON<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--query<span class="w"> </span>recipe<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span>text<span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.'</span><span class="w"> </span>&gt;<span class="w"> </span>aws.greengrass.DLRImageClassification-<span class="nv">$DLR_INFERENCE_VERSION</span>.json
+</code></pre></div>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Descarga de la receta del componente de AWS.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-receita01.png" data-desc-position="bottom"><img alt="Descarga de la receta del componente de AWS" src="../../../../actividades/practica_4/imgs/vscode-receita01.png"></a></p>
+</div>
+</li>
+<li>
+<p>Descarga la receta modificada que vamos a usar para el componente personalizado. </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>-O<span class="w"> </span>com.example.CustomDLRImageClassification-1.0.0.json<span class="w"> </span>https://miot-cniot.github.io/actividades/practica_4/stuff/CustomDLRImageClassification-1.0.0.json
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p><strong>Edita la receta e introduce tu nombre en el campo</strong> <code>ComponentPublisher</code>.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Descarga de la receta modificada.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-receita02.png" data-desc-position="bottom"><img alt="Descarga de la receta modificada" src="../../../../actividades/practica_4/imgs/vscode-receita02.png"></a></p>
+</div>
+</li>
+<li>
+<p>Compara las recetas y comprueba los cambios que se hicieron para adaptarla a nuestro ejemplo. Los principales fueron:</p>
+<ul>
+<li>Se redujo el número de plataformas soportadas por el componente a la única que nos interesa para el ejemplo.</li>
+<li>Se añadieron a la configuración una política de control de acceso para los tópicos IPC y un parámetro <code>LocalTopic</code> para configurar el tópico IPC a usar.</li>
+</ul>
+</li>
+<li>
+<p>Comprueba los artefactos del componente proporcionado por AWS que están instalados en la instancia VSCode.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/greengrass/v2/packages/artifacts-unarchived/aws.greengrass.DLRImageClassification/<span class="nv">$DLR_INFERENCE_VERSION</span>/image_classification/
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Artefactos del componente DLRImageClassification.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente01.png" data-desc-position="bottom"><img alt="Artefactos del componente DLRImageClassification" src="../../../../actividades/practica_4/imgs/vscode-componente01.png"></a></p>
+</div>
+</li>
+<li>
+<p>Crea el directorio para los artefactos del componente personalizado.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/environment/GreengrassCore/artifacts/com.example.CustomDLRImageClassification/1.0.0<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/environment/GreengrassCore/artifacts/com.example.CustomDLRImageClassification/1.0.0
+</code></pre></div><p></p>
+</li>
+<li>
+<p>Copia los ficheros Python del componente proporcionado por AWS al directorio de artefactos del componente personalizado y configura los permisos.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>/greengrass/v2/packages/artifacts-unarchived/aws.greengrass.DLRImageClassification/<span class="nv">$DLR_INFERENCE_VERSION</span>/image_classification/*.py<span class="w"> </span>.
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>ubuntu:ubuntu<span class="w"> </span>*.py
+$<span class="w"> </span>chmod<span class="w"> </span><span class="m">664</span><span class="w"> </span>*.py
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Artefactos del componente personalizado.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente02.png" data-desc-position="bottom"><img alt="Artefactos del componente personalizado" src="../../../../actividades/practica_4/imgs/vscode-componente02.png"></a></p>
+</div>
+</li>
+<li>
+<p>Descarga el fichero <code>inference.py</code> modificado para el componente personalizado.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>mv<span class="w"> </span>inference.py<span class="w"> </span>inference.1.py
+$<span class="w"> </span>wget<span class="w"> </span>https://miot-cniot.github.io/actividades/practica_4/stuff/inference.py
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Ficheros inference del componente personalizado.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente03.png" data-desc-position="bottom"><img alt="Ficheros inference del componente personalizado" src="../../../../actividades/practica_4/imgs/vscode-componente03.png"></a></p>
+</div>
+</li>
+<li>
+<p>Abre ambos ficheros <code>inference</code> y comprueba los cambios que se hicieron para adaptarlo a nuestro ejemplo. Los principales fueron:</p>
+<ul>
+<li>Se añadió el código que realiza la subscripción al tópico IPC.</li>
+<li>Se definió un <em>handler</em> (<em>InferenceRequestHandler</em>) para procesar los eventos de la subscripción IPC. La parte más relevante del <em>handler</em> es el método <code>on_stream_event</code> que es el que procesa los mensajes que se reciben en el tópico y hace una inferencia si procede.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Presta atención a que el código añadido en <code>inference.py</code> es similar al del <strong>Subscriber</strong> que se vió en la sección 5 del curso.</p>
+</div>
+</li>
+<li>
+<p>Una vez termines de comprobar las diferencias, elimina la copia <code>inference.1.py</code>.</p>
+</li>
+<li>
+<p>Crea un directorio para las imágenes y descarga la imagen de prueba.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>~/environment/image_classification<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/environment/image_classification
+$<span class="w"> </span>wget<span class="w"> </span>https://raw.githubusercontent.com/awslabs/aws-greengrass-labs-ml-components/main/dlr/aws.greengrass.DLRImageClassification/image_classification/sample_images/cat.jpeg
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Contenido del directorio de imágenes.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente04.png" data-desc-position="bottom"><img alt="Contenido del directorio de imágenes" src="../../../../actividades/practica_4/imgs/vscode-componente04.png"></a></p>
+</div>
+</li>
+</ol>
+<h2 id="despliegue-del-componente">Despliegue del componente</h2>
+<ol>
+<li>
+<p>Comprueba que ninguno de los componentes desplegados en la instancia esté en estado <code>BROKEN</code>. Si hubiera algún componente local (no desplegado desde AWS IoT) en estado <code>BROKEN</code>, puedes reiniciarlo o eliminarlo.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>component<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>BROKEN<span class="w"> </span>-B<span class="w"> </span><span class="m">2</span><span class="w"> </span>-A<span class="w"> </span><span class="m">1</span>
+</code></pre></div><p></p>
+</li>
+<li>
+<p>En la consola de AWS IoT haz un nuevo despliegue en el dispositivo Greengrass <strong>edgeDevice</strong> que solo contenga el componente <code>aws.greengrass.Cli</code>.</p>
+</li>
+<li>
+<p>Asegúrate de que el despliegue terminó correctamente y de que la única dependencia del componente <code>aws.greengrass.DLRImageClassification</code> que queda en el dispositivo es el despliegue local del <em>runtime</em> de DLR.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>component<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">'Component Name:.*DLR'</span><span class="w"> </span>-A<span class="w"> </span><span class="m">3</span>
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Resultado de la comprobación.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente05.png" data-desc-position="bottom"><img alt="Resultado de la comprobación" src="../../../../actividades/practica_4/imgs/vscode-componente05.png"></a></p>
+</div>
+</li>
+<li>
+<p>Comprueba de nuevo que no haya ningún componente en la instancia en estado <code>BROKEN</code> después del despliegue.</p>
+</li>
+<li>
+<p>En el cliente MQTT de la consola de AWS IoT suscríbete al tópico <code>ml/custom/image-classification</code>, en el que el componente personalizado publicará los resultados de las inferencias.</p>
+</li>
+<li>
+<p>Despliega el componente de inferencia ML personalizado.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>deployment<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--recipeDir<span class="w"> </span>~/environment/GreengrassCore/recipes<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--artifactDir<span class="w"> </span>~/environment/GreengrassCore/artifacts<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--merge<span class="w"> </span><span class="s2">"com.example.CustomDLRImageClassification=1.0.0"</span>
+</code></pre></div><p></p>
+</li>
+<li>
+<p>Comprueba que el despliegue terminó correctamente. 
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>component<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">'Component Name:.*DLR'</span><span class="w"> </span>-A<span class="w"> </span><span class="m">3</span><span class="w">  </span>
+$<span class="w"> </span>sudo<span class="w"> </span>tail<span class="w"> </span>-5<span class="w"> </span>/greengrass/v2/logs/com.example.CustomDLRImageClassification.log
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Resultado de la comprobación.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente06.png" data-desc-position="bottom"><img alt="Resultado de la comprobación" src="../../../../actividades/practica_4/imgs/vscode-componente06.png"></a></p>
+</div>
+</li>
+<li>
+<p>Comprueba también si se recibió en el cliente MQTT de la consola AWS IoT el resultado de la inferencia en el tópico <code>ml/custom/image-classification</code>.</p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Mensaje recibido en el tópico MQTT.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente07.png" data-desc-position="bottom"><img alt="Mensaje recibido en el tópico MQTT" src="../../../../actividades/practica_4/imgs/vscode-componente07.png"></a></p>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si los pasos 7 u 8 no dan los resultados esperados, comprueba en el <em>log</em> del Greengrass si hubo errores durante el despliegue del componente. Puedes consultar <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/ml-troubleshooting.html#troubleshooting-disk-space-errors">aquí</a> los errores más comunes.</p>
+</div>
+<h2 id="verificacion-del-funcionamiento">Verificación del funcionamiento</h2>
+<ol>
+<li>
+<p>Abre un nuevo terminal en la instancia VSCode y suscríbete al tópico IPC <code>ml/image</code>. Mantén este terminal abierto.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>pubsub<span class="w"> </span>sub<span class="w"> </span>-t<span class="o">=</span><span class="s2">"ml/image"</span>
+Successfully<span class="w"> </span>subscribed<span class="w"> </span>to<span class="w"> </span>topic:<span class="w"> </span>ml/image
+</code></pre></div><p></p>
+</li>
+<li>
+<p>Desde otro terminal diferente publica un mensaje en el tópico <code>ml/image</code>.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>pubsub<span class="w"> </span>pub<span class="w"> </span>-m<span class="o">=</span><span class="s2">"{\"image\": \"cat.jpeg\"}"</span><span class="w"> </span>-t<span class="o">=</span><span class="s2">"ml/image"</span>
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Mensaje publicado en el tópico IPC.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente08.png" data-desc-position="bottom"><img alt="Mensaje publicado en el tópico IPC" src="../../../../actividades/practica_4/imgs/vscode-componente08.png"></a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En el terminal en el que ejecutaste la subscripción aparecerá el mensaje <code>{"image": "cat.jpeg"}</code> que tiene el formato JSON que el componente espera recibir y el nombre de la imagen con la que se realiza la inferencia.</p>
+</div>
+</li>
+<li>
+<p>Comprueba que en el cliente MQTT de la consola AWS IoT se recibió en el tópico <code>ml/custom/image-classification</code> un segundo mensaje con el resultado de la inferencia.</p>
+</li>
+<li>
+<p>Descarga otra imagen en el directorio de imágenes.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/environment/image_classification
+$<span class="w"> </span>wget<span class="w"> </span>-O<span class="w"> </span>cat2.jpeg<span class="w"> </span>https://www.publicdomainpictures.net/pictures/90000/velka/cat-14022476612Gk.jpg
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Contenido del directorio de imágenes.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente09.png" data-desc-position="bottom"><img alt="Contenido del directorio de imágenes" src="../../../../actividades/practica_4/imgs/vscode-componente09.png"></a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Puedes ver <a href="https://www.publicdomainpictures.net/pictures/90000/velka/cat-14022476612Gk.jpg">aquí</a> la imagen descargada.</p>
+</div>
+</li>
+<li>
+<p>Publica el mensaje con el nombre del nuevo archivo y comprueba que se reciba en el cliente MQTT el resultado de la inferencia.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>pubsub<span class="w"> </span>pub<span class="w"> </span>-m<span class="o">=</span><span class="s2">"{\"image\": \"cat2.jpeg\"}"</span><span class="w"> </span>-t<span class="o">=</span><span class="s2">"ml/image"</span>
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Mensaje con el resultado de la inferencia.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/custom-component02.png" data-desc-position="bottom"><img alt="Mensaje con el resultado de la inferencia" src="../../../../actividades/practica_4/imgs/custom-component02.png"></a></p>
+</div>
+</li>
+<li>
+<p>Si quieres puedes hacer más pruebas descargando otras imágenes y publicando su nombre.</p>
+</li>
+</ol>
+<h2 id="publicacion-y-despliegue-del-componente">Publicación y despliegue del componente</h2>
+<p>Vamos ahora a publicar el componente para poder desplegarlo desde AWS IoT. Haz lo siguiente:</p>
+<ol>
+<li>
+<p>Crea un <em>bucket</em> S3 para subir los artefactos y la receta del componente.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>us-east-1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">EPOCH_TIME</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+<span class="s2">"%s"</span><span class="k">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">S3_BUCKET</span><span class="o">=</span>ggcv2-workshop-<span class="nv">$HOSTNAME</span>-<span class="nv">$EPOCH_TIME</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>aws<span class="w"> </span>s3<span class="w"> </span>mb<span class="w"> </span>s3://<span class="nv">$S3_BUCKET</span><span class="w"> </span>--region<span class="w"> </span><span class="nv">$AWS_DEFAULT_REGION</span>
+make_bucket:<span class="w"> </span>ggcv2-workshop-ip-172-31-80-21-1761214805
+</code></pre></div><p></p>
+</li>
+<li>
+<p>Edita la receta del componente <code>com.example.CustomDLRImageClassification</code> y cambia el manifiesto por el siguiente. </p>
+<div class="highlight"><span class="filename">Manifests</span><pre><span></span><code><span class="nt">"Manifests"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Platform"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"os"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linux"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"architecture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amd64"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"Lifecycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"setEnv"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"DLR_IC_MODEL_DIR"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{variant.DLR.ImageClassification.ModelStore:artifacts:decompressedPath}/{configuration:/ModelResourceKey/x86_64}"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"DEFAULT_DLR_IC_IMAGE_DIR"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/ubuntu/environment/image_classification/"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"TOPIC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{configuration:/LocalTopic}"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"run"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"RequiresPrivilege"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"script"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\n                                    export PATH=\"{variant.DLR:configuration:/MLRootPath}/greengrass_ml_dlr_conda/bin:$PATH\"\n                                    eval \"$({variant.DLR:configuration:/MLRootPath}/greengrass_ml_dlr_conda/bin/conda shell.bash hook)\"\n                                    conda activate greengrass_ml_dlr_conda\n                                    python3 {artifacts:decompressedPath}/custom/inference.py"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">     </span><span class="nt">"Artifacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">           </span><span class="nt">"URI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s3://[EL_NOMBRE_DE_TU_BUCKET]/artifacts/com.example.CustomDLRImageClassification/1.0.0/custom.zip"</span><span class="p">,</span>
+<span class="w">           </span><span class="nt">"Unarchive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZIP"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">     </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">],</span>
+</code></pre></div>
+<p>Los cambios que se hicieron fueron:</p>
+<ul>
+<li>
+<p>Se añadió el objeto <code>Artifacts</code> para descargar los artefactos de S3. </p>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p><strong>Recuerda editar en la URI el nombre de tu <em>bucket</em></strong>.</p>
+</div>
+</li>
+<li>
+<p>En el <em>script</em> se cambió la localización del fichero <code>inference.py</code> de <code>{artifacts:path}</code> a <code>{artifacts:decompressedPath}/custom</code> para usar la ruta en la que Greengrass descomprime el fichero descargado de S3.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Comprime los artefactos del componente y sube el fichero comprimido y la receta al <em>bucket</em> S3.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>zip
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/environment/GreengrassCore
+$<span class="w"> </span><span class="nv">ARTIFACTS_DIR</span><span class="o">=</span><span class="s2">"./artifacts/com.example.CustomDLRImageClassification/1.0.0"</span>
+$<span class="w"> </span>zip<span class="w"> </span>-j<span class="w"> </span><span class="nv">$ARTIFACTS_DIR</span>/custom.zip<span class="w"> </span><span class="nv">$ARTIFACTS_DIR</span>/*.py
+$<span class="w"> </span>aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span><span class="nv">$ARTIFACTS_DIR</span>/custom.zip<span class="w"> </span>s3://<span class="nv">$S3_BUCKET</span>/artifacts/com.example.CustomDLRImageClassification/1.0.0/
+$<span class="w"> </span>aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>./recipes/com.example.CustomDLRImageClassification-1.0.0.json<span class="w"> </span>s3://<span class="nv">$S3_BUCKET</span>/recipes/
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Subida a S3 de los artefactos y la receta.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente10.png" data-desc-position="bottom"><img alt="Subida a S3 de los artefactos y la receta" src="../../../../actividades/practica_4/imgs/vscode-componente10.png"></a></p>
+</div>
+</li>
+<li>
+<p>Comprueba que los contenidos del <em>bucket</em> S3 son correctos.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>aws<span class="w"> </span>s3<span class="w"> </span>ls<span class="w"> </span>--recursive<span class="w"> </span>s3://<span class="nv">$S3_BUCKET</span>
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Resultado de la comprobación.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente11.png" data-desc-position="bottom"><img alt="Resultado de la comprobación" src="../../../../actividades/practica_4/imgs/vscode-componente11.png"></a></p>
+</div>
+</li>
+<li>
+<p>Crea el componente en el AWS IoT Core.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/environment/GreengrassCore/recipes
+$<span class="w"> </span>aws<span class="w"> </span>greengrassv2<span class="w"> </span>create-component-version<span class="w"> </span>--inline-recipe<span class="w"> </span>fileb://com.example.CustomDLRImageClassification-1.0.0.json<span class="w"> </span>--region<span class="w"> </span><span class="nv">$AWS_DEFAULT_REGION</span>
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Resultado de la creación del componente.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente12.png" data-desc-position="bottom"><img alt="Resultado de la creación del componente" src="../../../../actividades/practica_4/imgs/vscode-componente12.png"></a></p>
+</div>
+</li>
+<li>
+<p>Comprueba que aparece en el listado de componentes. Compruébalo también en la consola de AWS IoT.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>aws<span class="w"> </span>greengrassv2<span class="w"> </span>list-components<span class="w"> </span>--region<span class="w"> </span><span class="nv">$AWS_DEFAULT_REGION</span><span class="w"> </span>--query<span class="o">=</span><span class="s1">'components[?componentName==`com.example.CustomDLRImageClassification`]'</span>
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Resultado de la comprobación en la instancia VSCode.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente13.png" data-desc-position="bottom"><img alt="Resultado de la comprobación en la instancia VSCode" src="../../../../actividades/practica_4/imgs/vscode-componente13.png"></a></p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Resultado de la comprobación en el AWS IoT.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/vscode-componente14.png" data-desc-position="bottom"><img alt="Resultado de la comprobación en AWS IoT" src="../imgs/vscode-componente14.png"></a></p>
+</div>
+</li>
+<li>
+<p>Elimina el componente desplegado localmente. Asegúrate de que la única dependencia del componente que queda en el dispositivo es el despliegue local del <em>runtime</em> de DLR.
+    </p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>--ggcRootPath<span class="w"> </span>/greengrass/v2<span class="w"> </span>deployment<span class="w"> </span>create<span class="w"> </span>--remove<span class="w"> </span><span class="s2">"com.example.CustomDLRImageClassification"</span><span class="w">  </span>
+$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>component<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">'Component Name:.*DLR'</span><span class="w"> </span>-A<span class="w"> </span><span class="m">3</span>
+</code></pre></div><p></p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Resultado de la eliminación del componente.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente15.png" data-desc-position="bottom"><img alt="Resultado de la eliminación del componente" src="../../../../actividades/practica_4/imgs/vscode-componente15.png"></a></p>
+</div>
+</li>
+<li>
+<p>Asegúrate de que no haya ningún componente en la instancia en estado <code>BROKEN</code>.</p>
+</li>
+<li>
+<p>En la consola de AWS IoT haz un nuevo despliegue en el dispositivo Greengrass <strong>edgeDevice</strong> que contenga solo los componentes <code>aws.greengrass.Cli</code> y <code>com.example.CustomDLRImageClassification</code>.</p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Componente personalizado desplegado desde AWS IoT.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/custom-component03.png" data-desc-position="bottom"><img alt="Componente personalizado desplegado desde AWS IoT" src="../imgs/custom-component03.png"></a></p>
+</div>
+</li>
+<li>
+<p>Comprueba en la consola de AWS IoT y en la instancia que el despliegue termine correctamente.</p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Resultado de la comprobación en la instancia VSCode.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/vscode-componente16.png" data-desc-position="bottom"><img alt="Resultado de la comprobación en la instancia VSCode" src="../../../../actividades/practica_4/imgs/vscode-componente16.png"></a></p>
+</div>
+</li>
+<li>
+<p>Verifica el funcionamiento correcto del componente repitiendo los pasos de la <a href="#verificacion-del-funcionamiento">sección de verificación</a>.</p>
+</li>
+</ol>
+<h2 id="justificacion-de-la-actividad">Justificación de la actividad</h2>
+<p>Toma las siguientes capturas para la memoria de justificación de la práctica:</p>
+<ol>
+<li>
+<p>Consola de AWS IoT mostrando las propiedades del último despliegue en el dispositivo <strong>edgeDevice</strong> con la pestaña <strong>Componentes</strong> escogida, de modo que pueda verse que el componente <code>com.example.CustomDLRImageClassification</code> fue desplegado.</p>
+</li>
+<li>
+<p>Instancia VSCode en la que puedan verse en el árbol de directorios los artefactos y receta del componente <code>com.example.CustomDLRImageClassification</code> y los contenidos del directorio <strong>image_classification</strong>, y además:</p>
+<ul>
+<li>La salida del terminal en el que se ejecutó el comando de subscripción al tópico <code>ml/image</code>.</li>
+<li>La salida del terminal desde el que se publicaron los mensajes en el tópico <code>ml/image</code>. </li>
+<li>La salida de la ejecución de los comandos:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aws<span class="w"> </span>s3<span class="w"> </span>ls<span class="w"> </span>--recursive<span class="w"> </span>s3://<span class="nv">$S3_BUCKET</span>
+$<span class="w"> </span>sudo<span class="w"> </span>/greengrass/v2/bin/greengrass-cli<span class="w"> </span>component<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">'Component Name:.*DLR'</span><span class="w"> </span>-A<span class="w"> </span><span class="m">3</span>
+$<span class="w"> </span>sudo<span class="w"> </span>tail<span class="w"> </span>-3<span class="w"> </span>/greengrass/v2/logs/com.example.CustomDLRImageClassification.log
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El último comando tiene que ejecutarse después de completar una inferencia y tiene que mostrar los mensajes del <em>log</em> que indican que se enviaron los resultados de la inferencia al AWS IoT Core (si es preciso modifica la cantidad de líneas mostradas).</p>
+</div>
+<details class="example">
+<summary>Ejemplo</summary>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../actividades/practica_4/imgs/xustificacion03_02.png" data-desc-position="bottom"><img alt="Instancia VSCode con la salida de los comandos de justificación." src="../../../../actividades/practica_4/imgs/xustificacion03_02.png"></a></p>
+</details>
+</li>
+<li>
+<p>Consola de AWS IoT con el mensaje MQTT recibido en el tópico <code>ml/custom/image-classification</code> para el archivo <code>cat2.jpeg</code>, en la que pueda verse el <em>payload</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El mensaje tiene que ser de una inferencia realizada por el componente desplegado desde AWS IoT, es decir, no vale el mensaje del paso 5 de la <a href="#verificacion-del-funcionamiento">sección de verificación</a> que se hace por primera vez con el componente desplegado localmente.</p>
+</div>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p>Las capturas tienen que asemejarse a las que se tomaron en el curso y en las prácticas anteriores. Las capturas tomadas en la consola AWS tienen que incluir el menú superior en el que pueda verse el nombre de usuario de la cuenta.</p>
 </div>
 
 

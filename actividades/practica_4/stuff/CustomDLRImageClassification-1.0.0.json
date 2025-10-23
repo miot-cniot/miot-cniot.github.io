@@ -4,7 +4,7 @@
   "ComponentVersion": "1.0.0",
   "ComponentType": "aws.greengrass.generic",
   "ComponentDescription": "Custom Image classification inference using DLR and resnet50 default model.",
-  "ComponentPublisher": "Xoan C. Pardo",
+  "ComponentPublisher": "<O TEU NOME>",
   "ComponentConfiguration": {
     "DefaultConfiguration": {
       "accessControl": {
