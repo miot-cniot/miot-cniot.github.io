@@ -1,0 +1,1477 @@
+<!DOCTYPE html><html lang="gl" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Xoan C. Pardo">
+      
+      
+        <link rel="canonical" href="https://miot-cniot.github.io/cursos/practica_3/06-device-defender.bak/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>6. Auditoría e monitorización da seguranza - Computación na Nube para IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-auditoria-e-monitorizacion-da-seguranza" class="md-skip">
+          Ir ao contido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeceira">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-header__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computación na Nube para IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Auditoría e monitorización da seguranza
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="gl" class="md-select__link">
+                    Galego
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../../es/cursos/practica_3/06-device-defender.bak/" hreflang="es" class="md-select__link">
+                    Castellano
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Procura" placeholder="Procura" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando procura
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-nav__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    Computación na Nube para IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Comezo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Práctica 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          Conexión segura de dispositivos IoT a AWS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Conexión segura de dispositivos IoT a AWS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/02-course-introduction/" class="md-nav__link">
+        1. Introdución
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/03-aws-iot-scenario/" class="md-nav__link">
+        2. Escenario
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/04-key-components-of-aws-iot-core/" class="md-nav__link">
+        3. Compoñentes chave do AWS IoT Core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/05-organizing-devices-and-things/" class="md-nav__link">
+        4. Organización de dispositivos e cousas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/06-connecting-a-device-process-overview/" class="md-nav__link">
+        5. Conexión dun dispositivo: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/07-knowledge-check/" class="md-nav__link">
+        6. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/08-authorization-and-authentication/" class="md-nav__link">
+        7. Autorización e autenticación de dispositivos IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/09-aws-iot-policies/" class="md-nav__link">
+        8. Políticas de AWS IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/10-applying-security-certificates/" class="md-nav__link">
+        9. Aplicación de certificados de seguranza a unha cousa: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/11-testing-the-communication-connection/" class="md-nav__link">
+        10. Proba da conexión: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/12-knowledge-check/" class="md-nav__link">
+        11. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/14-course-assessment/" class="md-nav__link">
+        Cuestionario de Autoavaliación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/15-resources-cleanup/" class="md-nav__link">
+        Limpeza de Recursos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-iot-device-defender" class="md-nav__link">
+    AWS IoT Device Defender
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS IoT Device Defender">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capacidades-chave-do-aws-iot-device-defender" class="md-nav__link">
+    Capacidades chave do AWS IoT Device Defender
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceptos-de-aws-iot-device-defender" class="md-nav__link">
+    Conceptos de AWS IoT Device Defender
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditoria-e-monitorizacion-da-seguranza-co-aws-iot-device-defender" class="md-nav__link">
+    Auditoría e monitorización da seguranza co AWS IoT Device Defender
+  </a>
+  
+    <nav class="md-nav" aria-label="Auditoría e monitorización da seguranza co AWS IoT Device Defender">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#monitorizacion-de-metricas-de-seguranza" class="md-nav__link">
+    Monitorización de métricas de seguranza
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitorización de métricas de seguranza">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-do-latexo-periodico-no-dispositivo" class="md-nav__link">
+    Configuración do "latexo" periódico no dispositivo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitorizacion-de-metricas-na-consola" class="md-nav__link">
+    Monitorización de métricas na consola
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitorización de métricas na consola">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metricas-do-lado-da-nube" class="md-nav__link">
+    Métricas do lado da nube
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricas-do-lado-do-dispositivo" class="md-nav__link">
+    Métricas do lado do dispositivo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-dunha-auditoria-de-seguranza" class="md-nav__link">
+    Configuración dunha auditoría de seguranza
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración dunha auditoría de seguranza">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#politica-excesivamente-permisiva" class="md-nav__link">
+    Política excesivamente permisiva
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activacion-dos-rexistros-logging" class="md-nav__link">
+    Activación dos rexistros (logging)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repetir-a-auditoria-para-verificar" class="md-nav__link">
+    Repetir a auditoría para verificar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deteccion-de-anomalias-mediante-regras" class="md-nav__link">
+    Detección de anomalías mediante regras
+  </a>
+  
+    <nav class="md-nav" aria-label="Detección de anomalías mediante regras">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creacion-dun-perfil-de-seguranza-para-a-deteccion-de-anomalias" class="md-nav__link">
+    Creación dun perfil de seguranza para a detección de anomalias
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulacion-dunha-anomalia-no-dispositivo" class="md-nav__link">
+    Simulación dunha anomalía no dispositivo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deteccion-e-mitigacion-da-anomalia" class="md-nav__link">
+    Detección e mitigación da anomalía
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturas-para-a-memoria-da-practica" class="md-nav__link">
+    Capturas para a memoria da práctica
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="6-auditoria-e-monitorizacion-da-seguranza">6. Auditoría e monitorización da seguranza</h1>
+<h2 id="aws-iot-device-defender">AWS IoT Device Defender</h2>
+<p><em>AWS IoT Device Defender</em> é un servizo de seguranza IoT totalmente xestionado que permite protexer as configuracións IoT de forma continua. <em>AWS IoT Device Defender</em> fornece ferramentas para identificar e responder a problemas de seguranza. Pode usarse o <em>AWS IoT Device Defender</em> para:</p>
+<ul>
+<li>
+<p><strong>Auditar</strong> frotas de dispositivos para garantir que cumpren coas boas prácticas de seguranza.</p>
+</li>
+<li>
+<p><strong>Monitorizar</strong> métricas das frotas de dispositivos para detectar calquera comportamento anormal.</p>
+</li>
+<li>
+<p><strong>Alertar</strong> sobre problemas de seguranza a medida que xorden, por exemplo, cando falla unha auditoría ou se observa unha anomalía nas métricas.</p>
+</li>
+<li>
+<p>Despregar automaticamente <strong>accións de mitigación</strong> integradas para abordar os problemas de seguranza que causen alertas.</p>
+</li>
+</ul>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Podes consultar a documentación do <em>AWS IoT Device Defender</em> <a href="https://aws.amazon.com/iot-device-defender/">aquí</a></p>
+</div>
+<h3 id="capacidades-chave-do-aws-iot-device-defender">Capacidades chave do AWS IoT Device Defender</h3>
+<p><strong>Auditoría</strong></p>
+<p><em>AWS IoT Device Defender</em> audita os recursos relacionados cos dispositivos (como certificados X.509, políticas IoT e identificadores de cliente) fronte ás mellores prácticas de seguranza de AWS IoT (por exemplo, o principio de privilexio mínimo ou identidade única por dispositivo). A función de auditoría informa de configuracións que non cumpren as mellores prácticas de seguranza, como por exemplo que haxa varios dispositivos que usen a mesma identidade ou políticas demasiado permisivas que deixen que un dispositivo lea e actualice datos doutros dispositivos.</p>
+<p><strong>Regras de detección</strong></p>
+<p><em>AWS IoT Device Defender</em> detecta comportamentos inusuais dos dispositivos que poden ser indicativos dunha violación ao monitorizar continuamente métricas de seguranza do dispositivo e de AWS IoT Core (por exemplo, o número de portos TCP que están á escoita nos dispositivos ou a cantidade de fallos de autorización). Pode especificarse o comportamento normal do dispositivo para un grupo de dispositivos configurando comportamentos (regras) para esas métricas. <em>AWS IoT Device Defender</em> monitoriza e avalía cada punto de datos informado para esas métricas fronte aos comportamentos (regras) definidos polo usuario e lanza unha alerta se se detecta unha anomalía.</p>
+<p><strong>Detección con modelos ML (<em>Machine Learning</em>)</strong></p>
+<p><em>AWS IoT Device Defender</em> pode establecer automaticamente o padrón usual de comportamento dos dispositivos mediante modelos de aprendizaxe máquina (ML) utilizando datos dos dispositivos en métricas do lado da nube (por exemplo, cantidade de fallos de autorización, cantidade de mensaxes enviadas) e métricas do lado do dispositivo (por exemplo, paquetes TCP enviados, número  de portas TCP á escoita) nun período de 14 días. Despois de construír os modelos iniciais, volve adestrar os modelos cada día (mentres teña datos suficientes para adestrar o modelo) para actualizar os comportamentos esperados do dispositivo en función dos últimos 14 días. <em>AWS IoT Device Defender</em> monitoriza e identifica puntos de datos anómalos para estas métricas cos modelos ML e lanza unha alarma cando detecta unha anomalía. </p>
+<p>En comparación coas <strong>regras de detección</strong>, os beneficios chave desta función son: </p>
+<ul>
+<li>Detecta automaticamente anomalías operativas e de seguranza en dispositivos da frota sen necesidade de que se definan os limiares de actividade normal do dispositivo.</li>
+<li>Actualiza dinámicamente os comportamentos esperados dos dispositivos en función das novas tendencias de datos para reducir os falsos positivos.</li>
+</ul>
+<p><strong>Alertas</strong></p>
+<p><em>AWS IoT Device Defender</em> publica alarmas na consola de AWS IoT, Amazon CloudWatch e Amazon SNS.</p>
+<p><strong>Mitigación</strong></p>
+<p><em>AWS IoT Device Defender</em> permite investigar problemas fornecendo información contextual e histórica sobre o dispositivo, como metadatos, estatísticas e histórico de alarmas. Tamén poden usarse as accións de mitigación integradas do <em>AWS IoT Device Defender</em> para realizar pasos de mitigación diante de alarmas de Auditoría e Detección, como engadir cousas a un grupo de cousas, substituír a versión predeterminada da política ou actualizar o certificado do dispositivo.</p>
+<h2 id="conceptos-de-aws-iot-device-defender">Conceptos de AWS IoT Device Defender</h2>
+<div class="admonition abstract">
+<p class="admonition-title">Como funciona AWS IoT Device Defender</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image35.png" data-desc-position="bottom"><img alt="howddWorks" src="../imgs/image35.png"></a></p>
+</div>
+<p><strong>Métrica</strong></p>
+<p><em>AWS IoT Device Defender Detect</em> usa métricas para detectar o comportamento anómalo dos dispositivos. <em>AWS IoT Device Defender Detect</em> compara o valor informado dunha métrica co valor esperado que se configure.</p>
+<p>Actualmente admítense dous tipos de métricas no cliente do dispositivo:</p>
+<ul>
+<li>
+<p><strong>Métricas do lado da nube</strong>. O comportamento anormal na rede AWS IoT detéctase utilizando métricas do lado da nube, como a cantidade de fallos de autorización, ou o número ou tamaño das mensaxes que un dispositivo envía ou recibe a través de AWS IoT. <em>AWS IoT Device Defender Detect</em> tamén pode recoller, agregar e monitorizar datos de métricas xerados por dispositivos IoT (por exemplo, as portas que un dispositivo ten á escoita, o número de bytes ou paquetes enviados, ou as conexións TCP activas do dispositivo).</p>
+</li>
+<li>
+<p><strong>Métricas do lado do dispositivo</strong>. Estas métricas son xeradas polo dispositivo e enviadas á nube. Para usar métricas do lado do dispositivo, pode usarse o SDK de AWS IoT ou pasarelas de dispositivos para recoller as métricas e envialas a AWS IoT. Podes ver máis detalles sobre o envío de métricas desde dispositivos <a href="https://docs.aws.amazon.com/iot/latest/developerguide/detect-device-side-metrics.html#DetectMetricsMessages">aquí</a>.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>O <strong>AWS IoT Device client</strong> usado neste titorial ten esta función activada por defecto xa que habilitamos o <em>Device Defender</em> na configuración.</p>
+</div>
+</li>
+</ul>
+<p><strong>Perfil de seguranza</strong></p>
+<p>Un perfil de seguranza define comportamentos anómalos para un grupo de dispositivos (un grupo de cousas) ou para todos os dispositivos dunha conta AWS, e permite especificar que accións tomar cando se detecta unha anomalía. Cando se crea un perfil de seguranza e se asocia a un grupo de dispositivos, o <em>AWS IoT Device Defender Detect</em> comeza a rexistrar datos relacionados coa seguranza e utiliza os comportamentos definidos no perfil de seguranza para detectar anomalías no comportamento dos dispositivos.</p>
+<p><strong>Comportamento</strong></p>
+<p>Un comportamento indícalle ao <em>AWS IoT Device Defender Detect</em> como recoñecer cando un dispositivo está a facer algo anómalo. Calquera acción do dispositivo que non coincida cun comportamento lanza unha alarma. Os comportamentos das <strong>regras de detección</strong> consisten en métricas e valores limiares absolutos ou estatísticos máis un operador (por exemplo, menor ou igual que, maior ou igual que), que describen o comportamento esperado do dispositivo. Os comportamentos de <strong>detección con modelos ML</strong> consisten en métricas e configuracións de detección ML, que establecen o modelo ML a usar para aprender o comportamento normal dos dispositivos.</p>
+<p><strong>Detección con modelos ML</strong></p>
+<p>A <strong>detección con modelos ML</strong> crea perfís de seguranza que usan aprendizaxe automática para aprender os comportamentos esperados do dispositivo, creando automaticamente modelos baseados en datos históricos do dispositivo e asignando estes perfís a un grupo de dispositivos ou a todos os dispositivos dunha frota. <em>AWS IoT Device Defender</em> usa estes modelos para identificar anomalías e lanzar alarmas.</p>
+<p><strong>Modelo de ML</strong></p>
+<p>Un modelo de ML é un modelo de aprendizaxe automática creado para monitorizar os comportamentos configurados. O modelo adéstrase en padróns de datos de métricas dos grupos de dispositivos de interese e xera tres niveis de confianza de anomalía:</p>
+<ul>
+<li>
+<p><strong>Alto</strong>. Alta confianza significa baixa sensibilidade na avaliación do comportamento anómalo e implica lanzar un menor número de alarmas.</p>
+</li>
+<li>
+<p><strong>Medio</strong>. Media confianza significa sensibilidade media e frecuencia media de alarmas.</p>
+</li>
+<li>
+<p><strong>Baixo</strong>. Baixa confianza significa alta sensibilidade e implica lanzar un maior número de alarmas.</p>
+</li>
+</ul>
+<p>Unha vez adestrado, o modelo úsase para inferir anomalías en función dos datos de métricas inxeridos desde os dispositivos.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Podes ver máis detalles sobre como configurar modelos ML de detección de anomalías <a href="https://aws.amazon.com/blogs/iot/ml-detect-for-device-defender/">aquí</a></p>
+</div>
+<!--
+**Dimensión**
+
+Podes definir unha dimensión para axustar o ámbito da monitorización para detectar un comportamento. Por exemplo, podes definir unha dimensión de filtro de tema que aplique un comportamento a temas MQTT que coincidan cun patrón específico.
+-->
+
+<p><strong>Alarma</strong></p>
+<p>Cando se detecta unha anomalía, pódese enviar unha notificación de alarma a través dunha métrica de CloudWatch ou unha notificación de SNS. Tamén se mostra unha notificación de alarma na consola de AWS IoT xunto con información sobre a alarma e un historial de alarmas para o dispositivo. Ademais, tamén se envía unha alarma cando un dispositivo monitorizado deixa de mostrar un comportamento anómalo ou cando estivo causando unha alarma pero deixa de informar durante un período prolongado.</p>
+<!--
+**Supresión de alarmas**
+
+Xestiona as notificacións de alarmas de Detectar SNS configurando a notificación de comportamento en activada ou suprimida. Suprimir alarmas non impide que Detect realice avaliacións de comportamento do dispositivo; Detect continúa sinalando comportamentos anómalos como alarmas de violación. Non obstante, as alarmas suprimidas non se reenviarían para notificación SNS. Só se poderán acceder a través da consola de AWS IoT ou da API.
+
+!!! note
+    Queres ler máis, consulta a [guía do desenvolvedor](https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html)
+-->
+
+<h2 id="auditoria-e-monitorizacion-da-seguranza-co-aws-iot-device-defender">Auditoría e monitorización da seguranza co AWS IoT Device Defender</h2>
+<p>Esta parte do titorial céntrase na demostración práctica do uso de <em>AWS IoT Device Defender</em> para a monitorización da seguranza dos dispositivos IoT, tanto do lado da nube como do lado do dispositivo. Nesta sección, vamos crear unha auditoría de seguranza e definir comportamentos anómalos para o dispositivo IoT. Despois configuraremos un "latexo" periódico de métricas do dispositivo e visualizaremos esas métricas na consola do AWS IoT.</p>
+<!--
+### Creación dun perfil de seguranza
+
+Para crear un perfil de seguranza e definir un comportamento anómalo para o dispositivo fai o seguinte:
+
+1. No menú da esquerda na consola do AWS IoT Core escolle: **Xestionar** → **Seguranza** → **Detectar** → **Perfil de Seguranza**
+
+2. Preme no botón **Crear Perfil de Seguranza** na parte superior dereita e escolle **Crear perfil de detección de anomalías baseado en regras** na listaxe de opcións.
+
+    ![ddSelect](imgs/image36.png)
+
+3. Na configuración básica do perfil insire os seguintes datos:
+
+- Destino: **Todas as cousas**
+- Nome do perfil de seguranza: **deviceClientWorkshop**, co teu prefixo diante.
+- Descrición: insire unha descrición para o perfil.
+
+    ![ddSelect](imgs/image37.png)
+
+4. No apartado de **Comportamentos de métricas seleccionadas no Perfil de Seguranza**, elimina todos os comportamentos.
+
+    ![ddSelect](imgs/image38.png)
+
+5. No apartado de **Comportamentos de métricas retidas adicionais** engade todas as métricas, tanto as do lado da nube como as do lado do dispositivo.
+
+    ![ddSelect](imgs/image39.png)
+
+6. Preme no botón **Próximo** para avanzar ao seguinte paso da configuración.
+
+7. Configura o comportamento: **Fallos de autorización**.
+
+- Valor absoluto, Maior que, Valor: 3
+
+- Duración: 5 minutos
+
+- Puntos de datos para alarmar: 3
+
+- Puntos de datos para limpar: 1
+
+    ![ddSelect](imgs/image40.png)
+
+8. Preme no botón **Próximo** para avanzar ao seguinte paso da configuración e preme en **Crear** para completar a creación do perfíl.
+-->
+
+<h3 id="monitorizacion-de-metricas-de-seguranza">Monitorización de métricas de seguranza</h3>
+<p>Nesta sección veremos como se configura un "latexo" periódico de métricas do dispositivo e como visualizar estas métricas na consola do AWS IoT.</p>
+<h4 id="configuracion-do-latexo-periodico-no-dispositivo">Configuración do "latexo" periódico no dispositivo</h4>
+<p>Durante a instalación do <em>AWS IoT Device Client</em> activouse a función do lado cliente que envía periodicamente métricas do dispositivo ao servizo <em>AWS IoT Device Defender</em>. Para comprobar a configuración desta función fai o seguinte:</p>
+<ol>
+<li>
+<p>Nun terminal da instancia VSCode executa o seguinte comando para ver a configuración do <em>AWS IoT Device Client</em>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cat<span class="w"> </span>/etc/.aws-iot-device-client/aws-iot-device-client.conf
+</code></pre></div>
+</li>
+</ol>
+<!--
+    !!! nota 
+        Se obtés un erro "No such file or directory", proba de novo co directorio raíz.
+
+    <div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cat<span class="w"> </span>/root/.aws-iot-device-client/aws-iot-device-client.conf
+</code></pre></div>
+-->
+
+<ol start="2">
+<li>
+<p>Comproba se a funcion do lado cliente do <em>AWS IoT Device Defender</em> está activada.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image44.png" data-desc-position="bottom"><img alt="ddEnabled" src="../imgs/image44.png"></a></p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Se a función non estivera activada, podes editar o ficheiro de configuración e reiniciar o servizo <em>AWS IoT Device Client</em>. Recoméndase un valor de 300 segundos entre "latexos"  para evitar a saturación do servizo.</p>
+</div>
+</li>
+</ol>
+<h4 id="monitorizacion-de-metricas-na-consola">Monitorización de métricas na consola</h4>
+<p>Para monitorizar as métricas na consola do AWS IoT Core fai o seguinte:</p>
+<ol>
+<li>
+<p>No menú da esquerda na consola do AWS IoT Core escolle: <strong>Xestionar</strong> → <strong>Todos os Dispositivos</strong> → <strong>Cousas</strong></p>
+</li>
+<li>
+<p>Escolle a cousa <strong>deviceClientThing</strong> e nas súas propiedades a aba <strong>Métricas de Defender</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image45.png" data-desc-position="bottom"><img alt="ddSelect" src="../imgs/image45.png"></a></p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Despois de crear o perfil de seguranza, pode levar até 10 minutos que os datos aparezan visualizados na aba de <strong>Métricas de Defender</strong> da cousa.</p>
+</div>
+</li>
+<li>
+<p>Usando as listaxes dispoñíbeis nesta aba, pódense ver as tendencias das métricas chave tanto do lado da nube como do lado do dispositivo. A monitorización destas métricas pode axudar a detectar dispositivos inseguros ou comprometidos:</p>
+<ul>
+<li>
+<p>Métricas do lado da nube</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image46.png" data-desc-position="bottom"><img alt="CloudSide" src="../imgs/image46.png"></a></p>
+</li>
+<li>
+<p>Métricas do lado do dispositivo</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image47.png" data-desc-position="bottom"><img alt="DeviceMetric" src="../imgs/image47.png"></a></p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Vexamos algúns exemplos de métricas:</p>
+<h5 id="metricas-do-lado-da-nube">Métricas do lado da nube</h5>
+<p><strong>Mensaxes enviadas</strong></p>
+<p>Esta métrica conta o número total de mensaxes MQTT enviadas polo AWS IoT Core ao dispositivo IoT no período escollido.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image48.png" data-desc-position="bottom"><img alt="MsgSent" src="../imgs/image48.png"></a></p>
+<p><strong>Mensaxes recibidas</strong></p>
+<p>Esta métrica fornece o número total de mensaxes MQTT recibidas polo AWS IoT Core desde o dispositivo IoT durante o período escollido.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image49.png" data-desc-position="bottom"><img alt="MsgSent" src="../imgs/image49.png"></a></p>
+<p><strong>Intentos de conexión</strong></p>
+<p>Esta métrica fornece o número total de intentos realizados polo dispositivo IoT para conectarse ao AWS IoT Core no período escollido.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image50.png" data-desc-position="bottom"><img alt="MsgSent" src="../imgs/image50.png"></a></p>
+<h5 id="metricas-do-lado-do-dispositivo">Métricas do lado do dispositivo</h5>
+<p><strong>Paquetes enviados</strong></p>
+<p>Esta métrica fornece o número total de paquetes de mensaxes enviados ao AWS IoT Core desde o dispositivo IoT durante o período escollido.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image51.png" data-desc-position="bottom"><img alt="MsgSent" src="../imgs/image51.png"></a></p>
+<p><strong>Conta de portos TCP</strong></p>
+<p>Esta métrica fornece o número total de portas TCP abertas que están á escoita no dispositivo IoT durante o período escollido.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image52.png" data-desc-position="bottom"><img alt="MsgSent" src="../imgs/image52.png"></a></p>
+<p><strong>Conexións TCP establecidas co dispositivo</strong></p>
+<p>Esta métrica fornece o número total de conexións TCP establecidas no dispositivo IoT durante o período escollido.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image53.png" data-desc-position="bottom"><img alt="MsgSent" src="../imgs/image53.png"></a></p>
+<h3 id="configuracion-dunha-auditoria-de-seguranza">Configuración dunha auditoría de seguranza</h3>
+<p>As auditorías do <em>AWS IoT Device Defender</em> examinan a configuración e as políticas relacionadas coa conta e o dispositivo para garantir que as medidas de seguranza estexan implementadas adecuadamente. Unha auditoría pode axudar a detectar calquera desviación das mellores prácticas de seguranza ou políticas de acceso (por exemplo, varios dispositivos que usen a mesma identidade, ou políticas demasiado permisivas que permitan que un dispositivo lea e actualice datos doutros dispositivos).</p>
+<p>Para crear unha auditoría de seguranza fai o seguinte:</p>
+<!--
+1. No menú da esquerda na consola do AWS IoT Core escolle: **Xestionar** → **Todos os Dispositivos** → **Cousas**
+
+2. Escolle a cousa **deviceClientThing** e preme no botón **Automatizar a auditoría de seguranza de IoT** na mensaxe de alerta na parte superior da consola para automatizar a realización dunha auditoría diaria.
+
+    ![auditEnable](imgs/image41.png)
+
+3. Na mensaxe de confirmación preme en **Ver auditoría programada**.
+
+    ![auditEnabledGreen](imgs/image42.png)
+
+    Mostrarase a listaxe das mellores prácticas de seguranza que o AWS IoT Device Defender audita.
+
+    ![auditChecks](imgs/image43.png)
+-->
+
+<ol>
+<li>
+<p>No menú da esquerda na consola do AWS IoT Core escolle: <strong>Xestionar</strong> → <strong>Seguranza</strong> → <strong>Auditoría</strong> e preme no botón <strong>Automatizar a auditoría de seguranza de IoT</strong></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image28.new.png" data-desc-position="bottom"><img alt="audit" src="../imgs/image28.new.png"></a></p>
+<p>Isto creará automaticamente unha auditoría que se executará cunha perioricidade diaria. </p>
+</li>
+<li>
+<p>Crea agora unha auditoría ad hoc escollendo no menú da esquerda na consola do AWS IoT Core: <strong>Xestionar</strong> → <strong>Seguranza</strong> → <strong>Auditoría</strong> → <strong>Programacións</strong>
+e preme no botón <strong>Crear</strong> na parte superior dereita.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image29.new.png" data-desc-position="bottom"><img alt="audit" src="../imgs/image29.new.png"></a></p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Nalgúns navegadores, o menú esquerdo da consola pode non mostrar os subelementos baixo <strong>Seguranza</strong> → <strong>Auditoría</strong> inmediatamente despois de activar a auditoría. Se non ves o elemento <strong>Programacións</strong> baixo <strong>Auditoría</strong>, actualiza a xanela do navegador.</p>
+</div>
+</li>
+<li>
+<p>No asistente para crear unha nova auditoría, deixa todas as configuracións predeterminadas e preme en <strong>Crear</strong> para aceptar a creación da auditoría.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image30.new.png" data-desc-position="bottom"><img alt="audit" src="../imgs/image30.new.png"></a></p>
+</li>
+<li>
+<p>Unha vez que se crea a auditoría, agarda mentras o seu estado sexa <strong>En progreso</strong> (pode demorar uns minutos). Para actualizar o estado da auditoría podes premer no botón <strong>Actualizar</strong> na parte superior dereita. Unha vez que remate, escolle <strong>Baixo demanda</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image31.new.png" data-desc-position="bottom"><img alt="audit" src="../imgs/image31.new.png"></a></p>
+</li>
+<li>
+<p>Vemos que dúas das boas prácticas de seguranza comprobadas fallaron.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image32.new.png" data-desc-position="bottom"><img alt="audit" src="../imgs/image32.new.png"></a></p>
+</li>
+</ol>
+<p>Nos seguintes apartados vamos resolver as incidencias atopadas.</p>
+<h4 id="politica-excesivamente-permisiva">Política excesivamente permisiva</h4>
+<ol start="6">
+<li>
+<p>Escolle a primeira das incidencias: <strong>Políticas de IoT excesivamente permisivas</strong>, para ver os seus detalles.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image33.new.png" data-desc-position="bottom"><img alt="audit" src="../imgs/image33.new.png"></a></p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Anteriormente creamos para o titorial a política IoT <strong>workshopDC</strong>, que permite todas as accións IoT sobre calquera recurso. Isto non cumpre co <strong>Principio de Privilexio Mínimo</strong>.</p>
+</div>
+</li>
+<li>
+<p>Escolle a política <strong>workshopDC</strong>, preme en <strong>Editar versión activa</strong> e cambia á vista JSON para editala.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image35.new.png" data-desc-position="bottom"><img alt="least" src="../imgs/image35.new.png"></a></p>
+</li>
+<li>
+<p>Copia a seguinte política no panel JSON do documento da política.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Cambia <strong>&lt;ACCOUNT NUMBER&gt;</strong> polo teu número de conta e, se usaches tópicos MQTT diferentes, tamén haberá que editalos.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-17"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"Statement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"iot:Publish"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"iot:Receive"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"arn:aws:iot:us-east-1:&lt;ACCOUNT NUMBER&gt;:topic/$aws/things/${iot:Connection.Thing.ThingName}/*"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"arn:aws:iot:us-east-1:&lt;ACCOUNT NUMBER&gt;:topic/workshop/zt/pub"</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"iot:Subscribe"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"arn:aws:iot:us-east-1:&lt;ACCOUNT NUMBER&gt;:topicfilter/$aws/things/${iot:Connection.Thing.ThingName}/*"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"arn:aws:iot:us-east-1:&lt;ACCOUNT NUMBER&gt;:topicfilter/workshop/zt/sub"</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"Effect"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allow"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"Action"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"iot:Connect"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"arn:aws:iot:us-east-1:&lt;ACCOUNT NUMBER&gt;:client/${iot:Connection.Thing.ThingName}"</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Escolle a opción <strong>Establecer esta versión como versión activa</strong> e preme no botón <strong>Salvar nova versión</strong> para crear a versión modificada da política IoT.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image40.png" data-desc-position="bottom"><img alt="least" src="../imgs/image40.png"></a></p>
+</li>
+</ol>
+<h4 id="activacion-dos-rexistros-logging">Activación dos rexistros (<em>logging</em>)</h4>
+<p>Imos agora a resolver a segunda das incidencias. Fai o seguinte:</p>
+<ol start="10">
+<li>
+<p>Volve aos resultados da auditoría baixo demanda que executamos anteriormente e escolle a segunda incidencia: <strong>Rexistro desactivado</strong></p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Aínda verás a incidencia <strong>Políticas de IoT excesivamente permisivas</strong> na listaxe, xa que mostra os resultados da auditoría realizada antes de que modificaramos a política.</p>
+</div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image41.png" data-desc-position="bottom"><img alt="audit" src="../imgs/image41.png"></a></p>
+</li>
+<li>
+<p>Desde os detalles da incidencia, abre a configuración dos rexistros premendo na ligazón do número de conta.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image42.png" data-desc-position="bottom"><img alt="audit" src="../imgs/image42.png"></a></p>
+</li>
+<li>
+<p>No apartado de Rexistros preme no botón <strong>Xestionar rexistros</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image43.png" data-desc-position="bottom"><img alt="logs" src="../imgs/image43.png"></a></p>
+</li>
+<li>
+<p>Configura as seguintes propiedades dos <em>logs</em>:</p>
+<ul>
+<li>Rol de <em>log</em>: escolle o rol <strong>Labrole</strong> predefinido.</li>
+<li>Nivel de <em>log</em>: escolle <strong>DEBUG</strong>.</li>
+</ul>
+<p>Preme en <strong>Actualizar</strong> para salvar as modificacions.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image47.new.png" data-desc-position="bottom"><img alt="logs" src="../imgs/image47.new.png"></a></p>
+<p>Debería verse a mensaxe <strong>Rexistro actualizado con éxito.</strong></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image48.new.png" data-desc-position="bottom"><img alt="logs" src="../imgs/image48.new.png"></a></p>
+</li>
+</ol>
+<h4 id="repetir-a-auditoria-para-verificar">Repetir a auditoría para verificar</h4>
+<p>Vamos agora a repetir a auditoría para comprobar se as configuracións realizadas solucionaron as incidencias.</p>
+<ol start="14">
+<li>
+<p>Volve crear unha nova auditoría ad hoc escollendo no menú da esquerda na consola do AWS IoT Core: <strong>Xestionar</strong> → <strong>Seguranza</strong> → <strong>Auditoría</strong> → <strong>Programacións</strong>
+e premendo no botón <strong>Crear</strong> na parte superior dereita.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image49.new.png" data-desc-position="bottom"><img alt="audit" src="../imgs/image49.new.png"></a></p>
+</li>
+<li>
+<p>Deixa todas as configuracións predeterminadas e preme en <strong>Crear</strong> para aceptar a creación da auditoría.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image50.new.png" data-desc-position="bottom"><img alt="audit" src="../imgs/image50.new.png"></a></p>
+</li>
+<li>
+<p>Unha vez que a auditoría remate, comproba que desta volta o dispositivo pasou a comprobación con éxito.</p>
+</li>
+</ol>
+<h3 id="deteccion-de-anomalias-mediante-regras">Detección de anomalías mediante regras</h3>
+<p>Neste apartado do titorial utilizaremos o <em>AWS IoT Device Defender</em> para detectar comportamentos anormais no dispositivo que poidan indicar unha violación da seguranza, monitorizando continuamente as métricas de seguranza do dispositivo e de AWS IoT Core (por exemplo, a métrica de bytes de saída pode identificar un dispositivo anormalmente activo ou un aumento repentino do tamaño da carga útil do dispositivo cara á nube). Pode especificarse o comportamento normal dun grupo de dispositivos configurando comportamentos (regras) para estas métricas. O <em>AWS IoT Device Defender</em> monitoriza e avalía cada punto de datos informado para estas métricas fronte aos comportamentos (regras) definidos polo usuario e alerta se se detecta unha anomalía.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Podes ler máis detalles sobre o <em>AWS IoT Device Defender</em> <a href="https://aws.amazon.com/iot-device-defender/">aquí</a></p>
+</div>
+<h4 id="creacion-dun-perfil-de-seguranza-para-a-deteccion-de-anomalias">Creación dun perfil de seguranza para a detección de anomalias</h4>
+<p>Vamos crear unha auditoría de seguranza e definiremos comportamentos anormais para o dispositivo IoT. Despois configuraremos a métrica periódica de "bytes de saída" do dispositivo e veremos esa métrica na consola do AWS IoT.</p>
+<p>Fai o seguinte:</p>
+<ol>
+<li>
+<p>No menú da esquerda da consola do AWS IoT Core vai a: <strong>Seguranza</strong> → <strong>Detectar</strong> → <strong>Perfis de seguranza</strong> e escolle <strong>Crear perfil de detección de anomalías baseado en regras</strong> no botón <strong>Crear perfís de seguranza</strong> na parte superior dereita.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image51.new.png" data-desc-position="bottom"><img alt="ddSelect" src="../imgs/image51.new.png"></a></p>
+</li>
+<li>
+<p>Configura as seguintes propiedades do perfil:</p>
+<ul>
+<li>
+<p>Nome do perfil: <strong>ZTProfile</strong>, co teu prefixo diante.</p>
+</li>
+<li>
+<p>Descrición: insire unha descrición para o perfil.</p>
+</li>
+<li>
+<p>Destino: escolle <strong>Todas as cousas</strong> (<strong><em>All things</em></strong>)</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image52.new.png" data-desc-position="bottom"><img alt="create_profile" src="../imgs/image52.new.png"></a></p>
+</li>
+<li>
+<p>Preme en <strong>Próximo</strong> para avanzar ao seguinte paso do asistente.</p>
+</li>
+<li>
+<p>No paso <strong>Configurar comportamentos de métricas</strong> pódense definir os comportamentos esperados dos dispositivos do grupo de destino seleccionado previamente, escollendo unha ou máis métricas. Cada comportamento contén unha métrica que especifica o comportamento normal para un grupo de dispositivos ou para todos os dispositivos da conta. Poden usarse tanto métricas do lado da nube coma do lado do dispositivo.</p>
+<p>Para definir un comportamento fai o seguinte:</p>
+<ul>
+<li>
+<p>Escolle a métrica <strong>Bytes out</strong>. Esta métrica indica a cantidade de tráfico de saída que xera o dispositivo.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image53.new.png" data-desc-position="bottom"><img alt="ddSelect" src="../imgs/image53.new.png"></a></p>
+</li>
+<li>
+<p>Nas propiedades do comportamento da métrica, configura o seguinte:</p>
+<ul>
+<li>Escolle: <strong>Enviar unha alerta</strong></li>
+<li>Nome do comportamento: <strong>Bytes_out</strong></li>
+<li>
+<p>Condición de alarma: <strong>Bytes out menor que</strong></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image55.new.png" data-desc-position="bottom"><img alt="ddSelect" src="../imgs/image55.new.png"></a></p>
+</li>
+<li>
+<p>Configura a condición de alerta cos valores seguintes:</p>
+<ul>
+<li>Tipo: <strong>Absoluto</strong></li>
+<li>Valor: <strong>100</strong></li>
+<li>Duración: <strong>5 minutos</strong></li>
+<li>Puntos de datos para alertar: <strong>1</strong></li>
+<li>Puntos de datos para quitar a alarma: <strong>10</strong></li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image56.png" data-desc-position="bottom"><img alt="ddSelect" src="../imgs/image56.png"></a></p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Aquí estamos a definir o comportamento esperado e a alarma activarase cando non se cumpra esta condición, é dicir, cando o tamaño da mensaxe sexa maior de 100 bytes.</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Avanza até o paso <strong>Revisar configuración</strong> do asistente premendo en <strong>Próximo</strong> e deixando o resto de propiedades nos seus valores padrón (por defecto).</p>
+</li>
+<li>
+<p>Preme no botón <strong>Crear</strong> para aceptar a creación do perfil.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image59.png" data-desc-position="bottom"><img alt="ddSelect" src="../imgs/image59.png"></a></p>
+</li>
+<li>
+<p>Comproba na aba <strong>Comportamentos</strong> das propiedades do perfil a configuración do comportamento.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image60.png" data-desc-position="bottom"><img alt="ddSelect" src="../imgs/image60.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image61.new.png" data-desc-position="bottom"><img alt="ddSelect" src="../imgs/image61.new.png"></a></p>
+</li>
+</ol>
+<h4 id="simulacion-dunha-anomalia-no-dispositivo">Simulación dunha anomalía no dispositivo</h4>
+<p>Vamos agora simular unha anomalía no dispositivo IoT para comprobar que o perfil funciona segundo o configurado. Fai o seguinte:</p>
+<ol>
+<li>
+<p>Nun terminal da instancia VSCode, executa o seguinte comando para parar o servizo <em>Device Client</em>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>aws-iot-device-client
+</code></pre></div>
+</li>
+<li>
+<p>Comproba que o servizo está detido executando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aws-iot-device-client
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image62.new.png" data-desc-position="bottom"><img alt="ddStatus" src="../imgs/image62.new.png"></a></p>
+</li>
+<li>
+<p>Crea un ficheiro para simular unha carga útil grande.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">"print('a'*1024)"</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/msg.txt
+$<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/tmp/msg.txt
+</code></pre></div>
+</li>
+<li>
+<p>Edita a liña <strong>"publish-file"</strong> no ficheiro de configuración do <em>Device Client</em> (no exemplo úsase <code>nano</code>) e adiciona a ruta do ficheiro creado no punto anterior:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/.aws-iot-device-client/aws-iot-device-client.conf
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image63.new.png" data-desc-position="bottom"><img alt="config" src="../imgs/image63.new.png"></a></p>
+</li>
+<li>
+<p>Na consola do AWS IoT Core&nbsp;vai ao <strong>Cliente de proba MQTT</strong> e subscríbete ao tópico: <code>workshop/zt/pub</code>, que será no que se publique a carga útil enviada desde o dispositivo.</p>
+</li>
+<li>
+<p>Abre o apartado de <strong>Configuración adicional</strong> e escolle <strong>Mostrar cargas úteis como cadeas de texto</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image64.new.png" data-desc-position="bottom"><img alt="iotcore" src="../imgs/image64.new.png"></a></p>
+</li>
+<li>
+<p>De volta á instancia VSCode, <strong>nun segundo terminal</strong> executa o comando para facer o seguemento do <em>log</em> do <em>Device Client</em>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/aws-iot-device-client/aws-iot-device-client.log
+</code></pre></div>
+</li>
+<li>
+<p>Reinicia o servizo do <em>Device Client</em> para que se envíe a mensaxe coa carga útil grande ao AWS IoT Core e comproba que estexa activo.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>aws-iot-device-client
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aws-iot-device-client
+</code></pre></div>
+<p>Saída:</p>
+<div class="highlight"><pre><span></span><code>● aws-iot-device-client.service - AWS IoT Device Client
+
+Loaded: loaded (/etc/systemd/system/aws-iot-device-client.service; enabled; vendor preset: enabled)
+
+Active: active (running) since Thu 2021-10-21 16:14:03 UTC; 2min 4s ago
+
+Main PID: 24276 (aws-iot-device-)
+Tasks: 3 (limit: 4617)
+
+CGroup: /system.slice/aws-iot-device-client.service
+└─24276 /sbin/aws-iot-device-client
+
+Oct 21 16:14:03 ip-192-168-128-122 systemd\[1\]: Started AWS IoT Device Client.
+</code></pre></div>
+</li>
+<li>
+<p>Comproba na saída de <em>log</em> do <em>Device Client</em> que aparece a nova configuración e a carga útil enviada.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image65.new.png" data-desc-position="bottom"><img alt="tailLogs" src="../imgs/image65.new.png"></a></p>
+</li>
+<li>
+<p>Comproba na consola do AWS IoT Core que se recibiu a mensaxe no tópico subscrito do cliente de proba MQTT.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image66.new.png" data-desc-position="bottom"><img alt="iotcore" src="../imgs/image66.new.png"></a></p>
+</li>
+</ol>
+<h4 id="deteccion-e-mitigacion-da-anomalia">Detección e mitigación da anomalía</h4>
+<p>Neste apartado vamos comprobar a alarma creada pola anomalía simulada no apartado anterior e a aplicar unha acción de mitigación. Fai o seguinte:</p>
+<ol start="11">
+<li>
+<p>No menú da esquerda na consola do AWS IoT Core vai a: <strong>Seguranza</strong> → <strong>Detectar</strong> → <strong>Alarmas</strong>. Podemos ver que o dispositivo <code>deviceClientThing</code> violou a métrica predefinida no perfil <code>ZTProfile</code> e está a causar unha anomalía.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image67.new.png" data-desc-position="bottom"><img alt="alarm" src="../imgs/image67.new.png"></a></p>
+<p>Tamén se pode ver a alarma en: <strong>Xestionar</strong> → <strong>Todos os dispositivos</strong> → <strong>Cousas</strong>, escoller a aba <strong>Métricas de Defender</strong> nas propiedades do dispositivo <strong>deviceClientThing</strong> e, finalmente, escoller a métrica <strong>Bytes out</strong>. </p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image68.new.png" data-desc-position="bottom"><img alt="alarm" src="../imgs/image68.new.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image69.new.png" data-desc-position="bottom"><img alt="alarm" src="../imgs/image69.new.png"></a></p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Se non ves a alarma, agarda uns minutos xa que pode demorar uns 5 minutos en agregarse.</p>
+</div>
+</li>
+</ol>
+<p>Unha vez identificada a cousa que causa a alarma/anomalía, imos mitigala creando un grupo de corentena illado ao que moveremos a cousa para cortar todas as súas comunicacións. Fai o seguinte:</p>
+<ol start="12">
+<li>
+<p>No menú da esquerda na consola do AWS IoT Core vai a: <strong>Xestionar</strong> → <strong>Todos os dispositivos</strong> → <strong>Grupos de cousas</strong> e preme no botón <strong>Crear grupo de cousas</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image70.new.png" data-desc-position="bottom"><img alt="mit1" src="../imgs/image70.new.png"></a></p>
+</li>
+<li>
+<p>Escolle <strong>Crear grupo de cousas estático</strong> e preme en <strong>Próximo</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image71.new.png" data-desc-position="bottom"><img alt="mit2" src="../imgs/image71.new.png"></a></p>
+</li>
+<li>
+<p>Configura as propiedades do grupo cos valores seguintes:</p>
+<ul>
+<li>Nome do grupo: <code>Quarantine_group</code> co teu prefixo diante.</li>
+<li>Descrición: insire unha descrición para o grupo.</li>
+</ul>
+<p>Preme en <strong>Crear grupo de cousas</strong> para aceptar a creación do grupo.</p>
+</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image72.new.png" data-desc-position="bottom"><img alt="mit3" src="../imgs/image72.new.png"></a></p>
+<p>Para illar as cousas que pertenzan ao grupo, vamos asociarlle unha política que denegue todos os permisos. Fai o seguinte:</p>
+<ol start="15">
+<li>No menú da esquerda na consola do AWS IoT Core vai a: <strong>Xestionar</strong> → <strong>Seguranza</strong> → <strong>Políticas</strong> e preme en  <strong>Crear política</strong>.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image73.new.png" data-desc-position="bottom"><img alt="mit4" src="../imgs/image73.new.png"></a></p>
+<ol start="16">
+<li>
+<p>Configura as propiedades da política cos valores seguintes:</p>
+<ul>
+<li>Nome da política: <code>denyAll</code></li>
+<li>Efecto: <strong>Denegar</strong></li>
+<li>Acción: <strong>*</strong></li>
+<li>Recurso: <strong>*</strong></li>
+</ul>
+<p>Preme en <strong>Crear</strong> para aceptar a creación da política.</p>
+</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image74.new.png" data-desc-position="bottom"><img alt="mit4" src="../imgs/image74.new.png"></a></p>
+<ol start="17">
+<li>Para asociar a política ao grupo de corentena, escolle a aba <strong>Políticas</strong> nas propiedades do grupo de cousas, e preme no botón <strong>Xestionar políticas</strong>.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image75.new.png" data-desc-position="bottom"><img alt="mit5" src="../imgs/image75.new.png"></a>
+   <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image76.new.png" data-desc-position="bottom"><img alt="mit6" src="../imgs/image76.new.png"></a></p>
+<ol start="18">
+<li>Preme en <strong>Engadir política</strong> para adicionar unha nova política. Escolle a política <strong>denyAll</strong> e preme en <strong>Actualizar políticas</strong> para salvar os trocos.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image77.new.png" data-desc-position="bottom"><img alt="mit7" src="../imgs/image77.new.png"></a>
+   <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image78.new.png" data-desc-position="bottom"><img alt="mit7" src="../imgs/image78.new.png"></a>
+   <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image79.new.png" data-desc-position="bottom"><img alt="mit7" src="../imgs/image79.new.png"></a></p>
+<p>Unha vez configurado o grupo e a súa política restrictiva vamos crear unha <strong>Acción de Mitigación</strong> que usaremos para illar a cousa cando se detecte unha anomalía. Fai o seguinte:</p>
+<ol start="19">
+<li>No menú da esquerda na consola do AWS IoT Core vai a: <strong>Xestionar</strong> → <strong>Seguranza</strong> → <strong>Detectar</strong> → <strong>Accións de mitigación</strong> e preme no botón <strong>Crear</strong> na parte superior dereita.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image80.new.png" data-desc-position="bottom"><img alt="mit8" src="../imgs/image80.new.png"></a></p>
+<ol start="20">
+<li>Configura as propiedades da acción de mitigación cos valores seguintes:</li>
+</ol>
+<ul>
+<li>Nome da acción: <strong>ZTMitigationAction</strong> co teu prefixo diante.</li>
+<li>Tipo de acción: <strong>Engadir cousas a un grupo de cousas (mitigación de auditoría ou detección)</strong>.</li>
+<li>Permisos: escolle o rol predefinido <strong>LabRole</strong>.</li>
+<li>Parámetros → Grupos de cousas: escolle <strong>Quarantine_group</strong>.</li>
+</ul>
+<p>Acepta a creción da acción premendo no botón <strong>Crear</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image81.new.png" data-desc-position="bottom"><img alt="mit9" src="../imgs/image81.new.png"></a>
+   <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image83.png" data-desc-position="bottom"><img alt="mit9" src="../imgs/image83.png"></a></p>
+<p>Unha vez creada a acción de mitigación, vamos aplicarlla á cousa sinalada pola alarma. Fai o seguinte:</p>
+<ol start="21">
+<li>No menú da esquerda na consola do AWS IoT Core vai a: <strong>Xestionar</strong> → <strong>Seguranza</strong> → <strong>Detectar</strong> → <strong>Alarmas</strong>, escolle a cousa <strong>deviceClientThing</strong> e preme no botón <strong>Iniciar accións de mitigación</strong>.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image84.png" data-desc-position="bottom"><img alt="mit10" src="../imgs/image84.png"></a></p>
+<ol start="22">
+<li>En <strong>Iniciar accións de mitigación</strong>, baixo <strong>Seleccionar accións</strong>, escolle a acción <strong>ZTMitigationAction</strong> e preme no botón <strong>Iniciar</strong> para executala. </li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image85.png" data-desc-position="bottom"><img alt="mit11" src="../imgs/image85.png"></a></p>
+<pre><code>Comproba que a acción finalizou con éxito.
+</code></pre>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image86.png" data-desc-position="bottom"><img alt="mit12" src="../imgs/image86.png"></a></p>
+<p>Comproba que o dispositivo foi posto en corentena facendo o seguinte:</p>
+<ol start="23">
+<li>No menú da esquerda na consola do AWS IoT Core vai a: <strong>Xestionar</strong> → <strong>Todos os dispositivos</strong> → <strong>Grupos de cousas</strong>, preme no grupo <strong>Quarantine_group</strong> para ver as súas propiedades e escolle a aba <strong>Cousas</strong>. Como podes ver, o dispositivo <strong>deviceClientThing</strong> fai parte do grupo, polo que efectivamente foi posto en corentena.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image87.png" data-desc-position="bottom"><img alt="mit14" src="../imgs/image87.png"></a></p>
+<p>Por último, para poder continuar co titorial, vamos eliminar a cousa <strong>deviceClientThing</strong> do grupo de corentena. Fai o seguinte:</p>
+<ol start="24">
+<li>Na aba <strong>Cousas</strong> das propiedades do grupo <strong>Quarantine_group</strong> escolle a cousa <strong>deviceClientThing</strong> e preme no botón <strong>Eliminar cousas</strong> para eliminala do grupo.</li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image88.png" data-desc-position="bottom"><img alt="mit15" src="../imgs/image88.png"></a></p>
+<h2 id="capturas-para-a-memoria-da-practica">Capturas para a memoria da práctica</h2>
+<div class="admonition warning">
+<p class="admonition-title">IMPORTANTE</p>
+<p>Neste punto toma as capturas para a memoria de xustificación da práctica que se indican no documento da práctica.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado no cortapapeis", "clipboard.copy": "Copiar no cortapapeis", "search.result.more.one": "1 m\u00e1is nesta p\u00e1xina", "search.result.more.other": "# m\u00e1is nesta p\u00e1xina", "search.result.none": "Sen resultados", "search.result.one": "1 resultado atopado", "search.result.other": "# resultados atopados", "search.result.placeholder": "Insira un termo", "search.result.term.missing": "Falta", "select.version": "Seleccionar version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

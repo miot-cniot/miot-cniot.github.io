@@ -1,0 +1,841 @@
+<!DOCTYPE html><html lang="gl" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Xoan C. Pardo">
+      
+      
+        <link rel="canonical" href="https://miot-cniot.github.io/cursos/practica_3/08-advanced-sections/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>6. Despregadura dunha operación OTA personalizada - Computación na Nube para IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-despregadura-dunha-operacion-ota-personalizada" class="md-skip">
+          Ir ao contido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeceira">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-header__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computación na Nube para IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Despregadura dunha operación OTA personalizada
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="gl" class="md-select__link">
+                    Galego
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../../es/cursos/practica_3/08-advanced-sections/" hreflang="es" class="md-select__link">
+                    Castellano
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Procura" placeholder="Procura" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando procura
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-nav__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    Computación na Nube para IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Comezo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Práctica 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          Conexión segura de dispositivos IoT a AWS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Conexión segura de dispositivos IoT a AWS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/02-course-introduction/" class="md-nav__link">
+        1. Introdución
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/03-aws-iot-scenario/" class="md-nav__link">
+        2. Escenario
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/04-key-components-of-aws-iot-core/" class="md-nav__link">
+        3. Compoñentes chave do AWS IoT Core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/05-organizing-devices-and-things/" class="md-nav__link">
+        4. Organización de dispositivos e cousas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/06-connecting-a-device-process-overview/" class="md-nav__link">
+        5. Conexión dun dispositivo: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/07-knowledge-check/" class="md-nav__link">
+        6. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/08-authorization-and-authentication/" class="md-nav__link">
+        7. Autorización e autenticación de dispositivos IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/09-aws-iot-policies/" class="md-nav__link">
+        8. Políticas de AWS IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/10-applying-security-certificates/" class="md-nav__link">
+        9. Aplicación de certificados de seguranza a unha cousa: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/11-testing-the-communication-connection/" class="md-nav__link">
+        10. Proba da conexión: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/12-knowledge-check/" class="md-nav__link">
+        11. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/14-course-assessment/" class="md-nav__link">
+        Cuestionario de Autoavaliación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/15-resources-cleanup/" class="md-nav__link">
+        Limpeza de Recursos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-dun-traballo-personalizado" class="md-nav__link">
+    Configuración dun traballo personalizado
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración dun traballo personalizado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creacion-do-documento-do-traballo" class="md-nav__link">
+    Creación do documento do traballo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-do-traballo" class="md-nav__link">
+    Creación do traballo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion-da-finalizacion-do-traballo" class="md-nav__link">
+    Verificación da finalización do traballo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturas-para-a-memoria-da-practica" class="md-nav__link">
+    Capturas para a memoria da práctica
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="6-despregadura-dunha-operacion-ota-personalizada">6. Despregadura dunha operación OTA personalizada</h1>
+<p>Nesta sección vamos configurar unha operación remota <em>Over-The-Air</em> (OTA) e rastrexaremos o seu progreso na nube e no dispositivo. A diferenza da sección anterior, na que usabamos un modelo administrado por AWS, usaremos un modelo personalizado para o traballo.</p>
+<h2 id="configuracion-dun-traballo-personalizado">Configuración dun traballo personalizado</h2>
+<p>Para a configuración dun traballo personalizado sigue os pasos dos apartados seguintes.</p>
+<h3 id="creacion-do-documento-do-traballo">Creación do documento do traballo</h3>
+<p>Comezaremos creando un <em>bucket</em> S3 para almacenar o documento JSON do traballo. Cando se lance o traballo, enviaremos ao dispositivo a URL S3 do documento do traballo para que poida obter a información necesaria para executar a operación remota. </p>
+<p>Fai o seguinte:</p>
+<ol>
+<li>
+<p>Nun terminal da instancia VSCode executa o seguinte comando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aws<span class="w"> </span>s3<span class="w"> </span>mb<span class="w"> </span>s3://&lt;O<span class="w"> </span>TEU<span class="w"> </span>PREFIXO&gt;-workshop-dc-bucket
+</code></pre></div>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Usamos este formato para o nome do bucket para garantir que sexa único a nivel global.</p>
+</div>
+</li>
+<li>
+<p>Crea o documento JSON do traballo executando nun terminal o seguinte:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nv">firstJson</span><span class="o">=</span><span class="s1">'{"operation": "echo", "args": ["Ola, son &lt;O TEU NOME&gt;, estudante de CNIoT e hoxe é &lt;PON AQUÍ A DATA&gt;."]}'</span>
+
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$firstJson</span><span class="w"> </span>&gt;<span class="w"> </span>firstJob.json
+</code></pre></div>
+<p>Trátase dun traballo sinxelo que envía unha mensaxe de texto ao dispositivo IoT. Esta mensaxe poderemos vela no terminal onde se faga o seguimento dos <em>logs</em> do dispositivo.</p>
+</li>
+<li>
+<p>Copia o documento do traballo ao <em>bucket</em> S3 executando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>firstJob.json<span class="w"> </span>s3://&lt;O<span class="w"> </span>TEU<span class="w"> </span>PREFIXO&gt;-workshop-dc-bucket
+</code></pre></div>
+<p>A saída correcta sera semellante a esta:</p>
+<blockquote>
+<p>upload: ./firstJob.json a s3://workshop-dc-bucket/firstJob.json</p>
+</blockquote>
+</li>
+</ol>
+<p>Unha vez completada a configuración do documento do traballo e almacenado no <em>bucket</em> S3 vamos lanzar a operación remota.</p>
+<h3 id="creacion-do-traballo">Creación do traballo</h3>
+<ol start="4">
+<li>Antes de crear o traballo, no menú da esquerda da consola do AWS IoT Core vai a: <strong>Proba</strong> → <strong>Cliente de proba MQTT</strong> e subscríbete aos seguintes tópicos para ver as mensaxes MQTT intercambiadas co dispositivo:</li>
+</ol>
+<ul>
+<li><code>$aws/events/job/&lt;O TEU PREFIXO&gt;-workshopDC_Job/completed</code></li>
+<li><code>$aws/events/jobExecution/&lt;O TEU PREFIXO&gt;-workshopDC_Job/succeeded</code></li>
+</ul>
+<ol start="5">
+<li>
+<p>Para crear o traballo sen perder as subscricións anteriores, abre unha nova consola do AWS IoT Core nunha segunda xanela do teu navegador. No menú da esquerda da consola vai a: <strong>Xestionar</strong> → <strong>Accións Remotas</strong> → <strong>Traballos</strong> e preme no botón <strong>Crear Traballo</strong> na parte superior dereita.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image67.png" data-desc-position="bottom"><img alt="CreateJob" src="../imgs/image67.png"></a></p>
+</li>
+<li>
+<p>No primeiro paso do asistente de creación do traballo escolle <strong>Crear Traballo Personalizado</strong> e preme en <strong>Próximo</strong> para avanzar ao paso seguinte.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image68.png" data-desc-position="bottom"><img alt="customjob" src="../imgs/image68.png"></a></p>
+</li>
+<li>
+<p>Configura as propiedades do traballo cos valores seguintes:</p>
+<ul>
+<li>Nome do traballo: <strong>workshopDC_Job</strong> co teu prefixo diante.</li>
+<li>Descrición: insire unha descrición para o traballo.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image69.png" data-desc-position="bottom"><img alt="jobName" src="../imgs/image69.png"></a></p>
+<p>Preme en <strong>Próximo</strong> para avanzar ao paso seguinte.</p>
+</li>
+<li>
+<p>No paso de configuración do ficheiro, configura os seguintes valores: </p>
+<ul>
+<li>No apartado de <strong>Destinos</strong>, en <strong>Cousas nas que executar o traballo</strong>, escolle a cousa <strong>deviceClientThing</strong>.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<p>No apartado <strong>Ficheiro</strong>, en <strong>Ficheiro do traballo</strong>, escolle o documento do traballo <code>firstJob.json</code> premendo no botón <strong>Ver S3</strong> e procurándoo no teu <em>bucket</em> S3.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image70.png" data-desc-position="bottom"><img alt="selectThing4Job" src="../imgs/image70.png"></a></p>
+<p>Preme en <strong>Próximo</strong> para avanzar ao paso seguinte.</p>
+</li>
+</ul>
+<ol start="9">
+<li>
+<p>No paso de <strong>Configuración do traballo</strong>, no tipo de traballo escolle <strong>Snapshot</strong> e preme en <strong>Enviar</strong> para lanzar o traballo.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image73.png" data-desc-position="bottom"><img alt="jobConfig" src="../imgs/image73.png"></a></p>
+</li>
+</ol>
+<h3 id="verificacion-da-finalizacion-do-traballo">Verificación da finalización do traballo</h3>
+<p>Vamos agora a verificar que o traballo finalizou correctamente de tres xeitos diferentes:</p>
+<pre><code>- Rastrexando as mensaxes de éxito nos tópicos MQTT reservados relevantes mediante o cliente MQTT de proba na Consola de AWS IoT.
+- Verificando o estado do traballo na consola do AWS IoT.
+- Verificando o *log* de mensaxes no dispositivo (instancia VSCode).
+</code></pre>
+<p>Fai o seguinte:</p>
+<ol start="10">
+<li>No menú da esquerda da consola do AWS IoT Core vai a: <strong>Proba</strong> → <strong>Cliente de proba MQTT</strong> e comproba que se recibiran as mensaxes indicando que o traballo se completou con éxito nos tópicos aos que te subscribiras previamente:</li>
+</ol>
+<ul>
+<li>
+<p><code>$aws/events/job/&lt;O TEU PREFIXO&gt;-workshopDC_Job/completed</code></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image74.png" data-desc-position="bottom"><img alt="completedTopic" src="../imgs/image74.png"></a></p>
+</li>
+<li>
+<p><code>$aws/events/jobExecution/&lt;O TEU PREFIXO&gt;-workshopDC_Job/succeeded</code></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image75.png" data-desc-position="bottom"><img alt="successTopic" src="../imgs/image75.png"></a></p>
+</li>
+</ul>
+<ol start="11">
+<li>
+<p>No menú da esquerda da consola do AWS IoT Core vai a: <strong>Xestionar</strong> → <strong>Accións Remotas</strong> → <strong>Traballos</strong> e comproba o estado do traballo.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image76.png" data-desc-position="bottom"><img alt="ConsoleJobStatus" src="../imgs/image76.png"></a></p>
+</li>
+<li>
+<p>No terminal da instancia VSCode no que se estaba a facer o seguimento do <em>log</em> do <em>AWS IoT Device Client</em> comproba que apareza a mensaxe configurada previamente no documento do traballo e as mensaxes que indican que o traballo se executou correctamente.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image77.png" data-desc-position="bottom"><img alt="deviceOutput" src="../imgs/image77.png"></a></p>
+</li>
+</ol>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Se non puideches realizar algunha das verificacións, ou o traballo non rematou correctamente, podes repetir a execución do traballo cun novo nome (p.ex. engadindo un índice numérico ao final).</p>
+</div>
+<h2 id="capturas-para-a-memoria-da-practica">Capturas para a memoria da práctica</h2>
+<div class="admonition warning">
+<p class="admonition-title">IMPORTANTE</p>
+<p>Neste punto toma as capturas para a memoria de xustificación da práctica que se indican no documento da práctica.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado no cortapapeis", "clipboard.copy": "Copiar no cortapapeis", "search.result.more.one": "1 m\u00e1is nesta p\u00e1xina", "search.result.more.other": "# m\u00e1is nesta p\u00e1xina", "search.result.none": "Sen resultados", "search.result.one": "1 resultado atopado", "search.result.other": "# resultados atopados", "search.result.placeholder": "Insira un termo", "search.result.term.missing": "Falta", "select.version": "Seleccionar version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

@@ -1,0 +1,952 @@
+<!DOCTYPE html><html lang="gl" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Xoan C. Pardo">
+      
+      
+        <link rel="canonical" href="https://miot-cniot.github.io/cursos/practica_1/08-authorization-and-authentication/">
+      
+      
+        <link rel="prev" href="../07-knowledge-check/">
+      
+      
+        <link rel="next" href="../09-aws-iot-policies/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>7. Autorización e autenticación de dispositivos IoT - Computación na Nube para IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#7-autorizacion-e-autenticacion-de-dispositivos-iot" class="md-skip">
+          Ir ao contido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeceira">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-header__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computación na Nube para IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. Autorización e autenticación de dispositivos IoT
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="gl" class="md-select__link">
+                    Galego
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../../es/cursos/practica_1/08-authorization-and-authentication/" hreflang="es" class="md-select__link">
+                    Castellano
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Procura" placeholder="Procura" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando procura
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-nav__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    Computación na Nube para IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Comezo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Práctica 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          Conexión segura de dispositivos IoT a AWS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Conexión segura de dispositivos IoT a AWS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-course-introduction/" class="md-nav__link">
+        1. Introdución
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-aws-iot-scenario/" class="md-nav__link">
+        2. Escenario
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-key-components-of-aws-iot-core/" class="md-nav__link">
+        3. Compoñentes chave do AWS IoT Core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-organizing-devices-and-things/" class="md-nav__link">
+        4. Organización de dispositivos e cousas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-connecting-a-device-process-overview/" class="md-nav__link">
+        5. Conexión dun dispositivo: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-knowledge-check/" class="md-nav__link">
+        6. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          7. Autorización e autenticación de dispositivos IoT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        7. Autorización e autenticación de dispositivos IoT
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacion-de-dispositivos" class="md-nav__link">
+    Autenticación de dispositivos
+  </a>
+  
+    <nav class="md-nav" aria-label="Autenticación de dispositivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#certificados-x509" class="md-nav__link">
+    Certificados X.509
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usar-certificados-dunha-ca-propia" class="md-nav__link">
+    Usar certificados dunha CA propia
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autorizacion-de-dispositivos" class="md-nav__link">
+    Autorización de dispositivos
+  </a>
+  
+    <nav class="md-nav" aria-label="Autorización de dispositivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#politicas-de-aws-iot" class="md-nav__link">
+    Políticas de AWS IoT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autorizadores-personalizados" class="md-nav__link">
+    Autorizadores personalizados
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam" class="md-nav__link">
+    IAM
+  </a>
+  
+    <nav class="md-nav" aria-label="IAM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roles-e-politicas-de-iam" class="md-nav__link">
+    Roles e políticas de IAM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-aws-iot-policies/" class="md-nav__link">
+        8. Políticas de AWS IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-applying-security-certificates/" class="md-nav__link">
+        9. Aplicación de certificados de seguranza a unha cousa: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-testing-the-communication-connection/" class="md-nav__link">
+        10. Proba da conexión: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-knowledge-check/" class="md-nav__link">
+        11. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-course-assessment/" class="md-nav__link">
+        Cuestionario de Autoavaliación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-resources-cleanup/" class="md-nav__link">
+        Limpeza de Recursos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacion-de-dispositivos" class="md-nav__link">
+    Autenticación de dispositivos
+  </a>
+  
+    <nav class="md-nav" aria-label="Autenticación de dispositivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#certificados-x509" class="md-nav__link">
+    Certificados X.509
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usar-certificados-dunha-ca-propia" class="md-nav__link">
+    Usar certificados dunha CA propia
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autorizacion-de-dispositivos" class="md-nav__link">
+    Autorización de dispositivos
+  </a>
+  
+    <nav class="md-nav" aria-label="Autorización de dispositivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#politicas-de-aws-iot" class="md-nav__link">
+    Políticas de AWS IoT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autorizadores-personalizados" class="md-nav__link">
+    Autorizadores personalizados
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam" class="md-nav__link">
+    IAM
+  </a>
+  
+    <nav class="md-nav" aria-label="IAM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roles-e-politicas-de-iam" class="md-nav__link">
+    Roles e políticas de IAM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="7-autorizacion-e-autenticacion-de-dispositivos-iot">7. Autorización e autenticación de dispositivos IoT</h1>
+<p>Ao conectar dispositivos ao IoT Core, a autenticación e a autorización desempeñan diferentes funcións na seguranza dos dispositivos. Como se comentou anteriormente, hai dúas áreas onde se debe aplicar a seguranza nos sistemas IoT:</p>
+<ul>
+<li>
+<p><strong>Certificados e políticas de AWS IoT</strong>. Utilizados para dispositivos e cousas e as aplicacións que se comunican con eles</p>
+</li>
+<li>
+<p><strong>Roles e políticas de IAM</strong>. Utilizados tanto para operadores humanos como para actores <em>software</em> que necesiten interaxir co sistema IoT ou entre si</p>
+</li>
+</ul>
+<!-- img src="media/media/image43.png" style="width:6.26806in;height:1.85625in" /-->
+
+<div class="admonition abstract">
+<p class="admonition-title"><em>Unha visión xeral de como os dispositivos se conectan de forma segura ao AWS IoT Core e de como o AWS IoT Core interactúa con outros servizos.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image43.png" data-desc-position="bottom"><img alt="Unha visión xeral de como os dispositivos se conectan de forma segura ao AWS IoT Core e de como o AWS IoT Core interactúa con outros servizos." src="../imgs/image43.png"></a></p>
+</div>
+<h2 id="autenticacion-de-dispositivos">Autenticación de dispositivos</h2>
+<p>A autenticación é o punto de entrada a AWS IoT Core para os dispositivos. A autenticación é o proceso de verificación da identidade dun cliente ou dun servidor:</p>
+<ul>
+<li>
+<p><em>Autenticación do servidor</em> é o proceso polo cal os dispositivos ou outros clientes se aseguran de que se están a comunicar cun <em>endpoint</em> real de AWS IoT.</p>
+</li>
+<li>
+<p><em>Autenticación do cliente</em> é o proceso polo cal os dispositivos se autentican co AWS IoT Core.</p>
+</li>
+</ul>
+<p>Como se comentou anteriormente, os dispositivos e as cousas, e as aplicacións que se comunican con eles, deben autenticarse e deben ser autorizados para realizar as súas funcións (como enviar e recibir mensaxes). Os servidores que xestionan a comunicación e as mensaxes, como pasarelas e <em>brokers</em>, tamén deben ser autenticados e autorizados.</p>
+<p>No proceso de conexión de dispositivos, como o sensor de temperatura no noso escenario, AWS IoT Core crea as credenciais de seguranza requiridas para o dispositivo, que consisten no seguinte:</p>
+<ul>
+<li>
+<p>O <strong>certificado X.509</strong>, que se utiliza para a autenticación do dispositivo.</p>
+</li>
+<li>
+<p>A <strong>política de AWS IoT</strong>, que se asocia ao certificado e úsase para a autorización do dispositivo, outorgando os permisos necesarios para que o dispositivo realice o seu traballo.</p>
+</li>
+</ul>
+<h3 id="certificados-x509">Certificados X.509</h3>
+<p>AWS IoT Core utiliza certificados X.509 para conceder acceso ao servizo aos dispositivos. Despois de que os dispositivos fosen autenticados, as súas operacións e accións permitidas en AWS IoT Core baséanse nunha política de AWS IoT. As operacións inclúen conectarse ao axente de mensaxes, enviar e recibir mensaxes, e obter ou actualizar a sombra de dispositivo dunha cousa.</p>
+<p>Normalmente, os dispositivos de AWS IoT utilizan certificados X.509 para realizar autenticación mutua con AWS IoT. Pódese rexistrar un certificado existente ou deixar que sexa AWS IoT quen xere e rexistre un novo certificado para o dispositivo.</p>
+<p>AWS IoT proporciona autenticación ofrecendo as seguintes opcións:</p>
+<ul>
+<li>
+<p>Certificados para autenticación mutua mediante MQTT sobre Transport Layer Security (TLS) v1.2</p>
+</li>
+<li>
+<p>Solicitudes asinadas por Signature Version 4 (SigV4) sobre HTTP</p>
+</li>
+<li>
+<p>MQTT sobre WebSocket, que é similar a outros servizos de AWS</p>
+</li>
+</ul>
+<p>Tamén poden usarse <em>tokens</em> de autenticación personalizados fornecidos por un servizo de autenticación ou autorización externo. AWS IoT tamén ofrece opcións de autorización flexíbeis e control de acceso granular a través de políticas JSON (<em>JavaScript Object Notation</em>).</p>
+<p>Para obter máis información sobre o uso de certificados para a autenticación, consulta <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html">Certificados de cliente X.509</a>.</p>
+<h3 id="usar-certificados-dunha-ca-propia">Usar certificados dunha CA propia</h3>
+<p>Ademais da forma estándar de usar os certificados fornecidos polo AWS IoT Core, os clientes poden utilizar a súa propia autoridade de certificación (CA).</p>
+<p>Unha CA é unha entidade de confianza que emite certificados SSL (<em>Secure Sockets Layer</em>). Estes certificados dixitais son ficheiros de datos utilizados para vincular criptograficamente unha entidade cunha chave pública.</p>
+<p>Un cliente pode usar a súa propia CA se desexa un maior control sobre a validez do certificado e a capacidade de engadir identificadores ao certificado. Este enfoque adoita tomarse cando o cliente ten certificados de cliente asinados por outras autoridades de certificación raíz ou intermedias. Este enfoque maximiza a integración con outros provedores en lugar de usar exclusivamente o AWS Certificate Manager, que é o servizo detrás da creación dos certificados que fornece o AWS IoT Core.</p>
+<h2 id="autorizacion-de-dispositivos">Autorización de dispositivos</h2>
+<p>A autorización é o proceso de concesión de permisos a unha identidade autenticada. Despois de que as identidades sexan autenticadas, aínda non teñen permisos para acceder aos recursos. Para que os dispositivos e os usuarios obteñan permisos, deben ser autorizados para facelo. Isto conséguese mediante o uso de políticas de AWS IoT.</p>
+<h3 id="politicas-de-aws-iot">Políticas de AWS IoT</h3>
+<p>Dispositivos, aplicacións móbeis, aplicacións web e aplicacións de escritorio utilizan todas unha identidade autenticada. A identidade só pode executar operacións de AWS IoT se ten unha política que lle conceda permiso. As políticas de AWS IoT asocianse a certificados X.509. A política define o que unha identidade autenticada pode facer e concede os permisos necesarios para que o dispositivo realice o seu traballo.</p>
+<p>As políticas de AWS IoT controlan principalmente o acceso dun recurso ao plano de datos do AWS IoT Core. Cando se envían datos ao AWS IoT Core e se reciben datos del, estase a usar o plano de datos do AWS IoT Core. Isto significa que o plano de datos define se está permitido conectarse ao axente de mensaxes, enviar ou recibir mensaxes MQTT, ou publicar-suscribirse a un tópico específico.</p>
+<p>Nunha sección posterior do titorial explicaranse as políticas de AWS IoT con máis detalle.</p>
+<h3 id="autorizadores-personalizados">Autorizadores personalizados</h3>
+<p>Cando os métodos de autenticación do AWS IoT Core non son suficientes, os clientes poden usar AWS IoT Core para definir autorizadores personalizados que xestionen a autenticación e autorización. Isto é útil cando se precisan mecanismos de autenticación distintos dos que o AWS IoT Core soporta de forma nativa.</p>
+<p>Por exemplo, se se están a migrar dispositivos xa despregados no terreo ao AWS IoT Core e estes dispositivos utilizan un <em>token</em> de portador (<em>bearer token</em>) personalizado ou un nome de usuario e seña MQTT para autenticarse, poden migrarse ao AWS IoT Core sen ter que provisionar novas identidades para eles. Outra razón pola que un cliente podería usar este método sería se o <em>hardware</em> do dispositivo non puidese almacenar os certificados X.509 ou non puidese almacenalos de forma segura.</p>
+<p>Cada autorizador contén unha referencia a unha función Lambda xestionada polo cliente, unha chave pública opcional para validar as credenciais do dispositivo e información de configuración adicional.</p>
+<h2 id="iam">IAM</h2>
+<p>Ademais da autenticación e autorización de dispositivos xestionadas polo AWS IoT Core, os roles de IAM traballan con políticas de IAM para conceder ao AWS IoT Core permisos para acceder ao resto de AWS.</p>
+<p>Os usuarios (tanto operadores humanos como actores <em>software</em>) necesitan interaxir co sistema IoT ou entre si. Neste caso, a autenticación e a autorización fornécense mediante políticas de IAM que conceden a unha identidade de IAM, ou recurso de AWS, permisos para acceder a un servizo ou realizar unha función con AWS.</p>
+<p>Os roles e políticas de IAM permiten que AWS IoT acceda a outros recursos de AWS na conta do usuario en representación súa. Por exemplo, se se quere que un dispositivo publique o seu estado nunha táboa de Amazon DynamoDB, os roles de IAM permiten que AWS IoT interactúe co DynamoDB.</p>
+<p>Os actores <em>software</em> (aplicacións móbeis, web ou de escritorio) poden autenticarse con servizos de AWS IoT, a través de usuarios, grupos e roles de IAM e identidades de Amazon Cognito. As aplicacións web e de escritorio utilizan identidades de IAM ou federadas.</p>
+<!-- img src="media/media/image44.png" style="width:3.84722in;height:2.02591in" /-->
+
+<div class="admonition abstract">
+<p class="admonition-title"><em>Unha visión xeral dos tres tipos de principais de identidade compatibles con AWS IoT para a autenticación e autorización de dispositivos ou clientes.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image44.png" data-desc-position="bottom"><img alt="Unha visión xeral dos tres tipos de principais de identidade compatibles con AWS IoT para a autenticación e autorización de dispositivos ou clientes." src="../imgs/image44.png"></a></p>
+</div>
+<h3 id="roles-e-politicas-de-iam">Roles e políticas de IAM</h3>
+<p>Os roles de IAM traballan con políticas de IAM para conceder ao AWS IoT Core permisos para acceder ao resto de AWS. As políticas de IAM conceden a unha identidade de IAM, ou recurso de AWS, permisos para acceder a un servizo ou realizar unha función con AWS.</p>
+<p>Por exemplo, AWS IoT recibe datos e comunicación dun dispositivo que se redirixe a un recurso de AWS como un <em>bucket</em> de Amazon S3 (<em>Simple Storage Service</em>), unha táboa de DynamoDB ou calquera servizo de AWS.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado no cortapapeis", "clipboard.copy": "Copiar no cortapapeis", "search.result.more.one": "1 m\u00e1is nesta p\u00e1xina", "search.result.more.other": "# m\u00e1is nesta p\u00e1xina", "search.result.none": "Sen resultados", "search.result.one": "1 resultado atopado", "search.result.other": "# resultados atopados", "search.result.placeholder": "Insira un termo", "search.result.term.missing": "Falta", "select.version": "Seleccionar version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

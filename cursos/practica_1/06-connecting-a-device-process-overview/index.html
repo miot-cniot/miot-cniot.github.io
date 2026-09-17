@@ -1,0 +1,993 @@
+<!DOCTYPE html><html lang="gl" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Xoan C. Pardo">
+      
+      
+        <link rel="canonical" href="https://miot-cniot.github.io/cursos/practica_1/06-connecting-a-device-process-overview/">
+      
+      
+        <link rel="prev" href="../05-organizing-devices-and-things/">
+      
+      
+        <link rel="next" href="../07-knowledge-check/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>5. Conexión dun dispositivo: visión xeral do proceso - Computación na Nube para IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-conexion-dun-dispositivo-vision-xeral-do-proceso" class="md-skip">
+          Ir ao contido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeceira">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-header__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computación na Nube para IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. Conexión dun dispositivo: visión xeral do proceso
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="gl" class="md-select__link">
+                    Galego
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../../es/cursos/practica_1/06-connecting-a-device-process-overview/" hreflang="es" class="md-select__link">
+                    Castellano
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Procura" placeholder="Procura" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando procura
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-nav__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    Computación na Nube para IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Comezo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Práctica 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          Conexión segura de dispositivos IoT a AWS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Conexión segura de dispositivos IoT a AWS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-course-introduction/" class="md-nav__link">
+        1. Introdución
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-aws-iot-scenario/" class="md-nav__link">
+        2. Escenario
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-key-components-of-aws-iot-core/" class="md-nav__link">
+        3. Compoñentes chave do AWS IoT Core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-organizing-devices-and-things/" class="md-nav__link">
+        4. Organización de dispositivos e cousas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          5. Conexión dun dispositivo: visión xeral do proceso
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        5. Conexión dun dispositivo: visión xeral do proceso
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conexion-dun-dispositivo" class="md-nav__link">
+    Conexión dun dispositivo
+  </a>
+  
+    <nav class="md-nav" aria-label="Conexión dun dispositivo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parte-1-preparacion-da-instancia-vscode" class="md-nav__link">
+    Parte 1: Preparación da instancia VSCode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-2-crear-unha-cousa" class="md-nav__link">
+    Parte 2: Crear unha cousa
+  </a>
+  
+    <nav class="md-nav" aria-label="Parte 2: Crear unha cousa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-crear-un-tipo-de-cousa" class="md-nav__link">
+    1. Crear un tipo de cousa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-crear-a-cousa-que-representa-o-sensor" class="md-nav__link">
+    2. Crear a cousa que representa o sensor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturas-para-a-memoria-da-practica" class="md-nav__link">
+    Capturas para a memoria da práctica
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-knowledge-check/" class="md-nav__link">
+        6. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-authorization-and-authentication/" class="md-nav__link">
+        7. Autorización e autenticación de dispositivos IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-aws-iot-policies/" class="md-nav__link">
+        8. Políticas de AWS IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-applying-security-certificates/" class="md-nav__link">
+        9. Aplicación de certificados de seguranza a unha cousa: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-testing-the-communication-connection/" class="md-nav__link">
+        10. Proba da conexión: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-knowledge-check/" class="md-nav__link">
+        11. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-course-assessment/" class="md-nav__link">
+        Cuestionario de Autoavaliación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-resources-cleanup/" class="md-nav__link">
+        Limpeza de Recursos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conexion-dun-dispositivo" class="md-nav__link">
+    Conexión dun dispositivo
+  </a>
+  
+    <nav class="md-nav" aria-label="Conexión dun dispositivo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parte-1-preparacion-da-instancia-vscode" class="md-nav__link">
+    Parte 1: Preparación da instancia VSCode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-2-crear-unha-cousa" class="md-nav__link">
+    Parte 2: Crear unha cousa
+  </a>
+  
+    <nav class="md-nav" aria-label="Parte 2: Crear unha cousa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-crear-un-tipo-de-cousa" class="md-nav__link">
+    1. Crear un tipo de cousa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-crear-a-cousa-que-representa-o-sensor" class="md-nav__link">
+    2. Crear a cousa que representa o sensor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturas-para-a-memoria-da-practica" class="md-nav__link">
+    Capturas para a memoria da práctica
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="5-conexion-dun-dispositivo-vision-xeral-do-proceso">5. Conexión dun dispositivo: visión xeral do proceso</h1>
+<p>A consola do AWS IoT Core fornece dúas opcións para a conexión de dispositivos: conexión dun único dispositivo ou conexión de varios ao mesmo tempo.</p>
+<p>A seguir, preséntase unha visión xeral paso a paso do proceso para provisionar un único dispositivo, tal e como se describe no escenario. Neste exemplo, usaremos o SDK de Python de AWS, pero podería usarse calqueira cliente MQTT moderno para conectarse ao AWS IoT Core.</p>
+<h2 id="conexion-dun-dispositivo">Conexión dun dispositivo</h2>
+<p>Esta visión xeral ten dúas partes. Na primeira parte, comezaremos lanzando unha instancia VSCode que sirva de emulación dun dispositivo para o noso exemplo. Na segunda parte, crearemos unha cousa de AWS IoT, engadiremos atributos e descargaremos o kit de conexión para o dispositivo.</p>
+<h3 id="parte-1-preparacion-da-instancia-vscode">Parte 1: Preparación da instancia VSCode</h3>
+<p>Para lanzar a instancia VSCode que sirva de emulación dun dispositivo no noso exemplo, fai o seguinte:</p>
+<ol>
+<li>
+<p>Accede á consola de AWS desde o AWS Academy Learner Lab.</p>
+</li>
+<li>
+<p>Lanza unha instancia VSCode seguindo as instrucións do documento que tes dispoñíbel no Moovi. Usa o nome <strong>TruckSensor</strong> e lembra engadirlle o teu prefixo.</p>
+</li>
+<li>
+<p>Abre un terminal na instancia que acabas de lanzar e executa o seguinte para descargar e descomprimir o ficheiro co preciso para emular o dispositivo:</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://miot-cniot.github.io/stuff/TruckSensorFiles.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unzip<span class="w"> </span>TruckSensorFiles.zip
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Contidos do ficheiro</p>
+<p>Os contidos do ficheiro comprimido descargado son os seguintes:</p>
+<ul>
+<li>Un <strong>cartafol de certificados</strong> que contén o certificado público da autoridade de certificación raíz de AWS, que é necesaria para conectarse ao AWS IoT Core</li>
+<li>Un <strong>cartafol de datos</strong> cun ficheiro .csv usado para emular as medidas do sensor do camión</li>
+<li>Un <strong>cartafol de scripts</strong> que contén o <em>script</em> utilizado para simular o sensor do camión</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Move os tres novos cartafois (<strong>certs</strong>, <strong>data</strong>, <strong>scripts</strong>) en <code>TruckSensorFiles</code> ao directorio
+<code>/home/ubuntu</code>. Unha vez movidos podes eliminar tanto o directorio <code>TruckSensorFiles</code> coma o ficheiro <code>TruckSensorFiles.zip</code>.</p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Cartafois (certs, data e scripts) na instancia VSCode unha vez movidos.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image06001.png" data-desc-position="bottom"><img alt="Cartafois (certs, data e scripts) na instancia VSCode unha vez movidos." src="../imgs/image06001.png"></a></p>
+</div>
+</li>
+</ol>
+<!--
+![Ficheiros de traballo descomprimidos.](imgs/image32.jpeg)
+-->
+
+<h3 id="parte-2-crear-unha-cousa">Parte 2: Crear unha cousa</h3>
+<p>Na segunda parte desta visión xeral do proceso de conexión dun dipositivo, vamos a:</p>
+<ul>
+<li>
+<p>Crear un tipo de cousa e engadirlle atributos.</p>
+</li>
+<li>
+<p>Crear a cousa que representa o sensor (o que está a ser emulado pola instancia VSCode que acabamos de lanzar na parte 1).</p>
+</li>
+</ul>
+<p>Fai o seguinte para completar esta parte:</p>
+<h4 id="1-crear-un-tipo-de-cousa">1. Crear un tipo de cousa</h4>
+<p>Comecemos creando un tipo de cousa. Deste xeito, ao crear unha cousa, poderás asociala co tipo de cousa.</p>
+<ol>
+<li>
+<p>No menú da esquerda na consola do servizo AWS IoT Core, escolle a opción: <strong>Xestionar (<em>Gerenciar</em>)</strong> -&gt; <strong>Todos os dispositivos</strong> -&gt; <strong>Tipos de cousas</strong></p>
+</li>
+<li>
+<p>Preme no botón <strong>Crear tipo de cousa (<em>Criar tipo de item</em>)</strong> para comezar a definir un tipo que represente o sensor do camión.</p>
+</li>
+</ol>
+<!--
+    !!! abstract "Crear tipo de cousa"
+        ![Crear tipo de cousa.](imgs/image35.png)
+-->
+
+<ol start="3">
+<li>
+<p>Dalle o nome <strong>sensor_TempAndDoor</strong> á cousa. Lembra engadir o teu prefixo diante.</p>
+<p>Engadir unha descrición é opcional pero útil, xa que proporciona máis detalles sobre a información que captura o sensor.</p>
+</li>
+</ol>
+<!--
+    !!! abstract "Propiedades do tipo de cousa"
+        ![Engadir nome para o tipo de cousa.](imgs/image36.png)
+-->
+
+<ol start="4">
+<li>
+<p>Na sección <strong>Configuracións adicionais</strong>, debaixo das propiedades do tipo de cousa, expande <strong>Atributos pesquisábeis</strong>.</p>
+</li>
+<li>
+<p>Preme en <strong>Adicionar atributo</strong> tres veces e insire os seguintes tres atributos: <strong>deviceID</strong>, <strong>powerRequired</strong> e <strong>trailerCapacity</strong>. Cada sensor, rexistrado como cousa, poderá establecer valores individuais para estes atributos.</p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Propiedades do tipo de cousa.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image37.png" data-desc-position="bottom"><img alt="Propiedades do tipo de cousa." src="../imgs/image37.png"></a></p>
+</div>
+</li>
+<li>
+<p>Preme en <strong>Crear tipo de cousa (<em>Criar tipo de item</em>)</strong> para crear o tipo de cousa.</p>
+</li>
+</ol>
+<h4 id="2-crear-a-cousa-que-representa-o-sensor">2. Crear a cousa que representa o sensor</h4>
+<ol>
+<li>
+<p>No menú da esquerda na consola do servizo AWS IoT Core, escolle a opción: <strong>Conectar</strong> -&gt; <strong>Conectar un dispositivo</strong>.</p>
+<p>Móstrase a páxina do asistente <strong>Conectar un dispositivo</strong>, que axuda a crear os recursos da cousa, a política IoT e os recursos do certificado necesarios para conectar o dispositivo a AWS IoT para que poida publicar mensaxes de exemplo.</p>
+<p>O asistente segue os seguintes cinco pasos:</p>
+<ol>
+<li>
+<p>Prepara o dispositivo.</p>
+</li>
+<li>
+<p>Rexistra e protexe o dispositivo.</p>
+</li>
+<li>
+<p>Escolle unha plataforma e un SDK.</p>
+</li>
+<li>
+<p>Descarga o kit de conexión.</p>
+</li>
+<li>
+<p>Executa o kit de conexión.    </p>
+</li>
+</ol>
+</li>
+<li>
+<p>Como o paso 1: <strong>Preparar o dispositivo</strong>, xa se fixo ao preparar a instancia VSCode na parte 1, preme no botón <strong>Próxima</strong> para avanzar ao segundo paso do asistente: <strong>Rexistre e protexa o seu dispositivo</strong>.</p>
+</li>
+<li>
+<p>Na páxina <strong>Rexistrar e protexer o teu dispositivo</strong>, nomea a cousa como <strong>truckSensor01</strong>. Lembra engadir o teu prefixo diante.</p>
+</li>
+<li>
+<p>En <strong>Configuracións adicionais</strong> expande <strong>Tipo de cousa</strong>.</p>
+</li>
+<li>
+<p>Na listaxe <strong>Tipo de cousa</strong>, escolle o tipo de cousa que acabamos de crear (<strong>sensor_TempAndDoor</strong>). Isto poboará automaticamente os atributos do tipo.</p>
+<p>Poderiamos engadir valores para o ID do dispositivo, o requisito de enerxía e a capacidade do remolque agora ou podemos facelo noutro momento. Deixaos sen valor polo de agora.</p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Propiedades da cousa.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image38.png" data-desc-position="bottom"><img alt="Propiedades da cousa" src="../imgs/image38.png"></a></p>
+</div>
+</li>
+<li>
+<p>Preme en <strong>Próxima</strong> para avanzar ao seguinte paso do asistente.</p>
+</li>
+<li>
+<p>O asistente axúdache a descargar un IoT Device SDK para o teu dispositivo. O SDK inclúe un programa de exemplo que publica e se subscribe a mensaxes MQTT. Escolle a plataforma (<strong>Linux</strong>) e o IoT Device SDK (<strong>Python</strong>) que coinciden coa instancia VSCode que se lanzou na etapa 1.</p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Escolla da plataforma e o SDK.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image39.png" data-desc-position="bottom"><img alt="Escolla da plataforma e o SDK" src="../imgs/image39.png"></a></p>
+</div>
+</li>
+<li>
+<p>Preme en <strong>Próxima</strong> para avanzar ao seguinte paso do asistente.</p>
+</li>
+</ol>
+<p>Na etapa de preparación, baixouse un ficheiro comprimido chamado <strong>TruckSensorFiles.zip</strong>, que contiña un certificado raíz e un conxunto de datos para simular lecturas de sensores. Agora vamos baixar o kit de conexión, que é outro ficheiro comprimido chamado <strong>connect_device_package.zip</strong> que contén o necesario para a seguranza do dispositivo: o certificado do dispositivo, a chave pública e a chave privada, ademais dun <em>script</em> para probar a conectividade co AWS IoT Core.</p>
+<ol start="9">
+<li>Preme en <strong>Baixar o kit de conexión</strong> para baixar o kit ao teu computador. De momento non fagas nada con el, usarémolo máis adiante.</li>
+</ol>
+<!--
+    ![Descargando o kit de conexión.](imgs/image40.png)
+-->
+
+<p>Unha vez que baixes o kit de conexión, completa a creación da cousa avanzando polos pasos restantes do asistente.</p>
+<h2 id="capturas-para-a-memoria-da-practica">Capturas para a memoria da práctica</h2>
+<div class="admonition warning">
+<p class="admonition-title">IMPORTANTE</p>
+<p>Neste punto toma as capturas para a memoria de xustificación da práctica que se indican no documento da práctica.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado no cortapapeis", "clipboard.copy": "Copiar no cortapapeis", "search.result.more.one": "1 m\u00e1is nesta p\u00e1xina", "search.result.more.other": "# m\u00e1is nesta p\u00e1xina", "search.result.none": "Sen resultados", "search.result.one": "1 resultado atopado", "search.result.other": "# resultados atopados", "search.result.placeholder": "Insira un termo", "search.result.term.missing": "Falta", "select.version": "Seleccionar version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

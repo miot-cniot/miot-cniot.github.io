@@ -1,0 +1,851 @@
+<!DOCTYPE html><html lang="gl" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Xoan C. Pardo">
+      
+      
+        <link rel="canonical" href="https://miot-cniot.github.io/cursos/practica_3/05-aws-iot-jobs/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>5. Despregadura dunha operación Over-The-Air (OTA) co AWS IoT Jobs - Computación na Nube para IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-despregadura-dunha-operacion-over-the-air-ota-co-aws-iot-jobs" class="md-skip">
+          Ir ao contido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeceira">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-header__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computación na Nube para IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. Despregadura dunha operación Over-The-Air (OTA) co AWS IoT Jobs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="gl" class="md-select__link">
+                    Galego
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../../es/cursos/practica_3/05-aws-iot-jobs/" hreflang="es" class="md-select__link">
+                    Castellano
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Procura" placeholder="Procura" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando procura
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-nav__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    Computación na Nube para IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Comezo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Práctica 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          Conexión segura de dispositivos IoT a AWS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Conexión segura de dispositivos IoT a AWS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/02-course-introduction/" class="md-nav__link">
+        1. Introdución
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/03-aws-iot-scenario/" class="md-nav__link">
+        2. Escenario
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/04-key-components-of-aws-iot-core/" class="md-nav__link">
+        3. Compoñentes chave do AWS IoT Core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/05-organizing-devices-and-things/" class="md-nav__link">
+        4. Organización de dispositivos e cousas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/06-connecting-a-device-process-overview/" class="md-nav__link">
+        5. Conexión dun dispositivo: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/07-knowledge-check/" class="md-nav__link">
+        6. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/08-authorization-and-authentication/" class="md-nav__link">
+        7. Autorización e autenticación de dispositivos IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/09-aws-iot-policies/" class="md-nav__link">
+        8. Políticas de AWS IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/10-applying-security-certificates/" class="md-nav__link">
+        9. Aplicación de certificados de seguranza a unha cousa: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/11-testing-the-communication-connection/" class="md-nav__link">
+        10. Proba da conexión: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/12-knowledge-check/" class="md-nav__link">
+        11. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/14-course-assessment/" class="md-nav__link">
+        Cuestionario de Autoavaliación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/15-resources-cleanup/" class="md-nav__link">
+        Limpeza de Recursos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#traballos-remotos" class="md-nav__link">
+    Traballos remotos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceptos-de-aws-iot-jobs" class="md-nav__link">
+    Conceptos de AWS IoT Jobs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacion-remota-ota-usando-un-modelo-administrado-por-aws" class="md-nav__link">
+    Operación remota OTA usando un modelo administrado por AWS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturas-para-a-memoria-da-practica" class="md-nav__link">
+    Capturas para a memoria da práctica
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="5-despregadura-dunha-operacion-over-the-air-ota-co-aws-iot-jobs">5. Despregadura dunha operación Over-The-Air (OTA) co AWS IoT Jobs</h1>
+<h2 id="traballos-remotos">Traballos remotos</h2>
+<p>Os traballos remotos (<em>Jobs</em>) son unha funcionalidade do <em>AWS IoT Device Management</em> que se pode usar para definir un conxunto de operacións remotas nun <strong>Documento do traballo</strong> que se envían e executan nun ou máis dispositivos conectados ao AWS IoT. Pode usarse <em>AWS IoT Jobs</em> para varios tipos de operacións remotas, incluíndo reinicio do dispositivo e servizos, restablecemento de configuracións de fábrica e actualizacións de <em>firmware</em>, aplicacións e Sistema Operativo.</p>
+<p>A funcionalidade de traballos remotos do <em>AWS IoT Device Client</em> fornece o preciso no lado do dispositivo IoT para executar as instrucións contidas nos documentos dos traballos. Cando se activa esta funcionalidade no <em>AWS IoT Device Client</em>, tentará suscribirse a os tópicos de notificación MQTT relevantes, e publicar unha solicitude ao servizo <em>AWS IoT Device Management</em> para recibir o último traballo pendente. Cando se recibe un novo traballo a través destes tópicos, a funcionalidade de traballos remotos do <em>AWS IoT Device Client</em>  procurará e extraerá as instrucións na carga útil JSON, e executará o traballo no lado do dispositivo. </p>
+<p>No dispositivo IoT, a funcionalidade de traballos remotos  fornece <strong>axentes (<em>handlers</em>) de traballos</strong> que saben como procesar as instrucións específicas que se envían desde a nube. O <em>AWS IoT Device Client</em> inclúe axentes predeterminados para as operacións remotas máis comúns, como:</p>
+<ul>
+<li>reinicio do dispositivo</li>
+<li>instalación / actualización / desinstalación de aplicacións</li>
+<li>inicio / parada / reinicio de aplicacións</li>
+<li>descarga de ficheiros</li>
+<li>verificación da instalación / eliminación de paquetes</li>
+</ul>
+<p>Tamén poden crearse <strong>axentes de traballos</strong> propios para realizar operacións remotas personalizadas nos dispositivos IoT, por exemplo: actualizacións de configuración, actualizacións de <em>firmware</em>, aplicación de parches de SO, rotación de certificados, etc.</p>
+<h2 id="conceptos-de-aws-iot-jobs">Conceptos de AWS IoT Jobs</h2>
+<div class="admonition abstract">
+<p class="admonition-title">Como funcionan os traballos remotos do <em>AWS IoT Device Management</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image24.png" data-desc-position="bottom"><img alt="howJobsWorks" src="../imgs/image24.png"></a></p>
+</div>
+<p><strong>Traballo remoto (<em>Job</em>)</strong></p>
+<p>Un traballo remoto é unha operación remota que se envía e executa nun ou máis dispositivos conectados ao AWS IoT. Por exemplo, pode definirse un traballo remoto que dirixa a un conxunto de dispositivos para descargar e instalar aplicacións ou actualizacións de <em>firmware</em>, reiniciar, rotar certificados ou realizar operacións de resolución de problemas remotas.</p>
+<p><strong>Documento do traballo</strong></p>
+<p>Para crear un traballo remoto, primeiro hai que crear un documento do traballo, que é unha descrición das operacións remotas a realizar nos dispositivos.</p>
+<p>Os documentos do traballo son documentos JSON que conteñen a información que os dispositivos precisan para realizar as operacións, por exemplo, un documento podería conter unha ou máis URL onde os dispositivos poden descargar unha actualización. O documento do traballo pode almacenarse nun <em>bucket</em> de Amazon S3, ou xuntarse ao comando que crea o traballo remoto.</p>
+<p><strong>Destino</strong></p>
+<p>Cando se crea un traballo remoto, configurase unha listaxe de destinos que son os dispositivos que deben realizar as operacións. Os destinos poden ser cousas ou grupos de cousas ou ambos. A funcionalidade de traballos remotos envía unha mensaxe a cada destino para informalo de que un traballo está dispoñíbel.</p>
+<p><strong>Execución dun traballo</strong></p>
+<p>A execución dun traballo é unha instancia dun traballo remoto nun dispositivo destino. O destino inicia a execución do traballo descargando o documento do traballo. Despois realiza as operacións especificadas no documento e informa do seu progreso ao AWS IoT. O <strong>número de execución</strong> é o identificador único da execución dun traballo nun destino específico. A funcionalidade de traballos remotos fornece comandos para rastrexar o progreso da execución dun traballo nun destino e o progreso dun traballo en todos os destinos.</p>
+<p><strong>Traballo instantáneo (<em>snapshot job</em>)</strong></p>
+<p>Por defecto, un traballo envíase a todos os destinos que se especifiquen cando se crea o traballo. Unha vez que eses destinos completan o traballo (ou informan de que non poden facelo), o traballo está completo.</p>
+<p><strong>Traballo continuo (<em>continuous job</em>)</strong></p>
+<p>Un traballo continuo envíase a todos os destinos que se especifiquen cando se crea o traballo e continúa executándose e enviándose a calquera dispositivo (cousa) novo que se engada ao grupo de destino. Por exemplo, un traballo continuo podería usarse para incorporar ou actualizar dispositivos a medida que se engaden a un grupo.</p>
+<p><strong>URL pre-asinadas</strong></p>
+<p>Para permitir aos dispositivos o acceso seguro e limitado no tempo a datos que non estexan contidos no propio documento do traballo, poden usarse URL pre-asinadas de Amazon S3. Os datos súbense a un <em>bucket</em> de Amazon S3 e no documento do traballo configurase unha ligazón provisoria (<em>placeholder link</em>) aos datos. Cando a funcionalidade de traballos remotos recibe unha solicitude para o documento do traballo, analiza o documento na procura de ligazóns provisorias e trócaas por URL pre-asinadas de Amazon S3.</p>
+<p><strong>Lanzamento (<em>Roll-out</em>)</strong></p>
+<p>Pode especificarse a rapidez coa que se notifica aos destinos da execución dun traballo pendente. Isto permite crear un lanzamento (<em>roll-out</em>) por etapas para xestionar mellor as actualizacións, reinicios e outras operacións.</p>
+<p><strong>Tempos límite (<em>timeouts</em>)</strong></p>
+<p>Os tempos límite permiten activar notificacións cando a execución dun traballo quede atoada no estado <strong>IN_PROGRESS</strong> durante un período de tempo demasiado longo. Cando iso acontece, unha vez superado o limite configurado, a execución falla e cambia ao estado final <strong>TIMED_OUT</strong> e envíase unha notificación usando os tópicos MQTT.</p>
+<p><strong>Cancelación (<em>Abort</em>)</strong></p>
+<p>Pode crearse un conxunto de condicións para cancelar os lanzamentos cando se cumpran os criterios que se especifiquen.</p>
+<h2 id="operacion-remota-ota-usando-un-modelo-administrado-por-aws">Operación remota OTA usando un modelo administrado por AWS</h2>
+<p>Nesta parte do titorial, definiremos unha operación remota <em>Over-The-Air</em> (OTA) que descargue un ficheiro no dispositivo IoT no que se instalou o <em>AWS IoT Device Client</em>, e rastrexaremos o seu progreso na nube e no dispositivo. Esta proba de concepto mostra como se poden actualizar configuracións nos dispositivos IoT usando traballos remotos.</p>
+<p>Fai o seguinte:</p>
+<ol>
+<li>
+<p>Nun terminal da instancia VSCode executa o seguinte comando para crear un directorio no que almacenar o ficheiro descargado.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/ubuntu/workshop_dc/downloadLocation
+</code></pre></div>
+</li>
+<li>
+<p>Activa o seguimento do ficheiro de <em>log</em> do <em>AWS IoT Device Client</em> executando nun terminal o comando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tail<span class="w"> </span>-F<span class="w"> </span>/var/log/aws-iot-device-client/aws-iot-device-client.log
+</code></pre></div>
+</li>
+</ol>
+<p>Imos agora crear o traballo para descargar o ficheiro usando un modelo administrado por AWS:</p>
+<ol start="3">
+<li>
+<p>No menú esquerdo da consola do AWS IoT Core, escolle: <strong>Xestionar</strong> → <strong>Accións Remotas</strong> → <strong>Modelos de Job</strong> → <strong>Modelos Xestionados por AWS</strong></p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Cando se usan os modelos de traballo remoto administrados por AWS, xérase automaticamente o documento do traballo usando os parámetros de entrada que se fornezan. Todos os modelos administrados por AWS poden usarse co <em>AWS IoT Device Client</em>.</p>
+</div>
+</li>
+<li>
+<p>Escolle a operación remota: <strong>AWS-Download-File</strong> → <strong>Crear Job</strong></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image25.png" data-desc-position="bottom"><img alt="s3bucket" src="../imgs/image25.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image26.png" data-desc-position="bottom"><img alt="s3bucket" src="../imgs/image26.png"></a></p>
+</li>
+<li>
+<p>Dálle o nome <strong>FirstIoTJob</strong> co teu prefixo diante e unha descrición. Preme en <strong>Próximo</strong> para avanzar ao seguinte paso.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image27.png" data-desc-position="bottom"><img alt="s3bucket" src="../imgs/image27.png"></a></p>
+</li>
+<li>
+<p>No paso de configuración de ficheiros, escolle a cousa do dispositivo IoT como destino.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image28.png" data-desc-position="bottom"><img alt="s3bucket" src="../imgs/image28.png"></a></p>
+</li>
+<li>
+<p>Insire os seguintes parámetros no formulario de entrada do modelo administrado por AWS:</p>
+<ul>
+<li>
+<p><strong>downloadUrl</strong></p>
+<div class="highlight"><pre><span></span><code>https://aws-iot-workshop-artifacts.s3.eu-west-1.amazonaws.com/packages/device-client/AWSManagedJobsWelcomeFile.zip
+</code></pre></div>
+</li>
+<li>
+<p><strong>filePath</strong></p>
+<div class="highlight"><pre><span></span><code>/home/ubuntu/workshop_dc/downloadLocation/firstFile.zip
+</code></pre></div>
+</li>
+<li>
+<p><strong>runAsUser</strong></p>
+<div class="highlight"><pre><span></span><code>root
+</code></pre></div>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Aquí habería que usar o mesmo usuario que executou o servizo <em>AWS IoT Device Client</em> no dispositivo, no noso caso <code>root</code>.</p>
+</div>
+</li>
+<li>
+<p><strong>pathToHandler</strong></p>
+<div class="highlight"><pre><span></span><code>/etc/.aws-iot-device-client/jobs/
+</code></pre></div>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Esta é a ruta padrón (por defecto). Se se especificara outra ruta durante a instalación do <em>AWS IoT Device Client</em> no dispositivo, habería que indicala aquí.</p>
+</div>
+</li>
+</ul>
+<p>AWS IoT usará os valores indicados para crear automaticamente o documento do traballo que se enviará ao dispositivo IoT. Escolle <strong>Próximo</strong> para avanzar ao seguinte paso.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image29.png" data-desc-position="bottom"><img alt="s3bucket" src="../imgs/image29.png"></a></p>
+</li>
+<li>
+<p>No paso de configuración do traballo escolle o tipo <strong>Traballo instantáneo</strong>, para que o traballo remate unha vez creada a execución no dispositivo, e preme en <strong>Enviar</strong></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image30.png" data-desc-position="bottom"><img alt="jobConfig" src="../imgs/image30.png"></a></p>
+</li>
+<li>
+<p>Unha vez que se crea o traballo e se envía unha execución ao dispositivo, vai ás propiedades do traballo premendo no botón <strong>Ver traballo</strong> na barra de notificación verde na parte superior ou, alternativamente, escollendo: <strong>Xestionar</strong> → <strong>Accións Remotas</strong> → <strong>Jobs</strong> no menú esquerdo da consola do AWS IoT Core.</p>
+<p>Verás que se creou o novo traballo <strong>FirstIoTJob</strong> e que está en estado <strong>En progreso</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image31.png" data-desc-position="bottom"><img alt="jobConfig" src="../imgs/image31.png"></a></p>
+</li>
+<li>
+<p>Abre as propiedades do traballo <strong>FirstIoTJob</strong> e escolle a aba <strong>Execucións do traballo</strong>. Verás que o traballo se completou con éxito desde o lado da nube.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image32.png" data-desc-position="bottom"><img alt="jobConfig" src="../imgs/image32.png"></a></p>
+</li>
+</ol>
+<p>Vamos comprobar agora que o dispositivo IoT descargou o ficheiro correctamente.</p>
+<ol start="11">
+<li>
+<p>Na instancia VSCode, comproba no terminal de seguimento do <em>log</em> que apareceran liñas indicando que o dispositivo está a procesar o traballo.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image33.png" data-desc-position="bottom"><img alt="jobConfig" src="../imgs/image33.png"></a></p>
+</li>
+<li>
+<p>Comproba tamén se o ficheiro se descargou no directorio que creamos anteriormente executando os seguintes comandos nun terminal:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/home/ubuntu/workshop_dc/downloadLocation/
+$<span class="w"> </span>ls<span class="w"> </span>-lrt
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image34.png" data-desc-position="bottom"><img alt="jobConfig" src="../imgs/image34.png"></a></p>
+</li>
+</ol>
+<h2 id="capturas-para-a-memoria-da-practica">Capturas para a memoria da práctica</h2>
+<div class="admonition warning">
+<p class="admonition-title">IMPORTANTE</p>
+<p>Neste punto toma as capturas para a memoria de xustificación da práctica que se indican no documento da práctica.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado no cortapapeis", "clipboard.copy": "Copiar no cortapapeis", "search.result.more.one": "1 m\u00e1is nesta p\u00e1xina", "search.result.more.other": "# m\u00e1is nesta p\u00e1xina", "search.result.none": "Sen resultados", "search.result.one": "1 resultado atopado", "search.result.other": "# resultados atopados", "search.result.placeholder": "Insira un termo", "search.result.term.missing": "Falta", "select.version": "Seleccionar version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

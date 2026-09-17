@@ -1,0 +1,1238 @@
+<!DOCTYPE html><html lang="gl" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Xoan C. Pardo">
+      
+      
+        <link rel="canonical" href="https://miot-cniot.github.io/cursos/practica_3/03-setup-your-iot-device/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>3. Configuración do dispositivo IoT - Computación na Nube para IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-configuracion-do-dispositivo-iot" class="md-skip">
+          Ir ao contido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeceira">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-header__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Computación na Nube para IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Configuración do dispositivo IoT
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="gl" class="md-select__link">
+                    Galego
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../../es/cursos/practica_3/03-setup-your-iot-device/" hreflang="es" class="md-select__link">
+                    Castellano
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Procura" placeholder="Procura" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando procura
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Computación na Nube para IoT" class="md-nav__button md-logo" aria-label="Computación na Nube para IoT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    Computación na Nube para IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Comezo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Prácticas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Prácticas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Práctica 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Práctica 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          Conexión segura de dispositivos IoT a AWS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Conexión segura de dispositivos IoT a AWS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/02-course-introduction/" class="md-nav__link">
+        1. Introdución
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/03-aws-iot-scenario/" class="md-nav__link">
+        2. Escenario
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/04-key-components-of-aws-iot-core/" class="md-nav__link">
+        3. Compoñentes chave do AWS IoT Core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/05-organizing-devices-and-things/" class="md-nav__link">
+        4. Organización de dispositivos e cousas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/06-connecting-a-device-process-overview/" class="md-nav__link">
+        5. Conexión dun dispositivo: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/07-knowledge-check/" class="md-nav__link">
+        6. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/08-authorization-and-authentication/" class="md-nav__link">
+        7. Autorización e autenticación de dispositivos IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/09-aws-iot-policies/" class="md-nav__link">
+        8. Políticas de AWS IoT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/10-applying-security-certificates/" class="md-nav__link">
+        9. Aplicación de certificados de seguranza a unha cousa: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/11-testing-the-communication-connection/" class="md-nav__link">
+        10. Proba da conexión: visión xeral do proceso
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/12-knowledge-check/" class="md-nav__link">
+        11. Comprobación de coñecementos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/14-course-assessment/" class="md-nav__link">
+        Cuestionario de Autoavaliación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practica_1/15-resources-cleanup/" class="md-nav__link">
+        Limpeza de Recursos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+          Actividades
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Actividades
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_1/" class="md-nav__link">
+        Actividade 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_2/" class="md-nav__link">
+        Actividade 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../actividades/practica_1/actividade_3/" class="md-nav__link">
+        Actividade 3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Táboa de contidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Táboa de contidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#crear-a-cousa-para-o-dispositivo" class="md-nav__link">
+    Crear a cousa para o dispositivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-do-dispositivo-iot" class="md-nav__link">
+    Configuración do dispositivo IoT
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración do dispositivo IoT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-das-credenciais-do-dispositivo" class="md-nav__link">
+    Configuración das credenciais do dispositivo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-do-aws-iot-device-client" class="md-nav__link">
+    Instalación do AWS IoT Device Client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-do-aws-iot-device-client" class="md-nav__link">
+    Configuración do AWS IoT Device Client
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturas-para-a-memoria-da-practica" class="md-nav__link">
+    Capturas para a memoria da práctica
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="3-configuracion-do-dispositivo-iot">3. Configuración do dispositivo IoT</h1>
+<p>Nesta sección, provisionaremos e conectaremos o dispositivo IoT. Para iso, faremos o seguinte:</p>
+<ul>
+<li>
+<p>Crearemos unha cousa no AWS IoT Core. Como parte disto, crearemos unha identidade recoñecida por AWS para o dispositivo IoT, e forneceremoslle unha política para interaxir cos recursos de AWS.</p>
+</li>
+<li>
+<p>Configuraremos o dispositivo, instalando o <em>AWS IoT Device Client</em> e usando a identidade que se creou para conectar o dispositivo de forma segura a AWS IoT.</p>
+</li>
+</ul>
+<h2 id="crear-a-cousa-para-o-dispositivo">Crear a cousa para o dispositivo</h2>
+<ol>
+<li>
+<p>No menú da esquerda na consola do servizo AWS IoT Core, escolle a opción: <strong>Xestionar</strong> → <strong>Todos os dispositivos</strong> → <strong>Cousas</strong></p>
+</li>
+<li>
+<p>Preme no botón <strong>Crear cousas</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image13.png" data-desc-position="bottom"><img alt="CrearCousa" src="../imgs/image13.png"></a></p>
+</li>
+<li>
+<p>Escolle <strong>Crear cousa única</strong>.</p>
+</li>
+<li>
+<p>No primeiro paso do asistente, dalle o nome <strong>deviceClientThing</strong> á cousa. Lembra engadir o teu prefixo diante.</p>
+</li>
+<li>
+<p>Preme en <strong>Próxima</strong> para avanzar ao seguinte paso do asistente.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image14.png" data-desc-position="bottom"><img alt="CrearCousa" src="../imgs/image14.png"></a></p>
+</li>
+<li>
+<p>Asegúrate de que está escollida a opción <strong>xerar os certificados automaticamente</strong> (a opción recomendada) e preme en <strong>Próxima</strong> para avanzar ao seguinte paso do asistente.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image15.png" data-desc-position="bottom"><img alt="CrearCertificado" src="../imgs/image15.png"></a></p>
+</li>
+<li>
+<p>Na sección de <strong>Políticas</strong> preme en <strong>Crear política</strong>. Abrirase a páxina de creación de políticas.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image16.png" data-desc-position="bottom"><img alt="CrearPolitica" src="../imgs/image16.png"></a></p>
+</li>
+<li>
+<p>Na páxina de creación de políticas, crea
+unha política coa seguinte declaración de política:</p>
+<ul>
+<li><em>Efecto</em>: Allow</li>
+<li><em>Acción</em>: iot:*</li>
+<li><em>Recurso</em>: *</li>
+</ul>
+<p>Dalle o nome <strong>workshopDC</strong> co teu prefixo diante.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image17.png" data-desc-position="bottom"><img alt="PaginaPolitica" src="../imgs/image17.png"></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Esta política é demasiado permisiva e só debe usarse para o titorial. Non é unha política adecuada para un ambiente de produción.</p>
+</div>
+</li>
+<li>
+<p>Volve ao asistente de creación de cousas, escolle a política que acabas de crear e completa o proceso de creación da cousa premendo en <strong>Crear</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image18.png" data-desc-position="bottom"><img alt="CrearCousa" src="../imgs/image18.png"></a></p>
+</li>
+<li>
+<p>Unha vez completada a creación da cousa, abrirase a xanela de descarga de certificados. Descarga o certificado e chaves privada e pública do dispositivo, e o certificado raíz de AWS.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Asegúrate de descargar os catro ficheiros, xa que esta é a única oportunidade que hai para facelo.</p>
+</div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image19.png" data-desc-position="bottom"><img alt="DescargarCertificados" src="../imgs/image19.png"></a></p>
+</li>
+</ol>
+<p>Ao completar este paso, creamos unha cousa no AWS IoT
+Core, xunto cunha identidade recoñecida por AWS (os certificados e chaves), e creamos unha política IoT para definir que accións ten permitido realizar a cousa ao interaxir cos recursos de AWS.</p>
+<h2 id="configuracion-do-dispositivo-iot">Configuración do dispositivo IoT</h2>
+<p>Vamos agora a preparar o dispositivo IoT, configurando as credenciais e instalando e configurando o <em>AWS IoT Device Client</em> na instancia VSCode.</p>
+<h3 id="configuracion-das-credenciais-do-dispositivo">Configuración das credenciais do dispositivo</h3>
+<ol>
+<li>
+<p>Nun terminal da instancia VSCode, executa os seguintes comandos para crear un directorio onde gardar as credenciais descargadas e configurar os seus permisos.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/ubuntu/workshop_dc/certs
+$<span class="w"> </span>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/home/ubuntu/workshop_dc/certs
+</code></pre></div>
+</li>
+<li>
+<p>Sube os catro ficheiros da cousa descargados ao cartafol <code>/home/ubuntu/workshop_dc/certs</code> da instancia VSCode.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image21.png" data-desc-position="bottom"><img alt="Navegar2DirectorioCerts2" src="../imgs/image21.png"></a></p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Nalgúns sistemas operativos, o ficheiro <code>.crt</code> descárgase como <code>.crt.txt</code>, asegúrate de eliminar o <code>.txt</code> do nome do ficheiro.</p>
+</div>
+</li>
+<li>
+<p>No terminal da instancia VSCode, executa os seguintes comandos para configurar os permisos dos ficheiros que acabas de subir.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/home/ubuntu/workshop_dc/certs/*-private.pem.key
+$<span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>/home/ubuntu/workshop_dc/certs/*-certificate.pem.crt
+$<span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>/home/ubuntu/workshop_dc/certs/AmazonRootCA1.pem
+</code></pre></div>
+<div class="admonition nota">
+<p class="admonition-title">Permisos</p>
+<p>Podes ver <a href="https://github.com/awslabs/aws-iot-device-client/blob/main/docs/PERMISSIONS.md#file-and-directory-permissions">aquí</a> por que estamos a establecer estes permisos para os certificados.</p>
+</div>
+</li>
+</ol>
+<h3 id="instalacion-do-aws-iot-device-client">Instalación do AWS IoT Device Client</h3>
+<p>Para instalar o <em>AWS IoT Device Client</em> na instancia VSCode fai o seguinte:</p>
+<ol>
+<li>
+<p>Nun terminal da instancia VSCode crea o <em>script</em> de instalación executando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/home/ubuntu/workshop_dc
+$<span class="w"> </span>touch<span class="w"> </span>build_execute.sh
+$<span class="w"> </span>chmod<span class="w"> </span>ugo+x<span class="w"> </span>build_execute.sh
+</code></pre></div>
+</li>
+<li>
+<p>Abre o <em>script</em> nun editor e copia nel o seguinte código:</p>
+<div class="highlight"><span class="filename">build_execute.sh</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Check if cmake is installed, if not, install it using snap with the classic confinement flag</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>cmake<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>sudo<span class="w"> </span>snap<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>--classic
+<span class="k">fi</span>
+
+<span class="c1"># Set permissions for the workshop_dc directory</span>
+chmod<span class="w"> </span><span class="m">745</span><span class="w"> </span>/home/ubuntu/workshop_dc/
+
+<span class="c1"># Navigate to the workshop_dc directory</span>
+<span class="nb">cd</span><span class="w"> </span>/home/ubuntu/workshop_dc
+
+<span class="c1"># Clone the AWS IoT Device Client repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/awslabs/aws-iot-device-client
+
+<span class="c1"># Navigate to the cloned repository</span>
+<span class="nb">cd</span><span class="w"> </span>aws-iot-device-client
+
+<span class="c1"># Create and navigate to the build directory</span>
+mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+
+<span class="c1"># Generate the build files using cmake</span>
+cmake<span class="w"> </span>../
+</code></pre></div>
+</li>
+<li>
+<p>Grava os trocos feitos ao <em>script</em> e execútao no terminal co comando:</p>
+<div class="highlight"><pre><span></span><code>$ ./build_execute.sh
+</code></pre></div>
+</li>
+<li>
+<p>Se non hai erros na saída do comando anterior, no mesmo terminal compila o <em>AWS IoT Device Client</em> executando:</p>
+<div class="highlight"><pre><span></span><code>$ cmake --build aws-iot-device-client/build --target aws-iot-device-client
+</code></pre></div>
+<p>Se non hai erros o comando debería finalizar cunha saída como a seguinte:</p>
+<div class="admonition abstract">
+<p class="admonition-title"><em>Saída da compilación do Device Client.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image03001.png" data-desc-position="bottom"><img alt="Saída da compilación do Device Client" src="../imgs/image03001.png"></a> </p>
+</div>
+</li>
+<li>
+<p>Para a configuración do Device Client vamos necesitar especificar ficheiros nos que se gardaran as mensaxes MQTT entrantes e saintes. Crea os ficheiros executando nun terminal:</p>
+<ul>
+<li>
+<p>Ficheiro de suscrición</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>touch<span class="w"> </span>/home/ubuntu/workshop_dc/subfile.txt
+$<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/home/ubuntu/workshop_dc/subfile.txt
+</code></pre></div>
+</li>
+<li>
+<p>Ficheiro de publicación</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>touch<span class="w"> </span>/home/ubuntu/workshop_dc/pubfile.txt
+$<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/home/ubuntu/workshop_dc/pubfile.txt
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="configuracion-do-aws-iot-device-client">Configuración do AWS IoT Device Client</h3>
+<p>Nesta sección vamos configurar o <em>AWS IoT Device Client</em>. En concreto, activaremos as seguintes funcións do lado cliente:</p>
+<ul>
+<li>
+<p><a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/ipc-iot-core-mqtt.html">Capacidade MQTT Pub/Sub</a></p>
+</li>
+<li>
+<p><a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html">Traballos remotos</a></p>
+</li>
+<li>
+<p><a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">Tunelamento seguro</a></p>
+</li>
+<li>
+<p><a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender.html"><em>Device defender</em></a></p>
+</li>
+</ul>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>A partir de aquí asúmese que temos dous terminais abertos simultaneamente na instancia VSCode.</p>
+</div>
+<p>No primeiro terminal da instancia VSCode, executa o <em>script</em> de configuración do <em>AWS IoT Device Client</em> cos seguintes comandos:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/workshop_dc/aws-iot-device-client/
+$<span class="w"> </span>sudo<span class="w"> </span>./setup.sh
+</code></pre></div>
+<p>Os pasos de configuración son os seguintes:</p>
+<p><strong>Paso 1.</strong></p>
+<div class="highlight"><pre><span></span><code>Do you want to interactively generate a configuration file for the AWS IoT Device Client? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>y</strong></li>
+</ul>
+<p><strong>Paso 2.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify AWS IoT endpoint to use:
+</code></pre></div>
+<ul>
+<li>
+<p>No segundo terminal executa o seguinte comando para obter o endpoint:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aws<span class="w"> </span>--region<span class="w"> </span>us-east-1<span class="w"> </span>iot<span class="w"> </span>describe-endpoint<span class="w"> </span>--endpoint-type<span class="w"> </span><span class="s2">"iot:Data-ATS"</span>
+</code></pre></div>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>A resposta debería ser algo similar a: <code>xxxxxxxxxxxxxx-ats.iot.us-east-1.amazonaws.com</code></p>
+</div>
+<p>Copia a saída do comando anterior (sen as aspas) no primeiro terminal (no que se está a executar o <em>script</em> de configuración).</p>
+</li>
+</ul>
+<p><strong>Paso 3.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify path to public PEM certificate:
+</code></pre></div>
+<ul>
+<li>
+<p>No segundo terminal executa o seguinte comando para obter a ruta completa do ficheiro do certificado PEM público:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>/home/ubuntu/workshop_dc/certs/*.pem.crt
+</code></pre></div>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>A ruta debería ser algo similar a: <code>/home/ubuntu/workshop_dc/certs/xxxxxxxxxxxxxxxxxxxxxxxx-certificate.pem.crt</code></p>
+</div>
+<p>Copia a saída do comando anterior no primeiro terminal.</p>
+</li>
+</ul>
+<p><strong>Paso 4.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify path to private key:
+</code></pre></div>
+<ul>
+<li>
+<p>No segundo terminal executa o seguinte comando para obter a ruta completa do ficheiro da chave privada:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>/home/ubuntu/workshop_dc/certs/*-private.pem.key
+</code></pre></div>
+<p>Copia a saída do comando anterior no primeiro terminal.</p>
+</li>
+</ul>
+<p><strong>Paso 5.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify path to ROOT CA certificate:
+</code></pre></div>
+<ul>
+<li>
+<p>No segundo terminal executa o seguinte comando para obter a ruta completa do ficheiro do certificado raíz:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>/home/ubuntu/workshop_dc/certs/*.pem
+</code></pre></div>
+<p>Copia a saída do comando anterior no primeiro terminal.</p>
+</li>
+</ul>
+<p><strong>Paso 6.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify thing name:
+</code></pre></div>
+<ul>
+<li>Insire o nome da cousa: <strong>deviceClientThing</strong>. Lembra poñer o teu prefixo diante.</li>
+</ul>
+<p><strong>Paso 7.</strong></p>
+<div class="highlight"><pre><span></span><code>Would you like to configure the logger? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>y</strong></li>
+</ul>
+<p><strong>Paso 8.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify desired log level: DEBUG/INFO/WARN/ERROR
+</code></pre></div>
+<ul>
+<li>Insire <strong>INFO</strong></li>
+</ul>
+<p><strong>Paso 9.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify log type: STDOUT for standard output, FILE for file
+</code></pre></div>
+<ul>
+<li>Insire <strong>FILE</strong></li>
+</ul>
+<p><strong>Paso 10.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify path to desired log file (if no path is provided, will default to /var/log/aws-iot-device-client/aws-iot-device-client.log:
+</code></pre></div>
+<ul>
+<li>Acepta sen escribir nada para usar a configuración por defecto.</li>
+</ul>
+<p><strong>Paso 11.</strong></p>
+<div class="highlight"><pre><span></span><code>Would you like to configure the SDK logging? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>n</strong></li>
+</ul>
+<p><strong>Paso 12.</strong></p>
+<div class="highlight"><pre><span></span><code>Enable Jobs feature? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>y</strong></li>
+</ul>
+<p><strong>Paso 13.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify absolute path to Job handler directory (if no path is provided, will default to /etc/.aws-iot-device-client/jobs):
+</code></pre></div>
+<ul>
+<li>Acepta sen escribir nada para usar a configuración por defecto.</li>
+</ul>
+<p><strong>Paso 14.</strong></p>
+<div class="highlight"><pre><span></span><code>Enable Secure Tunneling feature? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>y</strong></li>
+</ul>
+<p><strong>Paso 15.</strong></p>
+<div class="highlight"><pre><span></span><code>Enable Device Defender feature? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>y</strong></li>
+</ul>
+<p><strong>Paso 16.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify an interval for Device Defender in seconds (default is 300):
+</code></pre></div>
+<ul>
+<li>Acepta sen escribir nada para usar a configuración por defecto.</li>
+</ul>
+<p><strong>Paso 17.</strong></p>
+<div class="highlight"><pre><span></span><code>Enable Fleet Provisioning feature? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>n</strong></li>
+</ul>
+<p><strong>Paso 18.</strong></p>
+<div class="highlight"><pre><span></span><code>Enable Pub Sub sample feature? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>y</strong></li>
+</ul>
+<p><strong>Paso 19.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify a topic for the feature to publish to:
+</code></pre></div>
+<ul>
+<li>Insire <code>/topic/workshop/dc/pub</code></li>
+</ul>
+<p><strong>Paso 20.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify the path of a file for the feature to publish (if no path is provided, will default to /etc/.aws-iot-device-client/pubsub/publish-file.txt):
+</code></pre></div>
+<ul>
+<li>Insire <code>/home/ubuntu/workshop_dc/pubfile.txt</code></li>
+</ul>
+<p><strong>Paso 21.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify a topic for the feature to subscribe to:
+</code></pre></div>
+<ul>
+<li>Insire <code>/topic/workshop/dc/sub</code></li>
+</ul>
+<p><strong>Paso 22.</strong></p>
+<div class="highlight"><pre><span></span><code>Specify the path of a file for the feature to write to (if no path is provided, will default to
+/etc/.aws-iot-device-client/pubsub/subscribe-file.txt):
+</code></pre></div>
+<ul>
+<li>Insire <code>/home/ubuntu/workshop_dc/subfile.txt</code></li>
+</ul>
+<p><strong>Paso 23.</strong></p>
+<div class="highlight"><pre><span></span><code>Enable Config Shadow feature? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>n</strong></li>
+</ul>
+<p><strong>Paso 24.</strong></p>
+<div class="highlight"><pre><span></span><code>Enable Sample Shadow feature? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>n</strong></li>
+</ul>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Neste punto mostrarase o ficheiro de configuración que se vai xerar.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxxxxxx-ats.iot.us-east-1.amazonaws.com"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"cert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/ubuntu//workshop_dc/certs/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-certificate.pem.crt"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/ubuntu//workshop_dc/certs/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-private.pem.key"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"root-ca"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/ubuntu//workshop_dc/certs/AmazonRootCA1.pem"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"thing-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"deviceClientThing"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"logging"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INFO"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILE"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/log/aws-iot-device-client/aws-iot-device-client.log"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"enable-sdk-logging"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"sdk-log-level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRACE"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"sdk-log-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/var/log/aws-iot-device-client/sdk.log"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"handler-directory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/etc/.aws-iot-device-client/jobs"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"tunneling"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"device-defender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"fleet-provisioning"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"template-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"template-parameters"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"csr-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"device-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"samples"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"pub-sub"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"publish-topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/topic/workshop/dc/pub"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"publish-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/ubuntu/workshop_dc/pubfile.txt"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"subscribe-topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/topic/workshop/dc/sub"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"subscribe-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/home/ubuntu//workshop_dc/subfile.txt"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"config-shadow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"sample-shadow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"shadow-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"shadow-input-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"shadow-output-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<p><strong>Paso 25.</strong></p>
+<div class="highlight"><pre><span></span><code>Does the following configuration appear correct? If yes, configuration will be written to /etc/.aws-iot-device-client/aws-iot-device-client.conf: y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>y</strong> se a configuración é correcta ou <strong>n</strong> se non o é. Nese caso executa de novo o <em>script</em> para corrixir as opcións incorrectamente configuradas.</li>
+</ul>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Se se acepta a configuración, a saída será:</p>
+<div class="highlight"><pre><span></span><code>Configuration has been successfully written to /etc/.aws-iot-device-client/aws-iot-device-client.conf
+
+Creating default pubsub directory...
+</code></pre></div>
+</div>
+<p><strong>Paso 26.</strong></p>
+<div class="highlight"><pre><span></span><code>Do you want to copy the sample job handlers to the specified handler directory (/etc/.aws-iot-device-client/jobs)? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>y</strong></li>
+</ul>
+<p><strong>Paso 27.</strong></p>
+<div class="highlight"><pre><span></span><code>Do you want to install AWS IoT Device Client as a service? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>y</strong></li>
+</ul>
+<p><strong>Paso 28.</strong></p>
+<div class="highlight"><pre><span></span><code>Enter the complete directory path for the aws-iot-device-client. (Empty for default: ./build/aws-iot-device-client)
+</code></pre></div>
+<ul>
+<li>Acepta sen escribir nada para usar a configuración por defecto.</li>
+</ul>
+<p><strong>Paso 29.</strong></p>
+<div class="highlight"><pre><span></span><code>Enter the complete directory path for the aws-iot-device-client service file. (Empty for default: ./setup/aws-iot-device-client.service)
+</code></pre></div>
+<ul>
+<li>Acepta sen escribir nada para usar a configuración por defecto.</li>
+</ul>
+<p><strong>Paso 30.</strong></p>
+<div class="highlight"><pre><span></span><code>Do you want to run the AWS IoT Device Client service via Valgrind for debugging? y/n
+</code></pre></div>
+<ul>
+<li>Insire <strong>n</strong></li>
+</ul>
+<p>Unha vez completados os pasos, iniciarase o servizo <em>IoT Device Client</em>. A saída indicará que o servizo está activo e cargado na memoria.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../imgs/image103.png" data-desc-position="bottom"><img alt="SuccessRun" src="../imgs/image103.png"></a></p>
+<!--
+<div class="highlight"><pre><span></span><code>Instalando AWS IoT Device Client...
+
+/bin/systemctl
+
+● aws-iot-device-client.service - AWS IoT Device Client
+
+Loaded: loaded (/etc/systemd/system/aws-iot-device-client.service; enabled; vendor preset: enabled)
+
+Active: active (running) since Wed 2022-10-05
+12:20:48 UTC; 42ms ago
+
+Main PID: 12627 (aws-iot-device-)
+
+Tasks: 4 (limit: 4915)
+
+CGroup: /system.slice/aws-iot-device-client.service
+└─12627 /sbin/aws-iot-device-client --config-file /etc/.aws-iot-device-client/aws-iot-device-client.conf
+
+Oct 05 12:20:48 ip-192-168-128-29 systemd[1]:
+Started AWS IoT Device Client.
+</code></pre></div>
+-->
+
+<p>Neste punto, configurouse e iniciouse o <em>AWS IoT Device Client</em> coma un servizo no dispositivo IoT. O servizo conectarase automaticamente ao AWS IoT.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Para ver se o servizo se iniciou correctamente (ou se hai erros) pode usarse o comando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>aws-iot-device-client
+</code></pre></div>
+<p>Para facer calquera cambio na configuración, é preciso deter o <em>AWS IoT Device Client</em> usando o seguinte comando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>aws-iot-device-client
+</code></pre></div>
+<p>Os cambios fanse no ficheiro de configuración (por defecto está en <code>/etc/.aws-iot-device-client/aws-iot-device-client.conf</code>) e lanzase de novo o servizo co comando:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>aws-iot-device-client
+</code></pre></div>
+</div>
+<h2 id="capturas-para-a-memoria-da-practica">Capturas para a memoria da práctica</h2>
+<div class="admonition warning">
+<p class="admonition-title">IMPORTANTE</p>
+<p>Neste punto toma as capturas para a memoria de xustificación da práctica que se indican no documento da práctica.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado no cortapapeis", "clipboard.copy": "Copiar no cortapapeis", "search.result.more.one": "1 m\u00e1is nesta p\u00e1xina", "search.result.more.other": "# m\u00e1is nesta p\u00e1xina", "search.result.none": "Sen resultados", "search.result.one": "1 resultado atopado", "search.result.other": "# resultados atopados", "search.result.placeholder": "Insira un termo", "search.result.term.missing": "Falta", "select.version": "Seleccionar version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
